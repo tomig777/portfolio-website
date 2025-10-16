@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
+import { detectDevicePerformance, getPerformanceSettings } from '../utils/performance';
 import './Plasma.css';
 
 const hexToRgb = hex => {
@@ -31,6 +32,7 @@ uniform float uScale;
 uniform float uOpacity;
 uniform vec2 uMouse;
 uniform float uMouseInteractive;
+uniform float uIterations;
 out vec4 fragColor;
 
 void mainImage(out vec4 o, vec2 C) {
@@ -43,7 +45,7 @@ void mainImage(out vec4 o, vec2 C) {
   float i, d, z, T = iTime * uSpeed * uDirection;
   vec3 O, p, S;
 
-  for (vec2 r = iResolution.xy, Q; ++i < 60.; O += o.w/d*o.xyz) {
+  for (vec2 r = iResolution.xy, Q; ++i < float(uIterations); O += o.w/d*o.xyz) {
     p = z*normalize(vec3(C-.5*r,r.y)); 
     p.z -= 4.; 
     S = p;
@@ -90,6 +92,8 @@ export const Plasma = ({
 }) => {
   const containerRef = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
+  const performance = detectDevicePerformance();
+  const settings = getPerformanceSettings(performance);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -141,7 +145,8 @@ export const Plasma = ({
           uScale: { value: scale },
           uOpacity: { value: opacity },
           uMouse: { value: new Float32Array([0, 0]) },
-          uMouseInteractive: { value: mouseInteractive ? 1.0 : 0.0 }
+          uMouseInteractive: { value: mouseInteractive ? 1.0 : 0.0 },
+          uIterations: { value: settings.plasmaIterations }
         }
       });
 
