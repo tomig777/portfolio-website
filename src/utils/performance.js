@@ -42,21 +42,27 @@ export const detectDevicePerformance = () => {
 export const getPerformanceSettings = (performance) => {
   if (performance.isLowPerformance) {
     return {
-      plasmaIterations: 20,
-      plasmaQuality: 0.5,
+      plasmaIterations: 15,
+      plasmaQuality: 0.3,
       enablePhysics: false,
       enableComplexAnimations: false,
       enableParticles: false,
-      frameRate: 30
+      frameRate: 30,
+      enableMobileOptimizations: true,
+      reduceMotion: true,
+      disableWebGL: false
     };
   } else if (performance.isMediumPerformance) {
     return {
-      plasmaIterations: 40,
-      plasmaQuality: 0.7,
+      plasmaIterations: 30,
+      plasmaQuality: 0.6,
       enablePhysics: true,
       enableComplexAnimations: true,
       enableParticles: true,
-      frameRate: 60
+      frameRate: 45,
+      enableMobileOptimizations: true,
+      reduceMotion: false,
+      disableWebGL: false
     };
   } else {
     return {
@@ -65,7 +71,10 @@ export const getPerformanceSettings = (performance) => {
       enablePhysics: true,
       enableComplexAnimations: true,
       enableParticles: true,
-      frameRate: 60
+      frameRate: 60,
+      enableMobileOptimizations: false,
+      reduceMotion: false,
+      disableWebGL: false
     };
   }
 };

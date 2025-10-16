@@ -132,15 +132,62 @@ table {
   text-align: right;
 }
 
-/* Responsive utilities */
+/* Mobile-first responsive utilities */
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
+  }
+  
+  /* Mobile text centering fixes */
+  .text-center {
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Mobile viewport fixes */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+  
+  /* Mobile touch improvements */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
   }
 }
 
 @media (max-width: 480px) {
   html {
     font-size: 14px;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  /* Extra small mobile optimizations */
+  .text-center {
+    text-align: center !important;
+    padding: 0 1rem;
+  }
+}
+
+/* Mobile landscape orientation */
+@media (max-width: 896px) and (orientation: landscape) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* High DPI mobile displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

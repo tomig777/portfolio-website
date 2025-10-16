@@ -173,14 +173,73 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     text-align: center;
+    padding: 0 1rem;
+  }
+
+  .hero__text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero__name {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+  }
+
+  .hero__role {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .hero__description {
+    text-align: center;
+    max-width: 100%;
+    padding: 0 1rem;
   }
 
   .hero__buttons {
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    min-height: 48px;
+    touch-action: manipulation;
   }
 
   .hero__image {
     width: 250px;
     height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__content {
+    padding: 0 0.75rem;
+  }
+
+  .hero__name {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero__role {
+    font-size: 1rem;
+  }
+
+  .hero__description {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
