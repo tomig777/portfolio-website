@@ -37,6 +37,15 @@ body {
   font-display: swap;
 }
 
+/* Font Face - Druk */
+@font-face {
+  font-family: 'Druk';
+  src: url('./assets/fonts/Druk.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Theme Variables */
 :root {
   --bg-primary: #000000;
@@ -120,7 +129,7 @@ body {
 }
 
 .about-title {
-  font-family: 'Yink', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Druk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: rgba(224, 224, 224, 0.9);
@@ -129,6 +138,7 @@ body {
   flex-direction: column;
   align-items: center;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .about-title__small {
@@ -250,7 +260,7 @@ body {
 }
 
 .contact-title {
-  font-family: 'Yink', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Druk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: rgba(224, 224, 224, 0.9);
@@ -259,6 +269,7 @@ body {
   flex-direction: column;
   align-items: center;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .contact-title__large {
