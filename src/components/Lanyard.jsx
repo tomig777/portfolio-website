@@ -16,6 +16,9 @@ import './Lanyard.css';
 extend({ MeshLineGeometry, MeshLineMaterial });
 
 export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true }) {
+  // Safari detection for optimizations
+  const isSafari = typeof window !== 'undefined' && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  
   return (
     <div className="lanyard-wrapper">
       <Canvas
@@ -23,11 +26,20 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
         gl={{ 
           alpha: transparent,
           antialias: false,
-          powerPreference: 'low-power'
+          powerPreference: isSafari ? 'low-power' : 'high-performance',
+          preserveDrawingBuffer: isSafari, // Safari optimization
+          failIfMajorPerformanceCaveat: false
         }}
         onCreated={({ gl }) => {
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
-          gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          // Safari-specific pixel ratio optimization
+          gl.setPixelRatio(isSafari ? 1 : Math.min(window.devicePixelRatio, 2));
+          
+          // Safari WebGL context optimizations
+          if (isSafari) {
+            gl.getExtension('OES_element_index_uint');
+            gl.getExtension('WEBGL_depth_texture');
+          }
         }}
       >
         <ambientLight intensity={Math.PI} />
@@ -115,7 +127,17 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Safari detection for frame optimizations
+  const isSafari = typeof window !== 'undefined' && /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  const frameSkipRef = useRef(0);
+  
   useFrame((state, delta) => {
+    // Safari optimization: skip frames to reduce geometry updates
+    if (isSafari) {
+      frameSkipRef.current++;
+      if (frameSkipRef.current % 2 !== 0) return; // Skip every other frame on Safari
+    }
+    
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
       dir.copy(vec).sub(state.camera.position).normalize();
@@ -132,11 +154,35 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
         );
       });
-      curve.points[0].copy(j3.current.translation());
-      curve.points[1].copy(j2.current.lerped);
-      curve.points[2].copy(j1.current.lerped);
-      curve.points[3].copy(fixed.current.translation());
-      band.current.geometry.setPoints(curve.getPoints(32));
+      
+      // Store previous curve points to detect significant changes
+      const newPoints = [
+        j3.current.translation(),
+        j2.current.lerped,
+        j1.current.lerped,
+        fixed.current.translation()
+      ];
+      
+      // Only update curve if points have changed significantly (Safari optimization)
+      let shouldUpdate = true;
+      if (isSafari && curve.points.length === 4) {
+        const threshold = 0.01;
+        shouldUpdate = newPoints.some((point, i) => 
+          curve.points[i].distanceTo(point) > threshold
+        );
+      }
+      
+      if (shouldUpdate) {
+        curve.points[0].copy(newPoints[0]);
+        curve.points[1].copy(newPoints[1]);
+        curve.points[2].copy(newPoints[2]);
+        curve.points[3].copy(newPoints[3]);
+        
+        // Safari optimization: reduce curve resolution
+        const resolution = isSafari ? 16 : 32;
+        band.current.geometry.setPoints(curve.getPoints(resolution));
+      }
+      
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
@@ -192,11 +238,13 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
         <meshLineMaterial
           color="white"
           depthTest={false}
-          resolution={isSmall ? [1000, 2000] : [1000, 1000]}
+          resolution={isSafari ? [500, 500] : (isSmall ? [1000, 2000] : [1000, 1000])}
           useMap
           map={texture}
           repeat={[-4, 1]}
-          lineWidth={1}
+          lineWidth={isSafari ? 0.5 : 1}
+          transparent={isSafari}
+          opacity={isSafari ? 0.9 : 1}
         />
       </mesh>
     </>
