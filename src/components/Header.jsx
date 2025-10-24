@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import GlassSurface from './GlassSurface';
-import { useTheme } from '../contexts/ThemeContext';
 import logoDark from '../assets/logo-dark.png';
-import logoLight from '../assets/logo-light.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,8 +19,30 @@ const Header = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = sectionId === 'work' ? 100 : 0; // Extra space above work section
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
+  };
+
+  const downloadResume = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf.pdf';
+    link.download = 'Tamas-Gal-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     setIsMobileMenuOpen(false);
   };
 
@@ -54,17 +73,17 @@ const Header = () => {
                   <li><button onClick={() => scrollToSection('work')}>Work</button></li>
                 </ul>
                 
-                <div className="header__logo">
+                <button className="header__logo" onClick={scrollToTop} aria-label="Scroll to top">
                   <img 
-                    src={isDarkMode ? logoDark : logoLight} 
+                    src={logoDark} 
                     alt="Logo" 
                     className="header__logo-img"
                   />
-                </div>
+                </button>
                 
                 <ul className="header__menu header__menu--right">
                   <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
-                  <li><button onClick={() => scrollToSection('resume')}>Resume</button></li>
+                  <li><button onClick={downloadResume}>Resume</button></li>
                 </ul>
               </nav>
 

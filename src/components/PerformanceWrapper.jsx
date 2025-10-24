@@ -38,3 +38,4 @@ const PerformanceWrapper = ({ children, fallback = null }) => {
 };
 
 export default PerformanceWrapper;
+

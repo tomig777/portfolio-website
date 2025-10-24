@@ -1,0 +1,55 @@
+.star-border-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block;
+}
+
+.border-gradient-bottom {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  opacity: 1;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, transparent, #b19eef, #b19eef, transparent);
+  animation: star-movement-bottom linear infinite alternate;
+  z-index: 0;
+}
+
+.border-gradient-top {
+  position: absolute;
+  opacity: 1;
+  width: 100%;
+  height: 4px;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, transparent, #b19eef, #b19eef, transparent);
+  animation: star-movement-top linear infinite alternate;
+  z-index: 0;
+}
+
+.inner-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes star-movement-bottom {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

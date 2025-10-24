@@ -8,7 +8,7 @@
   animation: fadeInUp 1s ease-out 1s both, bounce 2s ease-in-out 2s infinite;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out, transform 0.5s ease-out;
+  transition: opacity 0.2s ease-out, visibility 0.2s ease-out, transform 0.2s ease-out;
 }
 
 .scroll-indicator--hidden {

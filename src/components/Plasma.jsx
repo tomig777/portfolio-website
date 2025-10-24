@@ -92,8 +92,8 @@ export const Plasma = ({
 }) => {
   const containerRef = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
-  const performance = detectDevicePerformance();
-  const settings = getPerformanceSettings(performance);
+  const devicePerformance = detectDevicePerformance();
+  const settings = getPerformanceSettings(devicePerformance);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -128,6 +128,8 @@ export const Plasma = ({
       canvas.style.position = 'absolute';
       canvas.style.top = '0';
       canvas.style.left = '0';
+      canvas.style.zIndex = '1';
+      console.log('Plasma canvas created and appended');
       containerRef.current.appendChild(canvas);
 
       const geometry = new Triangle(gl);
@@ -181,7 +183,7 @@ export const Plasma = ({
       setSize();
 
       let raf = 0;
-      const t0 = performance.now();
+      const t0 = window.performance.now();
       const loop = t => {
         let timeValue = (t - t0) * 0.001;
 
@@ -211,12 +213,12 @@ export const Plasma = ({
       };
     } catch (error) {
       console.error('Plasma component error:', error);
+      console.error('Error details:', error.message, error.stack);
     }
   }, [color, speed, direction, scale, opacity, mouseInteractive]);
 
   return (
     <div ref={containerRef} className="plasma-container" style={{ 
-      background: 'var(--bg-secondary)',
       minHeight: '100vh'
     }} />
   );

@@ -1,21 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ScrollIndicator.css';
 
 const ScrollIndicator = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const scrollTimeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Hide the arrow when user scrolls more than 50px
-      if (window.scrollY > 50) {
+      // Clear any existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      // Immediately hide when scrolling starts
+      if (window.scrollY > 10) {
         setIsVisible(false);
       } else {
+        // Only show when at the very top
         setIsVisible(true);
       }
+
+      // Set a timeout to ensure it stays hidden during fast scrolling
+      scrollTimeoutRef.current = setTimeout(() => {
+        if (window.scrollY > 10) {
+          setIsVisible(false);
+        }
+      }, 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Use passive listener for better performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
 
   return (

@@ -57,3 +57,4 @@ const MobileOptimizations = () => {
 };
 
 export default MobileOptimizations;
+
