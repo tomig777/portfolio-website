@@ -149,13 +149,20 @@
 .work-modal-body h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  font-family: 'Yink', sans-serif;
+  font-family: 'Druk', sans-serif;
   color: #b19eef;
+  text-transform: uppercase;
 }
 
 .work-modal-body p {
   font-size: 1.2rem;
   opacity: 0.8;
+}
+
+.work-modal-body h2 {
+  font-family: 'Druk', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 /* Smooth scrollbar for modal content */

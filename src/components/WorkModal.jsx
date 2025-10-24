@@ -59,7 +59,7 @@ const WorkModal = ({ workId, onClose }) => {
                 </div>
                 
                 <div style={{ marginTop: '40px', maxWidth: '800px', textAlign: 'center', lineHeight: '1.8' }}>
-                  <h2 style={{ fontSize: '2rem', marginBottom: '20px', color: '#b19eef' }}>Project Overview</h2>
+                  <h2 className="work-modal-body h2" style={{ fontSize: '2rem', marginBottom: '20px', color: '#b19eef' }}>Project Overview</h2>
                   <p style={{ marginBottom: '20px' }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                   </p>
@@ -81,7 +81,7 @@ const WorkModal = ({ workId, onClose }) => {
                     />
                   </div>
                   
-                  <h2 style={{ fontSize: '2rem', marginTop: '40px', marginBottom: '20px', color: '#b19eef' }}>Design Process</h2>
+                  <h2 className="work-modal-body h2" style={{ fontSize: '2rem', marginTop: '40px', marginBottom: '20px', color: '#b19eef' }}>Design Process</h2>
                   <p style={{ marginBottom: '20px' }}>
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
                   </p>
