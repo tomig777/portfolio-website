@@ -4,11 +4,10 @@ import Plasma from '../components/Plasma';
 import TiltedCard from '../components/TiltedCard';
 import ScrollIndicator from '../components/ScrollIndicator';
 import ProfileCard from '../components/ProfileCard';
-import LogoLoop from '../components/LogoLoop';
 import Folder from '../components/Folder';
-import MetaBalls from '../components/MetaBalls';
 import ErrorBoundary from '../components/ErrorBoundary';
 import WorkModal from '../components/WorkModal';
+import PerformanceOptimized from '../components/PerformanceOptimized';
 import { Suspense, lazy } from 'react';
 import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremierepro, SiFigma, SiBlender, SiAdobelightroom, SiDavinciresolve, SiInstagram, SiLinkedin, SiAdobeaudition, SiAutodesk, SiCinema4D } from 'react-icons/si';
 import { HiMail } from 'react-icons/hi';
@@ -52,14 +51,20 @@ const Home = () => {
   return (
     <div className="App">
       <div className="plasma-background">
-        <Plasma 
-          color="#b19eef"
-          speed={0.5}
-          direction="forward"
-          scale={1.3}
-          opacity={1.0}
-          mouseInteractive={true}
-        />
+        <PerformanceOptimized 
+          pauseWhenHidden={true}
+          fallback={<div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }} />}
+        >
+          <Plasma 
+            color="#b19eef"
+            speed={0.5}
+            direction="forward"
+            scale={1.3}
+            opacity={1.0}
+            mouseInteractive={true}
+            paused={false}
+          />
+        </PerformanceOptimized>
       </div>
       <Header />
       
@@ -256,36 +261,7 @@ const Home = () => {
 
       <section className="folder-section">
         <div className="folder-container">
-          <div className="metaballs-wrapper metaballs-left">
-            <MetaBalls
-              color="#b19eef"
-              cursorBallColor="#b19eef"
-              cursorBallSize={2}
-              ballCount={15}
-              animationSize={30}
-              enableMouseInteraction={true}
-              enableTransparency={true}
-              hoverSmoothness={0.05}
-              clumpFactor={1}
-              speed={0.5}
-              delay={2.5}
-            />
-          </div>
           <Folder size={2} color="#b19eef" className="custom-folder" items={socialItems} />
-          <div className="metaballs-wrapper metaballs-right">
-            <MetaBalls
-              color="#b19eef"
-              cursorBallColor="#b19eef"
-              cursorBallSize={2}
-              ballCount={15}
-              animationSize={30}
-              enableMouseInteraction={true}
-              enableTransparency={true}
-              hoverSmoothness={0.05}
-              clumpFactor={1}
-              speed={0.3}
-            />
-          </div>
         </div>
       </section>
 

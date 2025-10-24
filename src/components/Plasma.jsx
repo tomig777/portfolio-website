@@ -88,7 +88,8 @@ export const Plasma = ({
   direction = 'forward',
   scale = 1,
   opacity = 1,
-  mouseInteractive = true
+  mouseInteractive = true,
+  paused = false
 }) => {
   const containerRef = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
@@ -185,6 +186,12 @@ export const Plasma = ({
       let raf = 0;
       const t0 = window.performance.now();
       const loop = t => {
+        // Skip animation if paused
+        if (paused) {
+          raf = requestAnimationFrame(loop);
+          return;
+        }
+
         let timeValue = (t - t0) * 0.001;
 
         if (direction === 'pingpong') {
@@ -215,7 +222,7 @@ export const Plasma = ({
       console.error('Plasma component error:', error);
       console.error('Error details:', error.message, error.stack);
     }
-  }, [color, speed, direction, scale, opacity, mouseInteractive]);
+  }, [color, speed, direction, scale, opacity, mouseInteractive, paused]);
 
   return (
     <div ref={containerRef} className="plasma-container" style={{ 
