@@ -40,7 +40,7 @@ body {
 /* Font Face - Druk */
 @font-face {
   font-family: 'Druk';
-  src: url('./assets/fonts/Druk.otf') format('opentype');
+  src: url('./assets/fonts/DrukWide-SuperItalic-Trial.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
