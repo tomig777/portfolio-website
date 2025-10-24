@@ -65,6 +65,29 @@
   z-index: 3;
 }
 
+/* Safari-specific optimizations */
+.safari-card-inner {
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Safari hardware acceleration */
+@supports (-webkit-appearance: none) {
+  .safari-card-inner {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-perspective: 800px;
+    perspective: 800px;
+  }
+  
+  .tilted-card-img {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
 
 
 

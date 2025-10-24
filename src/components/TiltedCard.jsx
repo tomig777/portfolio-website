@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './TiltedCard.css';
 
@@ -24,6 +24,14 @@ export default function TiltedCard({
   displayOverlayContent = false
 }) {
   const ref = useRef(null);
+  const [isSafari, setIsSafari] = useState(false);
+
+  // Safari detection
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    const isSafariBrowser = /^((?!chrome|android).)*safari/i.test(userAgent);
+    setIsSafari(isSafariBrowser);
+  }, []);
 
   const x = useMotionValue();
   const y = useMotionValue();
@@ -38,8 +46,38 @@ export default function TiltedCard({
   });
 
   const [lastY, setLastY] = useState(0);
+  const [safariTransform, setSafariTransform] = useState('');
+
+  // Safari-specific CSS animation handlers
+  function handleSafariMouse(e) {
+    if (!ref.current) return;
+
+    const rect = ref.current.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left - rect.width / 2;
+    const offsetY = e.clientY - rect.top - rect.height / 2;
+
+    const rotationX = (offsetY / (rect.height / 2)) * -rotateAmplitude;
+    const rotationY = (offsetX / (rect.width / 2)) * rotateAmplitude;
+
+    // Apply CSS transform directly for Safari
+    const transform = `perspective(800px) rotateX(${rotationX}deg) rotateY(${rotationY}deg) scale(${scaleOnHover})`;
+    setSafariTransform(transform);
+
+    // Update tooltip position
+    x.set(e.clientX - rect.left);
+    y.set(e.clientY - rect.top);
+
+    const velocityY = offsetY - lastY;
+    rotateFigcaption.set(-velocityY * 0.6);
+    setLastY(offsetY);
+  }
 
   function handleMouse(e) {
+    if (isSafari) {
+      handleSafariMouse(e);
+      return;
+    }
+
     if (!ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
@@ -61,15 +99,25 @@ export default function TiltedCard({
   }
 
   function handleMouseEnter() {
-    scale.set(scaleOnHover);
-    opacity.set(1);
+    if (isSafari) {
+      // Safari uses CSS transforms, so we don't need to set scale here
+      opacity.set(1);
+    } else {
+      scale.set(scaleOnHover);
+      opacity.set(1);
+    }
   }
 
   function handleMouseLeave() {
+    if (isSafari) {
+      // Reset Safari CSS transform
+      setSafariTransform('perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)');
+    } else {
+      scale.set(1);
+      rotateX.set(0);
+      rotateY.set(0);
+    }
     opacity.set(0);
-    scale.set(1);
-    rotateX.set(0);
-    rotateY.set(0);
     rotateFigcaption.set(0);
   }
 
@@ -89,30 +137,58 @@ export default function TiltedCard({
         <div className="tilted-card-mobile-alert">This effect is not optimized for mobile. Check on desktop.</div>
       )}
 
-      <motion.div
-        className="tilted-card-inner"
-        style={{
-          width: imageWidth,
-          height: imageHeight,
-          rotateX,
-          rotateY,
-          scale
-        }}
-      >
-        <motion.img
-          src={imageSrc}
-          alt={altText}
-          className="tilted-card-img"
+      {isSafari ? (
+        // Safari version with CSS-only animations
+        <div
+          className="tilted-card-inner safari-card-inner"
           style={{
             width: imageWidth,
-            height: imageHeight
+            height: imageHeight,
+            transform: safariTransform,
+            transition: 'transform 0.1s ease-out'
           }}
-        />
+        >
+          <img
+            src={imageSrc}
+            alt={altText}
+            className="tilted-card-img"
+            style={{
+              width: imageWidth,
+              height: imageHeight
+            }}
+          />
 
-        {displayOverlayContent && overlayContent && (
-          <motion.div className="tilted-card-overlay">{overlayContent}</motion.div>
-        )}
-      </motion.div>
+          {displayOverlayContent && overlayContent && (
+            <div className="tilted-card-overlay">{overlayContent}</div>
+          )}
+        </div>
+      ) : (
+        // Chrome/Firefox version with Framer Motion
+        <motion.div
+          className="tilted-card-inner"
+          style={{
+            width: imageWidth,
+            height: imageHeight,
+            rotateX,
+            rotateY,
+            scale
+          }}
+        >
+          <motion.img
+            src={imageSrc}
+            alt={altText}
+            className="tilted-card-img"
+            style={{
+              width: imageWidth,
+              height: imageHeight
+            }}
+          />
+
+          {displayOverlayContent && overlayContent && (
+            <motion.div className="tilted-card-overlay">{overlayContent}</motion.div>
+          )}
+        </motion.div>
+      )}
 
       {showTooltip && (
         <motion.figcaption

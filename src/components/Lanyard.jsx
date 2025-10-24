@@ -132,10 +132,10 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   const frameSkipRef = useRef(0);
   
   useFrame((state, delta) => {
-    // Safari optimization: reduce frame rate but don't skip completely
+    // Safari optimization: minimal frame skipping
     if (isSafari) {
       frameSkipRef.current++;
-      if (frameSkipRef.current % 3 !== 0) return; // Skip 2 out of 3 frames on Safari (20fps)
+      if (frameSkipRef.current % 2 !== 0) return; // Skip every other frame on Safari (30fps)
     }
     
     if (dragged) {
@@ -166,7 +166,7 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
       // Only update curve if points have changed significantly (Safari optimization)
       let shouldUpdate = true;
       if (isSafari && curve.points.length === 4) {
-        const threshold = 0.005; // Reduced threshold for more frequent updates
+        const threshold = 0.01; // Less aggressive threshold
         shouldUpdate = newPoints.some((point, i) => 
           curve.points[i].distanceTo(point) > threshold
         );
@@ -178,8 +178,8 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
         curve.points[2].copy(newPoints[2]);
         curve.points[3].copy(newPoints[3]);
         
-        // Safari optimization: reduce curve resolution but not too much
-        const resolution = isSafari ? 24 : 32;
+        // Safari optimization: slightly reduce curve resolution
+        const resolution = isSafari ? 28 : 32;
         band.current.geometry.setPoints(curve.getPoints(resolution));
       }
       
@@ -238,11 +238,11 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
         <meshLineMaterial
           color="white"
           depthTest={false}
-          resolution={isSafari ? [800, 800] : (isSmall ? [1000, 2000] : [1000, 1000])}
+          resolution={isSafari ? [900, 900] : (isSmall ? [1000, 2000] : [1000, 1000])}
           useMap
           map={texture}
           repeat={[-4, 1]}
-          lineWidth={isSafari ? 0.8 : 1}
+          lineWidth={isSafari ? 0.9 : 1}
           transparent={false}
           opacity={1}
         />
