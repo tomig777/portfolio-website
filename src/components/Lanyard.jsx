@@ -16,24 +16,40 @@ import './Lanyard.css';
 extend({ MeshLineGeometry, MeshLineMaterial });
 
 export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true }) {
+  const containerRef = useRef();
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setPaused(!entry.isIntersecting);
+    }, { threshold: 0.1 });
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="lanyard-wrapper">
+    <div ref={containerRef} className="lanyard-wrapper">
       <Canvas
         camera={{ position: position, fov: fov }}
-        gl={{ 
+        gl={{
           alpha: transparent,
           antialias: false,
           powerPreference: 'high-performance',
           failIfMajorPerformanceCaveat: false
         }}
+        dpr={[1, 2]} // Cap DPR for performance
         onCreated={({ gl }) => {
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
-          gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         }}
+        frameloop={paused ? 'never' : 'always'}
       >
         <ambientLight intensity={Math.PI} />
-        <Physics gravity={gravity} timeStep={1 / 60}>
-          <Band />
+        <Physics gravity={gravity} timeStep={1 / 60} paused={paused}>
+          <Band isVisible={!paused} />
         </Physics>
         <Environment blur={0.75}>
           <Lightformer
@@ -69,7 +85,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     </div>
   );
 }
-function Band({ maxSpeed = 50, minSpeed = 0 }) {
+function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
   const band = useRef(),
     fixed = useRef(),
     j1 = useRef(),
@@ -117,7 +133,8 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
   }, []);
 
   useFrame((state, delta) => {
-    
+    if (!isVisible) return;
+
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
       dir.copy(vec).sub(state.camera.position).normalize();
@@ -134,13 +151,13 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
           delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
         );
       });
-      
+
       curve.points[0].copy(j3.current.translation());
       curve.points[1].copy(j2.current.lerped);
       curve.points[2].copy(j1.current.lerped);
       curve.points[3].copy(fixed.current.translation());
       band.current.geometry.setPoints(curve.getPoints(32));
-      
+
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());
       card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });

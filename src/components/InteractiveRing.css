@@ -1,0 +1,223 @@
+.interactive-ring {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.interactive-ring:hover {
+    transform: scale(1.05);
+}
+
+.interactive-ring:active {
+    transform: scale(0.98);
+}
+
+/* Outer ring */
+.ring-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(177, 158, 239, 0.15);
+    border-radius: 50%;
+    animation: rotateClockwise 20s linear infinite;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(177, 158, 239, 0.05);
+}
+
+.interactive-ring:hover .ring-outer {
+    border-color: rgba(177, 158, 239, 0.3);
+    box-shadow: 0 0 30px rgba(177, 158, 239, 0.15);
+}
+
+.interactive-ring.spinning .ring-outer {
+    animation: spinFast 0.5s ease-out;
+}
+
+/* Middle ring */
+.ring-middle {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    border: 1px solid rgba(177, 158, 239, 0.2);
+    border-radius: 50%;
+    animation: rotateCounterClockwise 15s linear infinite;
+}
+
+.interactive-ring.spinning .ring-middle {
+    animation: spinFastReverse 0.5s ease-out;
+}
+
+/* Inner ring */
+.ring-inner {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 1px solid rgba(177, 158, 239, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Center */
+.ring-center {
+    width: 40px;
+    height: 40px;
+    background: rgba(177, 158, 239, 0.1);
+    border: 1px solid rgba(177, 158, 239, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.interactive-ring:hover .ring-center {
+    background: rgba(177, 158, 239, 0.2);
+    box-shadow: 0 0 20px rgba(177, 158, 239, 0.4);
+}
+
+.interactive-ring.spinning .ring-center {
+    background: rgba(177, 158, 239, 0.3);
+    box-shadow: 0 0 30px rgba(177, 158, 239, 0.6);
+}
+
+.ring-icon {
+    font-size: 1.2rem;
+    color: rgba(177, 158, 239, 0.8);
+    transition: transform 0.3s ease;
+}
+
+.interactive-ring:hover .ring-icon {
+    transform: rotate(45deg);
+}
+
+.interactive-ring.spinning .ring-icon {
+    animation: pulse 0.3s ease-in-out 2;
+}
+
+/* Orbiting dots */
+.ring-dots {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    animation: rotateClockwise 12s linear infinite;
+}
+
+.ring-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(177, 158, 239, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(177, 158, 239, 0.6);
+    transition: all 0.3s ease;
+}
+
+.ring-dot:nth-child(1) {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ring-dot:nth-child(2) {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.ring-dot:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ring-dot:nth-child(4) {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.interactive-ring:hover .ring-dot {
+    background: rgba(177, 158, 239, 0.8);
+    box-shadow: 0 0 12px rgba(177, 158, 239, 0.8);
+}
+
+.interactive-ring.spinning .ring-dots {
+    animation: spinFast 0.5s ease-out;
+}
+
+/* Label */
+.ring-label {
+    position: absolute;
+    bottom: -30px;
+    font-family: 'Hyperspace Race Capsule', 'Druk', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: rgba(177, 158, 239, 0.4);
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.interactive-ring:hover .ring-label {
+    color: rgba(177, 158, 239, 0.7);
+}
+
+/* Animations */
+@keyframes rotateClockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateCounterClockwise {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes spinFast {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes spinFastReverse {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-720deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(45deg);
+    }
+
+    50% {
+        transform: scale(1.3) rotate(45deg);
+    }
+}

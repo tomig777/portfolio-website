@@ -104,24 +104,28 @@ export const Plasma = ({
 
     const directionMultiplier = direction === 'reverse' ? -1.0 : 1.0;
 
+    let renderer;
+    let gl;
+    let raf = 0;
+
     try {
-      const renderer = new Renderer({
+      renderer = new Renderer({
         webgl: 2,
         alpha: true,
         antialias: false,
-        dpr: 1, // Fixed at 1 to save resources
-        powerPreference: 'low-power',
+        dpr: 1,
+        powerPreference: 'high-performance', // High performance for recording
         preserveDrawingBuffer: false,
-        depth: false, // Disable depth buffer
-        stencil: false // Disable stencil buffer
+        depth: false,
+        stencil: false
       });
-      const gl = renderer.gl;
-      
+      gl = renderer.gl;
+
       if (!gl) {
         console.error('WebGL not supported');
         return;
       }
-      
+
       const canvas = gl.canvas;
       canvas.style.display = 'block';
       canvas.style.width = '100%';
@@ -130,7 +134,6 @@ export const Plasma = ({
       canvas.style.top = '0';
       canvas.style.left = '0';
       canvas.style.zIndex = '1';
-      console.log('Plasma canvas created and appended');
       containerRef.current.appendChild(canvas);
 
       const geometry = new Triangle(gl);
@@ -170,6 +173,7 @@ export const Plasma = ({
       }
 
       const setSize = () => {
+        if (!containerRef.current) return;
         const rect = containerRef.current.getBoundingClientRect();
         const width = Math.max(1, Math.floor(rect.width));
         const height = Math.max(1, Math.floor(rect.height));
@@ -183,14 +187,11 @@ export const Plasma = ({
       ro.observe(containerRef.current);
       setSize();
 
-      let raf = 0;
       const t0 = window.performance.now();
       const loop = t => {
-        // Skip animation if paused
-        if (paused) {
-          raf = requestAnimationFrame(loop);
-          return;
-        }
+        raf = requestAnimationFrame(loop);
+
+        if (paused) return;
 
         let timeValue = (t - t0) * 0.001;
 
@@ -201,33 +202,34 @@ export const Plasma = ({
 
         program.uniforms.iTime.value = timeValue;
         renderer.render({ scene: mesh });
-        raf = requestAnimationFrame(loop);
       };
+
       raf = requestAnimationFrame(loop);
 
       return () => {
-        cancelAnimationFrame(raf);
+        if (raf) cancelAnimationFrame(raf);
         ro.disconnect();
+
         if (mouseInteractive && containerRef.current) {
           containerRef.current.removeEventListener('mousemove', handleMouseMove);
         }
         try {
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-          containerRef.current?.removeChild(canvas);
-        } catch {
-          console.warn('Canvas already removed from container');
+          if (containerRef.current && containerRef.current.contains(canvas)) {
+            containerRef.current.removeChild(canvas);
+          }
+          const ext = gl.getExtension('WEBGL_lose_context');
+          if (ext) ext.loseContext();
+        } catch (e) {
+          console.warn('Cleanup warning:', e);
         }
       };
     } catch (error) {
       console.error('Plasma component error:', error);
-      console.error('Error details:', error.message, error.stack);
     }
-  }, [color, speed, direction, scale, opacity, mouseInteractive, paused]);
+  }, [color, speed, direction, scale, opacity, mouseInteractive, paused, settings.plasmaIterations]);
 
   return (
-    <div ref={containerRef} className="plasma-container" style={{ 
-      minHeight: '100vh'
-    }} />
+    <div ref={containerRef} className="plasma-container" />
   );
 };
 

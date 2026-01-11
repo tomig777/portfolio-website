@@ -1,8 +1,10 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import ClickSpark from './components/ClickSpark';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Home from './pages/Home';
+import RecordBackground from './pages/RecordBackground';
 
 function AppContent() {
   return (
@@ -13,16 +15,21 @@ function AppContent() {
       sparkCount={8}
       duration={500}
     >
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/record" element={<RecordBackground />} />
+      </Routes>
     </ClickSpark>
   );
 }
 
 function App() {
   return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

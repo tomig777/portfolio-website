@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from '../components/Header';
-import Plasma from '../components/Plasma';
+import VideoBackground from '../components/VideoBackground';
 import TiltedCard from '../components/TiltedCard';
 import ScrollIndicator from '../components/ScrollIndicator';
 import ProfileCard from '../components/ProfileCard';
@@ -8,8 +8,9 @@ import Folder from '../components/Folder';
 import ErrorBoundary from '../components/ErrorBoundary';
 import WorkModal from '../components/WorkModal';
 import PerformanceOptimized from '../components/PerformanceOptimized';
+import StarConstellation from '../components/StarConstellation';
 import { Suspense, lazy } from 'react';
-import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremierepro, SiFigma, SiBlender, SiAdobelightroom, SiDavinciresolve, SiInstagram, SiLinkedin, SiAdobeaudition, SiAutodesk, SiCinema4D } from 'react-icons/si';
+import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremierepro, SiFigma, SiBlender, SiAdobelightroom, SiDavinciresolve, SiInstagram, SiLinkedin, SiAdobeaudition, SiAutodesk, SiCinema4D, SiOpencv } from 'react-icons/si';
 import { HiMail } from 'react-icons/hi';
 import cardImage from '../assets/card-1.jpeg';
 import portraitImage from '../assets/portrait-1.png';
@@ -17,20 +18,21 @@ import portraitImage from '../assets/portrait-1.png';
 const Lanyard = lazy(() => import('../components/Lanyard'));
 
 const adobeLogos = [
-  { node: <SiAdobeillustrator />, title: "Adobe Illustrator", href: "https://www.adobe.com/products/illustrator.html" },
-  { node: <SiAdobephotoshop />, title: "Adobe Photoshop", href: "https://www.adobe.com/products/photoshop.html" },
-  { node: <SiAdobepremierepro />, title: "Adobe Premiere Pro", href: "https://www.adobe.com/products/premiere.html" },
-  { node: <SiAdobeaftereffects />, title: "Adobe After Effects", href: "https://www.adobe.com/products/aftereffects.html" },
-  { node: <SiAdobeaudition />, title: "Adobe Audition", href: "https://www.adobe.com/products/audition.html" },
-  { node: <SiAdobelightroom />, title: "Adobe Lightroom", href: "https://www.adobe.com/products/photoshop-lightroom.html" },
+  { node: <SiAdobeillustrator />, title: "Adobe Illustrator" },
+  { node: <SiAdobephotoshop />, title: "Adobe Photoshop" },
+  { node: <SiAdobepremierepro />, title: "Adobe Premiere Pro" },
+  { node: <SiAdobeaftereffects />, title: "Adobe After Effects" },
+  { node: <SiAdobeaudition />, title: "Adobe Audition" },
+  { node: <SiAdobelightroom />, title: "Adobe Lightroom" },
 ];
 
 const otherLogos = [
-  { node: <SiAutodesk />, title: "Autodesk Maya", href: "https://www.autodesk.com/products/maya" },
-  { node: <SiDavinciresolve />, title: "DaVinci Resolve", href: "https://www.blackmagicdesign.com/products/davinciresolve" },
-  { node: <SiBlender />, title: "Blender", href: "https://www.blender.org" },
-  { node: <SiFigma />, title: "Figma", href: "https://www.figma.com" },
-  { node: <SiCinema4D />, title: "Cinema 4D", href: "https://www.maxon.net/cinema-4d" },
+  { node: <SiAutodesk />, title: "Autodesk Maya" },
+  { node: <SiDavinciresolve />, title: "DaVinci Resolve" },
+  { node: <SiBlender />, title: "Blender" },
+  { node: <SiOpencv />, title: "Nuke" },
+  { node: <SiFigma />, title: "Figma" },
+  { node: <SiCinema4D />, title: "Cinema 4D" },
 ];
 
 const socialItems = [
@@ -51,23 +53,12 @@ const Home = () => {
   return (
     <div className="App">
       <div className="plasma-background">
-        <PerformanceOptimized 
-          pauseWhenHidden={true}
-          fallback={<div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)' }} />}
-        >
-          <Plasma 
-            color="#b19eef"
-            speed={0.5}
-            direction="forward"
-            scale={1.3}
-            opacity={1.0}
-            mouseInteractive={true}
-            paused={false}
-          />
-        </PerformanceOptimized>
+        <VideoBackground
+          opacity={0.8}
+        />
       </div>
       <Header />
-      
+
       <section className="hero-section">
         <ErrorBoundary fallback={null}>
           <Suspense fallback={null}>
@@ -76,7 +67,7 @@ const Home = () => {
             </div>
           </Suspense>
         </ErrorBoundary>
-        
+
         <div className="hero-text">
           <h1 className="hero-text__name">
             <span className="hero-text__line">TAMAS</span>
@@ -223,30 +214,26 @@ const Home = () => {
         <div className="skills-container">
           <div className="skills-row skills-row--adobe">
             {adobeLogos.map((logo, index) => (
-              <a 
+              <div
                 key={index}
-                href={logo.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="skill-item"
                 title={logo.title}
+                style={{ cursor: 'default' }}
               >
                 {logo.node}
-              </a>
+              </div>
             ))}
           </div>
           <div className="skills-row skills-row--other">
             {otherLogos.map((logo, index) => (
-              <a 
+              <div
                 key={index}
-                href={logo.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="skill-item"
                 title={logo.title}
+                style={{ cursor: 'default' }}
               >
                 {logo.node}
-              </a>
+              </div>
             ))}
           </div>
         </div>
@@ -260,9 +247,14 @@ const Home = () => {
       </section>
 
       <section className="folder-section">
+        <StarConstellation side="left" />
+
         <div className="folder-container">
           <Folder size={2} color="#b19eef" className="custom-folder" items={socialItems} />
+          <div className="folder-base-line" />
         </div>
+
+        <StarConstellation side="right" />
       </section>
 
       <footer className="footer">
@@ -270,9 +262,9 @@ const Home = () => {
       </footer>
 
       {selectedWork && (
-        <WorkModal 
-          workId={selectedWork} 
-          onClose={() => setSelectedWork(null)} 
+        <WorkModal
+          workId={selectedWork}
+          onClose={() => setSelectedWork(null)}
         />
       )}
     </div>

@@ -93,41 +93,49 @@
   transform: translate(-50%, 10%);
   width: 70%;
   height: 80%;
-  background: var(--paper-1);
-  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(177, 158, 239, 0.15) 0%, rgba(147, 197, 253, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
   transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  color: #333;
+  color: rgba(224, 224, 224, 0.9);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .paper:nth-child(2) {
-  background: var(--paper-2);
+  background: linear-gradient(135deg, rgba(177, 158, 239, 0.2) 0%, rgba(147, 197, 253, 0.15) 100%);
   width: 80%;
   height: 70%;
   font-size: 28px;
 }
 
 .paper:nth-child(3) {
-  background: var(--paper-3);
+  background: linear-gradient(135deg, rgba(177, 158, 239, 0.25) 0%, rgba(147, 197, 253, 0.2) 100%);
   width: 90%;
   height: 60%;
   font-size: 28px;
 }
 
 .paper a {
-  color: #333;
-  transition: color 0.3s ease, transform 0.3s ease;
+  color: rgba(224, 224, 224, 0.7);
+  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 12px;
+  border-radius: 50%;
+  background: transparent;
 }
 
 .paper a:hover {
-  color: #b19eef;
-  transform: scale(1.2);
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.25);
+  text-shadow: 0 0 20px rgba(177, 158, 239, 0.8), 0 0 40px rgba(177, 158, 239, 0.4);
+  background: radial-gradient(circle, rgba(177, 158, 239, 0.2) 0%, transparent 70%);
 }
 
 .folder__front {
@@ -140,4 +148,3 @@
   transform-origin: bottom;
   transition: all 0.3s ease-in-out;
 }
-

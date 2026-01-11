@@ -5,4 +5,11 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  /* Ensure it doesn't capture clicks unless interactive */
+  pointer-events: none;
+  /* Force hardware acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
