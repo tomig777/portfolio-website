@@ -21,10 +21,12 @@ export default function TiltedCard({
   showMobileWarning = true,
   showTooltip = true,
   overlayContent = null,
-  displayOverlayContent = false
+  displayOverlayContent = false,
+  projectName = ''
 }) {
   const ref = useRef(null);
   const [isSafari, setIsSafari] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   // Safari detection
   useEffect(() => {
@@ -99,6 +101,7 @@ export default function TiltedCard({
   }
 
   function handleMouseEnter() {
+    setIsHovered(true);
     if (isSafari) {
       // Safari uses CSS transforms, so we don't need to set scale here
       opacity.set(1);
@@ -109,6 +112,7 @@ export default function TiltedCard({
   }
 
   function handleMouseLeave() {
+    setIsHovered(false);
     if (isSafari) {
       // Reset Safari CSS transform
       setSafariTransform('perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)');
@@ -161,6 +165,13 @@ export default function TiltedCard({
           {displayOverlayContent && overlayContent && (
             <div className="tilted-card-overlay">{overlayContent}</div>
           )}
+
+          {projectName && isHovered && (
+            <>
+              <div className="tilted-card-dim-overlay" />
+              <div className="tilted-card-project-name">{projectName}</div>
+            </>
+          )}
         </div>
       ) : (
         // Chrome/Firefox version with Framer Motion
@@ -186,6 +197,25 @@ export default function TiltedCard({
 
           {displayOverlayContent && overlayContent && (
             <motion.div className="tilted-card-overlay">{overlayContent}</motion.div>
+          )}
+
+          {projectName && isHovered && (
+            <>
+              <motion.div
+                className="tilted-card-dim-overlay"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              />
+              <motion.div
+                className="tilted-card-project-name"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                {projectName}
+              </motion.div>
+            </>
           )}
         </motion.div>
       )}

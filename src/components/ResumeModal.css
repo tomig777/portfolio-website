@@ -1,0 +1,313 @@
+/* ResumeModal Styles */
+
+.resume-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resume-modal__bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(177, 158, 239, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(113, 196, 255, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
+    z-index: -1;
+}
+
+/* Close button */
+.resume-modal__close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.resume-modal__close:hover {
+    background: rgba(177, 158, 239, 0.2);
+    border-color: rgba(177, 158, 239, 0.4);
+    transform: rotate(90deg);
+}
+
+.resume-modal__close-line {
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 2px;
+}
+
+.resume-modal__close-line:first-child {
+    transform: rotate(45deg);
+}
+
+.resume-modal__close-line:last-child {
+    transform: rotate(-45deg);
+}
+
+/* Main container - equal columns */
+.resume-modal__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90vw;
+    max-width: 1200px;
+    height: 85vh;
+    gap: 60px;
+}
+
+/* Left side */
+.resume-modal__left {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    height: 85vh;
+    overflow: hidden;
+}
+
+.resume-modal__title {
+    font-family: 'Delusi', 'Hyperspace Race Capsule', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    color: white;
+    margin: 0;
+    letter-spacing: 0.05em;
+}
+
+.resume-modal__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 10px 0 20px;
+}
+
+.resume-modal__divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #b19eef, transparent);
+    margin-bottom: 20px;
+}
+
+.resume-modal__info {
+    margin-bottom: 20px;
+}
+
+.resume-modal__info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    color: white;
+    margin: 0 0 6px;
+}
+
+.resume-modal__info p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+/* About text */
+.resume-modal__about-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Download button */
+.resume-modal__download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, rgba(177, 158, 239, 0.3), rgba(113, 196, 255, 0.2));
+    border: 1px solid rgba(177, 158, 239, 0.4);
+    border-radius: 50px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+
+.resume-modal__download:hover {
+    background: linear-gradient(135deg, rgba(177, 158, 239, 0.5), rgba(113, 196, 255, 0.3));
+    border-color: rgba(177, 158, 239, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(177, 158, 239, 0.2);
+}
+
+.resume-modal__download-icon {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Right side */
+.resume-modal__right {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0;
+    height: 85vh;
+    overflow: hidden;
+}
+
+.resume-modal__scrollable {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.resume-modal__scrollable::-webkit-scrollbar {
+    width: 4px;
+}
+
+.resume-modal__scrollable::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.resume-modal__scrollable::-webkit-scrollbar-thumb {
+    background: rgba(177, 158, 239, 0.3);
+    border-radius: 4px;
+}
+
+/* Sections */
+.resume-modal__section {
+    margin-bottom: 30px;
+}
+
+.resume-modal__section h2 {
+    font-family: 'Delusi', 'Hyperspace Race Capsule', sans-serif;
+    font-size: 1.3rem;
+    color: #b19eef;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.resume-modal__item {
+    margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: 2px solid rgba(177, 158, 239, 0.3);
+}
+
+.resume-modal__year {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    color: #b19eef;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.resume-modal__item h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: white;
+    margin: 6px 0;
+}
+
+.resume-modal__item p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Skills */
+.resume-modal__skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.resume-modal__skill {
+    padding: 6px 14px;
+    background: rgba(177, 158, 239, 0.1);
+    border: 1px solid rgba(177, 158, 239, 0.2);
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Contact */
+.resume-modal__contact p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 10px;
+}
+
+/* Footer */
+.resume-modal__footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+.resume-modal__footer span {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.resume-modal__footer-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .resume-modal__container {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 80px 20px 40px;
+        gap: 30px;
+        overflow-y: auto;
+    }
+
+    .resume-modal__left,
+    .resume-modal__right {
+        height: auto;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .resume-modal__title {
+        font-size: 2.5rem;
+    }
+
+    .resume-modal__close {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}

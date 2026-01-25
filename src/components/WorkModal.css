@@ -75,6 +75,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
+  padding-bottom: 80px;
 }
 
 .modal-hero-image-wrapper {
@@ -100,7 +102,7 @@
 
 .modal-project-number {
   position: absolute;
-  bottom: -30px;
+  bottom: 0;
   left: 30px;
   display: flex;
   flex-direction: column;
@@ -128,6 +130,8 @@
   display: flex;
   flex-direction: column;
   padding: 40px 0;
+  height: 85vh;
+  overflow: hidden;
 }
 
 /* Tabs */
@@ -142,6 +146,7 @@
 .modal-tab {
   background: none;
   border: none;
+  outline: none;
   cursor: pointer;
   display: flex;
   align-items: center;

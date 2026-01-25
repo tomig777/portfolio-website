@@ -3,7 +3,7 @@ import './Header.css';
 import GlassSurface from './GlassSurface';
 import logoDark from '../assets/logo-dark.png';
 
-const Header = () => {
+const Header = ({ onResumeClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -17,12 +17,25 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
+    // Map nav items to actual section IDs and offsets
+    let targetId = sectionId;
+    let offset = 80; // Default offset for header height
+
+    if (sectionId === 'about') {
+      targetId = 'about-card'; // Scroll to card, not title
+      offset = 85; // Slightly higher
+    } else if (sectionId === 'work') {
+      offset = 50; // Scroll a bit lower for work
+    } else if (sectionId === 'contact') {
+      targetId = 'contact-folder'; // Scroll to folder, not title
+      offset = 200; // More space above folder to scroll higher
+    }
+
+    const element = document.getElementById(targetId);
     if (element) {
-      const offset = sectionId === 'work' ? 100 : 0; // Extra space above work section
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -36,13 +49,10 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const downloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf.pdf';
-    link.download = 'Tamas-Gal-Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleResumeClick = () => {
+    if (onResumeClick) {
+      onResumeClick();
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -72,22 +82,22 @@ const Header = () => {
                   <li><button onClick={() => scrollToSection('about')}>About</button></li>
                   <li><button onClick={() => scrollToSection('work')}>Work</button></li>
                 </ul>
-                
+
                 <button className="header__logo" onClick={scrollToTop} aria-label="Scroll to top">
-                  <img 
-                    src={logoDark} 
-                    alt="Logo" 
+                  <img
+                    src={logoDark}
+                    alt="Logo"
                     className="header__logo-img"
                   />
                 </button>
-                
+
                 <ul className="header__menu header__menu--right">
                   <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
-                  <li><button onClick={downloadResume}>Resume</button></li>
+                  <li><button onClick={handleResumeClick}>Resume</button></li>
                 </ul>
               </nav>
 
-              <button 
+              <button
                 className="header__mobile-toggle"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle mobile menu"
@@ -105,3 +115,4 @@ const Header = () => {
 };
 
 export default Header;
+

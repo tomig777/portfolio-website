@@ -129,6 +129,7 @@
   padding: 12px;
   border-radius: 50%;
   background: transparent;
+  outline: none;
 }
 
 .paper a:hover {
