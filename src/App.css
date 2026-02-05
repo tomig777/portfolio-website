@@ -211,23 +211,51 @@ body {
 .meta-text {
   transition: all 0.5s;
   -webkit-text-stroke: 2px rgba(177, 158, 239, 0.6);
+  /* Firefox fallback for text-stroke */
+  text-shadow: 8px 8px 0px rgba(177, 158, 239, 0.3),
+    16px 16px 0px rgba(100, 80, 150, 0.25),
+    24px 24px 0px rgba(60, 50, 100, 0.2),
+    32px 32px 15px rgba(30, 20, 50, 0.4);
   font-variation-settings: "wght" 900, "ital" 1;
   font-size: clamp(3rem, 12vw, 15rem);
   text-align: center;
   color: transparent;
   font-family: "Meta", sans-serif;
-  text-shadow: 8px 8px 0px rgba(177, 158, 239, 0.3),
-    16px 16px 0px rgba(100, 80, 150, 0.25),
-    24px 24px 0px rgba(60, 50, 100, 0.2),
-    32px 32px 15px rgba(30, 20, 50, 0.4);
   cursor: pointer;
   display: block;
   line-height: normal;
+  /* Safari fix */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.meta-text:hover {
-  font-variation-settings: "wght" 100, "ital" 0;
-  text-shadow: none;
+/* Only apply hover effects on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .meta-text:hover {
+    font-variation-settings: "wght" 100, "ital" 0;
+    text-shadow: none;
+  }
+}
+
+/* Mobile responsive - reduce text shadow complexity */
+@media (max-width: 768px) {
+  .meta-text {
+    font-size: clamp(2.5rem, 15vw, 8rem);
+    -webkit-text-stroke: 1px rgba(177, 158, 239, 0.6);
+    text-shadow: 4px 4px 0px rgba(177, 158, 239, 0.3),
+      8px 8px 0px rgba(100, 80, 150, 0.25),
+      12px 12px 10px rgba(30, 20, 50, 0.4);
+  }
+}
+
+@media (max-width: 480px) {
+  .meta-text {
+    font-size: clamp(2rem, 18vw, 5rem);
+    -webkit-text-stroke: 1px rgba(177, 158, 239, 0.5);
+    text-shadow: 2px 2px 0px rgba(177, 158, 239, 0.25),
+      4px 4px 0px rgba(100, 80, 150, 0.2),
+      6px 6px 8px rgba(30, 20, 50, 0.3);
+  }
 }
 
 
@@ -370,11 +398,32 @@ body {
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 30px rgba(177, 158, 239, 0.15);
   transition: all 0.4s ease;
+  /* Safari/iOS fix */
+  -webkit-font-smoothing: antialiased;
 }
 
-.section-subtitle:hover {
-  background-position: 100% center;
-  text-shadow: 0 0 40px rgba(177, 158, 239, 0.3);
+/* Only apply hover on devices that support it */
+@media (hover: hover) and (pointer: fine) {
+  .section-subtitle:hover {
+    background-position: 100% center;
+    text-shadow: 0 0 40px rgba(177, 158, 239, 0.3);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .section-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    margin-top: 1rem;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-subtitle {
+    font-size: clamp(0.8rem, 4vw, 1rem);
+    padding: 0 1rem;
+  }
 }
 
 .about-title {
