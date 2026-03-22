@@ -1,0 +1,42 @@
+/* ═══════════════════════════════════════════════════
+   ZEN POND STYLES (REACT COMPONENT)
+   ═══════════════════════════════════════════════════ */
+.zen-pond-section {
+  position: relative;
+  z-index: 3;
+  padding: 8rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000000;
+}
+
+.zen-instruction {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #55556a;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.zen-pond-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 2 / 1;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 4px 40px rgba(102, 126, 234, 0.08),
+    inset 0 2px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.zen-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: block;
+}

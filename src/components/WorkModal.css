@@ -13,7 +13,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(177, 158, 239, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 50%, rgba(113, 196, 255, 0.1) 0%, transparent 50%),
     linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
   z-index: -1;
@@ -38,8 +38,8 @@
 }
 
 .modal-close-btn:hover {
-  background: rgba(177, 158, 239, 0.2);
-  border-color: rgba(177, 158, 239, 0.4);
+  background: rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.4);
   transform: rotate(90deg);
 }
 
@@ -167,7 +167,7 @@
 .modal-tab-number {
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
-  color: #b19eef;
+  color: #667eea;
   font-weight: 600;
 }
 
@@ -180,7 +180,7 @@
 }
 
 .modal-tab.active .modal-tab-text {
-  color: #b19eef;
+  color: #667eea;
 }
 
 /* Scrollable content */
@@ -199,7 +199,7 @@
 }
 
 .modal-scrollable::-webkit-scrollbar-thumb {
-  background: rgba(177, 158, 239, 0.3);
+  background: rgba(102, 126, 234, 0.3);
   border-radius: 4px;
 }
 
@@ -220,7 +220,7 @@
 .modal-subtitle {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
-  color: rgba(177, 158, 239, 0.8);
+  color: rgba(102, 126, 234, 0.8);
   text-transform: uppercase;
   letter-spacing: 3px;
   margin: 0 0 30px 0;
@@ -237,7 +237,7 @@
 .modal-divider {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #b19eef, transparent);
+  background: linear-gradient(90deg, #667eea, transparent);
   margin-bottom: 30px;
   border-radius: 3px;
 }
@@ -260,14 +260,14 @@
 
 .modal-tag {
   padding: 8px 20px;
-  border: 1px solid rgba(177, 158, 239, 0.3);
+  border: 1px solid rgba(102, 126, 234, 0.3);
   border-radius: 30px;
   font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
-  color: rgba(177, 158, 239, 0.9);
+  color: rgba(102, 126, 234, 0.9);
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: rgba(177, 158, 239, 0.05);
+  background: rgba(102, 126, 234, 0.05);
 }
 
 /* Process steps */
@@ -287,7 +287,7 @@
   font-family: 'Hyperspace Race Capsule', 'Druk', sans-serif;
   font-size: 2.5rem;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(177, 158, 239, 0.5);
+  -webkit-text-stroke: 1px rgba(102, 126, 234, 0.5);
   line-height: 1;
   flex-shrink: 0;
 }
@@ -328,7 +328,7 @@
   display: block;
   font-family: 'Hyperspace Race Capsule', 'Druk', sans-serif;
   font-size: 2.5rem;
-  color: #b19eef;
+  color: #667eea;
   margin-bottom: 5px;
 }
 

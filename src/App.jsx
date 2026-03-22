@@ -9,7 +9,7 @@ import RecordBackground from './pages/RecordBackground';
 function AppContent() {
   return (
     <ClickSpark
-      sparkColor='#b19eef'
+      sparkColor='#667eea'
       sparkSize={12}
       sparkRadius={20}
       sparkCount={8}

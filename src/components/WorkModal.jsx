@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './WorkModal.css';
-import cardImage from '../assets/card-1.jpeg';
+import cardImage from '../assets/port1.jpg';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const WorkModal = ({ workId, onClose }) => {
@@ -9,7 +9,8 @@ const WorkModal = ({ workId, onClose }) => {
   const sections = [
     { title: 'Overview', id: 'overview' },
     { title: 'Process', id: 'process' },
-    { title: 'Results', id: 'results' },
+    { title: 'Impact', id: 'impact' },
+    { title: 'Gallery', id: 'gallery' },
   ];
 
   useEffect(() => {
@@ -56,10 +57,6 @@ const WorkModal = ({ workId, onClose }) => {
             <div className="modal-hero-image-wrapper">
               <img src={cardImage} alt={`Project ${workId}`} className="modal-hero-image" />
               <div className="modal-hero-overlay" />
-            </div>
-            <div className="modal-project-number">
-              <span className="modal-number-label">Project</span>
-              <span className="modal-number-value">0{workId}</span>
             </div>
           </motion.div>
 
@@ -169,7 +166,7 @@ const WorkModal = ({ workId, onClose }) => {
 
                 {activeSection === 2 && (
                   <>
-                    <h1 className="modal-title">Results & Impact</h1>
+                    <h1 className="modal-title">Impact</h1>
                     <p className="modal-subtitle">Project Outcomes / Key Achievements</p>
                     <div className="modal-divider" />
                     <p className="modal-text">
@@ -182,6 +179,20 @@ const WorkModal = ({ workId, onClose }) => {
                       <span className="modal-tag">150% Engagement</span>
                       <span className="modal-tag">2.5M Impressions</span>
                       <span className="modal-tag">98% Satisfaction</span>
+                    </div>
+                  </>
+                )}
+
+                {activeSection === 3 && (
+                  <>
+                    <h1 className="modal-title">Gallery</h1>
+                    <p className="modal-subtitle">Visual Showcases</p>
+                    <div className="modal-divider" />
+                    <div className="modal-gallery">
+                      <img src={cardImage} alt="Gallery item 1" className="modal-gallery-img" />
+                      <img src={cardImage} alt="Gallery item 2" className="modal-gallery-img" />
+                      <img src={cardImage} alt="Gallery item 3" className="modal-gallery-img" />
+                      <img src={cardImage} alt="Gallery item 4" className="modal-gallery-img" />
                     </div>
                   </>
                 )}

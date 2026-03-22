@@ -87,9 +87,9 @@
       hsla(266, 25%, 70%, calc(var(--card-opacity) * 0.5)) 50%,
       hsla(266, 0%, 60%, 0) 100%
     ),
-    radial-gradient(35% 52% at 55% 20%, #b19eefc4 0%, #b19eef00 100%),
-    radial-gradient(100% 100% at 50% 50%, #b19eefff 1%, #b19eef00 76%),
-    conic-gradient(from 124deg at 50% 50%, #b19eefff 0%, #9f86e8ff 40%, #9f86e8ff 60%, #b19eefff 100%);
+    radial-gradient(35% 52% at 55% 20%, #667eeac4 0%, #667eea00 100%),
+    radial-gradient(100% 100% at 50% 50%, #667eeaff 1%, #667eea00 76%),
+    conic-gradient(from 124deg at 50% 50%, #667eeaff 0%, #5a6fd1ff 40%, #5a6fd1ff 60%, #667eeaff 100%);
   overflow: hidden;
 }
 

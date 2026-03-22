@@ -1,41 +1,41 @@
 .scroll-indicator {
-  position: fixed;
-  bottom: 3rem;
-  left: calc(50% - 20px);
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
-  pointer-events: none;
-  animation: fadeInUp 1s ease-out 1s both, bounce 2s ease-in-out 2s infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 50;
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.2s ease-out, visibility 0.2s ease-out, transform 0.2s ease-out;
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
 }
 
 .scroll-indicator--hidden {
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-50%) translateY(20px);
   pointer-events: none;
 }
 
-.scroll-indicator__arrow {
-  width: 48px;
-  height: 48px;
+.scroll-arrow-glass {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(40, 40, 45, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  margin: 0 auto;
+  animation: bounce 2s infinite;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.scroll-indicator__arrow svg {
-  width: 24px;
-  height: 24px;
+.scroll-arrow {
+  display: block;
 }
 
 @keyframes bounce {
@@ -43,26 +43,9 @@
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   60% {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
   }
 }
-
-@media (max-width: 768px) {
-  .scroll-indicator {
-    bottom: 2rem;
-  }
-  
-  .scroll-indicator__arrow {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .scroll-indicator__arrow svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import VideoBackground from '../components/VideoBackground';
 import TiltedCard from '../components/TiltedCard';
+import BorderGlow from '../components/BorderGlow';
 import ScrollIndicator from '../components/ScrollIndicator';
 import ProfileCard from '../components/ProfileCard';
 import Folder from '../components/Folder';
@@ -10,10 +11,12 @@ import WorkModal from '../components/WorkModal';
 import ResumeModal from '../components/ResumeModal';
 import PerformanceOptimized from '../components/PerformanceOptimized';
 import StarConstellation from '../components/StarConstellation';
+import ZenPond from '../components/ZenPond';
 import { Suspense, lazy } from 'react';
 import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremierepro, SiFigma, SiBlender, SiAdobelightroom, SiDavinciresolve, SiInstagram, SiLinkedin, SiAdobeaudition, SiAutodesk, SiCinema4D, SiThreedotjs } from 'react-icons/si';
 import { HiMail } from 'react-icons/hi';
-import cardImage from '../assets/card-1.jpeg';
+import cardImage from '../assets/port1.jpg';
+import card1Image from '../assets/szia.png';
 import portraitImage from '../assets/portrait-1.png';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
@@ -106,139 +109,87 @@ const Home = () => {
         <ScrollIndicator />
       </section>
 
+      {/* Section 1: Work / Images — no floating effect, solid transition */}
+      <div>
       <section id="work" className="cards-section">
         <div className="cards-container">
-          <div onClick={() => setSelectedWork(1)} style={{ cursor: 'pointer' }}>
-            <TiltedCard
-              imageSrc={cardImage}
-              altText="Project Card 1"
-              captionText="Project Showcase 1"
-              containerHeight="400px"
-              containerWidth="400px"
-              imageHeight="400px"
-              imageWidth="400px"
-              rotateAmplitude={12}
-              scaleOnHover={1.2}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={false}
-              projectName="Project 1"
-            />
-          </div>
-          <div onClick={() => setSelectedWork(2)} style={{ cursor: 'pointer' }}>
-            <TiltedCard
-              imageSrc={cardImage}
-              altText="Project Card 2"
-              captionText="Project Showcase 2"
-              containerHeight="400px"
-              containerWidth="400px"
-              imageHeight="400px"
-              imageWidth="400px"
-              rotateAmplitude={12}
-              scaleOnHover={1.2}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={false}
-              projectName="Project 2"
-            />
-          </div>
-          <div onClick={() => setSelectedWork(3)} style={{ cursor: 'pointer' }}>
-            <TiltedCard
-              imageSrc={cardImage}
-              altText="Project Card 3"
-              captionText="Project Showcase 3"
-              containerHeight="400px"
-              containerWidth="400px"
-              imageHeight="400px"
-              imageWidth="400px"
-              rotateAmplitude={12}
-              scaleOnHover={1.2}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={false}
-              projectName="Project 3"
-            />
-          </div>
-          <div onClick={() => setSelectedWork(4)} style={{ cursor: 'pointer' }}>
-            <TiltedCard
-              imageSrc={cardImage}
-              altText="Project Card 4"
-              captionText="Project Showcase 4"
-              containerHeight="400px"
-              containerWidth="400px"
-              imageHeight="400px"
-              imageWidth="400px"
-              rotateAmplitude={12}
-              scaleOnHover={1.2}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={false}
-              projectName="Project 4"
-            />
-          </div>
-          <div onClick={() => setSelectedWork(5)} style={{ cursor: 'pointer' }}>
-            <TiltedCard
-              imageSrc={cardImage}
-              altText="Project Card 5"
-              captionText="Project Showcase 5"
-              containerHeight="400px"
-              containerWidth="400px"
-              imageHeight="400px"
-              imageWidth="400px"
-              rotateAmplitude={12}
-              scaleOnHover={1.2}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={false}
-              projectName="Project 5"
-            />
-          </div>
-          <div onClick={() => setSelectedWork(6)} style={{ cursor: 'pointer' }}>
-            <TiltedCard
-              imageSrc={cardImage}
-              altText="Project Card 6"
-              captionText="Project Showcase 6"
-              containerHeight="400px"
-              containerWidth="400px"
-              imageHeight="400px"
-              imageWidth="400px"
-              rotateAmplitude={12}
-              scaleOnHover={1.2}
-              showMobileWarning={false}
-              showTooltip={false}
-              displayOverlayContent={false}
-              projectName="Project 6"
-            />
-          </div>
+          {[1, 2, 3, 4, 5, 6].map((num) => (
+            <div key={num} onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
+              <BorderGlow
+                className={num % 2 === 1 ? 'tilt-right' : 'tilt-left'}
+                edgeSensitivity={30}
+                glowColor="225 80 75"
+                backgroundColor="#0a0a12"
+                borderRadius={16}
+                glowRadius={40}
+                glowIntensity={1}
+                coneSpread={25}
+                animated={false}
+                colors={['#667eea', '#5a7ef5', '#4f8fff']}
+              >
+                <div className="project-card-wrapper">
+                  <img
+                    src={card1Image}
+                    alt={`Project Card ${num}`}
+                    style={{
+                      width: '400px',
+                      height: '400px',
+                      objectFit: 'cover',
+                      display: 'block',
+                      borderRadius: '16px',
+                    }}
+                  />
+                  <div className="project-card-overlay">
+                    <span className="project-card-label">Project {num}</span>
+                  </div>
+                </div>
+              </BorderGlow>
+            </div>
+          ))}
+        </div>
+      </section>
+      </div>
+
+      {/* CARD 2: About + Skills */}
+      <div className="scroll-card">
+      <section id="about" className="about-section">
+        <div style={{width: '100%', padding: '0 2rem'}}>
+          <p className="section-label">About</p>
+          <h2 className="section-title">Get To Know Me</h2>
         </div>
       </section>
 
-      <section id="about" className="about-section">
-        <h2 className="about-title breathe-title" ref={aboutTitleRef}>
-          <span className="meta-text">about</span>
-        </h2>
-        <p className="section-subtitle">here is a little bit about myself</p>
-      </section>
-
-      <section id="about-card" className="profile-section">
-        <ProfileCard
-          name="Tamas Gal"
-          title="Media Designer"
-          handle="tamasgal"
-          status="Available"
-          avatarUrl={portraitImage}
-          showUserInfo={true}
-          enableTilt={true}
-          enableMobileTilt={false}
-          hideContact={true}
-          monoColor={true}
-        />
-      </section>
-
-      <section className="bio-section">
-        <p className="bio-text">
-          Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity. What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI. I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together. In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.
-        </p>
+      <section className="about-combined-section">
+        <div className="about-content-wrapper">
+          <div className="bio-container">
+            <p className="bio-text">
+              Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.
+            </p>
+            <p className="bio-text">
+              What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.
+            </p>
+            <p className="bio-text">
+              I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.
+            </p>
+            <p className="bio-text">
+              In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.
+            </p>
+          </div>
+          <div id="about-card" className="profile-container">
+            <ProfileCard
+              name="Tamas Gal"
+              title="Media Designer"
+              handle="tamasgal"
+              status="Available"
+              avatarUrl={portraitImage}
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={false}
+              hideContact={true}
+              monoColor={true}
+            />
+          </div>
+        </div>
       </section>
 
       <section className="skills-section">
@@ -269,19 +220,27 @@ const Home = () => {
           </div>
         </div>
       </section>
+      </div>
 
+      {/* CARD 3: Zen Pond */}
+      <div className="scroll-card">
+      <ZenPond />
+      </div>
+
+      {/* CARD 4: Contact */}
+      <div className="scroll-card">
       <section id="contact" className="contact-section">
-        <h2 className="contact-title breathe-title" ref={contactTitleRef}>
-          <span className="meta-text">contact</span>
-        </h2>
-        <p className="section-subtitle">let's make something cool together</p>
+        <div style={{width: '100%', padding: '0 2rem'}}>
+          <p className="section-label">Get in Touch</p>
+          <h2 className="section-title">Let's Chat</h2>
+        </div>
       </section>
 
       <section id="contact-folder" className="folder-section">
         <StarConstellation side="left" />
 
         <div className="folder-container">
-          <Folder size={2} color="#b19eef" className="custom-folder" items={socialItems} />
+          <Folder size={2} color="#667eea" className="custom-folder" items={socialItems} />
           <div className="folder-base-line" />
         </div>
 
@@ -291,6 +250,7 @@ const Home = () => {
       <footer className="footer">
         <p className="footer-text">Created by Tamas Gal - All rights reserved</p>
       </footer>
+      </div>
 
       {selectedWork && (
         <WorkModal
