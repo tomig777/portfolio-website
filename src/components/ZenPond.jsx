@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import './ZenPond.css';
+import ShinyText from './ShinyText';
 
 const ZenPond = () => {
   const canvasRef = useRef(null);
@@ -437,7 +438,20 @@ const ZenPond = () => {
       <div className="container">
         <div style={{width: '100%', marginBottom: '2.5rem'}}>
           <p className="section-label">Take a Breath</p>
-          <h2 className="section-title">The Zen Pond</h2>
+          <h2 className="section-title">
+            <ShinyText
+              text="The Zen Pond"
+              speed={2.5}
+              delay={0}
+              color="#b5b5b5"
+              shineColor="#ffffff"
+              spread={120}
+              direction="left"
+              yoyo={false}
+              pauseOnHover={false}
+              disabled={false}
+            />
+          </h2>
         </div>
         <p className="zen-instruction">Click on the water to skip a stone</p>
         <div className="zen-pond-wrapper" ref={wrapperRef}>

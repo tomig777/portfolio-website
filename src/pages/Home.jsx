@@ -12,6 +12,7 @@ import ResumeModal from '../components/ResumeModal';
 import PerformanceOptimized from '../components/PerformanceOptimized';
 import StarConstellation from '../components/StarConstellation';
 import ZenPond from '../components/ZenPond';
+import ShinyText from '../components/ShinyText';
 import { Suspense, lazy } from 'react';
 import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremierepro, SiFigma, SiBlender, SiAdobelightroom, SiDavinciresolve, SiInstagram, SiLinkedin, SiAdobeaudition, SiAutodesk, SiCinema4D, SiThreedotjs } from 'react-icons/si';
 import { HiMail } from 'react-icons/hi';
@@ -43,7 +44,7 @@ const otherLogos = [
 ];
 
 const socialItems = [
-  <a key="instagram" href="https://www.instagram.com/tomig976/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+  <a key="instagram" href="https://www.instagram.com/arhivetkg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
     <SiInstagram />
   </a>,
   <a key="linkedin" href="https://www.linkedin.com/in/tamasgal77/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -155,7 +156,20 @@ const Home = () => {
       <section id="about" className="about-section">
         <div style={{width: '100%', padding: '0 2rem'}}>
           <p className="section-label">About</p>
-          <h2 className="section-title">Get To Know Me</h2>
+          <h2 className="section-title">
+            <ShinyText
+              text="Get To Know Me"
+              speed={2.5}
+              delay={0}
+              color="#b5b5b5"
+              shineColor="#ffffff"
+              spread={120}
+              direction="left"
+              yoyo={false}
+              pauseOnHover={false}
+              disabled={false}
+            />
+          </h2>
         </div>
       </section>
 
@@ -232,7 +246,20 @@ const Home = () => {
       <section id="contact" className="contact-section">
         <div style={{width: '100%', padding: '0 2rem'}}>
           <p className="section-label">Get in Touch</p>
-          <h2 className="section-title">Let's Chat</h2>
+          <h2 className="section-title">
+            <ShinyText
+              text="Let's Chat"
+              speed={2.5}
+              delay={0}
+              color="#b5b5b5"
+              shineColor="#ffffff"
+              spread={120}
+              direction="left"
+              yoyo={false}
+              pauseOnHover={false}
+              disabled={false}
+            />
+          </h2>
         </div>
       </section>
 

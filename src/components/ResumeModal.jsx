@@ -133,7 +133,7 @@ const ResumeModal = ({ onClose }) => {
                                 <div className="resume-modal__contact">
                                     <p>📧 tamas@example.com</p>
                                     <p>📍 Location</p>
-                                    <p>🔗 linkedin.com/in/tamasgal</p>
+                                    <p>🔗 linkedin.com/in/tamasgal77</p>
                                 </div>
                             </section>
                         </div>

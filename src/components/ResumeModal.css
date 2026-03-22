@@ -79,7 +79,7 @@
 }
 
 .resume-modal__title {
-    font-family: 'Delusi', 'Hyperspace Race Capsule', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: clamp(3rem, 8vw, 5rem);
     color: white;
     margin: 0;
@@ -197,7 +197,7 @@
 }
 
 .resume-modal__section h2 {
-    font-family: 'Delusi', 'Hyperspace Race Capsule', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 1.3rem;
     color: #667eea;
     margin: 0 0 15px;

@@ -22,22 +22,6 @@
   overflow: hidden;
 }
 
-/* Blur transition zone — extends ABOVE the section to blend with the previous one */
-.scroll-card::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  left: 0;
-  right: 0;
-  height: 44px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 5;
-  pointer-events: none;
-  border-radius: 24px 24px 0 0;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-}
 
 html {
   scroll-behavior: smooth;
@@ -848,7 +832,6 @@ body {
   font-weight: 700;
   color: #fff;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
@@ -1111,11 +1094,11 @@ html {
 }
 
 .footer-text {
-  font-size: 0.875rem;
-  color: rgba(224, 224, 224, 0.8);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  color: #55556a;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   font-weight: 400;
 }
 

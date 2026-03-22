@@ -203,6 +203,23 @@
   border-radius: 4px;
 }
 
+.modal-scrollable-subtle::-webkit-scrollbar {
+  width: 2px;
+}
+
+.modal-scrollable-subtle::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scrollable-subtle::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.modal-scrollable-subtle::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 120, 0.2);
+}
+
 /* Section content */
 .modal-section {
   padding-right: 20px;
