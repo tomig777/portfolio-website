@@ -760,7 +760,7 @@ body {
 .folder-section {
   position: relative;
   z-index: 3;
-  min-height: auto;
+  min-height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
