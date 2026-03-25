@@ -181,12 +181,15 @@
     bottom: 0;
     background: radial-gradient(ellipse at center, rgba(30, 30, 40, 0.98) 0%, rgba(5, 5, 10, 0.98) 100%);
     backdrop-filter: blur(20px);
-    padding-top: 100px;
     z-index: 999;
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.4s ease, opacity 0.3s ease;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
   }
 
   .header__nav--open {
@@ -197,8 +200,10 @@
 
   .header__menu {
     flex-direction: column;
-    padding: 2rem;
-    gap: 1rem;
+    padding: 0;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: center;
   }
 
   .header__menu li button {
