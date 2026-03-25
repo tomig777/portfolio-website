@@ -372,7 +372,6 @@ class App {
     });
   }
   onTouchDown(e) {
-    this.isDown = true;
     this.scroll.position = this.scroll.current;
     this.start = e.touches ? e.touches[0].clientX : e.clientX;
   }
@@ -400,7 +399,6 @@ class App {
         }
       }
     }
-    this.onCheck();
   }
   onWheel(e) {
     // Manual wheel scrolling disabled per user request
@@ -430,7 +428,7 @@ class App {
     }
   }
   update() {
-    if (!this.isDown && !this.isHovered) {
+    if (!this.isHovered) {
       this.scroll.target += this.scrollSpeed * 0.02;
     }
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
