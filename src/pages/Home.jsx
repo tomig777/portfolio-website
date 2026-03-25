@@ -252,40 +252,44 @@ const Home = () => {
 
       {/* CARD 4: Contact */}
       <div className="scroll-card">
-      <section id="contact" className="contact-section">
-        <div style={{width: '100%', padding: '0 2rem'}}>
-          <p className="section-label">Get in Touch</p>
-          <h2 className="section-title">
-            <ShinyText
-              text="Let's Chat"
-              speed={2.5}
-              delay={0}
-              color="#b5b5b5"
-              shineColor="#ffffff"
-              spread={120}
-              direction="left"
-              yoyo={false}
-              pauseOnHover={false}
-              disabled={false}
-            />
-          </h2>
+        <div style={{ backgroundColor: '#121214', width: '100%' }}>
+          <section id="contact" className="contact-section">
+            <div style={{width: '100%', padding: '0 2rem'}}>
+              <p className="section-label">Get in Touch</p>
+              <h2 className="section-title">
+                <ShinyText
+                  text="Let's Chat"
+                  speed={2.5}
+                  delay={0}
+                  color="#b5b5b5"
+                  shineColor="#ffffff"
+                  spread={120}
+                  direction="left"
+                  yoyo={false}
+                  pauseOnHover={false}
+                  disabled={false}
+                />
+              </h2>
+            </div>
+          </section>
+
+          <section id="contact-folder" className="folder-section">
+            <StarConstellation side="left" />
+
+            <div className="folder-container">
+              <Suspense fallback={<div style={{ minHeight: '50vh' }}/>}>
+                <Folder size={2} color="#667eea" className="custom-folder" items={socialItems} />
+              </Suspense>
+              <div className="folder-base-line" />
+            </div>
+
+            <StarConstellation side="right" />
+          </section>
+
+          <footer className="footer">
+            <p className="footer-text">Created by Tamas Gal - All rights reserved</p>
+          </footer>
         </div>
-      </section>
-
-      <section id="contact-folder" className="folder-section">
-        <StarConstellation side="left" />
-
-        <div className="folder-container">
-          <Folder size={2} color="#667eea" className="custom-folder" items={socialItems} />
-          <div className="folder-base-line" />
-        </div>
-
-        <StarConstellation side="right" />
-      </section>
-
-      <footer className="footer">
-        <p className="footer-text">Created by Tamas Gal - All rights reserved</p>
-      </footer>
       </div>
 
       {selectedWork && (

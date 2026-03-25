@@ -387,7 +387,7 @@ class App {
     const x = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
     const y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
     
-    if (Math.abs(x - this.start) < 5) {
+    if (Math.abs(x - this.start) < 25) {
       if (this.onItemClick && this.medias && this.medias[0]) {
         const width = this.medias[0].width;
         let itemIndex = Math.round(Math.abs(this.scroll.target) / width);
