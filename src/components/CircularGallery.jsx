@@ -388,11 +388,19 @@ class App {
     const y = e.changedTouches ? e.changedTouches[0].clientY : e.clientY;
     
     if (Math.abs(x - this.start) < 25) {
-      if (this.onItemClick && this.medias && this.medias[0]) {
-        const width = this.medias[0].width;
-        let itemIndex = Math.round(Math.abs(this.scroll.target) / width);
-        let actualIndex = itemIndex % this.mediasImages.length;
-        this.onItemClick(this.mediasImages[actualIndex]);
+      const rect = this.container.getBoundingClientRect();
+      const clickX = x - rect.left;
+      const clickY = y - rect.top;
+      const centerX = rect.width / 2;
+      
+      // Bounding box: only trigger if click is horizontally centered and vertically sound (within 30%)
+      if (Math.abs(clickX - centerX) < rect.width * 0.3 && clickY > rect.height * 0.1 && clickY < rect.height * 0.9) {
+        if (this.onItemClick && this.medias && this.medias[0]) {
+          const width = this.medias[0].width;
+          let itemIndex = Math.round(Math.abs(this.scroll.target) / width);
+          let actualIndex = itemIndex % this.mediasImages.length;
+          this.onItemClick(this.mediasImages[actualIndex]);
+        }
       }
     }
     this.onCheck();

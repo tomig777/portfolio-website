@@ -399,7 +399,7 @@
 @media (max-width: 1024px) {
   .modal-container {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: 1fr;
     gap: 30px;
     height: 90vh;
     padding: 20px;
