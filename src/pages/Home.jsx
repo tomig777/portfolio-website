@@ -279,9 +279,8 @@ const Home = () => {
 
           <div className="folder-container">
             <Suspense fallback={<div style={{ minHeight: '50vh' }}/>}>
-              <Folder size={2} color="#667eea" className="custom-folder" items={socialItems} />
+              <Folder size={isMobile ? 1.4 : 2} color="#667eea" className="custom-folder" items={socialItems} />
             </Suspense>
-            <div className="folder-base-line" />
           </div>
 
           <StarConstellation side="right" />
