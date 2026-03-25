@@ -56,7 +56,15 @@ const socialItems = [
 ];
 
 const Home = () => {
-  const [selectedWork, setSelectedWork] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const [activeTab, setActiveTab] = useState('ALL');
   const [showResumeModal, setShowResumeModal] = useState(false);
   const aboutTitleRef = useRef(null);
   const contactTitleRef = useRef(null);
@@ -92,7 +100,7 @@ const Home = () => {
         <ErrorBoundary fallback={null}>
           <Suspense fallback={null}>
             <div className="lanyard-container">
-              <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+              <Lanyard position={isMobile ? [0, 0, 35] : [0, 0, 20]} gravity={[0, -40, 0]} />
             </div>
           </Suspense>
         </ErrorBoundary>

@@ -205,11 +205,11 @@
     width: 100%;
     text-align: center;
     padding: 1.5rem;
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     font-family: 'Outfit', sans-serif;
     color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
-    letter-spacing: 6px;
+    letter-spacing: 3px;
   }
 
   .header__menu li button:hover {

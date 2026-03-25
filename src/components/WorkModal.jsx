@@ -6,9 +6,15 @@ import CircularGallery from './CircularGallery';
 import ShinyText from './ShinyText';
 
 const WorkModal = ({ workId, onClose }) => {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
+    // Track dynamic bounds for webGL configuration radii
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    
     const handleEscape = (e) => {
       if (e.key === 'Escape') onClose();
     };
@@ -17,6 +23,7 @@ const WorkModal = ({ workId, onClose }) => {
     return () => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('resize', handleResize);
     };
   }, [onClose]);
 
@@ -45,7 +52,7 @@ const WorkModal = ({ workId, onClose }) => {
               <div style={{ width: '100%', height: '60vh', position: 'relative' }}>
                 <CircularGallery 
                   items={Array(12).fill({ image: kep9, text: '' })}
-                  bend={3} 
+                  bend={isMobile ? 1.5 : 3} 
                   textColor="#ffffff" 
                   borderRadius={0.05} 
                   font="14px 'Hyperspace Race Capsule', 'Druk', sans-serif"
