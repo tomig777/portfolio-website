@@ -377,10 +377,7 @@ class App {
     this.start = e.touches ? e.touches[0].clientX : e.clientX;
   }
   onTouchMove(e) {
-    if (!this.isDown) return;
-    const x = e.touches ? e.touches[0].clientX : e.clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
-    this.scroll.target = this.scroll.position + distance;
+    // Manual swiping disabled per user request
   }
   onTouchUp(e) {
     this.isDown = false;
@@ -406,9 +403,7 @@ class App {
     this.onCheck();
   }
   onWheel(e) {
-    const delta = e.deltaY || e.wheelDelta || e.detail;
-    this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
-    this.onCheckDebounce();
+    // Manual wheel scrolling disabled per user request
   }
   onCheck() {
     if (!this.medias || !this.medias[0]) return;

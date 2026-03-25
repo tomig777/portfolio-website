@@ -287,7 +287,8 @@
 @media (max-width: 768px) {
     .resume-modal__container {
         grid-template-columns: 1fr;
-        height: auto;
+        height: 100vh;
+        max-height: 100vh;
         padding: 80px 20px 40px;
         gap: 30px;
         overflow-y: auto;
