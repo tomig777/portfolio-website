@@ -1,17 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import VideoBackground from '../components/VideoBackground';
-import TiltedCard from '../components/TiltedCard';
-import BorderGlow from '../components/BorderGlow';
-import ScrollIndicator from '../components/ScrollIndicator';
-import ProfileCard from '../components/ProfileCard';
-import Folder from '../components/Folder';
-import ErrorBoundary from '../components/ErrorBoundary';
 import WorkModal from '../components/WorkModal';
 import ResumeModal from '../components/ResumeModal';
 import PerformanceOptimized from '../components/PerformanceOptimized';
 import StarConstellation from '../components/StarConstellation';
-import ZenPond from '../components/ZenPond';
 import ShinyText from '../components/ShinyText';
 import { Suspense, lazy } from 'react';
 import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremierepro, SiFigma, SiBlender, SiAdobelightroom, SiDavinciresolve, SiInstagram, SiLinkedin, SiAdobeaudition, SiAutodesk, SiCinema4D, SiThreedotjs } from 'react-icons/si';
@@ -23,6 +16,13 @@ import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
 
 const Lanyard = lazy(() => import('../components/Lanyard'));
+const BorderGlow = lazy(() => import('../components/BorderGlow'));
+const ProfileCard = lazy(() => import('../components/ProfileCard'));
+const Folder = lazy(() => import('../components/Folder'));
+const ZenPond = lazy(() => import('../components/ZenPond'));
+const TiltedCard = lazy(() => import('../components/TiltedCard'));
+import ScrollIndicator from '../components/ScrollIndicator';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 const adobeLogos = [
   { node: <SiAdobeillustrator />, title: "Adobe Illustrator" },
@@ -113,41 +113,46 @@ const Home = () => {
       {/* Section 1: Work / Images — no floating effect, solid transition */}
       <div>
       <section id="work" className="cards-section">
-        <div className="cards-container">
-          {[1, 2, 3, 4, 5, 6].map((num) => (
-            <div key={num} onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
-              <BorderGlow
-                className={num % 2 === 1 ? 'tilt-right' : 'tilt-left'}
-                edgeSensitivity={30}
-                glowColor="225 80 75"
-                backgroundColor="#0a0a12"
-                borderRadius={16}
-                glowRadius={40}
-                glowIntensity={1}
-                coneSpread={25}
-                animated={false}
-                colors={['#667eea', '#5a7ef5', '#4f8fff']}
-              >
-                <div className="project-card-wrapper">
-                  <img
-                    src={card1Image}
-                    alt={`Project Card ${num}`}
-                    style={{
-                      width: '400px',
-                      height: '400px',
-                      objectFit: 'cover',
-                      display: 'block',
-                      borderRadius: '16px',
-                    }}
-                  />
-                  <div className="project-card-overlay">
-                    <span className="project-card-label">Project {num}</span>
+        <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#667eea' }}>Loading Gallery...</div>}>
+          <div className="cards-container">
+            {[1, 2, 3, 4, 5, 6].map((num) => (
+              <div key={num} onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
+                <BorderGlow
+                  className={num % 2 === 1 ? 'tilt-right' : 'tilt-left'}
+                  edgeSensitivity={30}
+                  glowColor="225 80 75"
+                  backgroundColor="#0a0a12"
+                  borderRadius={16}
+                  glowRadius={40}
+                  glowIntensity={1}
+                  coneSpread={25}
+                  animated={false}
+                  colors={['#667eea', '#5a7ef5', '#4f8fff']}
+                >
+                  <div className="project-card-wrapper">
+                    <img
+                      src={card1Image}
+                      alt={`Project Card ${num}`}
+                      loading="lazy"
+                      decoding="async"
+                      style={{
+                        width: '100%',
+                        maxWidth: '400px',
+                        aspectRatio: '1/1',
+                        objectFit: 'cover',
+                        display: 'block',
+                        borderRadius: '16px',
+                      }}
+                    />
+                    <div className="project-card-overlay">
+                      <span className="project-card-label">Project {num}</span>
+                    </div>
                   </div>
-                </div>
-              </BorderGlow>
-            </div>
-          ))}
-        </div>
+                </BorderGlow>
+              </div>
+            ))}
+          </div>
+        </Suspense>
       </section>
       </div>
 
@@ -190,18 +195,20 @@ const Home = () => {
             </p>
           </div>
           <div id="about-card" className="profile-container">
-            <ProfileCard
-              name="Tamas Gal"
-              title="Media Designer"
-              handle="tamasgal"
-              status="Available"
-              avatarUrl={portraitImage}
-              showUserInfo={true}
-              enableTilt={true}
-              enableMobileTilt={false}
-              hideContact={true}
-              monoColor={true}
-            />
+            <Suspense fallback={<div style={{ width: '100%', maxWidth: '300px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }}/>}>
+              <ProfileCard
+                name="Tamas Gal"
+                title="Media Designer"
+                handle="tamasgal"
+                status="Available"
+                avatarUrl={portraitImage}
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                hideContact={true}
+                monoColor={true}
+              />
+            </Suspense>
           </div>
         </div>
       </section>
@@ -238,7 +245,9 @@ const Home = () => {
 
       {/* CARD 3: Zen Pond */}
       <div className="scroll-card">
-      <ZenPond />
+        <Suspense fallback={<div style={{ height: '100vh', background: '#000' }}/>}>
+          <ZenPond />
+        </Suspense>
       </div>
 
       {/* CARD 4: Contact */}

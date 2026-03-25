@@ -77,19 +77,22 @@ const Header = ({ onResumeClick }) => {
             className="header__glass"
           >
             <div className="header__content">
+              {/* Persistent Absolute Logo */}
+              <button className="header__logo" onClick={scrollToTop} aria-label="Scroll to top" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', zIndex: 100 }}>
+                <img
+                  src={logoDark}
+                  alt="Logo"
+                  className="header__logo-img"
+                />
+              </button>
+
               <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>
                 <ul className="header__menu header__menu--left">
                   <li><button onClick={() => scrollToSection('about')}>About</button></li>
                   <li><button onClick={() => scrollToSection('work')}>Work</button></li>
                 </ul>
 
-                <button className="header__logo" onClick={scrollToTop} aria-label="Scroll to top">
-                  <img
-                    src={logoDark}
-                    alt="Logo"
-                    className="header__logo-img"
-                  />
-                </button>
+                <div className="desktop-spacer" style={{ width: '100px', flexShrink: 0 }} />
 
                 <ul className="header__menu header__menu--right">
                   <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>

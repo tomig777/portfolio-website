@@ -849,7 +849,7 @@ body {
 
 .hero-text__line {
   display: inline-block;
-  font-size: clamp(120px, 19vw, 340px);
+  font-size: clamp(50px, 15vw, 340px);
   letter-spacing: 0.02em;
   white-space: nowrap;
   font-weight: bold;
@@ -1033,6 +1033,10 @@ p {
   .btn {
     padding: 0.875rem 1.5rem;
     font-size: 0.9rem;
+  }
+
+  .desktop-spacer {
+    display: none;
   }
 }
 
