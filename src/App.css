@@ -644,11 +644,13 @@ body {
 
 @media (max-width: 480px) {
   .skills-row {
-    gap: 2rem;
+    gap: 1.5rem;
+    max-width: 280px;
+    margin: 0 auto;
   }
 
   .skill-item {
-    font-size: 40px;
+    font-size: 36px;
   }
 }
 
@@ -1062,6 +1064,7 @@ p {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding-top: 6rem;
   }
 
   .hero-text__name {
@@ -1075,6 +1078,7 @@ p {
 
   .hero-text__subtitle {
     padding: 0 1rem;
+    margin-top: 6rem;
   }
 }
 
