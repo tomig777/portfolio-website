@@ -56,6 +56,7 @@ const socialItems = [
 ];
 
 const Home = () => {
+  const [selectedWork, setSelectedWork] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
