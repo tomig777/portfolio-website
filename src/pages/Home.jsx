@@ -135,14 +135,7 @@ const Home = () => {
                       alt={`Project Card ${num}`}
                       loading="lazy"
                       decoding="async"
-                      style={{
-                        width: '100%',
-                        maxWidth: '400px',
-                        aspectRatio: '1/1',
-                        objectFit: 'cover',
-                        display: 'block',
-                        borderRadius: '16px',
-                      }}
+                      className="project-card-image"
                     />
                     <div className="project-card-overlay">
                       <span className="project-card-label">Project {num}</span>

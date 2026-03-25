@@ -10,6 +10,12 @@
   transform-origin: center;
 }
 
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    transform: scale(0.65);
+  }
+}
+
 
 
 

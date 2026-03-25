@@ -428,8 +428,9 @@ class App {
     }
   }
   update() {
+    const isMobile = window.innerWidth <= 768;
     if (!this.isHovered) {
-      this.scroll.target += this.scrollSpeed * 0.02;
+      this.scroll.target += this.scrollSpeed * (isMobile ? 0.008 : 0.02);
     }
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';

@@ -798,6 +798,17 @@ body {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.project-card-image {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
 }
 
 .project-card-wrapper img {
@@ -1028,6 +1039,11 @@ p {
 
   .section {
     padding: 4rem 0;
+  }
+
+  .project-card-image,
+  .project-card-wrapper {
+    max-width: 280px;
   }
 
   .btn {
