@@ -30,34 +30,41 @@
 /* Glow background */
 .single-star-glow {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(224, 224, 224, 0.08) 0%, transparent 70%);
-    transition: all 0.3s ease;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.12) 0%, rgba(113, 196, 255, 0.05) 40%, transparent 70%);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: glowBreath 4s ease-in-out infinite;
+}
+
+@keyframes glowBreath {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
 }
 
 .single-star:hover .single-star-glow {
-    width: 55px;
-    height: 55px;
-    background: radial-gradient(circle, rgba(224, 224, 224, 0.2) 0%, transparent 70%);
+    width: 65px;
+    height: 65px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, rgba(113, 196, 255, 0.15) 40%, transparent 70%);
+    animation: none;
+    opacity: 1;
 }
 
 .single-star.clicked .single-star-glow {
-    width: 70px;
-    height: 70px;
-    background: radial-gradient(circle, rgba(224, 224, 224, 0.35) 0%, transparent 70%);
-    animation: expandGlow 0.6s ease-out;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.5) 0%, rgba(113, 196, 255, 0.2) 40%, transparent 70%);
+    animation: expandGlowPurple 0.6s ease-out;
 }
 
-@keyframes expandGlow {
+@keyframes expandGlowPurple {
     0% {
         transform: scale(0.8);
         opacity: 1;
     }
-
     100% {
-        transform: scale(1.5);
+        transform: scale(1.8);
         opacity: 0;
     }
 }
@@ -121,22 +128,19 @@
 .star-face--left  { transform: translateX(-6px) rotateY(-90deg); }
 .star-face--right { transform: translateX(6px) rotateY(90deg); }
 
-/* Separate glow pulse on click */
 .single-star.clicked .single-star-glow {
-    animation: glowPulse 0.4s ease-out;
+    animation: glowPulsePurple 0.4s ease-out;
 }
 
-@keyframes glowPulse {
+@keyframes glowPulsePurple {
     0% {
         transform: scale(1);
         opacity: 1;
     }
-
     50% {
-        transform: scale(1.4);
+        transform: scale(1.5);
         opacity: 0.8;
     }
-
     100% {
         transform: scale(1);
         opacity: 1;
