@@ -6,6 +6,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Loader from './components/Loader';
 import Home from './pages/Home';
 import RecordBackground from './pages/RecordBackground';
+import Secret from './pages/Secret';
 
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +24,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/record" element={<RecordBackground />} />
+          <Route path="/secret" element={<Secret />} />
         </Routes>
       </ClickSpark>
     </>

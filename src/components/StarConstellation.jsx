@@ -34,13 +34,32 @@ const StarModel = ({ isHovered }) => {
     );
 };
 
-const StarConstellation = ({ side = 'left' }) => {
+const StarConstellation = ({ side = 'left', onEasterEgg }) => {
     const [isClicked, setIsClicked] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const clickCountRef = useRef(0);
+    const clickTimerRef = useRef(null);
 
     const handleClick = () => {
         setIsClicked(true);
         setTimeout(() => setIsClicked(false), 600);
+
+        // Easter egg: triple-click detection
+        clickCountRef.current += 1;
+
+        if (clickTimerRef.current) {
+            clearTimeout(clickTimerRef.current);
+        }
+
+        if (clickCountRef.current >= 3) {
+            clickCountRef.current = 0;
+            if (onEasterEgg) onEasterEgg();
+            return;
+        }
+
+        clickTimerRef.current = setTimeout(() => {
+            clickCountRef.current = 0;
+        }, 600);
     };
 
     return (
@@ -75,3 +94,4 @@ const StarConstellation = ({ side = 'left' }) => {
 useGLTF.preload(starModelUrl);
 
 export default StarConstellation;
+

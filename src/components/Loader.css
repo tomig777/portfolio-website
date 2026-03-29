@@ -26,15 +26,18 @@
   height: 60px;
   width: auto;
   opacity: 0;
-  animation: logoPulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform: scale(0.6) translateY(10px);
+  animation: logoEntrance 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .loader-progress {
-  width: 150px;
+  width: 120px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   overflow: hidden;
   position: relative;
+  opacity: 0;
+  animation: fadeIn 0.6s 0.4s ease forwards;
 }
 
 .loader-progress-bar {
@@ -43,20 +46,48 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: linear-gradient(90deg, rgba(102, 126, 234, 0.6), rgba(255, 255, 255, 0.8));
   transform-origin: left;
-  animation: loadProgress 2.2s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+  animation: loadProgress 2s 0.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
+  transform: scaleX(0);
 }
 
-@keyframes logoPulse {
-  0% { opacity: 0.2; transform: scale(0.98); filter: drop-shadow(0 0 10px rgba(255,255,255,0)); }
-  50% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 25px rgba(255,255,255,0.4)); }
-  100% { opacity: 0.2; transform: scale(0.98); filter: drop-shadow(0 0 10px rgba(255,255,255,0)); }
+/* Logo cinematic entrance: scale up from small, fade in, subtle glow bloom */
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(10px);
+    filter: brightness(0.5) drop-shadow(0 0 0px rgba(255,255,255,0));
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.03) translateY(-2px);
+    filter: brightness(1.2) drop-shadow(0 0 30px rgba(102, 126, 234, 0.5));
+  }
+  60% {
+    transform: scale(0.99) translateY(0);
+    filter: brightness(1) drop-shadow(0 0 20px rgba(102, 126, 234, 0.3));
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: brightness(1) drop-shadow(0 0 15px rgba(102, 126, 234, 0.2));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: brightness(1) drop-shadow(0 0 10px rgba(255,255,255,0.1));
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes loadProgress {
   0% { transform: scaleX(0); }
-  20% { transform: scaleX(0.2); }
-  60% { transform: scaleX(0.7); }
+  30% { transform: scaleX(0.35); }
+  70% { transform: scaleX(0.75); }
   100% { transform: scaleX(1); }
 }

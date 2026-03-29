@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import VideoBackground from '../components/VideoBackground';
 import WorkModal from '../components/WorkModal';
@@ -56,6 +57,7 @@ const socialItems = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
   const [selectedWork, setSelectedWork] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -275,7 +277,7 @@ const Home = () => {
         </section>
 
         <section id="contact-folder" className="folder-section">
-          <StarConstellation side="left" />
+          <StarConstellation side="left" onEasterEgg={() => navigate('/secret')} />
 
           <div className="folder-container">
             <Suspense fallback={<div style={{ minHeight: '50vh' }}/>}>
@@ -284,7 +286,7 @@ const Home = () => {
             <div className="folder-base-line" />
           </div>
 
-          <StarConstellation side="right" />
+          <StarConstellation side="right" onEasterEgg={() => navigate('/secret')} />
         </section>
 
         <footer className="footer">
