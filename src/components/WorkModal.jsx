@@ -52,7 +52,7 @@ const WorkModal = ({ workId, onClose }) => {
               <div style={{ width: '100%', height: '60vh', position: 'relative' }}>
                 <CircularGallery 
                   items={Array(12).fill({ image: kep9, text: '' })}
-                  bend={isMobile ? 1.5 : 3} 
+                  bend={isMobile ? 0 : 3} 
                   textColor="#ffffff" 
                   borderRadius={0.05} 
                   font="14px 'Hyperspace Race Capsule', 'Druk', sans-serif"
