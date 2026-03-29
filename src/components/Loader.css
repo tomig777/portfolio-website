@@ -20,14 +20,15 @@
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
+  perspective: 800px;
 }
 
 .loader-logo {
   height: 60px;
   width: auto;
   opacity: 0;
-  transform: scale(0.6) translateY(10px);
-  animation: logoEntrance 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: scale(0.6) rotateY(90deg);
+  animation: logoSpin 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .loader-progress {
@@ -52,30 +53,29 @@
   transform: scaleX(0);
 }
 
-/* Logo cinematic entrance: scale up from small, fade in, subtle glow bloom */
-@keyframes logoEntrance {
+/* Logo spins in from 90deg (edge-on) to 0deg (facing), scales up, with glow bloom */
+@keyframes logoSpin {
   0% {
     opacity: 0;
-    transform: scale(0.6) translateY(10px);
+    transform: scale(0.6) rotateY(90deg);
     filter: brightness(0.5) drop-shadow(0 0 0px rgba(255,255,255,0));
   }
-  40% {
+  30% {
     opacity: 1;
-    transform: scale(1.03) translateY(-2px);
-    filter: brightness(1.2) drop-shadow(0 0 30px rgba(102, 126, 234, 0.5));
+    transform: scale(1.05) rotateY(15deg);
+    filter: brightness(1.3) drop-shadow(0 0 30px rgba(102, 126, 234, 0.6));
   }
-  60% {
-    transform: scale(0.99) translateY(0);
-    filter: brightness(1) drop-shadow(0 0 20px rgba(102, 126, 234, 0.3));
+  50% {
+    transform: scale(1) rotateY(-8deg);
+    filter: brightness(1.1) drop-shadow(0 0 20px rgba(102, 126, 234, 0.4));
   }
-  80% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+  70% {
+    transform: scale(1.01) rotateY(3deg);
     filter: brightness(1) drop-shadow(0 0 15px rgba(102, 126, 234, 0.2));
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: scale(1) rotateY(0deg);
     filter: brightness(1) drop-shadow(0 0 10px rgba(255,255,255,0.1));
   }
 }
