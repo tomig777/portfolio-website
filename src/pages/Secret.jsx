@@ -9,11 +9,12 @@ const Secret = () => {
   return (
     <div className="secret-page">
       <div className="secret-content">
-        <img
-          src={logoDark}
-          alt="Logo"
+        <div
           className="secret-logo"
+          role="button"
+          tabIndex={-1}
           onClick={() => navigate('/')}
+          style={{ backgroundImage: `url(${logoDark})` }}
         />
       </div>
     </div>
