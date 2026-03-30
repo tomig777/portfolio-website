@@ -37,10 +37,10 @@ const adobeLogos = [
 
 const otherLogos = [
   { node: <SiAutodesk />, title: "Autodesk Maya" },
-  { node: <SiDavinciresolve />, title: "DaVinci Resolve" },
-  { node: <SiBlender />, title: "Blender" },
-  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${nukeLogo})`, maskImage: `url(${nukeLogo})` }} />, title: "Nuke" },
   { node: <SiFigma />, title: "Figma" },
+  { node: <SiBlender />, title: "Blender" },
+  { node: <SiDavinciresolve />, title: "DaVinci Resolve" },
+  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${nukeLogo})`, maskImage: `url(${nukeLogo})` }} />, title: "Nuke" },
   { node: <SiCinema4D />, title: "Cinema 4D" },
   { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${substanceLogo})`, maskImage: `url(${substanceLogo})`, width: '64px', height: '64px' }} />, title: "Substance Painter" },
 ];

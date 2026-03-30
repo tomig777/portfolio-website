@@ -9,12 +9,8 @@
   transform-origin: center;
 }
 
-/* Prevent browser from hijacking touch events on mobile */
+/* Only block touch scrolling on the actual WebGL canvas, not the surrounding area */
 @media (max-width: 768px) {
-  .lanyard-wrapper {
-    touch-action: none;
-  }
-
   .lanyard-wrapper canvas {
     touch-action: none;
   }

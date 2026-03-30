@@ -656,6 +656,24 @@ body {
     max-width: 240px;
   }
 
+  .skills-row--other {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.8rem 0;
+    max-width: 300px;
+  }
+
+  .skills-row--other .skill-item {
+    flex: 0 0 33.33%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .skills-row--other .skill-item:nth-child(n+4) {
+    flex: 0 0 25%;
+  }
+
   .skill-item {
     font-size: 38px;
     justify-self: center;
