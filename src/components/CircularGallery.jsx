@@ -200,10 +200,16 @@ class Media {
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.src = this.image;
-    img.onload = () => {
+    // If the image is already in browser cache, upload texture synchronously
+    if (img.complete && img.naturalWidth) {
       texture.image = img;
       this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
-    };
+    } else {
+      img.onload = () => {
+        texture.image = img;
+        this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+      };
+    }
   }
   createMesh() {
     this.plane = new Mesh(this.gl, {
