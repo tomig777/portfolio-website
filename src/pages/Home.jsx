@@ -40,9 +40,9 @@ const otherLogos = [
   { node: <SiFigma />, title: "Figma" },
   { node: <SiBlender />, title: "Blender" },
   { node: <SiDavinciresolve />, title: "DaVinci Resolve" },
-  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${nukeLogo})`, maskImage: `url(${nukeLogo})` }} />, title: "Nuke" },
+  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${nukeLogo})`, maskImage: `url(${nukeLogo})`, width: '44px', height: '44px' }} />, title: "Nuke" },
   { node: <SiCinema4D />, title: "Cinema 4D" },
-  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${substanceLogo})`, maskImage: `url(${substanceLogo})`, width: '64px', height: '64px' }} />, title: "Substance Painter" },
+  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${substanceLogo})`, maskImage: `url(${substanceLogo})`, width: '50px', height: '50px' }} />, title: "Substance Painter" },
 ];
 
 const socialItems = [
