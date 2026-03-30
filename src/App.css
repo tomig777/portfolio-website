@@ -381,8 +381,8 @@ body {
 
 @media (max-width: 768px) {
   .lanyard-container {
-    height: 45vh;
-    top: 20%;
+    height: 30vh;
+    top: 12%;
   }
 }
 
