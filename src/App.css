@@ -631,31 +631,34 @@ body {
 
 @media (max-width: 768px) {
   .skills-container {
-    gap: 3rem;
-  }
-
-  .skills-row {
     gap: 2.5rem;
   }
 
+  .skills-row {
+    gap: 2rem;
+  }
+
   .skill-item {
-    font-size: 48px;
+    font-size: 44px;
   }
 }
 
 @media (max-width: 480px) {
   .skills-row {
-    gap: 1.5rem;
-    max-width: 320px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1.5rem;
+    max-width: 240px;
     margin: 0 auto;
   }
 
   .skills-row--adobe {
-    max-width: 250px;
+    max-width: 240px;
   }
 
   .skill-item {
-    font-size: 36px;
+    font-size: 38px;
+    justify-self: center;
   }
 }
 

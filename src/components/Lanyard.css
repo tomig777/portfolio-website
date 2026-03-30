@@ -9,9 +9,13 @@
   transform-origin: center;
 }
 
+/* Prevent browser from hijacking touch events on mobile */
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    touch-action: none;
+  }
 
-
-
-
-
-
+  .lanyard-wrapper canvas {
+    touch-action: none;
+  }
+}
