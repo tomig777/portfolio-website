@@ -15,6 +15,7 @@ import card1Image from '../assets/szia.png';
 import portraitImage from '../assets/portrait-1.png';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
+import kep9 from '../assets/kep9.png';
 
 const Lanyard = lazy(() => import('../components/Lanyard'));
 const BorderGlow = lazy(() => import('../components/BorderGlow'));
@@ -65,6 +66,12 @@ const Home = () => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Preload gallery image into browser cache so modal opens instantly
+  useEffect(() => {
+    const img = new Image();
+    img.src = kep9;
   }, []);
 
   const [activeTab, setActiveTab] = useState('ALL');
