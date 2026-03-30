@@ -610,8 +610,9 @@ body {
 }
 
 .skill-item:hover {
-  color: #667eea;
-  transform: scale(1.1);
+  color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-4px) scale(1.05);
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15));
 }
 
 /* Custom skill icon masks - uses currentColor for exact color matching */

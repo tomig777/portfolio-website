@@ -395,6 +395,77 @@
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
 }
 
+/* Expanded content section */
+.modal-content-section {
+  padding: 60px 40px;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-content-section .modal-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-family: 'Outfit', sans-serif;
+  text-transform: none;
+}
+
+.modal-content-section .modal-divider {
+  margin-bottom: 30px;
+  width: 80px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-content-section .modal-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.modal-content-section .modal-tags {
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Embedded video */
+.modal-video-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+
+.modal-video {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+/* 3D Asset Viewer */
+.modal-3d-viewer {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  margin: 0 auto 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(30, 30, 40, 0.8) 0%, #0a0a0f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+}
+
+.modal-3d-viewer:active {
+  cursor: grabbing;
+}
+
 /* Mobile responsive */
 @media (max-width: 1024px) {
   .modal-container {
@@ -431,5 +502,23 @@
 
   .modal-stats {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content-section {
+    padding: 40px 20px;
+  }
+
+  .modal-content-section .modal-title {
+    font-size: 1.8rem;
+  }
+
+  .modal-content-section .modal-text {
+    font-size: 1rem;
+  }
+
+  .modal-3d-viewer {
+    height: 280px;
   }
 }
