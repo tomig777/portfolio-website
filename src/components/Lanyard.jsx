@@ -31,6 +31,31 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     return () => observer.disconnect();
   }, []);
 
+  // Only block scrolling for touches in the upper portion of the viewport (lanyard area)
+  useEffect(() => {
+    const canvas = containerRef.current?.querySelector('canvas');
+    if (!canvas) return;
+
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile) return;
+
+    const handleTouch = (e) => {
+      const touchY = e.touches[0].clientY;
+      const threshold = window.innerHeight * 0.4;
+      if (touchY < threshold) {
+        e.preventDefault();
+      }
+    };
+
+    canvas.addEventListener('touchstart', handleTouch, { passive: false });
+    canvas.addEventListener('touchmove', handleTouch, { passive: false });
+
+    return () => {
+      canvas.removeEventListener('touchstart', handleTouch);
+      canvas.removeEventListener('touchmove', handleTouch);
+    };
+  }, []);
+
   return (
     <div ref={containerRef} className="lanyard-wrapper">
       <Canvas

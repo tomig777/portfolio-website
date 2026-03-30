@@ -8,10 +8,3 @@
   align-items: center;
   transform-origin: center;
 }
-
-/* Only block touch scrolling on the actual WebGL canvas, not the surrounding area */
-@media (max-width: 768px) {
-  .lanyard-wrapper canvas {
-    touch-action: none;
-  }
-}

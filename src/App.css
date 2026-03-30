@@ -379,12 +379,7 @@ body {
   overflow: visible;
 }
 
-@media (max-width: 768px) {
-  .lanyard-container {
-    height: 30vh;
-    top: 45%;
-  }
-}
+
 
 .hero-text {
   position: relative;
