@@ -13,22 +13,29 @@ function AppContent() {
   const isHome = location.pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
 
+  const isSecret = location.pathname === '/secret';
+
   return (
     <>
       {isLoading && <Loader onLoadingComplete={() => setIsLoading(false)} />}
-      <ClickSpark
-        sparkColor='#667eea'
-        sparkSize={12}
-        sparkRadius={20}
-        sparkCount={8}
-        duration={500}
-      >
+      {isSecret ? (
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/record" element={<RecordBackground />} />
           <Route path="/secret" element={<Secret />} />
         </Routes>
-      </ClickSpark>
+      ) : (
+        <ClickSpark
+          sparkColor='#667eea'
+          sparkSize={12}
+          sparkRadius={20}
+          sparkCount={8}
+          duration={500}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/record" element={<RecordBackground />} />
+          </Routes>
+        </ClickSpark>
+      )}
     </>
   );
 }
