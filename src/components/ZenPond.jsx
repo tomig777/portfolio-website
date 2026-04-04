@@ -14,42 +14,36 @@ const ZenPond = () => {
     const ctx = canvas.getContext('2d');
     let w, h;
     const ripples = [];
-    const skipStones = [];
+    const stones = [];
     const fishes = [];
-    const fireflies = [];
     let grainImageData = null;
-    let staticCanvas = null; // Pre-rendered rocks + plants
+    let plantsCanvas = null;
     let animationFrameId;
-    let fishSpawned = false;
 
-    // Store rock definitions so they persist across renders
-    let rockDefs = [];
+    let fishSpawned = false;
 
     /* ─── Resize ─── */
     function resize() {
       const rect = wrapper.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) return;
-
+      
       w = canvas.width = rect.width * devicePixelRatio;
       h = canvas.height = rect.height * devicePixelRatio;
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.setTransform(1, 0, 0, 1, 0, 0); // Prevent compounding scales!
       ctx.scale(devicePixelRatio, devicePixelRatio);
       generateGrain();
-      generateRockDefs(rect.width, rect.height);
-      generateStaticLayer(rect.width, rect.height);
+      generatePlants();
 
+      // Spawn fish once, now that we have real dimensions
       if (!fishSpawned) {
-        for (let i = 0; i < 4; i++) fishes.push(new Fish());
+        for (let i = 0; i < 4; i++) {
+          fishes.push(new Fish());
+        }
         fishSpawned = true;
-      }
-
-      // Spawn fireflies once
-      if (fireflies.length === 0) {
-        for (let i = 0; i < 18; i++) fireflies.push(new Firefly(rect.width, rect.height));
       }
     }
 
-    /* ─── Grain texture ─── */
+    /* ─── Grain texture (heavy and organic) ─── */
     function generateGrain() {
       const cw = wrapper.getBoundingClientRect().width;
       const ch = wrapper.getBoundingClientRect().height;
@@ -62,207 +56,66 @@ const ZenPond = () => {
 
       const imgData = offCtx.createImageData(cw, ch);
       for (let i = 0; i < imgData.data.length; i += 4) {
+        // Create a heavier grain by alternating lightness
         const v = Math.random() < 0.5 ? 20 : 60;
         imgData.data[i] = v;
         imgData.data[i + 1] = v;
-        imgData.data[i + 2] = v + 20;
-        imgData.data[i + 3] = 25 + Math.random() * 20;
+        imgData.data[i + 2] = v + 20; // Slight blue tint to noise
+        imgData.data[i + 3] = 25 + Math.random() * 20; // more visible noise
       }
       offCtx.putImageData(imgData, 0, 0);
       grainImageData = offscreen;
     }
 
-    /* ─── Generate rock positions ─── */
-    function generateRockDefs(cw, ch) {
-      rockDefs = [];
-      const rx = cw * 0.47;
-      const ry = ch * 0.47;
-
-      // Place 10-14 rocks in natural clusters along the edge
-      const clusterCenters = [0.3, 1.0, 1.8, 2.6, 3.5, 4.3, 5.1, 5.8];
-      for (const baseAngle of clusterCenters) {
-        const count = 1 + Math.floor(Math.random() * 2);
-        for (let i = 0; i < count; i++) {
-          const angle = baseAngle + (Math.random() - 0.5) * 0.3;
-          const depth = 0.92 + Math.random() * 0.12;
-          const px = cw / 2 + Math.cos(angle) * (rx * depth);
-          const py = ch / 2 + Math.sin(angle) * (ry * depth);
-          const size = 6 + Math.random() * 14;
-          const aspect = 0.5 + Math.random() * 0.4;
-          const rot = Math.random() * Math.PI;
-          const darkness = 0.3 + Math.random() * 0.3;
-          rockDefs.push({ px, py, size, aspect, rot, darkness });
-        }
-      }
-    }
-
-    /* ─── Draw a single rock ─── */
-    function drawRock(pCtx, r) {
-      pCtx.save();
-      pCtx.translate(r.px, r.py);
-      pCtx.rotate(r.rot);
-
-      // Shadow
-      pCtx.beginPath();
-      pCtx.ellipse(2, 2, r.size * 1.1, r.size * r.aspect * 1.1, 0, 0, Math.PI * 2);
-      pCtx.fillStyle = `rgba(0, 0, 0, 0.3)`;
-      pCtx.fill();
-
-      // Main rock body
-      pCtx.beginPath();
-      pCtx.ellipse(0, 0, r.size, r.size * r.aspect, 0, 0, Math.PI * 2);
-      const base = Math.floor(40 + r.darkness * 40);
-      const grad = pCtx.createLinearGradient(-r.size, -r.size * r.aspect, r.size, r.size * r.aspect);
-      grad.addColorStop(0, `rgb(${base + 25}, ${base + 22}, ${base + 18})`);
-      grad.addColorStop(1, `rgb(${base - 5}, ${base - 8}, ${base - 12})`);
-      pCtx.fillStyle = grad;
-      pCtx.fill();
-
-      // Highlight
-      pCtx.beginPath();
-      pCtx.ellipse(-r.size * 0.2, -r.size * r.aspect * 0.25, r.size * 0.5, r.size * r.aspect * 0.3, -0.3, 0, Math.PI * 2);
-      pCtx.fillStyle = `rgba(180, 175, 165, 0.15)`;
-      pCtx.fill();
-
-      pCtx.restore();
-    }
-
-    /* ─── Draw plants ─── */
-    function drawPlant(pCtx, x, y, scale) {
-      const height = (25 + Math.random() * 45) * scale;
-      const sway = (Math.random() - 0.5) * 15 * scale;
-      const green = 70 + Math.floor(Math.random() * 50);
-      const alpha = 0.6 + Math.random() * 0.4;
-
-      // Stem
-      pCtx.beginPath();
-      pCtx.moveTo(x, y);
-      pCtx.quadraticCurveTo(x + sway * 0.5, y - height * 0.5, x + sway, y - height);
-      pCtx.strokeStyle = `rgba(${60 + Math.random() * 30}, ${green}, ${50 + Math.random() * 30}, ${alpha})`;
-      pCtx.lineWidth = (1 + Math.random()) * scale;
-      pCtx.lineCap = 'round';
-      pCtx.stroke();
-
-      // Cattail head (only on some)
-      if (Math.random() > 0.5) {
-        const fluffY = y - height * (0.6 + Math.random() * 0.3);
-        const fluffX = x + sway * (1 - (y - fluffY) / height);
-        pCtx.beginPath();
-        pCtx.moveTo(fluffX, fluffY + 5 * scale);
-        pCtx.lineTo(fluffX, fluffY - 5 * scale);
-        pCtx.strokeStyle = `rgba(${100 + Math.random() * 40}, ${65 + Math.random() * 25}, ${30 + Math.random() * 15}, ${alpha})`;
-        pCtx.lineCap = 'round';
-        pCtx.lineWidth = 3.5 * scale;
-        pCtx.stroke();
-      }
-
-      // Blade leaf (some plants)
-      if (Math.random() > 0.6) {
-        const leafY = y - height * (0.3 + Math.random() * 0.3);
-        const leafX = x + sway * 0.4;
-        const dir = Math.random() > 0.5 ? 1 : -1;
-        pCtx.beginPath();
-        pCtx.moveTo(leafX, leafY);
-        pCtx.quadraticCurveTo(leafX + dir * 12 * scale, leafY - 8 * scale, leafX + dir * 8 * scale, leafY - 14 * scale);
-        pCtx.strokeStyle = `rgba(${70 + Math.random() * 30}, ${green - 10}, ${50 + Math.random() * 20}, ${alpha * 0.7})`;
-        pCtx.lineWidth = 1 * scale;
-        pCtx.stroke();
-      }
-    }
-
-    /* ─── Generate static layer (rocks + plants) ─── */
-    function generateStaticLayer(cw, ch) {
+    /* ─── Draw Plants around pond edges ─── */
+    function generatePlants() {
+      const cw = wrapper.getBoundingClientRect().width;
+      const ch = wrapper.getBoundingClientRect().height;
       if (cw === 0 || ch === 0) return;
 
-      staticCanvas = document.createElement('canvas');
-      staticCanvas.width = cw;
-      staticCanvas.height = ch;
-      const pCtx = staticCanvas.getContext('2d');
+      plantsCanvas = document.createElement('canvas');
+      plantsCanvas.width = cw;
+      plantsCanvas.height = ch;
+      const pCtx = plantsCanvas.getContext('2d');
 
-      // Draw rocks first (behind plants)
-      for (const r of rockDefs) {
-        drawRock(pCtx, r);
-      }
+      function drawCattail(x, y, scale) {
+        const height = (30 + Math.random() * 40) * scale;
+        const sway = (Math.random() - 0.5) * 20 * scale;
 
-      // Place plants in natural clusters near rocks and around edge
-      const rx = cw * 0.48;
-      const ry = ch * 0.48;
+        pCtx.beginPath();
+        pCtx.moveTo(x, y);
+        pCtx.quadraticCurveTo(x + sway * 0.5, y - height * 0.5, x + sway, y - height);
+        pCtx.strokeStyle = `rgba(100, 130, 90, ${0.7 + Math.random() * 0.3})`;
+        pCtx.lineWidth = 1.5 * scale;
+        pCtx.stroke();
 
-      // Cluster plants around rocks
-      for (const r of rockDefs) {
-        const clusterSize = 3 + Math.floor(Math.random() * 5);
-        for (let i = 0; i < clusterSize; i++) {
-          const offsetX = (Math.random() - 0.5) * r.size * 3;
-          const offsetY = (Math.random() - 0.5) * r.size * 2;
-          drawPlant(pCtx, r.px + offsetX, r.py + offsetY, 0.4 + Math.random() * 0.5);
+        if (Math.random() > 0.3) {
+          const fluffY = y - height * (0.6 + Math.random() * 0.3);
+          const fluffX = x + sway * (1 - (y - fluffY) / height);
+          pCtx.beginPath();
+          pCtx.moveTo(fluffX, fluffY + 6 * scale);
+          pCtx.lineTo(fluffX, fluffY - 6 * scale);
+          pCtx.strokeStyle = '#8B5A2B';
+          pCtx.lineCap = 'round';
+          pCtx.lineWidth = 4 * scale;
+          pCtx.stroke();
         }
       }
 
-      // Sparse plants along the rest of the edge
-      for (let i = 0; i < 30; i++) {
-        const angle = Math.random() * Math.PI * 2;
-        const depth = 0.95 + Math.random() * 0.08;
+      // Distribute plants along the ENTIRE perimeter, ALL pushed to the very edge
+      for (let i = 0; i < 80; i++) {
+        const angle = Math.random() * Math.PI * 2; 
+        // Use the full half-width/height so plants sit right at the CSS clip boundary
+        const rx = cw * 0.50; 
+        const ry = ch * 0.50;
+        
+        // All plants sit at or beyond the ellipse edge (depth >= 1.0)
+        const depth = 0.98 + Math.random() * 0.06;
+        
         const px = cw / 2 + Math.cos(angle) * (rx * depth);
         const py = ch / 2 + Math.sin(angle) * (ry * depth);
-        drawPlant(pCtx, px, py, 0.3 + Math.random() * 0.4);
-      }
-    }
-
-    /* ─── Firefly ─── */
-    class Firefly {
-      constructor(cw, ch) {
-        this.cw = cw;
-        this.ch = ch;
-        this.reset();
-      }
-      reset() {
-        // Stay within pond ellipse
-        const angle = Math.random() * Math.PI * 2;
-        const r = Math.random() * 0.85;
-        this.x = this.cw / 2 + Math.cos(angle) * (this.cw * 0.45 * r);
-        this.y = this.ch / 2 + Math.sin(angle) * (this.ch * 0.45 * r);
-        this.vx = (Math.random() - 0.5) * 0.3;
-        this.vy = (Math.random() - 0.5) * 0.3;
-        this.phase = Math.random() * Math.PI * 2;
-        this.speed = 0.01 + Math.random() * 0.02;
-        this.size = 1 + Math.random() * 1.5;
-        this.maxAlpha = 0.3 + Math.random() * 0.5;
-      }
-      update() {
-        this.phase += this.speed;
-        this.x += this.vx + Math.sin(this.phase * 1.3) * 0.15;
-        this.y += this.vy + Math.cos(this.phase * 0.9) * 0.1;
-
-        // Gentle direction changes
-        if (Math.random() < 0.005) {
-          this.vx = (Math.random() - 0.5) * 0.3;
-          this.vy = (Math.random() - 0.5) * 0.3;
-        }
-
-        // Keep within pond bounds
-        const dx = (this.x - this.cw / 2) / (this.cw * 0.42);
-        const dy = (this.y - this.ch / 2) / (this.ch * 0.42);
-        if (dx * dx + dy * dy > 1) {
-          this.vx += (this.cw / 2 - this.x) * 0.003;
-          this.vy += (this.ch / 2 - this.y) * 0.003;
-        }
-      }
-      draw() {
-        const glow = (Math.sin(this.phase * 2) + 1) * 0.5;
-        const alpha = glow * this.maxAlpha;
-        if (alpha < 0.05) return;
-
-        // Outer glow
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200, 230, 150, ${alpha * 0.15})`;
-        ctx.fill();
-
-        // Core
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(220, 255, 180, ${alpha})`;
-        ctx.fill();
+        
+        drawCattail(px, py, 0.4 + Math.random() * 0.5);
       }
     }
 
@@ -281,7 +134,9 @@ const ZenPond = () => {
         this.radius += this.speed;
         this.alpha -= 0.005;
         this.lineWidth = Math.max(0.3, 2 - (this.radius / this.maxRadius) * 2);
-        if (this.alpha <= 0 || this.radius >= this.maxRadius) this.done = true;
+        if (this.alpha <= 0 || this.radius >= this.maxRadius) {
+          this.done = true;
+        }
       }
       draw() {
         if (this.done) return;
@@ -301,21 +156,25 @@ const ZenPond = () => {
       }
     }
 
-    class SkipStone {
+    class Stone {
       constructor(startX, startY) {
         this.bounces = 0;
-        this.maxBounces = 3 + Math.floor(Math.random() * 3);
+        this.maxBounces = 3 + Math.floor(Math.random() * 3); 
         this.done = false;
+
         this.x = startX;
-        this.y = startY;
-        this.z = 0;
-        this.vx = (Math.random() - 0.5) * 1.5;
-        this.vy = -1.5 - Math.random() * 1.5;
-        this.vz = 4 + Math.random() * 2;
+        this.y = startY; 
+        this.z = 0; 
+
+        this.vx = (Math.random() - 0.5) * 1.5; 
+        this.vy = -1.5 - Math.random() * 1.5; 
+        this.vz = 4 + Math.random() * 2; 
+
         this.gravity = 0.25;
         this.radius = 4;
         this.alpha = 1;
         this.trail = [];
+
         this.createRipple();
       }
       createRipple() {
@@ -323,6 +182,7 @@ const ZenPond = () => {
       }
       update() {
         if (this.done) return;
+
         this.trail.push({ x: this.x, y: this.y, z: this.z, alpha: 0.5 });
         if (this.trail.length > 8) this.trail.shift();
         this.trail.forEach(t => (t.alpha *= 0.85));
@@ -340,25 +200,27 @@ const ZenPond = () => {
             return;
           }
           this.z = 0;
-          this.vz = Math.abs(this.vz) * (0.6 - this.bounces * 0.05);
-          this.vy *= 0.9;
+          this.vz = Math.abs(this.vz) * (0.6 - this.bounces * 0.05); 
+          this.vy *= 0.9; 
           this.vx *= 0.9;
           this.createRipple();
         }
+
         this.alpha = Math.max(0, 1 - this.bounces * 0.15);
         this.radius = Math.max(1.5, 4 - this.bounces * 0.4);
+
         if (this.y < -20) this.done = true;
       }
       draw() {
         if (this.done) return;
 
-        // Shadow
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius * 0.8, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(0, 0, 0, ${this.alpha * 0.3})`;
         ctx.fill();
 
         const drawY = this.y - this.z;
+
         this.trail.forEach(t => {
           ctx.beginPath();
           ctx.arc(t.x, t.y - t.z, 1.5, 0, Math.PI * 2);
@@ -368,29 +230,53 @@ const ZenPond = () => {
 
         ctx.save();
         ctx.translate(this.x, drawY);
-        ctx.rotate(this.x * 0.05);
+        ctx.rotate(this.x * 0.05); // Spin as it moves X
+
         ctx.beginPath();
+        // Squashed ellipse (1.6x wider) for that classic flat skipping stone
         ctx.ellipse(0, 0, this.radius * 1.6, this.radius * 0.8, 0, 0, Math.PI * 2);
+        
         const stoneGrad = ctx.createLinearGradient(-this.radius, -this.radius, this.radius, this.radius);
-        stoneGrad.addColorStop(0, `rgba(140, 145, 150, ${this.alpha})`);
-        stoneGrad.addColorStop(1, `rgba(60, 65, 75, ${this.alpha})`);
+        stoneGrad.addColorStop(0, `rgba(140, 145, 150, ${this.alpha})`); // Lit top edge
+        stoneGrad.addColorStop(1, `rgba(60, 65, 75, ${this.alpha})`);    // shadowed bottom
+        
         ctx.fillStyle = stoneGrad;
         ctx.fill();
 
+        // Subtle specular highlight on the upper curve
         ctx.beginPath();
         ctx.ellipse(-this.radius * 0.2, -this.radius * 0.3, this.radius * 0.9, this.radius * 0.3, 0, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.15})`;
         ctx.fill();
+
         ctx.restore();
       }
     }
 
+    function drawWater() {
+      const cw = wrapper.getBoundingClientRect().width;
+      const ch = wrapper.getBoundingClientRect().height;
+
+      const grad = ctx.createLinearGradient(0, 0, 0, ch);
+      grad.addColorStop(0, '#2b4d66');
+      grad.addColorStop(0.5, '#355c7a');
+      grad.addColorStop(1, '#2c4a63');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, cw, ch);
+
+      if (grainImageData) {
+        ctx.drawImage(grainImageData, 0, 0);
+      }
+    }
+
+    /* ─── Shadow Fish ─── */
     class Fish {
       constructor() {
+        // Store positions as normalized 0-1 fractions of the pond
         this.nx = 0.15 + Math.random() * 0.7;
         this.ny = 0.2 + Math.random() * 0.6;
         this.size = 8 + Math.random() * 12;
-        this.baseSpeed = 0.0005 + Math.random() * 0.0005;
+        this.baseSpeed = 0.0005 + Math.random() * 0.0005; // normalized speed
         this.speed = this.baseSpeed;
         this.angle = Math.random() * Math.PI * 2;
         this.turnSpeed = (Math.random() - 0.5) * 0.02;
@@ -417,10 +303,13 @@ const ZenPond = () => {
         }
         if (!this.fleeing) {
           this.angle += this.turnSpeed;
-          if (Math.random() < 0.01) this.turnSpeed = (Math.random() - 0.5) * 0.02;
+          if (Math.random() < 0.01) {
+            this.turnSpeed = (Math.random() - 0.5) * 0.02;
+          }
         }
         this.nx += Math.cos(this.angle) * this.speed;
         this.ny += Math.sin(this.angle) * this.speed;
+        // Keep fish within the pond ellipse (centered at 0.5, 0.5)
         const dx = (this.nx - 0.5) / 0.38;
         const dy = (this.ny - 0.5) / 0.38;
         if (dx * dx + dy * dy > 1) {
@@ -434,12 +323,14 @@ const ZenPond = () => {
         ctx.translate(px, py);
         ctx.rotate(this.angle);
         ctx.globalAlpha = this.alpha;
-
+        
+        // Body – elongated teardrop
         ctx.beginPath();
         ctx.ellipse(0, 0, this.size, this.size * 0.35, 0, 0, Math.PI * 2);
         ctx.fillStyle = '#1a2a3a';
         ctx.fill();
-
+        
+        // Tail with subtle wag
         const tailWag = Math.sin(this.tailPhase) * 4;
         ctx.beginPath();
         ctx.moveTo(-this.size * 0.8, 0);
@@ -448,24 +339,10 @@ const ZenPond = () => {
         ctx.closePath();
         ctx.fillStyle = '#1a2a3a';
         ctx.fill();
-
+        
         ctx.globalAlpha = 1;
         ctx.restore();
       }
-    }
-
-    function drawWater() {
-      const cw = wrapper.getBoundingClientRect().width;
-      const ch = wrapper.getBoundingClientRect().height;
-
-      const grad = ctx.createLinearGradient(0, 0, 0, ch);
-      grad.addColorStop(0, '#2b4d66');
-      grad.addColorStop(0.5, '#355c7a');
-      grad.addColorStop(1, '#2c4a63');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, cw, ch);
-
-      if (grainImageData) ctx.drawImage(grainImageData, 0, 0);
     }
 
     function animate() {
@@ -473,44 +350,41 @@ const ZenPond = () => {
       const ch = wrapper.getBoundingClientRect().height;
       if (cw > 0 && ch > 0) {
         ctx.clearRect(0, 0, cw, ch);
+
         drawWater();
 
-        // Fish (under everything)
+        // Draw fish shadows (under plants)
         for (const fish of fishes) {
           fish.update();
           fish.draw(cw, ch);
         }
 
-        // Static layer (rocks + plants)
-        if (staticCanvas) ctx.drawImage(staticCanvas, 0, 0);
-
-        // Fireflies (above plants)
-        for (const ff of fireflies) {
-          ff.update();
-          ff.draw();
+        if (plantsCanvas) {
+          ctx.drawImage(plantsCanvas, 0, 0);
         }
 
-        // Ripples
         for (let i = ripples.length - 1; i >= 0; i--) {
           ripples[i].update();
           ripples[i].draw();
           if (ripples[i].done) ripples.splice(i, 1);
         }
 
-        // Stones
-        for (let i = skipStones.length - 1; i >= 0; i--) {
-          skipStones[i].update();
-          skipStones[i].draw();
-          if (skipStones[i].done) skipStones.splice(i, 1);
+        for (let i = stones.length - 1; i >= 0; i--) {
+          stones[i].update();
+          stones[i].draw();
+          if (stones[i].done) stones.splice(i, 1);
         }
       }
 
       animationFrameId = requestAnimationFrame(animate);
     }
 
+    // Use a ResizeObserver to perfectly catch the final CSS layout!
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
-        if (entry.contentRect.width > 0) resize();
+        if (entry.contentRect.width > 0) {
+          resize();
+        }
       }
     });
     resizeObserver.observe(wrapper);
@@ -519,12 +393,17 @@ const ZenPond = () => {
 
     const handleClick = (e) => {
       const rect = canvas.getBoundingClientRect();
-      const x = (e.clientX || e.pageX) - rect.left;
-      const y = (e.clientY || e.pageY) - rect.top;
-      skipStones.push(new SkipStone(x, y));
+      const clickX = e.clientX || e.pageX;
+      const clickY = e.clientY || e.pageY;
+      const x = clickX - rect.left;
+      const y = clickY - rect.top;
+      stones.push(new Stone(x, y));
+      // Scare nearby fish (convert to normalized coords)
       const nx = x / rect.width;
       const ny = y / rect.height;
-      for (const fish of fishes) fish.flee(nx, ny);
+      for (const fish of fishes) {
+        fish.flee(nx, ny);
+      }
     };
 
     const handleTouch = (e) => {
@@ -534,10 +413,13 @@ const ZenPond = () => {
       const touch = e.touches[0];
       const x = touch.clientX - rect.left;
       const y = touch.clientY - rect.top;
-      skipStones.push(new SkipStone(x, y));
+      stones.push(new Stone(x, y));
+      // Scare nearby fish (convert to normalized coords)
       const nx = x / rect.width;
       const ny = y / rect.height;
-      for (const fish of fishes) fish.flee(nx, ny);
+      for (const fish of fishes) {
+        fish.flee(nx, ny);
+      }
     };
 
     canvas.addEventListener('click', handleClick);
