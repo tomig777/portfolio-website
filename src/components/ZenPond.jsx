@@ -14,43 +14,13 @@ const ZenPond = () => {
     const ctx = canvas.getContext('2d');
     let w, h;
     const ripples = [];
-    const skipStones = [];
+    const stones = [];
     const fishes = [];
-    const fireflies = [];
     let grainImageData = null;
-    let staticCanvas = null; // Replaces plantsCanvas to hold both rocks and plants
+    let plantsCanvas = null;
     let animationFrameId;
 
-    // Store rock definitions so they persist across renders
-    let rockDefs = [];
-
-    /* ─── Helper: Get random point on Capsule/Stadium boundary ─── */
-    function getRandomEdgePoint(cw, ch, depth) {
-      const r = ch / 2;
-      const straightLen = Math.max(0, cw - ch);
-      const semiCircLen = Math.PI * r;
-      const totalPerim = straightLen * 2 + semiCircLen * 2;
-      
-      let p = Math.random() * totalPerim;
-      let edgeX, edgeY, cx, cy;
-      
-      if (p < straightLen) {
-        edgeX = r + p; edgeY = 0; cx = edgeX; cy = r;
-      } else if (p < straightLen * 2) {
-        edgeX = r + (p - straightLen); edgeY = ch; cx = edgeX; cy = r;
-      } else if (p < straightLen * 2 + semiCircLen) {
-        const angle = Math.PI / 2 + (Math.PI * (p - straightLen * 2) / semiCircLen);
-        edgeX = r + Math.cos(angle) * r; edgeY = r + Math.sin(angle) * r; cx = r; cy = r;
-      } else {
-        const angle = -Math.PI / 2 + (Math.PI * (p - straightLen * 2 - semiCircLen) / semiCircLen);
-        edgeX = cw - r + Math.cos(angle) * r; edgeY = r + Math.sin(angle) * r; cx = cw - r; cy = r;
-      }
-
-      return {
-        px: cx + (edgeX - cx) * depth,
-        py: cy + (edgeY - cy) * depth
-      };
-    }
+    let fishSpawned = false;
 
     /* ─── Resize ─── */
     function resize() {
@@ -59,21 +29,17 @@ const ZenPond = () => {
       
       w = canvas.width = rect.width * devicePixelRatio;
       h = canvas.height = rect.height * devicePixelRatio;
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.setTransform(1, 0, 0, 1, 0, 0); // Prevent compounding scales!
       ctx.scale(devicePixelRatio, devicePixelRatio);
       generateGrain();
-      
-      // Generate static placements once per resize
-      generateRockDefs(rect.width, rect.height);
-      generateStaticLayer(rect.width, rect.height);
+      generatePlants();
 
+      // Spawn fish once, now that we have real dimensions
       if (!fishSpawned) {
-        for (let i = 0; i < 4; i++) fishes.push(new Fish());
+        for (let i = 0; i < 4; i++) {
+          fishes.push(new Fish());
+        }
         fishSpawned = true;
-      }
-
-      if (fireflies.length === 0) {
-        for (let i = 0; i < 18; i++) fireflies.push(new Firefly(rect.width, rect.height));
       }
     }
 
@@ -101,167 +67,55 @@ const ZenPond = () => {
       grainImageData = offscreen;
     }
 
-    /* ─── Generate Rock Definitions ─── */
-    function generateRockDefs(cw, ch) {
-      rockDefs = [];
-      const numClusters = 6 + Math.floor(Math.random() * 3);
-      for (let c = 0; c < numClusters; c++) {
-        // Base center point on edge with slight inset
-        const base = getRandomEdgePoint(cw, ch, 0.94);
-        const count = 1 + Math.floor(Math.random() * 3);
-        
-        for (let i = 0; i < count; i++) {
-          // Spread rocks around the cluster center
-          const px = base.px + (Math.random() - 0.5) * 30;
-          const py = base.py + (Math.random() - 0.5) * 30;
-          const size = 6 + Math.random() * 12;
-          const aspect = 0.5 + Math.random() * 0.4;
-          const rot = Math.random() * Math.PI;
-          const darkness = 0.3 + Math.random() * 0.4;
-          rockDefs.push({ px, py, size, aspect, rot, darkness });
-        }
-      }
-    }
-
-    /* ─── Draw Single Rock ─── */
-    function drawRock(pCtx, r) {
-      pCtx.save();
-      pCtx.translate(r.px, r.py);
-      pCtx.rotate(r.rot);
-
-      // Shadow
-      pCtx.beginPath();
-      pCtx.ellipse(2, 2, r.size * 1.1, r.size * r.aspect * 1.1, 0, 0, Math.PI * 2);
-      pCtx.fillStyle = `rgba(0, 0, 0, 0.3)`;
-      pCtx.fill();
-
-      // Body
-      pCtx.beginPath();
-      pCtx.ellipse(0, 0, r.size, r.size * r.aspect, 0, 0, Math.PI * 2);
-      const base = Math.floor(40 + r.darkness * 40);
-      const grad = pCtx.createLinearGradient(-r.size, -r.size * r.aspect, r.size, r.size * r.aspect);
-      grad.addColorStop(0, `rgb(${base + 25}, ${base + 22}, ${base + 18})`);
-      grad.addColorStop(1, `rgb(${base - 5}, ${base - 8}, ${base - 12})`);
-      pCtx.fillStyle = grad;
-      pCtx.fill();
-
-      // Specular highlight
-      pCtx.beginPath();
-      pCtx.ellipse(-r.size * 0.2, -r.size * r.aspect * 0.25, r.size * 0.5, r.size * r.aspect * 0.3, -0.3, 0, Math.PI * 2);
-      pCtx.fillStyle = `rgba(180, 175, 165, 0.15)`;
-      pCtx.fill();
-
-      pCtx.restore();
-    }
-
-    /* ─── Draw Single Plant ─── */
-    function drawPlant(pCtx, x, y, scale) {
-      const height = (25 + Math.random() * 40) * scale;
-      const sway = (Math.random() - 0.5) * 15 * scale;
-      const green = 60 + Math.floor(Math.random() * 40);
-      const alpha = 0.6 + Math.random() * 0.4;
-
-      pCtx.beginPath();
-      pCtx.moveTo(x, y);
-      pCtx.quadraticCurveTo(x + sway * 0.5, y - height * 0.5, x + sway, y - height);
-      pCtx.strokeStyle = `rgba(${50 + Math.random() * 30}, ${green}, ${40 + Math.random() * 30}, ${alpha})`;
-      pCtx.lineWidth = (1 + Math.random()) * scale;
-      pCtx.lineCap = 'round';
-      pCtx.stroke();
-
-      if (Math.random() > 0.5) {
-        const fluffY = y - height * (0.6 + Math.random() * 0.3);
-        const fluffX = x + sway * (1 - (y - fluffY) / height);
-        pCtx.beginPath();
-        pCtx.moveTo(fluffX, fluffY + 4 * scale);
-        pCtx.lineTo(fluffX, fluffY - 4 * scale);
-        pCtx.strokeStyle = `rgba(${90 + Math.random() * 30}, ${50 + Math.random() * 20}, ${30 + Math.random() * 15}, ${alpha})`;
-        pCtx.lineCap = 'round';
-        pCtx.lineWidth = 3 * scale;
-        pCtx.stroke();
-      }
-    }
-
-    /* ─── Generate Static Layer (Rocks + Plants) ─── */
-    function generateStaticLayer(cw, ch) {
+    /* ─── Draw Plants around pond edges ─── */
+    function generatePlants() {
+      const cw = wrapper.getBoundingClientRect().width;
+      const ch = wrapper.getBoundingClientRect().height;
       if (cw === 0 || ch === 0) return;
 
-      staticCanvas = document.createElement('canvas');
-      staticCanvas.width = cw;
-      staticCanvas.height = ch;
-      const pCtx = staticCanvas.getContext('2d');
+      plantsCanvas = document.createElement('canvas');
+      plantsCanvas.width = cw;
+      plantsCanvas.height = ch;
+      const pCtx = plantsCanvas.getContext('2d');
 
-      // Draw rocks
-      for (const r of rockDefs) {
-        drawRock(pCtx, r);
-      }
+      function drawCattail(x, y, scale) {
+        const height = (30 + Math.random() * 40) * scale;
+        const sway = (Math.random() - 0.5) * 20 * scale;
 
-      // Draw plants clustered around rocks
-      for (const r of rockDefs) {
-        const clusterSize = 2 + Math.floor(Math.random() * 4);
-        for (let i = 0; i < clusterSize; i++) {
-          const offsetX = (Math.random() - 0.5) * r.size * 3;
-          const offsetY = (Math.random() - 0.5) * r.size * 2;
-          drawPlant(pCtx, r.px + offsetX, r.py + offsetY, 0.4 + Math.random() * 0.5);
+        pCtx.beginPath();
+        pCtx.moveTo(x, y);
+        pCtx.quadraticCurveTo(x + sway * 0.5, y - height * 0.5, x + sway, y - height);
+        pCtx.strokeStyle = `rgba(100, 130, 90, ${0.7 + Math.random() * 0.3})`;
+        pCtx.lineWidth = 1.5 * scale;
+        pCtx.stroke();
+
+        if (Math.random() > 0.3) {
+          const fluffY = y - height * (0.6 + Math.random() * 0.3);
+          const fluffX = x + sway * (1 - (y - fluffY) / height);
+          pCtx.beginPath();
+          pCtx.moveTo(fluffX, fluffY + 6 * scale);
+          pCtx.lineTo(fluffX, fluffY - 6 * scale);
+          pCtx.strokeStyle = '#8B5A2B';
+          pCtx.lineCap = 'round';
+          pCtx.lineWidth = 4 * scale;
+          pCtx.stroke();
         }
       }
 
-      // Draw sparse plants randomly along exact stadium perimeter
-      for (let i = 0; i < 40; i++) {
-        const pt = getRandomEdgePoint(cw, ch, 0.98 + Math.random() * 0.04);
-        drawPlant(pCtx, pt.px, pt.py, 0.3 + Math.random() * 0.5);
-      }
-    }
-
-    /* ─── Firefly ─── */
-    class Firefly {
-      constructor(cw, ch) {
-        this.cw = cw;
-        this.ch = ch;
-        this.reset();
-      }
-      reset() {
-        const pt = getRandomEdgePoint(this.cw, this.ch, Math.random() * 0.85);
-        this.x = pt.px;
-        this.y = pt.py;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.phase = Math.random() * Math.PI * 2;
-        this.speed = 0.01 + Math.random() * 0.02;
-        this.size = 1 + Math.random() * 1.5;
-        this.maxAlpha = 0.3 + Math.random() * 0.6;
-      }
-      update() {
-        this.phase += this.speed;
-        this.x += this.vx + Math.sin(this.phase * 1.3) * 0.2;
-        this.y += this.vy + Math.cos(this.phase * 0.9) * 0.15;
-
-        if (Math.random() < 0.01) {
-          this.vx = (Math.random() - 0.5) * 0.4;
-          this.vy = (Math.random() - 0.5) * 0.4;
-        }
-
-        const r = this.ch / 2;
-        // Approximate bounce back towards center
-        if (this.x < 0 || this.x > this.cw || this.y < 0 || this.y > this.ch) {
-           this.vx += (this.cw / 2 - this.x) * 0.002;
-           this.vy += (this.ch / 2 - this.y) * 0.002;
-        }
-      }
-      draw() {
-        const glow = (Math.sin(this.phase * 2) + 1) * 0.5;
-        const alpha = glow * this.maxAlpha;
-        if (alpha < 0.05) return;
-
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(180, 230, 150, ${alpha * 0.15})`;
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200, 255, 180, ${alpha})`;
-        ctx.fill();
+      // Distribute plants along the ENTIRE perimeter, ALL pushed to the very edge
+      for (let i = 0; i < 80; i++) {
+        const angle = Math.random() * Math.PI * 2; 
+        // Use the full half-width/height so plants sit right at the CSS clip boundary
+        const rx = cw * 0.50; 
+        const ry = ch * 0.50;
+        
+        // All plants sit at or beyond the ellipse edge (depth >= 1.0)
+        const depth = 0.98 + Math.random() * 0.06;
+        
+        const px = cw / 2 + Math.cos(angle) * (rx * depth);
+        const py = ch / 2 + Math.sin(angle) * (ry * depth);
+        
+        drawCattail(px, py, 0.4 + Math.random() * 0.5);
       }
     }
 
@@ -302,7 +156,7 @@ const ZenPond = () => {
       }
     }
 
-    class SkipStone {
+    class Stone {
       constructor(startX, startY) {
         this.bounces = 0;
         this.maxBounces = 3 + Math.floor(Math.random() * 3); 
@@ -499,35 +353,26 @@ const ZenPond = () => {
 
         drawWater();
 
-        // Fish shadows (under rocks/plants)
+        // Draw fish shadows (under plants)
         for (const fish of fishes) {
           fish.update();
           fish.draw(cw, ch);
         }
 
-        // Static Rocks + Plants
-        if (staticCanvas) {
-          ctx.drawImage(staticCanvas, 0, 0);
+        if (plantsCanvas) {
+          ctx.drawImage(plantsCanvas, 0, 0);
         }
 
-        // Fireflies
-        for (const ff of fireflies) {
-          ff.update();
-          ff.draw();
-        }
-
-        // Ripples
         for (let i = ripples.length - 1; i >= 0; i--) {
           ripples[i].update();
           ripples[i].draw();
           if (ripples[i].done) ripples.splice(i, 1);
         }
 
-        // Skipping Stones
-        for (let i = skipStones.length - 1; i >= 0; i--) {
-          skipStones[i].update();
-          skipStones[i].draw();
-          if (skipStones[i].done) skipStones.splice(i, 1);
+        for (let i = stones.length - 1; i >= 0; i--) {
+          stones[i].update();
+          stones[i].draw();
+          if (stones[i].done) stones.splice(i, 1);
         }
       }
 
@@ -552,7 +397,7 @@ const ZenPond = () => {
       const clickY = e.clientY || e.pageY;
       const x = clickX - rect.left;
       const y = clickY - rect.top;
-      skipStones.push(new SkipStone(x, y));
+      stones.push(new Stone(x, y));
       // Scare nearby fish (convert to normalized coords)
       const nx = x / rect.width;
       const ny = y / rect.height;
@@ -568,7 +413,7 @@ const ZenPond = () => {
       const touch = e.touches[0];
       const x = touch.clientX - rect.left;
       const y = touch.clientY - rect.top;
-      skipStones.push(new SkipStone(x, y));
+      stones.push(new Stone(x, y));
       // Scare nearby fish (convert to normalized coords)
       const nx = x / rect.width;
       const ny = y / rect.height;
