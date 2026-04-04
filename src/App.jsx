@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import ClickSpark from './components/ClickSpark';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -9,7 +9,9 @@ import RecordBackground from './pages/RecordBackground';
 import Secret from './pages/Secret';
 
 function AppContent() {
-  const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  const [isLoading, setIsLoading] = useState(isHome);
 
   return (
     <>
