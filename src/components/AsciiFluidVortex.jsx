@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useCallback } from 'react';
+import logoDark from '../assets/logo-dark.png';
 
 const DENSITY_CHARS = ' .:-=+*#%@';
 const CHAR_COUNT = DENSITY_CHARS.length;
@@ -141,29 +142,29 @@ class FluidSim {
     this.advect(0, this.density, this.s, this.vx, this.vy);
     // Decay density
     for (let i = 0; i < n; i++) {
-      this.density[i] *= 0.99;
+      this.density[i] *= 0.96;
     }
   }
 }
 
 // --- Color interpolation ---
 function getFluidColor(density, velocity) {
-  const v = Math.min(1, velocity * 0.15);
-  const d = Math.min(1, density * 0.08);
+  const v = Math.min(1, velocity * 0.1);
+  const d = Math.min(1, density * 0.05);
   const intensity = Math.max(v, d);
 
-  if (intensity < 0.15) {
-    const t = intensity / 0.15;
-    return lerpColor(10, 10, 46, 0, 100, 180, t);
-  } else if (intensity < 0.5) {
-    const t = (intensity - 0.15) / 0.35;
-    return lerpColor(0, 100, 180, 0, 255, 255, t);
-  } else if (intensity < 0.75) {
-    const t = (intensity - 0.5) / 0.25;
-    return lerpColor(0, 255, 255, 191, 0, 255, t);
+  if (intensity < 0.2) {
+    const t = intensity / 0.2;
+    return lerpColor(10, 10, 46, 0, 80, 160, t);
+  } else if (intensity < 0.55) {
+    const t = (intensity - 0.2) / 0.35;
+    return lerpColor(0, 80, 160, 0, 230, 255, t);
+  } else if (intensity < 0.85) {
+    const t = (intensity - 0.55) / 0.3;
+    return lerpColor(0, 230, 255, 160, 0, 230, t);
   } else {
-    const t = (intensity - 0.75) / 0.25;
-    return lerpColor(191, 0, 255, 255, 0, 255, t);
+    const t = (intensity - 0.85) / 0.15;
+    return lerpColor(160, 0, 230, 220, 40, 255, t);
   }
 }
 
@@ -271,8 +272,8 @@ const AsciiFluidVortex = ({ onBack }) => {
 
         for (let di = -1; di <= 1; di++) {
           for (let dj = -1; dj <= 1; dj++) {
-            fluid.addDensity(fx + di, fy + dj, speed * 2);
-            fluid.addVelocity(fx + di, fy + dj, dx * 0.8, dy * 0.8);
+            fluid.addDensity(fx + di, fy + dj, speed * 1);
+            fluid.addVelocity(fx + di, fy + dj, dx * 0.6, dy * 0.6);
           }
         }
         m.active = false;
@@ -350,36 +351,32 @@ const AsciiFluidVortex = ({ onBack }) => {
     <div style={{ position: 'fixed', inset: 0, background: '#000', overflow: 'hidden' }}>
       <canvas
         ref={canvasRef}
-        style={{ display: 'block', width: '100vw', height: '100vh', cursor: 'crosshair' }}
+        style={{ display: 'block', width: '100vw', height: '100vh', cursor: 'default' }}
       />
-      <button
-        ref={backBtnRef}
+      <div
         onClick={onBack}
         style={{
           position: 'fixed',
           top: '24px',
-          left: '24px',
-          background: 'rgba(255, 255, 255, 0.06)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          borderRadius: '8px',
-          padding: '10px 20px',
-          color: 'rgba(255, 255, 255, 0.6)',
-          fontFamily: "'JetBrains Mono', 'Fira Code', 'Courier New', monospace",
-          fontSize: '13px',
-          letterSpacing: '2px',
-          textTransform: 'uppercase',
+          left: '50%',
+          transform: 'translateX(-50%)',
           cursor: 'pointer',
-          opacity: 0,
-          transition: 'opacity 0.6s ease, background 0.3s ease',
           zIndex: 10,
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
+          opacity: 0.7,
+          transition: 'opacity 0.3s ease, transform 0.3s ease',
+          userSelect: 'none',
+          WebkitTapHighlightColor: 'transparent',
         }}
-        onMouseEnter={e => e.target.style.background = 'rgba(255, 255, 255, 0.12)'}
-        onMouseLeave={e => e.target.style.background = 'rgba(255, 255, 255, 0.06)'}
+        onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateX(-50%) scale(1.05)'; }}
+        onMouseLeave={e => { e.currentTarget.style.opacity = '0.7'; e.currentTarget.style.transform = 'translateX(-50%) scale(1)'; }}
       >
-        ← Back
-      </button>
+        <img
+          src={logoDark}
+          alt="Back to home"
+          style={{ height: '36px', width: 'auto', display: 'block', pointerEvents: 'none' }}
+          draggable={false}
+        />
+      </div>
     </div>
   );
 };
