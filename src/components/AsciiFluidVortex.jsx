@@ -147,29 +147,31 @@ class FluidSim {
   }
 }
 
-// --- Color interpolation ---
+function lerpColor(r1, g1, b1, r2, g2, b2, t) {
+  return `rgb(${Math.round(r1 + (r2 - r1) * t)},${Math.round(g1 + (g2 - g1) * t)},${Math.round(b1 + (b2 - b1) * t)})`;
+}
+
+// Precompute 256 colors to prevent thousands of string allocations per frame
+const COLOR_LUT = new Array(256);
+for (let i = 0; i < 256; i++) {
+  const intensity = i / 255;
+  if (intensity < 0.2) {
+    COLOR_LUT[i] = lerpColor(10, 10, 46, 0, 80, 160, intensity / 0.2);
+  } else if (intensity < 0.55) {
+    COLOR_LUT[i] = lerpColor(0, 80, 160, 0, 230, 255, (intensity - 0.2) / 0.35);
+  } else if (intensity < 0.85) {
+    COLOR_LUT[i] = lerpColor(0, 230, 255, 160, 0, 230, (intensity - 0.55) / 0.3);
+  } else {
+    COLOR_LUT[i] = lerpColor(160, 0, 230, 220, 40, 255, (intensity - 0.85) / 0.15);
+  }
+}
+
 function getFluidColor(density, velocity) {
   const v = Math.min(1, velocity * 0.1);
   const d = Math.min(1, density * 0.05);
   const intensity = Math.max(v, d);
-
-  if (intensity < 0.2) {
-    const t = intensity / 0.2;
-    return lerpColor(10, 10, 46, 0, 80, 160, t);
-  } else if (intensity < 0.55) {
-    const t = (intensity - 0.2) / 0.35;
-    return lerpColor(0, 80, 160, 0, 230, 255, t);
-  } else if (intensity < 0.85) {
-    const t = (intensity - 0.55) / 0.3;
-    return lerpColor(0, 230, 255, 160, 0, 230, t);
-  } else {
-    const t = (intensity - 0.85) / 0.15;
-    return lerpColor(160, 0, 230, 220, 40, 255, t);
-  }
-}
-
-function lerpColor(r1, g1, b1, r2, g2, b2, t) {
-  return `rgb(${Math.round(r1 + (r2 - r1) * t)},${Math.round(g1 + (g2 - g1) * t)},${Math.round(b1 + (b2 - b1) * t)})`;
+  const lutIdx = Math.floor(intensity * 255);
+  return COLOR_LUT[lutIdx];
 }
 
 // --- Main Component ---
@@ -321,17 +323,10 @@ const AsciiFluidVortex = ({ onBack }) => {
           const charIdx = Math.min(CHAR_COUNT - 1, Math.floor(Math.min(1, d * 0.1) * (CHAR_COUNT - 1)));
           if (charIdx === 0) continue; // Skip spaces for performance
 
-          const char = DENSITY_CHARS[charIdx];
-          const color = getFluidColor(d, vel);
-
-          ctx.fillStyle = color;
-          ctx.shadowColor = color;
-          ctx.shadowBlur = Math.min(8, vel * 0.5 + d * 0.3);
-          ctx.fillText(char, i * cellW, j * cellH);
+          ctx.fillStyle = getFluidColor(d, vel);
+          ctx.fillText(DENSITY_CHARS[charIdx], i * cellW, j * cellH);
         }
       }
-      // Reset shadow for next frame
-      ctx.shadowBlur = 0;
 
       animRef.current = requestAnimationFrame(render);
     };
