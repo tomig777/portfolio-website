@@ -176,6 +176,14 @@ const SCHEMES = [
     { r: 240, g: 100, b: 0   },
     { r: 255, g: 200, b: 0   },
     { r: 255, g: 255, b: 200 },
+  ],
+  // 4. Arctic Bioluminescence
+  [
+    { r: 5,   g: 5,   b: 30  },
+    { r: 0,   g: 50,  b: 150 },
+    { r: 0,   g: 180, b: 220 },
+    { r: 180, g: 240, b: 255 },
+    { r: 255, g: 255, b: 255 },
   ]
 ];
 
@@ -381,7 +389,7 @@ const AsciiFluidVortex = ({ onBack }) => {
         onClick={() => {
           schemeIdxRef.current = (schemeIdxRef.current + 1) % SCHEMES.length;
         }}
-        style={{ display: 'block', width: '100vw', height: '100vh', cursor: 'crosshair', touchAction: 'none' }}
+        style={{ display: 'block', width: '100vw', height: '100vh', cursor: 'default', touchAction: 'none' }}
       />
       <div
         onClick={onBack}
