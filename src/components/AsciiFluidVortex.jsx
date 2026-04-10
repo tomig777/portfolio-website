@@ -151,27 +151,58 @@ function lerpColor(r1, g1, b1, r2, g2, b2, t) {
   return `rgb(${Math.round(r1 + (r2 - r1) * t)},${Math.round(g1 + (g2 - g1) * t)},${Math.round(b1 + (b2 - b1) * t)})`;
 }
 
-// Precompute 256 colors to prevent thousands of string allocations per frame
-const COLOR_LUT = new Array(256);
-for (let i = 0; i < 256; i++) {
-  const intensity = i / 255;
-  if (intensity < 0.2) {
-    COLOR_LUT[i] = lerpColor(10, 10, 46, 0, 80, 160, intensity / 0.2);
-  } else if (intensity < 0.55) {
-    COLOR_LUT[i] = lerpColor(0, 80, 160, 0, 230, 255, (intensity - 0.2) / 0.35);
-  } else if (intensity < 0.85) {
-    COLOR_LUT[i] = lerpColor(0, 230, 255, 160, 0, 230, (intensity - 0.55) / 0.3);
-  } else {
-    COLOR_LUT[i] = lerpColor(160, 0, 230, 220, 40, 255, (intensity - 0.85) / 0.15);
-  }
-}
+// --- Color Schemes ---
+const SCHEMES = [
+  // 1. Neon Heatmap
+  [
+    { r: 10,  g: 10,  b: 46  },
+    { r: 0,   g: 80,  b: 160 },
+    { r: 0,   g: 230, b: 255 },
+    { r: 160, g: 0,   b: 230 },
+    { r: 220, g: 40,  b: 255 },
+  ],
+  // 2. Matrix Terminal
+  [
+    { r: 5,   g: 20,  b: 5   },
+    { r: 10,  g: 80,  b: 10  },
+    { r: 20,  g: 160, b: 20  },
+    { r: 80,  g: 255, b: 80  },
+    { r: 200, g: 255, b: 200 },
+  ],
+  // 3. Molten Cyberpunk
+  [
+    { r: 35,  g: 5,   b: 5   },
+    { r: 140, g: 20,  b: 0   },
+    { r: 240, g: 100, b: 0   },
+    { r: 255, g: 200, b: 0   },
+    { r: 255, g: 255, b: 200 },
+  ]
+];
 
-function getFluidColor(density, velocity) {
+// Precompute LUTs for all schemes
+const COLOR_LUTS = SCHEMES.map(scheme => {
+  const lut = new Array(256);
+  for (let i = 0; i < 256; i++) {
+    const intensity = i / 255;
+    if (intensity < 0.2) {
+      lut[i] = lerpColor(scheme[0].r, scheme[0].g, scheme[0].b, scheme[1].r, scheme[1].g, scheme[1].b, intensity / 0.2);
+    } else if (intensity < 0.55) {
+      lut[i] = lerpColor(scheme[1].r, scheme[1].g, scheme[1].b, scheme[2].r, scheme[2].g, scheme[2].b, (intensity - 0.2) / 0.35);
+    } else if (intensity < 0.85) {
+      lut[i] = lerpColor(scheme[2].r, scheme[2].g, scheme[2].b, scheme[3].r, scheme[3].g, scheme[3].b, (intensity - 0.55) / 0.3);
+    } else {
+      lut[i] = lerpColor(scheme[3].r, scheme[3].g, scheme[3].b, scheme[4].r, scheme[4].g, scheme[4].b, (intensity - 0.85) / 0.15);
+    }
+  }
+  return lut;
+});
+
+function getFluidColor(density, velocity, schemeIdx) {
   const v = Math.min(1, velocity * 0.1);
   const d = Math.min(1, density * 0.05);
   const intensity = Math.max(v, d);
   const lutIdx = Math.floor(intensity * 255);
-  return COLOR_LUT[lutIdx];
+  return COLOR_LUTS[schemeIdx][lutIdx];
 }
 
 // --- Main Component ---
@@ -184,6 +215,7 @@ const AsciiFluidVortex = ({ onBack }) => {
   const backBtnRef = useRef(null);
   const gridRef = useRef({ cols: 0, rows: 0, cellW: 0, cellH: 0 });
   const animRef = useRef(null);
+  const schemeIdxRef = useRef(0);
 
   const FLUID_SIZE = 128;
 
@@ -250,9 +282,14 @@ const AsciiFluidVortex = ({ onBack }) => {
       setupGrid();
     };
 
+    const handleCanvasClick = (e) => {
+      schemeIdxRef.current = (schemeIdxRef.current + 1) % SCHEMES.length;
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('resize', handleResize);
+    canvas.addEventListener('pointerdown', handleCanvasClick);
     resetIdle();
 
     // --- Render Loop ---
@@ -323,7 +360,7 @@ const AsciiFluidVortex = ({ onBack }) => {
           const charIdx = Math.min(CHAR_COUNT - 1, Math.floor(Math.min(1, d * 0.1) * (CHAR_COUNT - 1)));
           if (charIdx === 0) continue; // Skip spaces for performance
 
-          ctx.fillStyle = getFluidColor(d, vel);
+          ctx.fillStyle = getFluidColor(d, vel, schemeIdxRef.current);
           ctx.fillText(DENSITY_CHARS[charIdx], i * cellW, j * cellH);
         }
       }
@@ -338,6 +375,7 @@ const AsciiFluidVortex = ({ onBack }) => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('resize', handleResize);
+      if (canvas) canvas.removeEventListener('pointerdown', handleCanvasClick);
       clearTimeout(mouseTimeout);
     };
   }, [setupGrid]);
