@@ -282,14 +282,9 @@ const AsciiFluidVortex = ({ onBack }) => {
       setupGrid();
     };
 
-    const handleCanvasClick = (e) => {
-      schemeIdxRef.current = (schemeIdxRef.current + 1) % SCHEMES.length;
-    };
-
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchmove', handleTouchMove, { passive: false });
     window.addEventListener('resize', handleResize);
-    canvas.addEventListener('pointerdown', handleCanvasClick);
     resetIdle();
 
     // --- Render Loop ---
@@ -375,7 +370,6 @@ const AsciiFluidVortex = ({ onBack }) => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('resize', handleResize);
-      if (canvas) canvas.removeEventListener('pointerdown', handleCanvasClick);
       clearTimeout(mouseTimeout);
     };
   }, [setupGrid]);
@@ -384,7 +378,10 @@ const AsciiFluidVortex = ({ onBack }) => {
     <div style={{ position: 'fixed', inset: 0, background: '#000', overflow: 'hidden' }}>
       <canvas
         ref={canvasRef}
-        style={{ display: 'block', width: '100vw', height: '100vh', cursor: 'default' }}
+        onClick={() => {
+          schemeIdxRef.current = (schemeIdxRef.current + 1) % SCHEMES.length;
+        }}
+        style={{ display: 'block', width: '100vw', height: '100vh', cursor: 'crosshair', touchAction: 'none' }}
       />
       <div
         onClick={onBack}
