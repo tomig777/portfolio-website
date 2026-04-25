@@ -1,91 +1,35 @@
-/* ─── Stack Project ─── */
-.stack-project {
+/* ═══════════════════════════════════════════
+   Stack Portfolio — Full rebuild test
+   ═══════════════════════════════════════════ */
+
+/* ─── Wrapper ─── */
+.stack-portfolio {
   position: absolute;
   inset: 0;
   background: #0a0a0a;
 }
 
-/* Override ScrollStack defaults for full-width look */
-.stack-project .scroll-stack-inner {
-  padding: 15vh 0 50rem;
+/* Override ScrollStack for full-width */
+.stack-portfolio .scroll-stack-inner {
+  padding: 0 0 50rem;
 }
 
-.stack-project .scroll-stack-card {
-  height: 75vh;
+.stack-portfolio .scroll-stack-card {
   border-radius: 0;
   margin: 0;
   padding: 0;
-  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.04),
-              0 20px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.03),
+              0 20px 80px rgba(0, 0, 0, 0.5);
+  height: auto;
+  min-height: 100vh;
 }
 
-/* Card inner */
-.stack-card-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 60px 80px;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-/* Number */
-.stack-card-number {
-  position: absolute;
-  top: 48px;
-  right: 80px;
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.12);
-  letter-spacing: 0.1em;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Content */
-.stack-card-content {
-  position: relative;
-  z-index: 1;
-}
-
-.stack-card-title {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 200;
-  color: rgba(255, 255, 255, 0.88);
-  margin: 0;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.stack-card-subtitle {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.2);
-  margin-top: 12px;
-  letter-spacing: 0.02em;
-}
-
-/* Decorative line */
-.stack-card-line {
-  position: absolute;
-  top: 48px;
-  left: 80px;
-  width: 40px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* Back button */
+/* ─── Back button ─── */
 .stack-project-back {
   position: fixed;
   top: 20px;
   left: 20px;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -108,24 +52,248 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Responsive */
+/* ══════════════════════════════════════
+   CARD 1: Hero
+   ══════════════════════════════════════ */
+.stack-card--hero {
+  min-height: 100vh !important;
+  height: 100vh !important;
+}
+
+.stack-hero-inner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stack-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.stack-lanyard-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.stack-hero-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+}
+
+.stack-hero-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+  color: rgba(255, 255, 255, 0.35);
+  max-width: 520px;
+  margin: 24px auto 0;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════
+   Shared Section Styles
+   ══════════════════════════════════════ */
+.stack-section-inner {
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-section-header {
+  margin-bottom: 40px;
+}
+
+.stack-section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0 0 8px;
+}
+
+.stack-section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* ══════════════════════════════════════
+   CARD 2: Projects
+   ══════════════════════════════════════ */
+.stack-card--projects {
+  background: #0c0c14 !important;
+}
+
+.stack-projects-inner {
+  justify-content: flex-start;
+}
+
+.stack-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+.stack-project-card {
+  cursor: pointer;
+}
+
+/* ══════════════════════════════════════
+   CARD 3: About
+   ══════════════════════════════════════ */
+.stack-card--about {
+  background: #0a0a10 !important;
+}
+
+.stack-about-content {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  flex: 1;
+  margin-bottom: 48px;
+}
+
+.stack-about-bio {
+  flex: 1;
+}
+
+.stack-about-bio p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.75;
+  margin: 0 0 16px;
+}
+
+.stack-about-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.stack-about-card {
+  flex-shrink: 0;
+  width: 260px;
+}
+
+/* Skills */
+.stack-skills {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ══════════════════════════════════════
+   CARD 4: Zen Pond
+   ══════════════════════════════════════ */
+.stack-card--pond {
+  background: #000 !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
+}
+
+.stack-pond-inner {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* ══════════════════════════════════════
+   CARD 5: Contact
+   ══════════════════════════════════════ */
+.stack-card--contact {
+  background: #0a0a0e !important;
+}
+
+.stack-contact-inner {
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.stack-contact-folder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.stack-folder-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stack-footer {
+  text-align: center;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.stack-footer p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.15);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════
+   Responsive
+   ══════════════════════════════════════ */
 @media (max-width: 768px) {
-  .stack-card-inner {
-    padding: 40px 32px;
+  .stack-section-inner {
+    padding: 60px 24px;
   }
 
-  .stack-card-number {
-    top: 32px;
-    right: 32px;
+  .stack-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
-  .stack-card-line {
-    top: 32px;
-    left: 32px;
+  .stack-about-content {
+    flex-direction: column-reverse;
+    gap: 32px;
   }
 
-  .stack-project .scroll-stack-card {
-    height: 60vh;
+  .stack-about-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .stack-project-back {
@@ -133,5 +301,15 @@
     left: 14px;
     padding: 6px 12px;
     font-size: 0.75rem;
+  }
+
+  .stack-hero-name {
+    font-size: clamp(3rem, 16vw, 6rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .stack-projects-grid {
+    grid-template-columns: 1fr;
   }
 }
