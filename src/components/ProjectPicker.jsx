@@ -12,7 +12,7 @@ import logo from '../assets/logo-light.png';
    ──────────────────────────────────────────── */
 const AsciiFluidVortex = lazy(() => import('./AsciiFluidVortex'));
 const AsciiPortrait = lazy(() => import('./AsciiPortrait'));
-const StackProject = lazy(() => import('./StackProject'));
+const WebsiteTest = lazy(() => import('./WebsiteTest'));
 
 // Placeholder for future projects
 const ComingSoon = ({ name }) => (
@@ -27,14 +27,13 @@ const ComingSoon = ({ name }) => (
    Project definitions
    ──────────────────────────────────────────── */
 const PROJECTS = [
-  { id: 'ascii-portrait', text: 'ASCII Portrait', image: imgLanyard },
   { id: 'ascii-vortex',   text: 'ASCII Vortex',   image: imgLanyard },
-  { id: 'stack',          text: 'Stack',           image: imgLanyard },
-  { id: 'island-escape',  text: 'Island Escape',  image: imgLanyard },
+  { id: 'ascii-portrait', text: 'ASCII Portrait', image: imgLanyard },
+  { id: 'website-test',   text: 'Website Test',   image: imgLanyard },
+  { id: 'game-test',      text: 'Game Test',      image: imgLanyard },
   { id: 'creative-hub',   text: 'Creative Hub',   image: imgLanyard },
   { id: 'color-picker',   text: 'Color Studio',   image: imgLanyard },
   { id: 'pixel-canvas',   text: 'Pixel Canvas',   image: imgLanyard },
-  { id: 'sound-viz',      text: 'Sound Waves',    image: imgLanyard },
 ];
 
 /* ────────────────────────────────────────────
@@ -42,22 +41,20 @@ const PROJECTS = [
    ──────────────────────────────────────────── */
 const renderProject = (projectId, onBack) => {
   switch (projectId) {
-    case 'ascii-portrait':
-      return <AsciiPortrait onBack={onBack} />;
     case 'ascii-vortex':
       return <AsciiFluidVortex onBack={onBack} />;
-    case 'stack':
-      return <StackProject onBack={onBack} />;
-    case 'island-escape':
-      return <ComingSoon name="Island Escape" />;
+    case 'ascii-portrait':
+      return <AsciiPortrait onBack={onBack} />;
+    case 'website-test':
+      return <WebsiteTest onBack={onBack} />;
+    case 'game-test':
+      return <ComingSoon name="Game Test" />;
     case 'creative-hub':
       return <ComingSoon name="Creative Hub" />;
     case 'color-picker':
       return <ComingSoon name="Color Studio" />;
     case 'pixel-canvas':
       return <ComingSoon name="Pixel Canvas" />;
-    case 'sound-viz':
-      return <ComingSoon name="Sound Waves" />;
     default:
       return null;
   }
