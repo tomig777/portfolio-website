@@ -4,12 +4,16 @@
 
 /* ─── Wrapper ─── */
 .stack-portfolio {
-  position: absolute;
-  inset: 0;
+  width: 100%;
   background: #0a0a0a;
 }
 
-/* Override ScrollStack for full-width */
+/* Override ScrollStack for full-width, content-sized cards */
+.stack-portfolio .scroll-stack-scroller {
+  overflow: visible;
+  height: auto;
+}
+
 .stack-portfolio .scroll-stack-inner {
   padding: 0 0 50rem;
 }
@@ -20,8 +24,9 @@
   padding: 0;
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.03),
               0 20px 80px rgba(0, 0, 0, 0.5);
-  height: auto;
-  min-height: 100vh;
+  /* Key: auto height so cards match their content */
+  height: auto !important;
+  min-height: auto;
 }
 
 /* ─── Back button ─── */
@@ -53,17 +58,13 @@
 }
 
 /* ══════════════════════════════════════
-   CARD 1: Hero
+   Hero (normal section, not a stack card)
    ══════════════════════════════════════ */
-.stack-card--hero {
-  min-height: 100vh !important;
-  height: 100vh !important;
-}
-
-.stack-hero-inner {
+.stack-hero-section {
   position: relative;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,7 +120,6 @@
    ══════════════════════════════════════ */
 .stack-section-inner {
   width: 100%;
-  min-height: 100vh;
   padding: 80px 60px;
   box-sizing: border-box;
   display: flex;
@@ -150,21 +150,16 @@
 }
 
 /* ══════════════════════════════════════
-   CARD 2: Projects
+   CARD 1: Projects
    ══════════════════════════════════════ */
 .stack-card--projects {
   background: #0c0c14 !important;
-}
-
-.stack-projects-inner {
-  justify-content: flex-start;
 }
 
 .stack-projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  flex: 1;
 }
 
 .stack-project-card {
@@ -172,7 +167,7 @@
 }
 
 /* ══════════════════════════════════════
-   CARD 3: About
+   CARD 2: About
    ══════════════════════════════════════ */
 .stack-card--about {
   background: #0a0a10 !important;
@@ -182,7 +177,6 @@
   display: flex;
   gap: 60px;
   align-items: flex-start;
-  flex: 1;
   margin-bottom: 48px;
 }
 
@@ -217,30 +211,29 @@
 }
 
 /* ══════════════════════════════════════
-   CARD 4: Zen Pond
+   CARD 3: Zen Pond
    ══════════════════════════════════════ */
 .stack-card--pond {
   background: #000 !important;
-  height: 100vh !important;
-  min-height: 100vh !important;
 }
 
 .stack-pond-inner {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   position: relative;
 }
 
 /* ══════════════════════════════════════
-   CARD 5: Contact
+   CARD 4: Contact
    ══════════════════════════════════════ */
 .stack-card--contact {
   background: #0a0a0e !important;
 }
 
 .stack-contact-inner {
+  min-height: 80vh;
   justify-content: space-between;
-  min-height: 100vh;
 }
 
 .stack-contact-folder {
