@@ -3,14 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import FlowingMenu from './FlowingMenu';
 import './ProjectPicker.css';
 
-/* Asset images for placeholders */
-import imgPortrait from '../assets/portrait-1.png';
-import imgCard from '../assets/szia.png';
-import imgKep from '../assets/kep9.png';
-import imgPort from '../assets/port1.jpg';
-import imgCard1 from '../assets/card-1.jpeg';
-import imgLogo from '../assets/logo-dark.png';
+/* Assets */
 import imgLanyard from '../assets/lanyard.png';
+import logo from '../assets/logo-light.png';
 
 /* ────────────────────────────────────────────
    Lazy-loaded project components
@@ -31,12 +26,12 @@ const ComingSoon = ({ name }) => (
    Project definitions
    ──────────────────────────────────────────── */
 const PROJECTS = [
-  { id: 'ascii-portrait', text: 'ASCII Portrait', image: imgPortrait },
-  { id: 'ascii-vortex',   text: 'ASCII Vortex',   image: imgKep },
-  { id: 'island-escape',  text: 'Island Escape',  image: imgCard },
-  { id: 'creative-hub',   text: 'Creative Hub',   image: imgPort },
-  { id: 'color-picker',   text: 'Color Studio',   image: imgCard1 },
-  { id: 'pixel-canvas',   text: 'Pixel Canvas',   image: imgLogo },
+  { id: 'ascii-portrait', text: 'ASCII Portrait', image: imgLanyard },
+  { id: 'ascii-vortex',   text: 'ASCII Vortex',   image: imgLanyard },
+  { id: 'island-escape',  text: 'Island Escape',  image: imgLanyard },
+  { id: 'creative-hub',   text: 'Creative Hub',   image: imgLanyard },
+  { id: 'color-picker',   text: 'Color Studio',   image: imgLanyard },
+  { id: 'pixel-canvas',   text: 'Pixel Canvas',   image: imgLanyard },
   { id: 'sound-viz',      text: 'Sound Waves',    image: imgLanyard },
 ];
 
@@ -131,21 +126,26 @@ const ProjectPicker = () => {
 
   return (
     <div className="pp-page">
-      <button className="pp-home-btn" onClick={handleGoHome}>
-        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M10 3L5 8L10 13" />
-        </svg>
-      </button>
+      <div className="pp-top-bar">
+        <button className="pp-home-btn" onClick={handleGoHome}>
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10 3L5 8L10 13" />
+          </svg>
+        </button>
+        <img src={logo} alt="Logo" className="pp-logo" />
+      </div>
 
-      <FlowingMenu
-        items={menuItems}
-        speed={12}
-        textColor="rgba(255, 255, 255, 0.85)"
-        bgColor="#0a0a0a"
-        marqueeBgColor="#ffffff"
-        marqueeTextColor="#0a0a0a"
-        borderColor="rgba(255, 255, 255, 0.08)"
-      />
+      <div className="pp-menu-area">
+        <FlowingMenu
+          items={menuItems}
+          speed={12}
+          textColor="rgba(255, 255, 255, 0.85)"
+          bgColor="#0a0a0a"
+          marqueeBgColor="#ffffff"
+          marqueeTextColor="#0a0a0a"
+          borderColor="rgba(255, 255, 255, 0.08)"
+        />
+      </div>
     </div>
   );
 };
