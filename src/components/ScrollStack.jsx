@@ -90,9 +90,13 @@ const ScrollStack = ({
       if (!card) return;
 
       const cardTop = getElementOffset(card);
-      const triggerStart = cardTop - stackPositionPx - itemStackDistance * i;
-      const triggerEnd = cardTop - scaleEndPositionPx;
-      const pinStart = cardTop - stackPositionPx - itemStackDistance * i;
+      const cardHeight = card.offsetHeight;
+      const usableHeight = containerHeight - stackPositionPx;
+      const extraScroll = Math.max(0, cardHeight - usableHeight);
+
+      const triggerStart = cardTop - stackPositionPx - itemStackDistance * i + extraScroll;
+      const triggerEnd = cardTop - scaleEndPositionPx + extraScroll;
+      const pinStart = cardTop - stackPositionPx - itemStackDistance * i + extraScroll;
       const pinEnd = endElementTop - containerHeight / 2;
 
       const scaleProgress = calculateProgress(scrollTop, triggerStart, triggerEnd);
@@ -104,8 +108,11 @@ const ScrollStack = ({
       if (blurAmount) {
         let topCardIndex = 0;
         for (let j = 0; j < cardsRef.current.length; j++) {
-          const jCardTop = getElementOffset(cardsRef.current[j]);
-          const jTriggerStart = jCardTop - stackPositionPx - itemStackDistance * j;
+          const jCard = cardsRef.current[j];
+          const jCardTop = getElementOffset(jCard);
+          const jCardHeight = jCard.offsetHeight;
+          const jExtraScroll = Math.max(0, jCardHeight - usableHeight);
+          const jTriggerStart = jCardTop - stackPositionPx - itemStackDistance * j + jExtraScroll;
           if (scrollTop >= jTriggerStart) {
             topCardIndex = j;
           }
@@ -121,9 +128,9 @@ const ScrollStack = ({
       const isPinned = scrollTop >= pinStart && scrollTop <= pinEnd;
 
       if (isPinned) {
-        translateY = scrollTop - cardTop + stackPositionPx + itemStackDistance * i;
+        translateY = scrollTop - cardTop + stackPositionPx + itemStackDistance * i - extraScroll;
       } else if (scrollTop > pinEnd) {
-        translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i;
+        translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i - extraScroll;
       }
 
       const newTransform = {

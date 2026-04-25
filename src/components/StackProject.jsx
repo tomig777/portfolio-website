@@ -118,84 +118,96 @@ const StackProject = ({ onBack }) => {
 
         {/* ─── CARD 2: Projects ─── */}
         <ScrollStackItem itemClassName="stack-card--projects">
-          <div className="stack-section-inner stack-projects-inner">
-            <div className="stack-section-header">
-              <p className="stack-section-label">Work</p>
-              <h2 className="stack-section-title">Selected Projects</h2>
-            </div>
-            <Suspense fallback={<div style={{ minHeight: '200px' }} />}>
-              <div className="stack-projects-grid">
-                {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <div key={num} className="stack-project-card" onClick={() => setSelectedWork(num)}>
-                    <BorderGlow
-                      edgeSensitivity={30}
-                      glowColor="225 80 75"
-                      backgroundColor="#0a0a12"
-                      borderRadius={16}
-                      glowRadius={40}
-                      glowIntensity={1}
-                      coneSpread={25}
-                      animated={false}
-                      colors={['#667eea', '#5a7ef5', '#4f8fff']}
-                    >
-                      <div className="project-card-wrapper">
-                        <img src={card1Image} alt={`Project ${num}`} loading="lazy" decoding="async" className="project-card-image" />
-                        <div className="project-card-overlay">
-                          <span className="project-card-label">Project {num}</span>
-                        </div>
-                      </div>
-                    </BorderGlow>
-                  </div>
-                ))}
+          <div className="stack-section-inner">
+            <section className="cards-section" style={{ padding: '80px 2rem 40px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <div style={{width: '100%', maxWidth: '1400px', margin: '0 auto', marginBottom: '40px'}}>
+                <p className="section-label">Work</p>
+                <h2 className="section-title">Selected Projects</h2>
               </div>
-            </Suspense>
+              <Suspense fallback={<div style={{ minHeight: '200px' }} />}>
+                <div className="cards-container" style={{ margin: '0 auto' }}>
+                  {[1, 2, 3, 4, 5, 6].map((num) => (
+                    <div key={num} onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
+                      <BorderGlow
+                        className={num % 2 === 1 ? 'tilt-right' : 'tilt-left'}
+                        edgeSensitivity={30}
+                        glowColor="225 80 75"
+                        backgroundColor="#0a0a12"
+                        borderRadius={16}
+                        glowRadius={40}
+                        glowIntensity={1}
+                        coneSpread={25}
+                        animated={false}
+                        colors={['#667eea', '#5a7ef5', '#4f8fff']}
+                      >
+                        <div className="project-card-wrapper">
+                          <img src={card1Image} alt={`Project ${num}`} loading="lazy" decoding="async" className="project-card-image" />
+                          <div className="project-card-overlay">
+                            <span className="project-card-label">Project {num}</span>
+                          </div>
+                        </div>
+                      </BorderGlow>
+                    </div>
+                  ))}
+                </div>
+              </Suspense>
+            </section>
           </div>
         </ScrollStackItem>
 
         {/* ─── CARD 3: About Me ─── */}
         <ScrollStackItem itemClassName="stack-card--about">
-          <div className="stack-section-inner stack-about-inner">
-            <div className="stack-section-header">
-              <p className="stack-section-label">About</p>
-              <h2 className="stack-section-title">
-                <ShinyText text="Get To Know Me" speed={2.5} color="#b5b5b5" shineColor="#ffffff" spread={120} direction="left" />
-              </h2>
-            </div>
-            <div className="stack-about-content">
-              <div className="stack-about-bio">
-                <p>Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.</p>
-                <p>What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.</p>
-                <p>I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details.</p>
+          <div className="stack-section-inner">
+            <section id="about" className="about-section">
+              <div style={{width: '100%', padding: '0 2rem'}}>
+                <p className="section-label">About</p>
+                <h2 className="section-title">
+                  <ShinyText text="Get To Know Me" speed={2.5} color="#b5b5b5" shineColor="#ffffff" spread={120} direction="left" />
+                </h2>
               </div>
-              <div className="stack-about-card">
-                <Suspense fallback={<div style={{ width: '100%', maxWidth: '260px', height: '380px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }} />}>
-                  <ProfileCard
-                    name="Tamas Gal"
-                    title="Media Designer"
-                    handle="tamasgal"
-                    status="Available"
-                    avatarUrl={portraitImage}
-                    showUserInfo={true}
-                    enableTilt={true}
-                    enableMobileTilt={false}
-                    hideContact={true}
-                    monoColor={true}
-                  />
-                </Suspense>
+            </section>
+
+            <section className="about-combined-section">
+              <div className="about-content-wrapper">
+                <div className="bio-container">
+                  <p className="bio-text">Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.</p>
+                  <p className="bio-text">What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.</p>
+                  <p className="bio-text">I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.</p>
+                  <p className="bio-text">In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.</p>
+                </div>
+                <div id="about-card" className="profile-container">
+                  <Suspense fallback={<div style={{ width: '100%', maxWidth: '300px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }} />}>
+                    <ProfileCard
+                      name="Tamas Gal"
+                      title="Media Designer"
+                      handle="tamasgal"
+                      status="Available"
+                      avatarUrl={portraitImage}
+                      showUserInfo={true}
+                      enableTilt={true}
+                      enableMobileTilt={false}
+                      hideContact={true}
+                      monoColor={true}
+                    />
+                  </Suspense>
+                </div>
               </div>
-            </div>
-            <div className="stack-skills">
-              <div className="skills-row skills-row--adobe">
-                {adobeLogos.map((logo, i) => (
-                  <div key={i} className="skill-item" title={logo.title}>{logo.node}</div>
-                ))}
+            </section>
+
+            <section className="skills-section">
+              <div className="skills-container">
+                <div className="skills-row skills-row--adobe">
+                  {adobeLogos.map((logo, index) => (
+                    <div key={index} className="skill-item" title={logo.title} style={{ cursor: 'default' }}>{logo.node}</div>
+                  ))}
+                </div>
+                <div className="skills-row skills-row--other">
+                  {otherLogos.map((logo, index) => (
+                    <div key={index} className="skill-item" title={logo.title} style={{ cursor: 'default' }}>{logo.node}</div>
+                  ))}
+                </div>
               </div>
-              <div className="skills-row skills-row--other">
-                {otherLogos.map((logo, i) => (
-                  <div key={i} className="skill-item" title={logo.title}>{logo.node}</div>
-                ))}
-              </div>
-            </div>
+            </section>
           </div>
         </ScrollStackItem>
 
@@ -210,25 +222,29 @@ const StackProject = ({ onBack }) => {
 
         {/* ─── CARD 5: Contact ─── */}
         <ScrollStackItem itemClassName="stack-card--contact">
-          <div className="stack-section-inner stack-contact-inner">
-            <div className="stack-section-header">
-              <p className="stack-section-label">Get in Touch</p>
-              <h2 className="stack-section-title">
-                <ShinyText text="Let's Chat" speed={2.5} color="#b5b5b5" shineColor="#ffffff" spread={120} direction="left" />
-              </h2>
-            </div>
-            <div className="stack-contact-folder">
+          <div className="stack-section-inner" style={{ padding: '0', display: 'flex', flexDirection: 'column', minHeight: '100vh', justifyContent: 'space-between' }}>
+            <section id="contact" className="contact-section">
+              <div style={{width: '100%', padding: '0 2rem'}}>
+                <p className="section-label">Get in Touch</p>
+                <h2 className="section-title">
+                  <ShinyText text="Let's Chat" speed={2.5} color="#b5b5b5" shineColor="#ffffff" spread={120} direction="left" />
+                </h2>
+              </div>
+            </section>
+
+            <section id="contact-folder" className="folder-section" style={{ flex: 1 }}>
               <StarConstellation side="left" onEasterEgg={() => navigate('/projects')} />
-              <div className="stack-folder-container">
-                <Suspense fallback={<div style={{ minHeight: '40vh' }} />}>
+              <div className="folder-container">
+                <Suspense fallback={<div style={{ minHeight: '50vh' }}/>}>
                   <Folder size={isMobile ? 1.4 : 2} color="#667eea" className="custom-folder" items={socialItems} />
                 </Suspense>
                 <div className="folder-base-line" />
               </div>
               <StarConstellation side="right" onEasterEgg={() => navigate('/projects')} />
-            </div>
-            <footer className="stack-footer">
-              <p>Created by Tamas Gal - All rights reserved</p>
+            </section>
+
+            <footer className="footer" style={{ borderTop: '1px solid rgba(255, 255, 255, 0.04)' }}>
+              <p className="footer-text">Created by Tamas Gal - All rights reserved</p>
             </footer>
           </div>
         </ScrollStackItem>
