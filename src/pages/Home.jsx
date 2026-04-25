@@ -76,6 +76,7 @@ const Home = () => {
 
   const [activeTab, setActiveTab] = useState('ALL');
   const [showResumeModal, setShowResumeModal] = useState(false);
+
   const aboutTitleRef = useRef(null);
   const contactTitleRef = useRef(null);
 
@@ -284,7 +285,7 @@ const Home = () => {
         </section>
 
         <section id="contact-folder" className="folder-section">
-          <StarConstellation side="left" onEasterEgg={() => navigate('/secret')} />
+          <StarConstellation side="left" onEasterEgg={() => navigate('/projects')} />
 
           <div className="folder-container">
             <Suspense fallback={<div style={{ minHeight: '50vh' }}/>}>
@@ -293,7 +294,7 @@ const Home = () => {
             <div className="folder-base-line" />
           </div>
 
-          <StarConstellation side="right" onEasterEgg={() => navigate('/secret')} />
+          <StarConstellation side="right" onEasterEgg={() => navigate('/projects')} />
         </section>
 
         <footer className="footer">

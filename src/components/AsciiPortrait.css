@@ -1,0 +1,112 @@
+/* ─── ASCII Portrait ─── */
+.ascii-portrait-container {
+  position: absolute;
+  inset: 0;
+  background: #08080c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.ascii-portrait-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ascii-portrait-canvas-wrap {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.ascii-portrait-canvas {
+  display: block;
+  max-width: 90vw;
+  max-height: 88vh;
+  image-rendering: auto;
+}
+
+/* Back button */
+.ascii-portrait-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ascii-portrait-back:hover {
+  background: rgba(102, 126, 234, 0.12);
+  border-color: rgba(102, 126, 234, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ascii-portrait-back svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+
+.ascii-portrait-back:hover svg {
+  transform: translateX(-2px);
+}
+
+/* Loading */
+.ascii-portrait-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  z-index: 5;
+}
+
+.ascii-portrait-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(102, 126, 234, 0.15);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: asciiPortraitSpin 0.8s linear infinite;
+}
+
+@keyframes asciiPortraitSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ascii-portrait-canvas {
+    max-width: 98vw;
+    max-height: 80vh;
+  }
+
+  .ascii-portrait-back {
+    top: 12px;
+    left: 12px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}
