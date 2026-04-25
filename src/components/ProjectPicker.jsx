@@ -12,6 +12,7 @@ import logo from '../assets/logo-light.png';
    ──────────────────────────────────────────── */
 const AsciiFluidVortex = lazy(() => import('./AsciiFluidVortex'));
 const AsciiPortrait = lazy(() => import('./AsciiPortrait'));
+const StackProject = lazy(() => import('./StackProject'));
 
 // Placeholder for future projects
 const ComingSoon = ({ name }) => (
@@ -28,6 +29,7 @@ const ComingSoon = ({ name }) => (
 const PROJECTS = [
   { id: 'ascii-portrait', text: 'ASCII Portrait', image: imgLanyard },
   { id: 'ascii-vortex',   text: 'ASCII Vortex',   image: imgLanyard },
+  { id: 'stack',          text: 'Stack',           image: imgLanyard },
   { id: 'island-escape',  text: 'Island Escape',  image: imgLanyard },
   { id: 'creative-hub',   text: 'Creative Hub',   image: imgLanyard },
   { id: 'color-picker',   text: 'Color Studio',   image: imgLanyard },
@@ -44,6 +46,8 @@ const renderProject = (projectId, onBack) => {
       return <AsciiPortrait onBack={onBack} />;
     case 'ascii-vortex':
       return <AsciiFluidVortex onBack={onBack} />;
+    case 'stack':
+      return <StackProject onBack={onBack} />;
     case 'island-escape':
       return <ComingSoon name="Island Escape" />;
     case 'creative-hub':
