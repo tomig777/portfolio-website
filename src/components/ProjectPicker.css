@@ -1,16 +1,14 @@
 /* ═══════════════════════════════════════════
-   Project Picker — Minimalist Monochrome
+   Project Picker — FlowingMenu wrapper
    ═══════════════════════════════════════════ */
 
 /* ─── Page ─── */
 .pp-page {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   background: #0a0a0a;
-  display: flex;
-  flex-direction: column;
   animation: ppFadeIn 0.4s ease forwards;
 }
 
@@ -19,211 +17,31 @@
   to { opacity: 1; }
 }
 
-/* ─── Top Nav ─── */
-.pp-nav {
+/* ─── Home button (floating) ─── */
+.pp-home-btn {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 32px;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.pp-nav-back {
+  top: 20px;
+  left: 20px;
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: none;
+  width: 40px;
+  height: 40px;
+  background: rgba(10, 10, 10, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.35);
   transition: all 0.25s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-.pp-nav-back:hover {
+.pp-home-btn:hover {
   border-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.8);
-}
-
-.pp-nav-label {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
-}
-
-/* ─── Content ─── */
-.pp-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  max-width: 720px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 100px 32px 60px;
-}
-
-/* ─── Header ─── */
-.pp-header {
-  margin-bottom: 48px;
-  opacity: 0;
-  transform: translateY(12px);
-  animation: ppSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
-}
-
-@keyframes ppSlideUp {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.pp-title {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: clamp(2.4rem, 5vw, 3.2rem);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-
-.pp-desc {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.2);
-  margin-top: 8px;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
-/* ─── Project List ─── */
-.pp-list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* ─── Project Item ─── */
-.pp-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 22px 4px;
-  background: none;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.3s ease;
-  outline: none;
-  /* Staggered entrance */
-  opacity: 0;
-  transform: translateY(8px);
-  animation: ppSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.pp-item:nth-child(1) { animation-delay: 0.12s; }
-.pp-item:nth-child(2) { animation-delay: 0.16s; }
-.pp-item:nth-child(3) { animation-delay: 0.20s; }
-.pp-item:nth-child(4) { animation-delay: 0.24s; }
-.pp-item:nth-child(5) { animation-delay: 0.28s; }
-.pp-item:nth-child(6) { animation-delay: 0.32s; }
-.pp-item:nth-child(7) { animation-delay: 0.36s; }
-
-.pp-item:hover {
-  padding-left: 12px;
-}
-
-.pp-item--dimmed {
-  opacity: 0.3 !important;
-}
-
-/* Index number */
-.pp-item-index {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.15);
-  width: 24px;
-  flex-shrink: 0;
-  letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Info block */
-.pp-item-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.pp-item-name {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: -0.01em;
-  transition: color 0.25s ease;
-}
-
-.pp-item:hover .pp-item-name {
-  color: rgba(255, 255, 255, 1);
-}
-
-.pp-item-desc {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.2);
-  letter-spacing: 0.005em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Tag */
-.pp-item-tag {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 4px;
-  padding: 4px 10px;
-  flex-shrink: 0;
-  transition: all 0.25s ease;
-}
-
-.pp-item:hover .pp-item-tag {
-  color: rgba(255, 255, 255, 0.35);
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-/* Arrow */
-.pp-item-arrow {
-  color: rgba(255, 255, 255, 0.08);
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-  transform: translateX(0);
-}
-
-.pp-item:hover .pp-item-arrow {
-  color: rgba(255, 255, 255, 0.4);
-  transform: translateX(4px);
+  background: rgba(20, 20, 20, 0.8);
 }
 
 /* ─── Active Project View ─── */
@@ -271,7 +89,7 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Loading */
+/* ─── Loading ─── */
 .pp-loading {
   position: absolute;
   inset: 0;
@@ -344,25 +162,11 @@
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
-  .pp-content {
-    padding: 88px 20px 40px;
-  }
-
-  .pp-nav {
-    padding: 16px 20px;
-  }
-
-  .pp-item {
-    padding: 18px 2px;
-    gap: 14px;
-  }
-
-  .pp-item-desc {
-    display: none;
-  }
-
-  .pp-item-tag {
-    display: none;
+  .pp-home-btn {
+    top: 14px;
+    left: 14px;
+    width: 36px;
+    height: 36px;
   }
 
   .pp-back-btn {
@@ -370,19 +174,5 @@
     left: 14px;
     padding: 6px 12px;
     font-size: 0.75rem;
-  }
-
-  .pp-header {
-    margin-bottom: 32px;
-  }
-}
-
-@media (max-width: 480px) {
-  .pp-title {
-    font-size: 2rem;
-  }
-
-  .pp-item-name {
-    font-size: 0.88rem;
   }
 }

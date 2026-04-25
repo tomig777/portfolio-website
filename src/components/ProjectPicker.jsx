@@ -1,6 +1,16 @@
 import React, { useState, useCallback, useEffect, Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FlowingMenu from './FlowingMenu';
 import './ProjectPicker.css';
+
+/* Asset images for placeholders */
+import imgPortrait from '../assets/portrait-1.png';
+import imgCard from '../assets/szia.png';
+import imgKep from '../assets/kep9.png';
+import imgPort from '../assets/port1.jpg';
+import imgCard1 from '../assets/card-1.jpeg';
+import imgLogo from '../assets/logo-dark.png';
+import imgLanyard from '../assets/lanyard.png';
 
 /* ────────────────────────────────────────────
    Lazy-loaded project components
@@ -18,58 +28,16 @@ const ComingSoon = ({ name }) => (
 );
 
 /* ────────────────────────────────────────────
-   Project definitions — no emojis, no colors
+   Project definitions
    ──────────────────────────────────────────── */
 const PROJECTS = [
-  {
-    id: 'ascii-portrait',
-    name: 'ASCII Portrait',
-    description: 'Interactive portrait rendered in ASCII with mouse tracking',
-    tag: 'Effect',
-    index: '01',
-  },
-  {
-    id: 'ascii-vortex',
-    name: 'ASCII Vortex',
-    description: 'Interactive fluid simulation rendered in ASCII characters',
-    tag: 'Simulation',
-    index: '02',
-  },
-  {
-    id: 'island-escape',
-    name: 'Island Escape',
-    description: 'A 3D adventure minigame — escape the island',
-    tag: 'Minigame',
-    index: '03',
-  },
-  {
-    id: 'creative-hub',
-    name: 'Creative Hub',
-    description: 'ASCII art, dither, gradient & photo editing tools',
-    tag: 'Creative',
-    index: '04',
-  },
-  {
-    id: 'color-picker',
-    name: 'Color Studio',
-    description: 'Advanced color picker with palette generation',
-    tag: 'Tool',
-    index: '05',
-  },
-  {
-    id: 'pixel-canvas',
-    name: 'Pixel Canvas',
-    description: 'Draw pixel art with exportable sprites',
-    tag: 'Creative',
-    index: '06',
-  },
-  {
-    id: 'sound-viz',
-    name: 'Sound Waves',
-    description: 'Audio-reactive visualizer using your microphone',
-    tag: 'Audio',
-    index: '07',
-  },
+  { id: 'ascii-portrait', text: 'ASCII Portrait', image: imgPortrait },
+  { id: 'ascii-vortex',   text: 'ASCII Vortex',   image: imgKep },
+  { id: 'island-escape',  text: 'Island Escape',  image: imgCard },
+  { id: 'creative-hub',   text: 'Creative Hub',   image: imgPort },
+  { id: 'color-picker',   text: 'Color Studio',   image: imgCard1 },
+  { id: 'pixel-canvas',   text: 'Pixel Canvas',   image: imgLogo },
+  { id: 'sound-viz',      text: 'Sound Waves',    image: imgLanyard },
 ];
 
 /* ────────────────────────────────────────────
@@ -103,7 +71,6 @@ const ProjectPicker = () => {
   const navigate = useNavigate();
   const [activeProject, setActiveProject] = useState(null);
   const [isClosingProject, setIsClosingProject] = useState(false);
-  const [hoveredId, setHoveredId] = useState(null);
 
   const handleGoHome = useCallback(() => {
     navigate('/');
@@ -154,46 +121,31 @@ const ProjectPicker = () => {
     );
   }
 
-  /* ── Full-page project list ── */
+  /* ── Full-page flowing menu ── */
+  const menuItems = PROJECTS.map((p) => ({
+    link: '#',
+    text: p.text,
+    image: p.image,
+    onClick: () => handleSelectProject(p.id),
+  }));
+
   return (
     <div className="pp-page">
-      <nav className="pp-nav">
-        <button className="pp-nav-back" onClick={handleGoHome}>
-          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M10 3L5 8L10 13" />
-          </svg>
-        </button>
-        <span className="pp-nav-label">Projects</span>
-      </nav>
+      <button className="pp-home-btn" onClick={handleGoHome}>
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M10 3L5 8L10 13" />
+        </svg>
+      </button>
 
-      <div className="pp-content">
-        <header className="pp-header">
-          <h1 className="pp-title">Lab</h1>
-          <p className="pp-desc">Experiments & creative tools</p>
-        </header>
-
-        <div className="pp-list">
-          {PROJECTS.map((project) => (
-            <button
-              key={project.id}
-              className={`pp-item ${hoveredId && hoveredId !== project.id ? 'pp-item--dimmed' : ''}`}
-              onClick={() => handleSelectProject(project.id)}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <span className="pp-item-index">{project.index}</span>
-              <div className="pp-item-info">
-                <span className="pp-item-name">{project.name}</span>
-                <span className="pp-item-desc">{project.description}</span>
-              </div>
-              <span className="pp-item-tag">{project.tag}</span>
-              <svg className="pp-item-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 4L13 10L7 16" />
-              </svg>
-            </button>
-          ))}
-        </div>
-      </div>
+      <FlowingMenu
+        items={menuItems}
+        speed={12}
+        textColor="rgba(255, 255, 255, 0.85)"
+        bgColor="#0a0a0a"
+        marqueeBgColor="#ffffff"
+        marqueeTextColor="#0a0a0a"
+        borderColor="rgba(255, 255, 255, 0.08)"
+      />
     </div>
   );
 };
