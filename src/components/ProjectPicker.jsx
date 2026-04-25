@@ -4,116 +4,71 @@ import './ProjectPicker.css';
 
 /* ────────────────────────────────────────────
    Lazy-loaded project components
-   Each lives in its own chunk — nothing loads
-   until the user picks it.
    ──────────────────────────────────────────── */
 const AsciiFluidVortex = lazy(() => import('./AsciiFluidVortex'));
 const AsciiPortrait = lazy(() => import('./AsciiPortrait'));
 
-// Placeholder components for future projects
+// Placeholder for future projects
 const ComingSoon = ({ name }) => (
-  <div style={{
-    position: 'absolute', inset: 0,
-    display: 'flex', flexDirection: 'column',
-    alignItems: 'center', justifyContent: 'center',
-    background: 'radial-gradient(ellipse at center, #0f0f1a 0%, #000 100%)',
-    color: 'rgba(255,255,255,0.7)',
-    fontFamily: "'Inter', sans-serif",
-    gap: '12px',
-  }}>
-    <span style={{ fontSize: '3rem' }}>🚧</span>
-    <h2 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#f0ece4', margin: 0 }}>{name}</h2>
-    <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.4)' }}>Coming Soon</p>
+  <div className="pp-coming-soon">
+    <span className="pp-coming-soon-label">Coming Soon</span>
+    <h2 className="pp-coming-soon-name">{name}</h2>
+    <div className="pp-coming-soon-line" />
   </div>
 );
 
 /* ────────────────────────────────────────────
-   Project definitions
+   Project definitions — no emojis, no colors
    ──────────────────────────────────────────── */
 const PROJECTS = [
   {
     id: 'ascii-portrait',
     name: 'ASCII Portrait',
     description: 'Interactive portrait rendered in ASCII with mouse tracking',
-    icon: '👤',
     tag: 'Effect',
-    colors: {
-      glow: 'rgba(200, 200, 220, 0.1)',
-      iconBg: 'rgba(200, 200, 220, 0.1)',
-      iconColor: '#c8c8dc',
-    },
+    index: '01',
   },
   {
     id: 'ascii-vortex',
     name: 'ASCII Vortex',
     description: 'Interactive fluid simulation rendered in ASCII characters',
-    icon: '〰',
     tag: 'Simulation',
-    colors: {
-      glow: 'rgba(102, 126, 234, 0.1)',
-      iconBg: 'rgba(102, 126, 234, 0.12)',
-      iconColor: '#7b93f5',
-    },
+    index: '02',
   },
   {
     id: 'island-escape',
     name: 'Island Escape',
     description: 'A 3D adventure minigame — escape the island',
-    icon: '🏝',
     tag: 'Minigame',
-    colors: {
-      glow: 'rgba(72, 199, 142, 0.1)',
-      iconBg: 'rgba(72, 199, 142, 0.12)',
-      iconColor: '#48c78e',
-    },
+    index: '03',
   },
   {
     id: 'creative-hub',
     name: 'Creative Hub',
     description: 'ASCII art, dither, gradient & photo editing tools',
-    icon: '✦',
     tag: 'Creative',
-    colors: {
-      glow: 'rgba(234, 179, 102, 0.1)',
-      iconBg: 'rgba(234, 179, 102, 0.12)',
-      iconColor: '#eab366',
-    },
+    index: '04',
   },
   {
     id: 'color-picker',
     name: 'Color Studio',
     description: 'Advanced color picker with palette generation',
-    icon: '◐',
     tag: 'Tool',
-    colors: {
-      glow: 'rgba(234, 102, 178, 0.1)',
-      iconBg: 'rgba(234, 102, 178, 0.12)',
-      iconColor: '#ea66b2',
-    },
+    index: '05',
   },
   {
     id: 'pixel-canvas',
     name: 'Pixel Canvas',
     description: 'Draw pixel art with exportable sprites',
-    icon: '▦',
     tag: 'Creative',
-    colors: {
-      glow: 'rgba(102, 217, 234, 0.1)',
-      iconBg: 'rgba(102, 217, 234, 0.12)',
-      iconColor: '#66d9ea',
-    },
+    index: '06',
   },
   {
     id: 'sound-viz',
     name: 'Sound Waves',
     description: 'Audio-reactive visualizer using your microphone',
-    icon: '♫',
     tag: 'Audio',
-    colors: {
-      glow: 'rgba(178, 102, 234, 0.1)',
-      iconBg: 'rgba(178, 102, 234, 0.12)',
-      iconColor: '#b266ea',
-    },
+    index: '07',
   },
 ];
 
@@ -141,15 +96,6 @@ const renderProject = (projectId, onBack) => {
   }
 };
 
-/* ────────────────────────────────────────────
-   Back Arrow SVG
-   ──────────────────────────────────────────── */
-const BackArrow = () => (
-  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M10 3L5 8L10 13" />
-  </svg>
-);
-
 /* ════════════════════════════════════════════
    ProjectPicker — Full Page Component
    ════════════════════════════════════════════ */
@@ -157,13 +103,12 @@ const ProjectPicker = () => {
   const navigate = useNavigate();
   const [activeProject, setActiveProject] = useState(null);
   const [isClosingProject, setIsClosingProject] = useState(false);
+  const [hoveredId, setHoveredId] = useState(null);
 
-  // Navigate back to the main portfolio
   const handleGoHome = useCallback(() => {
     navigate('/');
   }, [navigate]);
 
-  // Go back from active project to grid
   const handleBackToGrid = useCallback(() => {
     setIsClosingProject(true);
     setTimeout(() => {
@@ -172,7 +117,6 @@ const ProjectPicker = () => {
     }, 280);
   }, []);
 
-  // Open a project
   const handleSelectProject = useCallback((projectId) => {
     setActiveProject(projectId);
   }, []);
@@ -181,11 +125,8 @@ const ProjectPicker = () => {
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === 'Escape') {
-        if (activeProject) {
-          handleBackToGrid();
-        } else {
-          handleGoHome();
-        }
+        if (activeProject) handleBackToGrid();
+        else handleGoHome();
       }
     };
     window.addEventListener('keydown', onKeyDown);
@@ -195,15 +136,16 @@ const ProjectPicker = () => {
   /* ── Active project fullscreen view ── */
   if (activeProject) {
     return (
-      <div className={`project-picker-active ${isClosingProject ? 'closing' : ''}`}>
-        <button className="project-picker-back" onClick={handleBackToGrid}>
-          <BackArrow />
-          Back to Projects
+      <div className={`pp-active ${isClosingProject ? 'pp-closing' : ''}`}>
+        <button className="pp-back-btn" onClick={handleBackToGrid}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10 3L5 8L10 13" />
+          </svg>
+          Back
         </button>
         <Suspense fallback={
-          <div className="project-picker-loading">
-            <div className="project-picker-spinner" />
-            Loading project…
+          <div className="pp-loading">
+            <div className="pp-loading-bar" />
           </div>
         }>
           {renderProject(activeProject, handleBackToGrid)}
@@ -212,38 +154,42 @@ const ProjectPicker = () => {
     );
   }
 
-  /* ── Full-page project grid ── */
+  /* ── Full-page project list ── */
   return (
-    <div className="project-picker-page">
-      <div className="project-picker-page-inner">
-        <button className="project-picker-home-btn" onClick={handleGoHome}>
-          <BackArrow />
-          Back to Portfolio
+    <div className="pp-page">
+      <nav className="pp-nav">
+        <button className="pp-nav-back" onClick={handleGoHome}>
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M10 3L5 8L10 13" />
+          </svg>
         </button>
+        <span className="pp-nav-label">Projects</span>
+      </nav>
 
-        <div className="project-picker-header">
-          <span className="project-picker-eyebrow">Secret Lab</span>
-          <h1 className="project-picker-title">Choose a Project</h1>
-          <p className="project-picker-subtitle">Experiments, tools & creative toys</p>
-        </div>
+      <div className="pp-content">
+        <header className="pp-header">
+          <h1 className="pp-title">Lab</h1>
+          <p className="pp-desc">Experiments & creative tools</p>
+        </header>
 
-        <div className="project-picker-grid">
-          {PROJECTS.map((project, index) => (
+        <div className="pp-list">
+          {PROJECTS.map((project) => (
             <button
               key={project.id}
-              className="project-picker-card"
+              className={`pp-item ${hoveredId && hoveredId !== project.id ? 'pp-item--dimmed' : ''}`}
               onClick={() => handleSelectProject(project.id)}
-              style={{
-                '--card-glow': project.colors.glow,
-                '--card-icon-bg': project.colors.iconBg,
-                '--card-icon-color': project.colors.iconColor,
-                animationDelay: `${0.15 + index * 0.06}s`,
-              }}
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
             >
-              <div className="project-picker-icon">{project.icon}</div>
-              <span className="project-picker-card-name">{project.name}</span>
-              <span className="project-picker-card-desc">{project.description}</span>
-              <span className="project-picker-card-tag">{project.tag}</span>
+              <span className="pp-item-index">{project.index}</span>
+              <div className="pp-item-info">
+                <span className="pp-item-name">{project.name}</span>
+                <span className="pp-item-desc">{project.description}</span>
+              </div>
+              <span className="pp-item-tag">{project.tag}</span>
+              <svg className="pp-item-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 4L13 10L7 16" />
+              </svg>
             </button>
           ))}
         </div>
