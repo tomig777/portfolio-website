@@ -21,6 +21,7 @@ const ProfileCard = lazy(() => import('./ProfileCard'));
 const Folder = lazy(() => import('./Folder'));
 const ZenPond = lazy(() => import('./ZenPond'));
 const WorkModal = lazy(() => import('./WorkModal'));
+const ResumeModal = lazy(() => import('./ResumeModal'));
 
 /* ── Skill logos ── */
 const adobeLogos = [
@@ -57,6 +58,7 @@ const socialItems = [
 const StackProject = ({ onBack }) => {
   const navigate = useNavigate();
   const [selectedWork, setSelectedWork] = useState(null);
+  const [showResumeModal, setShowResumeModal] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -76,6 +78,9 @@ const StackProject = ({ onBack }) => {
           Back
         </button>
       )}
+
+      {/* ─── Header ─── */}
+      <Header onResumeClick={() => setShowResumeModal(true)} />
 
       <ScrollStack
         itemDistance={60}
@@ -233,6 +238,13 @@ const StackProject = ({ onBack }) => {
       {selectedWork && (
         <Suspense fallback={null}>
           <WorkModal workId={selectedWork} onClose={() => setSelectedWork(null)} />
+        </Suspense>
+      )}
+
+      {/* Resume Modal */}
+      {showResumeModal && (
+        <Suspense fallback={null}>
+          <ResumeModal onClose={() => setShowResumeModal(false)} />
         </Suspense>
       )}
     </div>
