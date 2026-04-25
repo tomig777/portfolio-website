@@ -77,31 +77,6 @@ const StackProject = ({ onBack }) => {
         </button>
       )}
 
-      {/* ─── Hero (normal section, NOT a stack card) ─── */}
-      <section className="stack-hero-section">
-        <div className="stack-hero-bg">
-          <VideoBackground opacity={0.6} />
-        </div>
-        <ErrorBoundary fallback={null}>
-          <Suspense fallback={null}>
-            <div className="stack-lanyard-container">
-              <Lanyard position={isMobile ? [0, 0, 35] : [0, 0, 20]} gravity={[0, -40, 0]} />
-            </div>
-          </Suspense>
-        </ErrorBoundary>
-        <div className="stack-hero-text">
-          <h1 className="stack-hero-name">
-            <span>TAMAS</span>
-            <span>GAL</span>
-          </h1>
-          <p className="stack-hero-subtitle">
-            A BUDAPEST BASED HUNGARIAN CREATIVE DESIGNER SPECIALIZING IN 3D VISUALIZATION, VECTOR ILLUSTRATION, AND SOCIAL MEDIA CONTENT.
-          </p>
-        </div>
-        <ScrollIndicator />
-      </section>
-
-      {/* ─── Stacking cards begin after hero ─── */}
       <ScrollStack
         itemDistance={60}
         itemScale={0.02}
@@ -111,8 +86,31 @@ const StackProject = ({ onBack }) => {
         baseScale={0.88}
         rotationAmount={0}
         blurAmount={1.5}
-        useWindowScroll={true}
       >
+        {/* ─── Hero (regular child, NOT a ScrollStackItem — just scrolls normally) ─── */}
+        <section className="stack-hero-section">
+          <div className="stack-hero-bg">
+            <VideoBackground opacity={0.6} />
+          </div>
+          <ErrorBoundary fallback={null}>
+            <Suspense fallback={null}>
+              <div className="stack-lanyard-container">
+                <Lanyard position={isMobile ? [0, 0, 35] : [0, 0, 20]} gravity={[0, -40, 0]} />
+              </div>
+            </Suspense>
+          </ErrorBoundary>
+          <div className="stack-hero-text">
+            <h1 className="stack-hero-name">
+              <span>TAMAS</span>
+              <span>GAL</span>
+            </h1>
+            <p className="stack-hero-subtitle">
+              A BUDAPEST BASED HUNGARIAN CREATIVE DESIGNER SPECIALIZING IN 3D VISUALIZATION, VECTOR ILLUSTRATION, AND SOCIAL MEDIA CONTENT.
+            </p>
+          </div>
+          <ScrollIndicator />
+        </section>
+
         {/* ─── CARD 2: Projects ─── */}
         <ScrollStackItem itemClassName="stack-card--projects">
           <div className="stack-section-inner stack-projects-inner">
