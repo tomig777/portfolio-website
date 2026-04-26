@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect, Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FlowingMenu from './FlowingMenu';
+import ErrorBoundary from './ErrorBoundary';
 import './ProjectPicker.css';
 
 /* Assets */
@@ -106,13 +107,15 @@ const ProjectPicker = () => {
           </svg>
           Back
         </button>
-        <Suspense fallback={
-          <div className="pp-loading">
-            <div className="pp-loading-bar" />
-          </div>
-        }>
-          {renderProject(activeProject, handleBackToGrid)}
-        </Suspense>
+        <ErrorBoundary fallback={<div style={{ color: 'white', padding: '50px', fontSize: '24px', textAlign: 'center' }}>WebsiteTest Crashed. Check browser console for details.</div>}>
+          <Suspense fallback={
+            <div className="pp-loading">
+              <div className="pp-loading-bar" />
+            </div>
+          }>
+            {renderProject(activeProject, handleBackToGrid)}
+          </Suspense>
+        </ErrorBoundary>
       </div>
     );
   }
