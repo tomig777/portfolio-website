@@ -1,30 +1,32 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import VideoBackground from '../components/VideoBackground';
-import WorkModal from '../components/WorkModal';
-import ResumeModal from '../components/ResumeModal';
-import StarConstellation from '../components/StarConstellation';
-import ShinyText from '../components/ShinyText';
-import { Suspense, lazy } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+import Header from './Header';
+import VideoBackground from './VideoBackground';
+import WorkModal from './WorkModal';
+import ResumeModal from './ResumeModal';
+import StarConstellation from './StarConstellation';
+import ShinyText from './ShinyText';
+import ScrollIndicator from './ScrollIndicator';
+import ErrorBoundary from './ErrorBoundary';
+
 import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremierepro, SiFigma, SiBlender, SiAdobelightroom, SiDavinciresolve, SiInstagram, SiLinkedin, SiAdobeaudition, SiAutodesk, SiCinema4D } from 'react-icons/si';
 import { HiMail } from 'react-icons/hi';
+
 import card1Image from '../assets/szia.png';
 import portraitImage from '../assets/portrait-1.png';
 import kep9 from '../assets/kep9.png';
 
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import './WebsiteTest.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Lanyard = lazy(() => import('../components/Lanyard'));
-const ProfileCard = lazy(() => import('../components/ProfileCard'));
-const Folder = lazy(() => import('../components/Folder'));
-import ScrollIndicator from '../components/ScrollIndicator';
-import ErrorBoundary from '../components/ErrorBoundary';
+const Lanyard = lazy(() => import('./Lanyard'));
+const ProfileCard = lazy(() => import('./ProfileCard'));
+const Folder = lazy(() => import('./Folder'));
 
 const socialItems = [
   <a key="instagram" href="https://www.instagram.com/arhivetkg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
