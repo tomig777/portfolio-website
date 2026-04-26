@@ -11,36 +11,20 @@ import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremi
 import { HiMail } from 'react-icons/hi';
 import card1Image from '../assets/szia.png';
 import portraitImage from '../assets/portrait-1.png';
-import nukeLogo from '../assets/nuke_logo2.png';
-import substanceLogo from '../assets/substance_logo.png';
 import kep9 from '../assets/kep9.png';
 
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import './WebsiteTest.css';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Lanyard = lazy(() => import('../components/Lanyard'));
-const BorderGlow = lazy(() => import('../components/BorderGlow'));
 const ProfileCard = lazy(() => import('../components/ProfileCard'));
 const Folder = lazy(() => import('../components/Folder'));
-const ZenPond = lazy(() => import('../components/ZenPond'));
 import ScrollIndicator from '../components/ScrollIndicator';
 import ErrorBoundary from '../components/ErrorBoundary';
-
-const adobeLogos = [
-  { node: <SiAdobeillustrator />, title: "Adobe Illustrator" },
-  { node: <SiAdobephotoshop />, title: "Adobe Photoshop" },
-  { node: <SiAdobepremierepro />, title: "Adobe Premiere Pro" },
-  { node: <SiAdobeaftereffects />, title: "Adobe After Effects" },
-  { node: <SiAdobeaudition />, title: "Adobe Audition" },
-  { node: <SiAdobelightroom />, title: "Adobe Lightroom" },
-];
-
-const otherLogos = [
-  { node: <SiAutodesk />, title: "Autodesk Maya" },
-  { node: <SiFigma />, title: "Figma" },
-  { node: <SiBlender />, title: "Blender" },
-  { node: <SiDavinciresolve />, title: "DaVinci Resolve" },
-  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${nukeLogo})`, maskImage: `url(${nukeLogo})`, width: '44px', height: '44px' }} />, title: "Nuke" },
-  { node: <SiCinema4D />, title: "Cinema 4D" },
-  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${substanceLogo})`, maskImage: `url(${substanceLogo})`, width: '50px', height: '50px' }} />, title: "Substance Painter" },
-];
 
 const socialItems = [
   <a key="instagram" href="https://www.instagram.com/arhivetkg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -58,6 +42,7 @@ const WebsiteTest = ({ onBack }) => {
   const navigate = useNavigate();
   const [selectedWork, setSelectedWork] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -65,7 +50,7 @@ const WebsiteTest = ({ onBack }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Preload gallery image into browser cache so modal opens instantly
+  // Preload gallery image
   useEffect(() => {
     const img = new Image();
     img.src = kep9;
@@ -73,64 +58,104 @@ const WebsiteTest = ({ onBack }) => {
 
   const [showResumeModal, setShowResumeModal] = useState(false);
 
-  const aboutTitleRef = useRef(null);
-  const contactTitleRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
-        });
-      },
-      { threshold: 0.3 }
+  // GSAP Animations
+  useGSAP(() => {
+    // 1. Text Blur Reveal
+    gsap.fromTo('.wt-blur-word', 
+      { filter: 'blur(16px)', opacity: 0, x: 30 },
+      { 
+        filter: 'blur(0px)', 
+        opacity: 1, 
+        x: 0, 
+        stagger: 0.15, 
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.wt-blur-section',
+          scroller: '.wt-scroll-container',
+          start: 'top 75%',
+          end: 'center center',
+          scrub: 1
+        }
+      }
     );
 
-    if (aboutTitleRef.current) observer.observe(aboutTitleRef.current);
-    if (contactTitleRef.current) observer.observe(contactTitleRef.current);
+    // 2. Sticky Cards Scale effect
+    const cards = gsap.utils.toArray('.project-card-anim');
+    cards.forEach((card, i) => {
+      if (i === cards.length - 1) return; // Last card doesn't scale down
+      
+      ScrollTrigger.create({
+        trigger: card,
+        scroller: '.wt-scroll-container',
+        start: 'top 20%', // When it sticks
+        endTrigger: cards[i + 1],
+        end: 'top 20%', // When the next card hits the sticky point
+        scrub: true,
+        animation: gsap.to(card, { scale: 0.92, opacity: 0.4, ease: 'none' })
+      });
+    });
 
-    return () => observer.disconnect();
-  }, []);
+    // 3. About Grid Reveal
+    gsap.fromTo('.wt-about-anim',
+      { y: 80, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.wt-about-grid',
+          scroller: '.wt-scroll-container',
+          start: 'top 85%',
+          end: 'bottom 80%',
+          scrub: 1
+        }
+      }
+    );
+
+    // 4. Contact Section Reveal
+    gsap.fromTo('.wt-contact-anim',
+      { y: 50, opacity: 0, scale: 0.95 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        stagger: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.wt-contact-section',
+          scroller: '.wt-scroll-container',
+          start: 'top 80%',
+          end: 'center 60%',
+          scrub: 1
+        }
+      }
+    );
+
+  }, { scope: containerRef });
 
   return (
-    <div className="App" style={{ height: '100%', overflowY: 'auto' }}>
+    <div className="App wt-scroll-container" ref={containerRef} style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
       {onBack && (
         <button 
           onClick={onBack} 
           style={{
-            position: 'fixed', 
-            top: '20px', 
-            left: '20px', 
-            zIndex: 10000, 
-            display: 'flex', 
-            alignItems: 'center', 
-            gap: '6px', 
-            background: 'rgba(10,10,10,0.6)', 
-            border: '1px solid rgba(255,255,255,0.06)', 
-            borderRadius: '10px', 
-            padding: '8px 16px', 
-            color: 'rgba(255,255,255,0.4)', 
-            fontSize: '0.8rem', 
-            fontWeight: 500, 
-            backdropFilter: 'blur(12px)', 
-            cursor: 'pointer'
+            position: 'fixed', top: '20px', left: '20px', zIndex: 10000, display: 'flex', alignItems: 'center', gap: '6px', 
+            background: 'rgba(10,10,10,0.6)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', 
+            padding: '8px 16px', color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontWeight: 500, 
+            backdropFilter: 'blur(12px)', cursor: 'pointer'
           }}
           onMouseEnter={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.8)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M10 3L5 8L10 13" />
-          </svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 3L5 8L10 13" /></svg>
           Back
         </button>
       )}
 
+      {/* ─── Hero Section ─── */}
       <div className="plasma-background">
-        <VideoBackground
-          opacity={0.8}
-        />
+        <VideoBackground opacity={0.8} />
       </div>
       <Header onResumeClick={() => setShowResumeModal(true)} />
 
@@ -156,84 +181,54 @@ const WebsiteTest = ({ onBack }) => {
         <ScrollIndicator />
       </section>
 
-      {/* Section 1: Work / Images */}
-      <div>
-      <section id="work" className="cards-section">
-        <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#667eea' }}>Loading Gallery...</div>}>
-          <div className="cards-container">
+      {/* ─── 1. Text Blur Section ─── */}
+      <section className="wt-blur-section">
+        <h2 className="wt-blur-text">
+          {['Clean', 'aesthetics', '—', 'pixel', 'perfect', 'details.'].map((word, i) => (
+            <span key={i} className={`wt-blur-word ${i > 2 ? 'wt-blur-highlight' : ''}`}>{word}</span>
+          ))}
+        </h2>
+      </section>
+
+      {/* ─── 2. Sticky Projects Section ─── */}
+      <section id="work" className="wt-projects-section">
+        <div className="wt-projects-container">
+          <div className="wt-projects-left">
+            <p className="section-label">Work</p>
+            <h2 className="section-title">Selected<br/>Projects</h2>
+            <p style={{color: 'rgba(255,255,255,0.5)', marginTop: '2rem', maxWidth: '300px', lineHeight: 1.6, fontFamily: 'Inter, sans-serif'}}>
+              A collection of my latest works ranging from 3D visualization to UI design. Scroll to explore.
+            </p>
+          </div>
+          
+          <div className="wt-projects-right">
             {[1, 2, 3, 4, 5, 6].map((num) => (
-              <div key={num} onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
-                <BorderGlow
-                  className={num % 2 === 1 ? 'tilt-right' : 'tilt-left'}
-                  edgeSensitivity={30}
-                  glowColor="225 80 75"
-                  backgroundColor="#0a0a12"
-                  borderRadius={16}
-                  glowRadius={40}
-                  glowIntensity={1}
-                  coneSpread={25}
-                  animated={false}
-                  colors={['#667eea', '#5a7ef5', '#4f8fff']}
-                >
-                  <div className="project-card-wrapper">
-                    <img
-                      src={card1Image}
-                      alt={`Project Card ${num}`}
-                      loading="lazy"
-                      decoding="async"
-                      className="project-card-image"
-                    />
-                    <div className="project-card-overlay">
-                      <span className="project-card-label">Project {num}</span>
-                    </div>
-                  </div>
-                </BorderGlow>
+              <div key={num} className="wt-project-card project-card-anim" onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
+                <img src={card1Image} alt={`Project ${num}`} className="wt-project-card-image" loading="lazy" />
+                <div className="wt-project-card-overlay">
+                  <h3 className="wt-project-card-title">Project {num}</h3>
+                </div>
               </div>
             ))}
           </div>
-        </Suspense>
-      </section>
-      </div>
-
-      {/* CARD 2: About + Skills */}
-      <div className="scroll-card">
-      <section id="about" className="about-section">
-        <div style={{width: '100%', padding: '0 2rem'}}>
-          <p className="section-label">About</p>
-          <h2 className="section-title">
-            <ShinyText
-              text="Get To Know Me"
-              speed={2.5}
-              delay={0}
-              color="#b5b5b5"
-              shineColor="#ffffff"
-              spread={120}
-              direction="left"
-              yoyo={false}
-              pauseOnHover={false}
-              disabled={false}
-            />
-          </h2>
         </div>
       </section>
 
-      <section className="about-combined-section">
-        <div className="about-content-wrapper">
-          <div className="bio-container">
-            <p className="bio-text">
-              Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.
-            </p>
-            <p className="bio-text">
-              What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.
-            </p>
-            <p className="bio-text">
-              I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.
-            </p>
-            <p className="bio-text">
-              In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.
-            </p>
+      {/* ─── 3. About Me Section (Grid/Pills) ─── */}
+      <section id="about" className="wt-about-section">
+        <div className="wt-about-header">
+          <p className="section-label">About</p>
+          <h2 className="section-title">
+            <ShinyText text="Get To Know Me" speed={2.5} color="#b5b5b5" shineColor="#ffffff" spread={120} direction="left" />
+          </h2>
+        </div>
+
+        <div className="wt-about-grid">
+          <div className="wt-about-pill wt-about-pill--large wt-about-anim">
+            <p>Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity. What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.</p>
           </div>
-          <div id="about-card" className="profile-container">
+          
+          <div className="wt-about-profile wt-about-anim">
             <Suspense fallback={<div style={{ width: '100%', maxWidth: '300px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }}/>}>
               <ProfileCard
                 name="Tamas Gal"
@@ -249,97 +244,48 @@ const WebsiteTest = ({ onBack }) => {
               />
             </Suspense>
           </div>
-        </div>
-      </section>
 
-      <section className="skills-section">
-        <div className="skills-container">
-          <div className="skills-row skills-row--adobe">
-            {adobeLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="skill-item"
-                title={logo.title}
-                style={{ cursor: 'default' }}
-              >
-                {logo.node}
-              </div>
-            ))}
+          <div className="wt-about-pill wt-about-pill--medium wt-about-anim">
+            <p>I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.</p>
           </div>
-          <div className="skills-row skills-row--other">
-            {otherLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="skill-item"
-                title={logo.title}
-                style={{ cursor: 'default' }}
-              >
-                {logo.node}
-              </div>
-            ))}
+
+          <div className="wt-about-pill wt-about-pill--small wt-about-anim">
+            <p>In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.</p>
           </div>
         </div>
       </section>
-      </div>
 
-      {/* CARD 3: Zen Pond */}
-      <div className="scroll-card">
-        <Suspense fallback={<div style={{ height: '100vh', background: '#000' }}/>}>
-          <ZenPond />
-        </Suspense>
-      </div>
+      {/* ─── 4. Contact Section ─── */}
+      <section id="contact" className="wt-contact-section">
+        <div style={{width: '100%', padding: '0 2rem', textAlign: 'center'}} className="wt-contact-anim">
+          <p className="section-label">Get in Touch</p>
+          <h2 className="section-title">
+            <ShinyText text="Let's Chat" speed={2.5} color="#b5b5b5" shineColor="#ffffff" spread={120} direction="left" />
+          </h2>
+        </div>
 
-      {/* CARD 4: Contact */}
-      <div className="scroll-card">
-        <section id="contact" className="contact-section">
-          <div style={{width: '100%', padding: '0 2rem'}}>
-            <p className="section-label">Get in Touch</p>
-            <h2 className="section-title">
-              <ShinyText
-                text="Let's Chat"
-                speed={2.5}
-                delay={0}
-                color="#b5b5b5"
-                shineColor="#ffffff"
-                spread={120}
-                direction="left"
-                yoyo={false}
-                pauseOnHover={false}
-                disabled={false}
-              />
-            </h2>
-          </div>
-        </section>
-
-        <section id="contact-folder" className="folder-section">
+        <section id="contact-folder" className="folder-section wt-contact-anim" style={{ flex: 1 }}>
           <StarConstellation side="left" />
-
           <div className="folder-container">
             <Suspense fallback={<div style={{ minHeight: '50vh' }}/>}>
               <Folder size={isMobile ? 1.4 : 2} color="#667eea" className="custom-folder" items={socialItems} />
             </Suspense>
             <div className="folder-base-line" />
           </div>
-
           <StarConstellation side="right" />
         </section>
 
         <footer className="footer">
           <p className="footer-text">Created by Tamas Gal - All rights reserved</p>
         </footer>
-      </div>
+      </section>
 
+      {/* Modals */}
       {selectedWork && (
-        <WorkModal
-          workId={selectedWork}
-          onClose={() => setSelectedWork(null)}
-        />
+        <WorkModal workId={selectedWork} onClose={() => setSelectedWork(null)} />
       )}
-
       {showResumeModal && (
-        <ResumeModal
-          onClose={() => setShowResumeModal(false)}
-        />
+        <ResumeModal onClose={() => setShowResumeModal(false)} />
       )}
     </div>
   );
