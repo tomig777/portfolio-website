@@ -73,7 +73,7 @@ const WebsiteTest = ({ onBack }) => {
         ease: 'power2.out',
         scrollTrigger: {
           trigger: '.wt-blur-section',
-          scroller: '.wt-scroll-container',
+          scroller: containerRef.current,
           start: 'top 75%',
           end: 'center center',
           scrub: 1
@@ -88,7 +88,7 @@ const WebsiteTest = ({ onBack }) => {
       
       ScrollTrigger.create({
         trigger: card,
-        scroller: '.wt-scroll-container',
+        scroller: containerRef.current,
         start: 'top 20%', // When it sticks
         endTrigger: cards[i + 1],
         end: 'top 20%', // When the next card hits the sticky point
@@ -107,7 +107,7 @@ const WebsiteTest = ({ onBack }) => {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.wt-about-grid',
-          scroller: '.wt-scroll-container',
+          scroller: containerRef.current,
           start: 'top 85%',
           end: 'bottom 80%',
           scrub: 1
@@ -126,7 +126,7 @@ const WebsiteTest = ({ onBack }) => {
         ease: 'power2.out',
         scrollTrigger: {
           trigger: '.wt-contact-section',
-          scroller: '.wt-scroll-container',
+          scroller: containerRef.current,
           start: 'top 80%',
           end: 'center 60%',
           scrub: 1
