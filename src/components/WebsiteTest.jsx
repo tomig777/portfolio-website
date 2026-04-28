@@ -206,12 +206,14 @@ const WebsiteTest = ({ onBack }) => {
       </section>
 
       {/* ─── 2. Sticky Projects Section ─── */}
-      <section id="work" className="wt-projects-section">
+      <section id="work" className="wt-projects-section" style={{ paddingBottom: '100vh' }}>
         <div className="wt-projects-container">
           <div className="wt-projects-left">
-            <p className="section-label">Work</p>
-            <h2 className="section-title">Selected<br/>Projects</h2>
-            <div style={{color: 'rgba(255,255,255,0.5)', marginTop: '2rem', maxWidth: '400px', lineHeight: 1.6, fontFamily: 'Inter, sans-serif', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+            <div>
+              <p className="section-label">Work</p>
+              <h2 className="section-title">Selected<br/>Projects</h2>
+            </div>
+            <div style={{color: 'rgba(255,255,255,0.5)', maxWidth: '400px', lineHeight: 1.6, fontFamily: 'Inter, sans-serif', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
               <p>A collection of my latest works ranging from 3D visualization to UI design. Scroll to explore the details.</p>
               <p>Each project is approached with a unique perspective, ensuring that the final result not only looks stunning but also serves its functional purpose perfectly.</p>
               <p>By combining technical expertise with creative vision, these case studies showcase a dedication to pushing boundaries and delivering high-quality digital experiences.</p>
