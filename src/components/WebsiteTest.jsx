@@ -84,21 +84,21 @@ const WebsiteTest = ({ onBack }) => {
         start: 'top top',
         end: '+=250%', // Pin for 250% viewport height to leave more scrolling time
         pin: true,
-        scrub: 1
+        scrub: 1.5
       }
     });
 
     textTl.fromTo('.wt-word-1', 
       { filter: 'blur(16px)', opacity: 0, x: 30 },
-      { filter: 'blur(0px)', opacity: 1, x: 0, stagger: 0.15, ease: 'power2.out' }
+      { filter: 'blur(0px)', opacity: 1, x: 0, stagger: 0.15, ease: 'none' }
     )
     .to('.wt-word-1', 
-      { filter: 'blur(10px)', opacity: 0, x: -30, stagger: 0.1, ease: 'power2.in' }, 
+      { filter: 'blur(10px)', opacity: 0, x: -30, stagger: 0.1, ease: 'none' }, 
       "+=0.8" // Hold a bit before fading out
     )
     .fromTo('.wt-word-2', 
       { filter: 'blur(16px)', opacity: 0, x: 30 },
-      { filter: 'blur(0px)', opacity: 1, x: 0, stagger: 0.15, ease: 'power2.out' },
+      { filter: 'blur(0px)', opacity: 1, x: 0, stagger: 0.15, ease: 'none' },
       "<0.2"
     )
     .to({}, { duration: 1.5 }); // Hold longer at the end before unpinning
@@ -208,8 +208,8 @@ const WebsiteTest = ({ onBack }) => {
       {/* ─── 1. Text Blur Section ─── */}
       <section className="wt-blur-section">
         <h2 className="wt-blur-text wt-text-1">
-          {['Clean', 'aesthetics', '—', 'pixel', 'perfect', 'details.'].map((word, i) => (
-            <span key={i} className={`wt-blur-word wt-word-1 ${i > 2 ? 'wt-blur-highlight' : ''}`}>{word}</span>
+          {['Clean', 'aesthetics', 'pixel', 'perfect', 'details.'].map((word, i) => (
+            <span key={i} className={`wt-blur-word wt-word-1 ${i > 1 ? 'wt-blur-highlight' : ''}`}>{word}</span>
           ))}
         </h2>
         <h2 className="wt-blur-text wt-text-2">

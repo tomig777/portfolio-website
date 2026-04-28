@@ -2,13 +2,19 @@
    Website Test Reimagined Layout Styles
    ═══════════════════════════════════════════ */
 
+.wt-scroll-container {
+  background: linear-gradient(to bottom, #000000 0%, #000000 15%, #1a1a1a 100%);
+  min-height: 100vh;
+}
+
 /* ─── Blur Text Section ─── */
 .wt-blur-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  align-items: center;
   justify-content: center;
-  background: #0a0a0a;
+  /* background removed to let global gradient show */
   padding: 4rem 2rem;
   position: relative;
   overflow: hidden;
@@ -45,8 +51,9 @@
 
 /* ─── Sticky Projects Section ─── */
 .wt-projects-section {
+.wt-projects-section {
   position: relative;
-  background: #0a0a0a;
+  /* background removed */
 }
 
 .wt-projects-container {
@@ -123,7 +130,7 @@
 
 /* ─── About Me Section (Grid/Pills) ─── */
 .wt-about-section {
-  background: #0a0a0a;
+  /* background removed */
   padding: 30vh 2rem 10vh 2rem; /* Increased top padding to compensate for removed padding in projects section */
   overflow: hidden;
 }
