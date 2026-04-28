@@ -94,6 +94,10 @@
   transform-origin: top center;
 }
 
+.wt-project-card:nth-last-child(2) {
+  margin-bottom: 0; /* Remove margin so the sticky bounding box mathematically perfectly aligns with the left column's bounding box */
+}
+
 .wt-project-card-image {
   width: 100%;
   height: 100%;
