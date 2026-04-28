@@ -73,7 +73,7 @@
 .wt-projects-right {
   flex: 1.2;
   padding-top: 20vh;
-  padding-bottom: 150vh; /* Massive scroll space to freeze the last card and left text perfectly without triggering Safari sticky bugs */
+  padding-bottom: 20vh; /* Restored back to 20vh; the massive delay is now handled safely by the spacer div in the content box */
   padding-right: 2rem;
   display: flex;
   flex-direction: column;
