@@ -19,6 +19,8 @@ import { HiMail } from 'react-icons/hi';
 import card1Image from '../assets/szia.png';
 import portraitImage from '../assets/portrait-1.png';
 import kep9 from '../assets/kep9.png';
+import nukeLogo from '../assets/nuke_logo2.png';
+import substanceLogo from '../assets/substance_logo.png';
 
 import './WebsiteTest.css';
 
@@ -27,6 +29,25 @@ gsap.registerPlugin(ScrollTrigger);
 const Lanyard = lazy(() => import('./Lanyard'));
 const ProfileCard = lazy(() => import('./ProfileCard'));
 const Folder = lazy(() => import('./Folder'));
+
+const adobeLogos = [
+  { node: <SiAdobeillustrator />, title: "Adobe Illustrator" },
+  { node: <SiAdobephotoshop />, title: "Adobe Photoshop" },
+  { node: <SiAdobepremierepro />, title: "Adobe Premiere Pro" },
+  { node: <SiAdobeaftereffects />, title: "Adobe After Effects" },
+  { node: <SiAdobeaudition />, title: "Adobe Audition" },
+  { node: <SiAdobelightroom />, title: "Adobe Lightroom" },
+];
+
+const otherLogos = [
+  { node: <SiAutodesk />, title: "Autodesk Maya" },
+  { node: <SiFigma />, title: "Figma" },
+  { node: <SiBlender />, title: "Blender" },
+  { node: <SiDavinciresolve />, title: "DaVinci Resolve" },
+  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${nukeLogo})`, maskImage: `url(${nukeLogo})`, width: '44px', height: '44px' }} />, title: "Nuke" },
+  { node: <SiCinema4D />, title: "Cinema 4D" },
+  { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${substanceLogo})`, maskImage: `url(${substanceLogo})`, width: '50px', height: '50px' }} />, title: "Substance Painter" },
+];
 
 const socialItems = [
   <a key="instagram" href="https://www.instagram.com/arhivetkg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -128,7 +149,7 @@ const WebsiteTest = ({ onBack }) => {
         stagger: 0.1,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.wt-about-grid',
+          trigger: '.wt-about-section',
           scroller: containerRef.current,
           start: 'top 85%',
           end: 'bottom 80%',
@@ -261,34 +282,67 @@ const WebsiteTest = ({ onBack }) => {
           </h2>
         </div>
 
-        <div className="wt-about-grid">
-          <div className="wt-about-pill wt-about-pill--large wt-about-anim">
-            <p>Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity. What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.</p>
+        <div className="about-combined-section">
+          <div className="about-content-wrapper">
+            <div className="bio-container">
+              <p className="bio-text wt-about-anim">
+                Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.
+              </p>
+              <p className="bio-text wt-about-anim">
+                What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.
+              </p>
+              <p className="bio-text wt-about-anim">
+                I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.
+              </p>
+              <p className="bio-text wt-about-anim">
+                In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.
+              </p>
+            </div>
+            <div id="about-card" className="profile-container wt-about-anim">
+              <Suspense fallback={<div style={{ width: '100%', maxWidth: '300px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }}/>}>
+                <ProfileCard
+                  name="Tamas Gal"
+                  title="Media Designer"
+                  handle="tamasgal"
+                  status="Available"
+                  avatarUrl={portraitImage}
+                  showUserInfo={true}
+                  enableTilt={true}
+                  enableMobileTilt={false}
+                  hideContact={true}
+                  monoColor={true}
+                />
+              </Suspense>
+            </div>
           </div>
-          
-          <div className="wt-about-profile wt-about-anim">
-            <Suspense fallback={<div style={{ width: '100%', maxWidth: '300px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }}/>}>
-              <ProfileCard
-                name="Tamas Gal"
-                title="Media Designer"
-                handle="tamasgal"
-                status="Available"
-                avatarUrl={portraitImage}
-                showUserInfo={true}
-                enableTilt={true}
-                enableMobileTilt={false}
-                hideContact={true}
-                monoColor={true}
-              />
-            </Suspense>
-          </div>
+        </div>
 
-          <div className="wt-about-pill wt-about-pill--medium wt-about-anim">
-            <p>I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.</p>
-          </div>
-
-          <div className="wt-about-pill wt-about-pill--small wt-about-anim">
-            <p>In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.</p>
+        <div className="skills-section">
+          <div className="skills-container">
+            <div className="skills-row skills-row--adobe wt-about-anim">
+              {adobeLogos.map((logo, index) => (
+                <div
+                  key={index}
+                  className="skill-item"
+                  title={logo.title}
+                  style={{ cursor: 'default' }}
+                >
+                  {logo.node}
+                </div>
+              ))}
+            </div>
+            <div className="skills-row skills-row--other wt-about-anim">
+              {otherLogos.map((logo, index) => (
+                <div
+                  key={index}
+                  className="skill-item"
+                  title={logo.title}
+                  style={{ cursor: 'default' }}
+                >
+                  {logo.node}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
