@@ -60,6 +60,20 @@ const WebsiteTest = ({ onBack }) => {
 
   const [showResumeModal, setShowResumeModal] = useState(false);
 
+  // Sync left column height with dynamic card height for pixel-perfect alignment
+  useEffect(() => {
+    const syncHeight = () => {
+      const card = document.querySelector('.wt-project-card');
+      const leftCol = document.querySelector('.wt-projects-left');
+      if (card && leftCol) {
+        leftCol.style.height = `${card.offsetHeight}px`;
+      }
+    };
+    syncHeight();
+    window.addEventListener('resize', syncHeight);
+    return () => window.removeEventListener('resize', syncHeight);
+  }, []);
+
   // GSAP Animations
   useGSAP(() => {
     // 1. Pinned Text Sequence
@@ -206,7 +220,7 @@ const WebsiteTest = ({ onBack }) => {
       </section>
 
       {/* ─── 2. Sticky Projects Section ─── */}
-      <section id="work" className="wt-projects-section" style={{ paddingBottom: '100vh' }}>
+      <section id="work" className="wt-projects-section">
         <div className="wt-projects-container">
           <div className="wt-projects-left">
             <div>
@@ -216,7 +230,6 @@ const WebsiteTest = ({ onBack }) => {
             <div style={{color: 'rgba(255,255,255,0.5)', maxWidth: '400px', lineHeight: 1.6, fontFamily: 'Inter, sans-serif', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
               <p>A collection of my latest works ranging from 3D visualization to UI design. Scroll to explore the details.</p>
               <p>Each project is approached with a unique perspective, ensuring that the final result not only looks stunning but also serves its functional purpose perfectly.</p>
-              <p>By combining technical expertise with creative vision, these case studies showcase a dedication to pushing boundaries and delivering high-quality digital experiences.</p>
             </div>
           </div>
           
