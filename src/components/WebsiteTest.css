@@ -73,7 +73,7 @@
 .wt-projects-right {
   flex: 1.2;
   padding-top: 20vh;
-  padding-bottom: 20vh;
+  padding-bottom: 150vh; /* Massive scroll space to freeze the last card and left text perfectly without triggering Safari sticky bugs */
   padding-right: 2rem;
   display: flex;
   flex-direction: column;
@@ -95,10 +95,6 @@
   flex-direction: column;
   will-change: transform;
   transform-origin: top center;
-}
-
-.wt-project-card:last-child {
-  margin-bottom: 150vh; /* Massive scrolling delay on the last card before it scrolls away with the text */
 }
 
 .wt-project-card-image {
