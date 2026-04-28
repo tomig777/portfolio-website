@@ -47,7 +47,6 @@
 .wt-projects-section {
   position: relative;
   background: #0a0a0a;
-  padding-bottom: 20vh;
 }
 
 .wt-projects-container {
@@ -72,7 +71,6 @@
 
 .wt-projects-right {
   flex: 1.2;
-  padding-top: 20vh;
   padding-bottom: 0; /* Removed padding to perfectly align the content-box boundary with the left column, syncing their scroll-out time */
   padding-right: 2rem;
   display: block; /* Safari has a bug where position: sticky fails prematurely inside flex columns. Block layout fixes this. */
@@ -127,7 +125,7 @@
 /* ─── About Me Section (Grid/Pills) ─── */
 .wt-about-section {
   background: #0a0a0a;
-  padding: 10vh 2rem;
+  padding: 30vh 2rem 10vh 2rem; /* Increased top padding to compensate for removed padding in projects section */
   overflow: hidden;
 }
 
