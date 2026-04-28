@@ -3,7 +3,9 @@
    ═══════════════════════════════════════════ */
 
 .wt-scroll-container {
-  background: linear-gradient(to bottom, #000000 0%, #000000 15%, #1a1a1a 100%);
+  /* Radial gradient for a soft dark purple glow at the bottom left */
+  background: radial-gradient(circle at bottom left, #2f204d 0%, #000000 60%);
+  background-attachment: fixed; /* Keeps the gradient stable while scrolling */
   min-height: 100vh;
 }
 
@@ -128,10 +130,10 @@
   margin: 0;
 }
 
-/* ─── About Me Section (Grid/Pills) ─── */
+/* ─── About Me Section (3-Column Layout) ─── */
 .wt-about-section {
   /* background removed */
-  padding: 60vh 2rem 10vh 2rem; /* Increased top padding to push About section further down from projects */
+  padding: 100vh 2rem 10vh 2rem; /* Massive top padding to ensure a clean visual break after the project cards */
   overflow: hidden;
 }
 
@@ -141,34 +143,38 @@
   background-color: transparent !important;
 }
 
-/* ─── Infinite Skills Marquee ─── */
-.wt-marquee-container {
-  width: 100vw;
-  max-width: 100%;
-  overflow: hidden;
-  position: relative;
-  /* Add smooth fading edges so logos disappear cleanly */
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  padding: 2rem 0;
-}
-
-.wt-marquee-track {
-  display: flex;
-  width: max-content;
+/* ─── Infinite Skills Marquee (Removed in favor of 3-col) ─── */
+.wt-about-3col {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
   gap: 4rem;
+  max-width: 1400px;
+  width: 100%;
   align-items: center;
-  animation: scrollMarquee 35s linear infinite;
-  padding-left: 4rem; /* Match the gap so the loop perfectly aligns */
 }
 
-.wt-marquee-track:hover {
-  animation-play-state: paused;
+.wt-skills-column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes scrollMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* Shifts exactly half the width to seamlessly loop the duplicated array */
+.wt-skills-column .skill-item {
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.wt-skills-column .skill-item:hover {
+  color: #fff;
+  transform: scale(1.1);
 }
 
 .wt-about-header {

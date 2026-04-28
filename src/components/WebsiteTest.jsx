@@ -283,7 +283,9 @@ const WebsiteTest = ({ onBack }) => {
         </div>
 
         <div className="about-combined-section">
-          <div className="about-content-wrapper wt-about-anim">
+          <div className="wt-about-3col wt-about-anim">
+            
+            {/* Column 1: Image Card */}
             <div id="about-card" className="profile-container">
               <Suspense fallback={<div style={{ width: '100%', maxWidth: '300px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }}/>}>
                 <ProfileCard
@@ -300,6 +302,8 @@ const WebsiteTest = ({ onBack }) => {
                 />
               </Suspense>
             </div>
+
+            {/* Column 2: Biography Text */}
             <div className="bio-container">
               <p className="bio-text">
                 Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.
@@ -314,24 +318,21 @@ const WebsiteTest = ({ onBack }) => {
                 In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.
               </p>
             </div>
-          </div>
-        </div>
 
-        <div className="skills-section wt-about-anim">
-          <div className="wt-marquee-container">
-            <div className="wt-marquee-track">
-              {/* Duplicate the array twice to ensure seamless infinite looping */}
-              {[...adobeLogos, ...otherLogos, ...adobeLogos, ...otherLogos].map((logo, index) => (
+            {/* Column 3: Software Icons */}
+            <div className="wt-skills-column">
+              {[...adobeLogos, ...otherLogos].map((logo, index) => (
                 <div
                   key={index}
                   className="skill-item"
                   title={logo.title}
-                  style={{ cursor: 'default', flexShrink: 0 }}
+                  style={{ cursor: 'pointer' }}
                 >
                   {logo.node}
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </section>
