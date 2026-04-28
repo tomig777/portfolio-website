@@ -75,8 +75,7 @@
   padding-top: 20vh;
   padding-bottom: 0; /* Removed padding to perfectly align the content-box boundary with the left column, syncing their scroll-out time */
   padding-right: 2rem;
-  display: flex;
-  flex-direction: column;
+  display: block; /* Safari has a bug where position: sticky fails prematurely inside flex columns. Block layout fixes this. */
 }
 
 .wt-project-card {
