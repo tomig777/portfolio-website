@@ -242,8 +242,8 @@ const WebsiteTest = ({ onBack }) => {
                 </div>
               </div>
             ))}
-            {/* Invisible spacer to extend the content box, allowing Project 6 to stay sticky for an extra 150vh */}
-            <div style={{ height: '150vh', width: '100%', flexShrink: 0 }} aria-hidden="true"></div>
+            {/* Invisible spacer to extend the content box, allowing Project 6 to stay sticky for an extra 170vh */}
+            <div style={{ height: '170vh', width: '100%', flexShrink: 0 }} aria-hidden="true"></div>
           </div>
         </div>
       </section>

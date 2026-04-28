@@ -73,7 +73,7 @@
 .wt-projects-right {
   flex: 1.2;
   padding-top: 20vh;
-  padding-bottom: 20vh; /* Restored back to 20vh; the massive delay is now handled safely by the spacer div in the content box */
+  padding-bottom: 0; /* Removed padding to perfectly align the content-box boundary with the left column, syncing their scroll-out time */
   padding-right: 2rem;
   display: flex;
   flex-direction: column;
