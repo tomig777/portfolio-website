@@ -283,22 +283,8 @@ const WebsiteTest = ({ onBack }) => {
         </div>
 
         <div className="about-combined-section">
-          <div className="about-content-wrapper">
-            <div className="bio-container">
-              <p className="bio-text wt-about-anim">
-                Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.
-              </p>
-              <p className="bio-text wt-about-anim">
-                What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.
-              </p>
-              <p className="bio-text wt-about-anim">
-                I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.
-              </p>
-              <p className="bio-text wt-about-anim">
-                In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.
-              </p>
-            </div>
-            <div id="about-card" className="profile-container wt-about-anim">
+          <div className="about-content-wrapper wt-about-anim">
+            <div id="about-card" className="profile-container">
               <Suspense fallback={<div style={{ width: '100%', maxWidth: '300px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }}/>}>
                 <ProfileCard
                   name="Tamas Gal"
@@ -314,30 +300,33 @@ const WebsiteTest = ({ onBack }) => {
                 />
               </Suspense>
             </div>
+            <div className="bio-container">
+              <p className="bio-text">
+                Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.
+              </p>
+              <p className="bio-text">
+                What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.
+              </p>
+              <p className="bio-text">
+                I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.
+              </p>
+              <p className="bio-text">
+                In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="skills-section">
-          <div className="skills-container">
-            <div className="skills-row skills-row--adobe wt-about-anim">
-              {adobeLogos.map((logo, index) => (
+        <div className="skills-section wt-about-anim">
+          <div className="wt-marquee-container">
+            <div className="wt-marquee-track">
+              {/* Duplicate the array twice to ensure seamless infinite looping */}
+              {[...adobeLogos, ...otherLogos, ...adobeLogos, ...otherLogos].map((logo, index) => (
                 <div
                   key={index}
                   className="skill-item"
                   title={logo.title}
-                  style={{ cursor: 'default' }}
-                >
-                  {logo.node}
-                </div>
-              ))}
-            </div>
-            <div className="skills-row skills-row--other wt-about-anim">
-              {otherLogos.map((logo, index) => (
-                <div
-                  key={index}
-                  className="skill-item"
-                  title={logo.title}
-                  style={{ cursor: 'default' }}
+                  style={{ cursor: 'default', flexShrink: 0 }}
                 >
                   {logo.node}
                 </div>

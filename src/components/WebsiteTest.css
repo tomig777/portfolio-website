@@ -131,8 +131,44 @@
 /* ─── About Me Section (Grid/Pills) ─── */
 .wt-about-section {
   /* background removed */
-  padding: 30vh 2rem 10vh 2rem; /* Increased top padding to compensate for removed padding in projects section */
+  padding: 60vh 2rem 10vh 2rem; /* Increased top padding to push About section further down from projects */
   overflow: hidden;
+}
+
+/* Override imported styles from App.css to keep gradient visible */
+.wt-about-section .about-combined-section,
+.wt-about-section .skills-section {
+  background-color: transparent !important;
+}
+
+/* ─── Infinite Skills Marquee ─── */
+.wt-marquee-container {
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* Add smooth fading edges so logos disappear cleanly */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  padding: 2rem 0;
+}
+
+.wt-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 4rem;
+  align-items: center;
+  animation: scrollMarquee 35s linear infinite;
+  padding-left: 4rem; /* Match the gap so the loop perfectly aligns */
+}
+
+.wt-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Shifts exactly half the width to seamlessly loop the duplicated array */
 }
 
 .wt-about-header {
