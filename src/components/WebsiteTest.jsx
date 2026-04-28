@@ -62,24 +62,32 @@ const WebsiteTest = ({ onBack }) => {
 
   // GSAP Animations
   useGSAP(() => {
-    // 1. Text Blur Reveal
-    gsap.fromTo('.wt-blur-word', 
-      { filter: 'blur(16px)', opacity: 0, x: 30 },
-      { 
-        filter: 'blur(0px)', 
-        opacity: 1, 
-        x: 0, 
-        stagger: 0.15, 
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.wt-blur-section',
-          scroller: containerRef.current,
-          start: 'top 75%',
-          end: 'center center',
-          scrub: 1
-        }
+    // 1. Pinned Text Sequence
+    const textTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.wt-blur-section',
+        scroller: containerRef.current,
+        start: 'top top',
+        end: '+=150%', // Pin for 150% viewport height
+        pin: true,
+        scrub: 1
       }
-    );
+    });
+
+    textTl.fromTo('.wt-word-1', 
+      { filter: 'blur(16px)', opacity: 0, x: 30 },
+      { filter: 'blur(0px)', opacity: 1, x: 0, stagger: 0.15, ease: 'power2.out' }
+    )
+    .to('.wt-word-1', 
+      { filter: 'blur(10px)', opacity: 0, x: -30, stagger: 0.1, ease: 'power2.in' }, 
+      "+=0.5"
+    )
+    .fromTo('.wt-word-2', 
+      { filter: 'blur(16px)', opacity: 0, x: 30 },
+      { filter: 'blur(0px)', opacity: 1, x: 0, stagger: 0.15, ease: 'power2.out' },
+      "<0.2"
+    )
+    .to({}, { duration: 0.5 }); // Hold at the end
 
     // 2. Sticky Cards Scale effect
     const cards = gsap.utils.toArray('.project-card-anim');
@@ -93,7 +101,7 @@ const WebsiteTest = ({ onBack }) => {
         endTrigger: cards[i + 1],
         end: 'top 20%', // When the next card hits the sticky point
         scrub: true,
-        animation: gsap.to(card, { scale: 0.92, opacity: 0.4, ease: 'none' })
+        animation: gsap.to(card, { scale: 0.92, ease: 'none' })
       });
     });
 
@@ -185,9 +193,14 @@ const WebsiteTest = ({ onBack }) => {
 
       {/* ─── 1. Text Blur Section ─── */}
       <section className="wt-blur-section">
-        <h2 className="wt-blur-text">
+        <h2 className="wt-blur-text wt-text-1">
           {['Clean', 'aesthetics', '—', 'pixel', 'perfect', 'details.'].map((word, i) => (
-            <span key={i} className={`wt-blur-word ${i > 2 ? 'wt-blur-highlight' : ''}`}>{word}</span>
+            <span key={i} className={`wt-blur-word wt-word-1 ${i > 2 ? 'wt-blur-highlight' : ''}`}>{word}</span>
+          ))}
+        </h2>
+        <h2 className="wt-blur-text wt-text-2">
+          {['Crafting', 'dynamic', 'digital', 'experiences.'].map((word, i) => (
+            <span key={i} className={`wt-blur-word wt-word-2 ${i > 1 ? 'wt-blur-highlight' : ''}`}>{word}</span>
           ))}
         </h2>
       </section>
