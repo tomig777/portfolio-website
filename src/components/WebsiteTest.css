@@ -82,6 +82,8 @@
   position: sticky;
   top: 20vh;
   aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 65vh; /* Limits maximum width based on viewport height to prevent vertical overflow */
   background: #111116;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 24px;

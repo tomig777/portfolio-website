@@ -68,7 +68,7 @@ const WebsiteTest = ({ onBack }) => {
         trigger: '.wt-blur-section',
         scroller: containerRef.current,
         start: 'top top',
-        end: '+=150%', // Pin for 150% viewport height
+        end: '+=250%', // Pin for 250% viewport height to leave more scrolling time
         pin: true,
         scrub: 1
       }
@@ -80,14 +80,14 @@ const WebsiteTest = ({ onBack }) => {
     )
     .to('.wt-word-1', 
       { filter: 'blur(10px)', opacity: 0, x: -30, stagger: 0.1, ease: 'power2.in' }, 
-      "+=0.5"
+      "+=0.8" // Hold a bit before fading out
     )
     .fromTo('.wt-word-2', 
       { filter: 'blur(16px)', opacity: 0, x: 30 },
       { filter: 'blur(0px)', opacity: 1, x: 0, stagger: 0.15, ease: 'power2.out' },
       "<0.2"
     )
-    .to({}, { duration: 0.5 }); // Hold at the end
+    .to({}, { duration: 1.5 }); // Hold longer at the end before unpinning
 
     // 2. Sticky Cards Scale effect
     const cards = gsap.utils.toArray('.project-card-anim');
@@ -211,9 +211,11 @@ const WebsiteTest = ({ onBack }) => {
           <div className="wt-projects-left">
             <p className="section-label">Work</p>
             <h2 className="section-title">Selected<br/>Projects</h2>
-            <p style={{color: 'rgba(255,255,255,0.5)', marginTop: '2rem', maxWidth: '300px', lineHeight: 1.6, fontFamily: 'Inter, sans-serif'}}>
-              A collection of my latest works ranging from 3D visualization to UI design. Scroll to explore.
-            </p>
+            <div style={{color: 'rgba(255,255,255,0.5)', marginTop: '2rem', maxWidth: '400px', lineHeight: 1.6, fontFamily: 'Inter, sans-serif', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+              <p>A collection of my latest works ranging from 3D visualization to UI design. Scroll to explore the details.</p>
+              <p>Each project is approached with a unique perspective, ensuring that the final result not only looks stunning but also serves its functional purpose perfectly.</p>
+              <p>By combining technical expertise with creative vision, these case studies showcase a dedication to pushing boundaries and delivering high-quality digital experiences.</p>
+            </div>
           </div>
           
           <div className="wt-projects-right">
