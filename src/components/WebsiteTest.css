@@ -51,10 +51,10 @@
 
 .wt-projects-container {
   display: flex;
-  max-width: 1400px;
+  max-width: 1100px; /* Reduced from 1400px to bring columns closer to the center equally */
   margin: 0 auto;
   position: relative;
-  gap: 8rem; /* Increased gap to push the right column further to the right */
+  gap: 4rem; /* Reduced gap to bring text and images closer to each other */
 }
 
 .wt-projects-left {
@@ -82,7 +82,6 @@
   aspect-ratio: 1 / 1;
   width: 100%;
   max-width: 65vh; /* Limits maximum width based on viewport height to prevent vertical overflow */
-  margin-left: auto; /* Pushes the card to the right side of its container */
   background: #111116;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 24px;
