@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -234,13 +234,17 @@ const WebsiteTest = ({ onBack }) => {
           </div>
           
           <div className="wt-projects-right">
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <div key={num} className="wt-project-card project-card-anim" onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
-                <img src={card1Image} alt={`Project ${num}`} className="wt-project-card-image" loading="lazy" />
-                <div className="wt-project-card-overlay">
-                  <h3 className="wt-project-card-title">Project {num}</h3>
+            {[1, 2, 3, 4, 5, 6].map((num, index) => (
+              <React.Fragment key={num}>
+                <div className="wt-project-card project-card-anim" onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
+                  <img src={card1Image} alt={`Project ${num}`} className="wt-project-card-image" loading="lazy" />
+                  <div className="wt-project-card-overlay">
+                    <h3 className="wt-project-card-title">Project {num}</h3>
+                  </div>
                 </div>
-              </div>
+                {/* Spacer between cards to create scroll distance without affecting sticky bounding box calculations */}
+                {index < 5 && <div style={{ height: '50vh', width: '100%', flexShrink: 0 }} aria-hidden="true"></div>}
+              </React.Fragment>
             ))}
             {/* Invisible spacer to extend the content box, allowing Project 6 to stay sticky for an extra 170vh */}
             <div style={{ height: '170vh', width: '100%', flexShrink: 0 }} aria-hidden="true"></div>
