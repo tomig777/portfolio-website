@@ -54,7 +54,7 @@
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
-  gap: 4rem;
+  gap: 8rem; /* Increased gap to push the right column further to the right */
 }
 
 .wt-projects-left {
@@ -82,6 +82,7 @@
   aspect-ratio: 1 / 1;
   width: 100%;
   max-width: 65vh; /* Limits maximum width based on viewport height to prevent vertical overflow */
+  margin-left: auto; /* Pushes the card to the right side of its container */
   background: #111116;
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 24px;
