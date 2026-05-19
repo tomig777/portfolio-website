@@ -34,12 +34,10 @@ const ParticleOrb = ({ onBack }) => {
     const sizes = new Float32Array(particleCount);
     const splitDirections = new Float32Array(particleCount);
 
-    const color1 = new THREE.Color('#00f2fe'); // Neon blue-cyan
-    const color2 = new THREE.Color('#4facfe'); // Electric cyan
-    const color3 = new THREE.Color('#00ffd5'); // Luminous neon teal
+    const themeColor = new THREE.Color('#00ffd5'); // Luminous neon teal-cyan
 
     for (let i = 0; i < particleCount; i++) {
-      const isCore = i < 4500; // 4500 core particles (highly dense), 2500 outer shell (sparse)
+      const isCore = i < 3000; // 3000 core particles (reduced from 4500), 4000 outer shell particles
 
       let r, theta, phi;
       if (isCore) {
@@ -72,13 +70,10 @@ const ParticleOrb = ({ onBack }) => {
       positions[i * 3 + 1] = y;
       positions[i * 3 + 2] = z;
 
-      // Color variation: Unified glowing electric cyan scheme for both layers
-      const rand = Math.random();
-      const chosenColor = rand < 0.35 ? color1 : rand < 0.7 ? color2 : color3;
-
-      colors[i * 3] = chosenColor.r;
-      colors[i * 3 + 1] = chosenColor.g;
-      colors[i * 3 + 2] = chosenColor.b;
+      // Color: Exactly 1 unified color for all particle parts
+      colors[i * 3] = themeColor.r;
+      colors[i * 3 + 1] = themeColor.g;
+      colors[i * 3 + 2] = themeColor.b;
 
       // Size distribution: Core slightly larger, Outer smaller/floating
       sizes[i] = isCore ? (0.55 + Math.random() * 0.55) : (0.4 + Math.random() * 0.4);
