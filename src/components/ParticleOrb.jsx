@@ -34,33 +34,18 @@ const ParticleOrb = ({ onBack }) => {
     const sizes = new Float32Array(particleCount);
     const splitDirections = new Float32Array(particleCount);
 
-    const themeColor = new THREE.Color('#00ffd5'); // Luminous neon teal-cyan
+    const themeColor = new THREE.Color('#d280ff'); // Luminous light purple
 
     for (let i = 0; i < particleCount; i++) {
-      const isCore = i < 3000; // 3000 core particles (reduced from 4500), 4000 outer shell particles
-
-      let r, theta, phi;
-      if (isCore) {
-        // Inner sphere: dense distribution with latitude bands
-        r = 0.44 * Math.pow(Math.random(), 0.7); // radius up to 0.44
-        theta = Math.random() * Math.PI * 2;
-        
-        // Latitude bands
-        const bands = 14;
-        const bandIndex = Math.floor(Math.random() * bands);
-        phi = (bandIndex / (bands - 1)) * Math.PI;
-        phi += (Math.random() - 0.5) * 0.022; // slight organic noise
-      } else {
-        // Outer sphere: sparse distribution with latitude bands
-        r = 0.85 + Math.random() * 0.55; // radius from 0.85 to 1.4
-        theta = Math.random() * Math.PI * 2;
-        
-        // Outer bands
-        const bandsOuter = 16;
-        const bandIndexOuter = Math.floor(Math.random() * bandsOuter);
-        phi = (bandIndexOuter / (bandsOuter - 1)) * Math.PI;
-        phi += (Math.random() - 0.5) * 0.032;
-      }
+      // Outer shell distribution for all particles (no core cluster)
+      const r = 0.85 + Math.random() * 0.55; // radius from 0.85 to 1.4
+      const theta = Math.random() * Math.PI * 2;
+      
+      // Latitude bands (rings)
+      const bandsOuter = 16;
+      const bandIndexOuter = Math.floor(Math.random() * bandsOuter);
+      let phi = (bandIndexOuter / (bandsOuter - 1)) * Math.PI;
+      phi += (Math.random() - 0.5) * 0.032; // organic noise
 
       const x = r * Math.sin(phi) * Math.cos(theta);
       const y = r * Math.sin(phi) * Math.sin(theta);
@@ -70,13 +55,13 @@ const ParticleOrb = ({ onBack }) => {
       positions[i * 3 + 1] = y;
       positions[i * 3 + 2] = z;
 
-      // Color: Exactly 1 unified color for all particle parts
+      // Color: Unified glowing light purple
       colors[i * 3] = themeColor.r;
       colors[i * 3 + 1] = themeColor.g;
       colors[i * 3 + 2] = themeColor.b;
 
-      // Size distribution: Core slightly larger, Outer smaller/floating
-      sizes[i] = isCore ? (0.55 + Math.random() * 0.55) : (0.4 + Math.random() * 0.4);
+      // Particle size range
+      sizes[i] = 0.4 + Math.random() * 0.55;
 
       // Alternate division direction: half of particles go left (-1.0), half go right (1.0)
       splitDirections[i] = i % 2 === 0 ? -1.0 : 1.0;
@@ -464,7 +449,7 @@ const ParticleOrb = ({ onBack }) => {
         // Collision Check: merge back together when brought on top of each other
         // Only run collision check when split is fully completed (splitProgress > 0.95)
         const distanceBetweenSubOrbs = currentOrbPosA.distanceTo(currentOrbPosB);
-        if (distanceBetweenSubOrbs < 0.95 && splitProgress > 0.95) {
+        if (distanceBetweenSubOrbs < 1.15 && splitProgress > 0.95) {
           isSplit = false;
           setIsSplitState(false);
           
