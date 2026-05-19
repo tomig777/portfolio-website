@@ -6,6 +6,7 @@ const ParticleOrb = ({ onBack }) => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const [isGrabbing, setIsGrabbing] = useState(false);
+  const [isSplitState, setIsSplitState] = useState(false);
 
   useEffect(() => {
     if (!canvasRef.current || !containerRef.current) return;
@@ -31,14 +32,15 @@ const ParticleOrb = ({ onBack }) => {
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     const sizes = new Float32Array(particleCount);
+    const splitDirections = new Float32Array(particleCount);
 
-    const colorCore1 = new THREE.Color('#ff4500'); // Red-Orange
-    const colorCore2 = new THREE.Color('#ff7a00'); // Orange
-    const colorCore3 = new THREE.Color('#ffaa00'); // Yellow-Orange
+    const colorCore1 = new THREE.Color('#7a00ff'); // Deep Indigo-purple
+    const colorCore2 = new THREE.Color('#b800ff'); // Purple
+    const colorCore3 = new THREE.Color('#4c00ff'); // Violet-Blue
 
-    const colorOuter1 = new THREE.Color('#00ff66'); // Neon Green
-    const colorOuter2 = new THREE.Color('#00ffcc'); // Teal Green
-    const colorOuter3 = new THREE.Color('#39ff14'); // Lime Green
+    const colorOuter1 = new THREE.Color('#0044ff'); // Electric Blue
+    const colorOuter2 = new THREE.Color('#0088ff'); // Bright Blue
+    const colorOuter3 = new THREE.Color('#00ccff'); // Cyan-Blue
 
     for (let i = 0; i < particleCount; i++) {
       const isCore = i < 2200; // 2200 core particles, 4800 outer shell
@@ -80,12 +82,16 @@ const ParticleOrb = ({ onBack }) => {
 
       // Size distribution (Core slightly larger/dense, Outer smaller/floating) - Significantly smaller particles
       sizes[i] = isCore ? (0.6 + Math.random() * 0.8) : (0.4 + Math.random() * 0.6);
+
+      // Alternate division direction: half of particles go left (-1.0), half go right (1.0)
+      splitDirections[i] = i % 2 === 0 ? -1.0 : 1.0;
     }
 
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
     geometry.setAttribute('aSize', new THREE.BufferAttribute(sizes, 1));
+    geometry.setAttribute('aSplitDirection', new THREE.BufferAttribute(splitDirections, 1));
 
     // --- Custom Shader Material ---
     const vertexShader = `
@@ -93,22 +99,52 @@ const ParticleOrb = ({ onBack }) => {
       uniform vec3 uMousePos;
       uniform float uHoverRadius;
       uniform float uHoverStrength;
+      uniform float uSplitProgress;
+      uniform float uShakeAmount;
       attribute float aSize;
+      attribute float aSplitDirection;
       varying vec3 vColor;
-      varying float vDistanceToMouse;
 
       void main() {
         vColor = color;
         vec3 pos = position;
 
-        // 1. Idle floating noise (subtle wave movement)
+        // 1. Shake vibration feedback
+        if (uShakeAmount > 0.05) {
+          float shakeTime = uTime * 45.0;
+          pos.x += sin(shakeTime + position.y * 20.0) * 0.03 * uShakeAmount;
+          pos.y += cos(shakeTime * 1.1 + position.z * 20.0) * 0.03 * uShakeAmount;
+          pos.z += sin(shakeTime * 0.9 + position.x * 20.0) * 0.03 * uShakeAmount;
+        }
+
+        // 2. Idle floating noise (subtle wave movement)
         pos.x += sin(uTime * 0.8 + position.y * 2.0) * 0.04;
         pos.y += cos(uTime * 0.7 + position.z * 2.0) * 0.04;
         pos.z += sin(uTime * 0.9 + position.x * 2.0) * 0.04;
 
-        // 2. Cursor repulsion interaction
+        // 3. Liquidy Split Mitosis
+        if (uSplitProgress > 0.0) {
+          float splitDistance = 1.5; // separation distance
+          float dir = aSplitDirection;
+          float separation = dir * splitDistance * uSplitProgress;
+          
+          // Liquidy neck stretch (mitosis cells cling to each other)
+          float bridgeFactor = exp(-pow(pos.y, 2.0) * 1.5 - pow(pos.z, 2.0) * 1.5);
+          if (uSplitProgress < 0.7) {
+            float snapCurve = 1.0 - (uSplitProgress / 0.7);
+            separation *= (1.0 - bridgeFactor * 0.55 * snapCurve);
+          }
+          
+          pos.x += separation;
+          
+          // Fluid wobble during division
+          float divisionWobble = sin(uTime * 15.0 + pos.y * 12.0) * 0.06 * sin(uSplitProgress * 3.1415);
+          pos.y += divisionWobble;
+          pos.x += divisionWobble * 0.5;
+        }
+
+        // 4. Cursor repulsion interaction
         float dist = distance(pos, uMousePos);
-        vDistanceToMouse = dist;
         if (dist < uHoverRadius) {
           vec3 dir = pos - uMousePos;
           float len = length(dir);
@@ -118,10 +154,7 @@ const ParticleOrb = ({ onBack }) => {
             dir = vec3(0.0, 1.0, 0.0);
           }
 
-          // Push factor: 1.0 at hover point, 0.0 at hover boundary
           float force = 1.0 - (dist / uHoverRadius);
-          
-          // Displacement: outward repulsion + slight swirl/spin
           vec3 swirl = vec3(-dir.y, dir.x, sin(uTime + pos.x) * 0.2);
           pos += (dir * 0.8 + swirl * 0.3) * force * uHoverStrength;
         }
@@ -130,7 +163,7 @@ const ParticleOrb = ({ onBack }) => {
         gl_Position = projectionMatrix * mvPosition;
 
         // Size attenuation based on depth
-        gl_PointSize = aSize * (100.0 / -mvPosition.z); // Reduced multiplier for smaller, finer particles
+        gl_PointSize = aSize * (100.0 / -mvPosition.z);
       }
     `;
 
@@ -161,6 +194,8 @@ const ParticleOrb = ({ onBack }) => {
       uMousePos: { value: new THREE.Vector3(999, 999, 999) },
       uHoverRadius: { value: 1.3 }, // Reduced hover radius to match smaller scale
       uHoverStrength: { value: 0 },
+      uSplitProgress: { value: 0 },
+      uShakeAmount: { value: 0 },
     };
 
     const material = new THREE.ShaderMaterial({
@@ -179,6 +214,7 @@ const ParticleOrb = ({ onBack }) => {
     // --- Interaction Physics Variables ---
     const mouse2D = new THREE.Vector2(-999, -999);
     const mouse3D = new THREE.Vector3(999, 999, 999);
+    const prevMouse3D = new THREE.Vector3(0, 0, 0);
     const targetOrbPos = new THREE.Vector3(0, 0, 0);
     const currentOrbPos = new THREE.Vector3(0, 0, 0);
     const restOffset = new THREE.Vector3(0, 0, 0);
@@ -186,8 +222,13 @@ const ParticleOrb = ({ onBack }) => {
     let isMouseOver = false;
     let hoverStrength = 0;
     let isDragging = false;
-    let lastMouseX = 0;
-    let lastMouseY = 0;
+    
+    // Shake to split tracking
+    let shakeScore = 0;
+    let isSplit = false;
+    let splitProgress = 0;
+    let splitTimer = 0;
+    let shakeAmount = 0;
 
     // Helper: Project 2D coordinates to 3D world space on the Z=0 plane
     const projectMouseToZ0 = (clientX, clientY) => {
@@ -340,6 +381,49 @@ const ParticleOrb = ({ onBack }) => {
       particleSystem.rotation.y += diffX * 0.08;
       particleSystem.rotation.x -= diffY * 0.08;
 
+      // Track drag velocity in animate loop for shake-to-split trigger
+      let mouseVelocity = 0;
+      if (isDragging && isMouseOver) {
+        mouseVelocity = mouse3D.distanceTo(prevMouse3D);
+        
+        // Fast mouse coordinate displacements boost the shakeScore
+        if (mouseVelocity > 0.06) {
+          shakeScore += mouseVelocity * 3.8;
+        } else {
+          shakeScore -= 0.03;
+        }
+      } else {
+        shakeScore -= 0.08;
+      }
+      shakeScore = Math.max(0, Math.min(10, shakeScore));
+      prevMouse3D.copy(mouse3D);
+
+      // Animate uniform shake amount for shader jitter
+      const targetShake = isDragging ? Math.min(shakeScore / 3.0, 1.0) : 0.0;
+      shakeAmount += (targetShake - shakeAmount) * 0.15;
+      uniforms.uShakeAmount.value = shakeAmount;
+
+      // Split trigger (vigorously shaking builds score)
+      if (shakeScore > 3.0 && !isSplit) {
+        isSplit = true;
+        setIsSplitState(true);
+        splitTimer = elapsedTime;
+      }
+
+      // Animate mitosis split progress
+      if (isSplit) {
+        splitProgress += (1.0 - splitProgress) * 0.06;
+        
+        // Auto-merge back after 5 seconds
+        if (elapsedTime - splitTimer > 5.0) {
+          isSplit = false;
+          setIsSplitState(false);
+        }
+      } else {
+        splitProgress += (0.0 - splitProgress) * 0.06;
+      }
+      uniforms.uSplitProgress.value = splitProgress;
+
       currentOrbPos.copy(particleSystem.position);
 
       renderer.render(scene, camera);
@@ -381,9 +465,15 @@ const ParticleOrb = ({ onBack }) => {
       )}
       
       <div className="particle-orb-instructions">
-        <p className="orb-label-top">INTERACTIVE EXPLORATION</p>
-        <h1 className="orb-title-main">PARTICLE ORB</h1>
-        <p className="orb-help-text">Hover to displace particles • Click & hold to drag the core around</p>
+        <p className="orb-label-top" style={{ color: isSplitState ? '#b800ff' : '#00aaff', textShadow: isSplitState ? '0 0 10px rgba(184, 0, 255, 0.4)' : '0 0 10px rgba(0, 170, 255, 0.4)' }}>
+          {isSplitState ? "MITOSIS DETECTED" : "INTERACTIVE EXPLORATION"}
+        </p>
+        <h1 className="orb-title-main">{isSplitState ? "SPLIT CELL" : "PARTICLE ORB"}</h1>
+        <p className="orb-help-text">
+          {isSplitState 
+            ? "Orbs split! Recombining shortly..." 
+            : "Grab and shake the orb vigorously to split it in two"}
+        </p>
       </div>
 
       <canvas ref={canvasRef} className="particle-orb-canvas" />
