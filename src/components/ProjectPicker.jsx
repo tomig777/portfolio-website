@@ -12,7 +12,7 @@ import logo from '../assets/logo-light.png';
    Lazy-loaded project components
    ──────────────────────────────────────────── */
 const AsciiFluidVortex = lazy(() => import('./AsciiFluidVortex'));
-const AsciiPortrait = lazy(() => import('./AsciiPortrait'));
+const ParticleOrb = lazy(() => import('./ParticleOrb'));
 const WebsiteTest = lazy(() => import('./WebsiteTest'));
 
 // Placeholder for future projects
@@ -29,7 +29,7 @@ const ComingSoon = ({ name }) => (
    ──────────────────────────────────────────── */
 const PROJECTS = [
   { id: 'ascii-vortex',   text: 'ASCII Vortex',   image: imgLanyard },
-  { id: 'ascii-portrait', text: 'ASCII Portrait', image: imgLanyard },
+  { id: 'particle-orb',   text: 'Particle Orb',   image: imgLanyard },
   { id: 'website-test',   text: 'Website Test',   image: imgLanyard },
   { id: 'game-test',      text: 'Game Test',      image: imgLanyard },
   { id: 'creative-hub',   text: 'Creative Hub',   image: imgLanyard },
@@ -44,8 +44,8 @@ const renderProject = (projectId, onBack) => {
   switch (projectId) {
     case 'ascii-vortex':
       return <AsciiFluidVortex onBack={onBack} />;
-    case 'ascii-portrait':
-      return <AsciiPortrait onBack={onBack} />;
+    case 'particle-orb':
+      return <ParticleOrb onBack={onBack} />;
     case 'website-test':
       return <WebsiteTest onBack={onBack} />;
     case 'game-test':
@@ -68,6 +68,9 @@ const ProjectPicker = () => {
   const navigate = useNavigate();
   const [activeProject, setActiveProject] = useState(null);
   const [isClosingProject, setIsClosingProject] = useState(false);
+  const [passwordPrompt, setPasswordPrompt] = useState(false);
+  const [passwordValue, setPasswordValue] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const handleGoHome = useCallback(() => {
     navigate('/');
@@ -82,20 +85,49 @@ const ProjectPicker = () => {
   }, []);
 
   const handleSelectProject = useCallback((projectId) => {
+    if (projectId === 'website-test') {
+      setPasswordValue('');
+      setPasswordError('');
+      setPasswordPrompt(true);
+      return;
+    }
+
     setActiveProject(projectId);
+  }, []);
+
+  const handlePasswordSubmit = useCallback((e) => {
+    e.preventDefault();
+
+    if (passwordValue === '2330') {
+      setPasswordPrompt(false);
+      setPasswordValue('');
+      setPasswordError('');
+      setActiveProject('website-test');
+      return;
+    }
+
+    setPasswordError('Incorrect password');
+    setPasswordValue('');
+  }, [passwordValue]);
+
+  const handlePasswordClose = useCallback(() => {
+    setPasswordPrompt(false);
+    setPasswordValue('');
+    setPasswordError('');
   }, []);
 
   // ESC key handler
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === 'Escape') {
-        if (activeProject) handleBackToGrid();
+        if (passwordPrompt) handlePasswordClose();
+        else if (activeProject) handleBackToGrid();
         else handleGoHome();
       }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [activeProject, handleBackToGrid, handleGoHome]);
+  }, [activeProject, passwordPrompt, handleBackToGrid, handleGoHome, handlePasswordClose]);
 
   /* ── Active project fullscreen view ── */
   if (activeProject) {
@@ -150,6 +182,35 @@ const ProjectPicker = () => {
           borderColor="rgba(255, 255, 255, 0.08)"
         />
       </div>
+
+      {passwordPrompt && (
+        <div className="pp-password-overlay" role="dialog" aria-modal="true" aria-labelledby="pp-password-title">
+          <form className="pp-password-card" onSubmit={handlePasswordSubmit}>
+            <button type="button" className="pp-password-close" onClick={handlePasswordClose} aria-label="Close password prompt">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+                <path d="M4.5 4.5L13.5 13.5M13.5 4.5L4.5 13.5" />
+              </svg>
+            </button>
+
+            <span className="pp-password-label">Protected Project</span>
+            <h2 id="pp-password-title" className="pp-password-title">Website Test</h2>
+            <input
+              className="pp-password-input"
+              type="password"
+              inputMode="numeric"
+              value={passwordValue}
+              onChange={(e) => {
+                setPasswordValue(e.target.value);
+                setPasswordError('');
+              }}
+              placeholder="Password"
+              autoFocus
+            />
+            {passwordError && <p className="pp-password-error">{passwordError}</p>}
+            <button className="pp-password-submit" type="submit">Enter</button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };

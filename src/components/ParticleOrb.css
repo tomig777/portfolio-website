@@ -1,0 +1,130 @@
+.particle-orb-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0c0813 0%, #000000 100%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.particle-orb-container.grab {
+  cursor: grab;
+}
+
+.particle-orb-container.grabbing {
+  cursor: grabbing;
+}
+
+.particle-orb-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Glassmorphic Back Button */
+.particle-orb-back {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.particle-orb-back svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.particle-orb-back:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.05);
+}
+
+.particle-orb-back:hover svg {
+  transform: translateX(-3px);
+}
+
+/* HUD / Instructions */
+.particle-orb-instructions {
+  position: absolute;
+  top: 4rem;
+  pointer-events: none;
+  z-index: 5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.85;
+}
+
+.orb-label-top {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: #ff7a00;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(255, 122, 0, 0.3);
+}
+
+.orb-title-main {
+  font-family: "Outfit", "Inter", -apple-system, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+.orb-help-text {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0.5rem 0 0 0;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .particle-orb-instructions {
+    top: auto;
+    bottom: 4rem;
+  }
+  .orb-title-main {
+    font-size: 1.75rem;
+  }
+  .orb-help-text {
+    font-size: 0.75rem;
+    padding: 0 2rem;
+  }
+  .particle-orb-back {
+    top: 1.5rem;
+    left: 1.5rem;
+    padding: 0.6rem 1.2rem;
+  }
+}

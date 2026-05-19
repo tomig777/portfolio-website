@@ -188,6 +188,121 @@
   margin-top: 4px;
 }
 
+/* ─── Website Test Password Gate ─── */
+.pp-password-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10010;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  animation: ppFadeIn 0.22s ease forwards;
+}
+
+.pp-password-card {
+  width: min(360px, 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 32px;
+  background: rgba(10, 10, 12, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.pp-password-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pp-password-close:hover {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.pp-password-label {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.pp-password-title {
+  margin: 0 0 8px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.84);
+  letter-spacing: -0.03em;
+}
+
+.pp-password-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.pp-password-input:focus {
+  border-color: rgba(102, 126, 234, 0.6);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.14);
+}
+
+.pp-password-input::placeholder {
+  color: rgba(255, 255, 255, 0.24);
+}
+
+.pp-password-error {
+  margin: -4px 0 0;
+  color: rgba(255, 115, 115, 0.88);
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.78rem;
+}
+
+.pp-password-submit {
+  height: 44px;
+  margin-top: 4px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 0;
+  border-radius: 10px;
+  color: #050505;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pp-password-submit:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
+
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .pp-top-bar {
@@ -209,5 +324,9 @@
     left: 14px;
     padding: 6px 12px;
     font-size: 0.75rem;
+  }
+
+  .pp-password-card {
+    padding: 28px 22px 24px;
   }
 }

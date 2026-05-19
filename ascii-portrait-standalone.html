@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated ASCII Portrait</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #000;
+        --ink: #f5f5f5;
+        --muted: rgba(255, 255, 255, 0.58);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        background: var(--bg);
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        min-height: 100dvh;
+        overflow: hidden;
+        font-family: "Courier New", Consolas, Monaco, monospace;
+      }
+
+      #ascii-portrait-container {
+        width: min(76vmin, 720px);
+        max-height: 86vh;
+        aspect-ratio: var(--portrait-aspect, 1 / 1);
+        position: relative;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background: #000;
+        transform-origin: center 56%;
+        animation: asciiBreath 8.5s ease-in-out infinite;
+      }
+
+      #ascii-portrait-container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.035) 0,
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+        mix-blend-mode: screen;
+        opacity: 0.18;
+      }
+
+      #ascii-portrait-container::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.06));
+      }
+
+      #ascii-portrait-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+        z-index: 1;
+        image-rendering: pixelated;
+      }
+
+      .ascii-loading {
+        position: absolute;
+        inset: 0;
+        z-index: 4;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        background: #000;
+        font-size: 0.8rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .ascii-loading.is-hidden {
+        display: none;
+      }
+
+      @keyframes asciiBreath {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.02);
+        }
+      }
+
+      @media (max-width: 700px) {
+        #ascii-portrait-container {
+          width: min(94vw, 520px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ascii-portrait-container">
+      <canvas id="ascii-portrait-canvas" aria-label="Animated ASCII portrait of Tamas Gal"></canvas>
+      <div class="ascii-loading" id="ascii-loading">Loading portrait</div>
+    </div>
+
+    <script>
+      (() => {
+        const imagePath = "./src/assets/ascii-portrait-source.png";
+        const container = document.getElementById("ascii-portrait-container");
+        const canvas = document.getElementById("ascii-portrait-canvas");
+        const loading = document.getElementById("ascii-loading");
+        const ctx = canvas.getContext("2d", { alpha: false });
+
+        const offscreen = document.createElement("canvas");
+        const offscreenCtx = offscreen.getContext("2d", { willReadFrequently: true });
+
+        const ramp = " .,:;irsXA253hMHGS#9B&@";
+        const state = {
+          image: null,
+          dpr: Math.max(1, Math.min(window.devicePixelRatio || 1, 2)),
+          width: 0,
+          height: 0,
+          cols: 0,
+          rows: 0,
+          cellW: 4.7,
+          cellH: 7.2,
+          fontSize: 7,
+          cells: [],
+          animationId: null,
+          lastLayoutWidth: 0,
+        };
+
+        function clamp(value, min, max) {
+          return Math.max(min, Math.min(max, value));
+        }
+
+        function setupCanvas() {
+          const rect = container.getBoundingClientRect();
+          const nextWidth = Math.round(rect.width);
+          const nextHeight = Math.round(rect.height);
+          if (!nextWidth || !nextHeight || !state.image) return;
+
+          state.dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
+          state.width = nextWidth;
+          state.height = nextHeight;
+
+          state.fontSize = clamp(nextWidth / 104, 6.2, 8.8);
+          ctx.font = `${state.fontSize}px "Courier New", Consolas, Monaco, monospace`;
+          state.cellW = ctx.measureText("M").width;
+          const metrics = ctx.measureText("M");
+          const measuredHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+          state.cellH = Math.max(measuredHeight || state.fontSize, state.fontSize * 0.9);
+          state.cols = Math.floor(nextWidth / state.cellW);
+          state.rows = Math.floor(nextHeight / state.cellH);
+
+          canvas.width = Math.floor(nextWidth * state.dpr);
+          canvas.height = Math.floor(nextHeight * state.dpr);
+          canvas.style.width = `${nextWidth}px`;
+          canvas.style.height = `${nextHeight}px`;
+          ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+
+          offscreen.width = state.cols;
+          offscreen.height = state.rows;
+          offscreenCtx.fillStyle = "#000";
+          offscreenCtx.fillRect(0, 0, state.cols, state.rows);
+
+          offscreenCtx.imageSmoothingEnabled = true;
+          offscreenCtx.drawImage(state.image, 0, 0, state.cols, state.rows);
+
+          precomputeCells();
+          state.lastLayoutWidth = nextWidth;
+        }
+
+        function precomputeCells() {
+          const pixels = offscreenCtx.getImageData(0, 0, state.cols, state.rows).data;
+          state.cells = [];
+
+          for (let y = 0; y < state.rows; y += 1) {
+            for (let x = 0; x < state.cols; x += 1) {
+              const index = (y * state.cols + x) * 4;
+              const red = pixels[index];
+              const green = pixels[index + 1];
+              const blue = pixels[index + 2];
+              const sourceAlpha = pixels[index + 3] / 255;
+              if (sourceAlpha < 0.08) {
+                state.cells.push({
+                  x,
+                  y,
+                  char: " ",
+                  alpha: 0,
+                  luminance: 0,
+                });
+                continue;
+              }
+
+              const luminance = (red * 0.2126 + green * 0.7152 + blue * 0.0722) / 255;
+              const density = clamp((luminance + 0.04) * 1.82, 0, 1);
+              const rampIndex = Math.floor(density * (ramp.length - 1));
+              const alpha = Math.pow(density, 0.58);
+              state.cells.push({
+                x,
+                y,
+                char: ramp[rampIndex],
+                alpha: clamp(alpha * 1.25 * sourceAlpha, 0, 1),
+                luminance: density,
+              });
+            }
+          }
+        }
+
+        function draw(time) {
+          if (!state.image) return;
+
+          ctx.fillStyle = "#000";
+          ctx.fillRect(0, 0, state.width, state.height);
+          ctx.font = `${state.fontSize}px "Courier New", Consolas, Monaco, monospace`;
+          ctx.textBaseline = "top";
+          ctx.textAlign = "left";
+
+          const pulse = Math.sin(time * 0.0016) * 0.08;
+          for (const cell of state.cells) {
+            if (cell.alpha < 0.08) continue;
+
+            const char = cell.char;
+            const alpha = cell.alpha + pulse * cell.luminance;
+
+            ctx.fillStyle = `rgba(245, 245, 245, ${clamp(alpha, 0, 1)})`;
+            ctx.fillText(char, cell.x * state.cellW, cell.y * state.cellH);
+          }
+
+          state.animationId = requestAnimationFrame(draw);
+        }
+
+        function start() {
+          setupCanvas();
+          loading.classList.add("is-hidden");
+          cancelAnimationFrame(state.animationId);
+          state.animationId = requestAnimationFrame(draw);
+        }
+
+        const image = new Image();
+        image.decoding = "async";
+        image.onload = () => {
+          state.image = image;
+          container.style.setProperty("--portrait-aspect", `${image.naturalWidth} / ${image.naturalHeight}`);
+          start();
+        };
+        image.onerror = () => {
+          loading.textContent = "Could not load ascii-portrait-source.png";
+        };
+        image.src = imagePath;
+
+        const resizeObserver = new ResizeObserver(() => {
+          if (!state.image) return;
+          setupCanvas();
+        });
+
+        resizeObserver.observe(container);
+
+        window.addEventListener("beforeunload", () => {
+          cancelAnimationFrame(state.animationId);
+          resizeObserver.disconnect();
+        });
+      })();
+    </script>
+  </body>
+</html>

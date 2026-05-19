@@ -1,15 +1,11 @@
-import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useLayoutEffect, useRef, Suspense, lazy } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 
 import Header from './Header';
 import VideoBackground from './VideoBackground';
 import WorkModal from './WorkModal';
 import ResumeModal from './ResumeModal';
-import StarConstellation from './StarConstellation';
-import ShinyText from './ShinyText';
 import ScrollIndicator from './ScrollIndicator';
 import ErrorBoundary from './ErrorBoundary';
 
@@ -17,7 +13,7 @@ import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremi
 import { HiMail } from 'react-icons/hi';
 
 import card1Image from '../assets/szia.png';
-import portraitImage from '../assets/portrait-1.png';
+import portraitImage from '../assets/portrait-2.png';
 import kep9 from '../assets/kep9.png';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
@@ -27,7 +23,6 @@ import './WebsiteTest.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const Lanyard = lazy(() => import('./Lanyard'));
-const ProfileCard = lazy(() => import('./ProfileCard'));
 const Folder = lazy(() => import('./Folder'));
 
 const adobeLogos = [
@@ -49,6 +44,8 @@ const otherLogos = [
   { node: <div className="skill-icon-mask" style={{ WebkitMaskImage: `url(${substanceLogo})`, maskImage: `url(${substanceLogo})`, width: '50px', height: '50px' }} />, title: "Substance Painter" },
 ];
 
+const skillLogos = [...adobeLogos, ...otherLogos];
+
 const socialItems = [
   <a key="instagram" href="https://www.instagram.com/arhivetkg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
     <SiInstagram />
@@ -62,15 +59,23 @@ const socialItems = [
 ];
 
 const WebsiteTest = ({ onBack }) => {
-  const navigate = useNavigate();
   const [selectedWork, setSelectedWork] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [skillOffset, setSkillOffset] = useState(0);
   const containerRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setSkillOffset((current) => (current + 1) % skillLogos.length);
+    }, 3800);
+
+    return () => window.clearInterval(timer);
   }, []);
 
   // Preload gallery image
@@ -96,12 +101,32 @@ const WebsiteTest = ({ onBack }) => {
   }, []);
 
   // GSAP Animations
-  useGSAP(() => {
-    // 1. Pinned Text Sequence
+  useLayoutEffect(() => {
+    const scrollContainer = containerRef.current;
+    if (!scrollContainer) return undefined;
+
+    const ctx = gsap.context(() => {
+    // 1. Sticky Cards Scale effect
+    const cards = gsap.utils.toArray('.project-card-anim');
+    cards.forEach((card, i) => {
+      if (i === cards.length - 1) return; // Last card doesn't scale down
+      
+      ScrollTrigger.create({
+        trigger: card,
+        scroller: scrollContainer,
+        start: 'top 20%', // When it sticks
+        endTrigger: cards[i + 1],
+        end: 'top 20%', // When the next card hits the sticky point
+        scrub: true,
+        animation: gsap.to(card, { scale: 0.92, ease: 'none' })
+      });
+    });
+
+    // 2. Pinned Text Sequence
     const textTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.wt-blur-section',
-        scroller: containerRef.current,
+        scroller: scrollContainer,
         start: 'top top',
         end: '+=250%', // Pin for 250% viewport height to leave more scrolling time
         pin: true,
@@ -124,36 +149,21 @@ const WebsiteTest = ({ onBack }) => {
     )
     .to({}, { duration: 1.5 }); // Hold longer at the end before unpinning
 
-    // 2. Sticky Cards Scale effect
-    const cards = gsap.utils.toArray('.project-card-anim');
-    cards.forEach((card, i) => {
-      if (i === cards.length - 1) return; // Last card doesn't scale down
-      
-      ScrollTrigger.create({
-        trigger: card,
-        scroller: containerRef.current,
-        start: 'top 20%', // When it sticks
-        endTrigger: cards[i + 1],
-        end: 'top 20%', // When the next card hits the sticky point
-        scrub: true,
-        animation: gsap.to(card, { scale: 0.92, ease: 'none' })
-      });
-    });
-
     // 3. About Grid Reveal
     gsap.fromTo('.wt-about-anim',
-      { y: 80, opacity: 0 },
+      { y: 130, opacity: 0, filter: 'blur(12px)' },
       {
         y: 0,
         opacity: 1,
+        filter: 'blur(0px)',
         stagger: 0.1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: '.wt-about-section',
-          scroller: containerRef.current,
-          start: 'top 85%',
-          end: 'bottom 80%',
-          scrub: 1
+          scroller: scrollContainer,
+          start: 'top 78%',
+          end: 'top 28%',
+          scrub: 1.2
         }
       }
     );
@@ -169,7 +179,7 @@ const WebsiteTest = ({ onBack }) => {
         ease: 'power2.out',
         scrollTrigger: {
           trigger: '.wt-contact-section',
-          scroller: containerRef.current,
+          scroller: scrollContainer,
           start: 'top 80%',
           end: 'center 60%',
           scrub: 1
@@ -177,7 +187,15 @@ const WebsiteTest = ({ onBack }) => {
       }
     );
 
-  }, { scope: containerRef });
+    }, scrollContainer);
+
+    return () => ctx.revert();
+  }, []);
+
+  const visibleSkillCount = isMobile ? 4 : 5;
+  const visibleSkills = Array.from({ length: visibleSkillCount }, (_, index) => {
+    return skillLogos[(skillOffset + index) % skillLogos.length];
+  });
 
   return (
     <div className="App wt-scroll-container" ref={containerRef} style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
@@ -226,21 +244,7 @@ const WebsiteTest = ({ onBack }) => {
         <ScrollIndicator />
       </section>
 
-      {/* ─── 1. Text Blur Section ─── */}
-      <section className="wt-blur-section">
-        <h2 className="wt-blur-text wt-text-1">
-          {['Clean', 'aesthetics', 'pixel', 'perfect', 'details.'].map((word, i) => (
-            <span key={i} className={`wt-blur-word wt-word-1 ${i > 1 ? 'wt-blur-highlight' : ''}`}>{word}</span>
-          ))}
-        </h2>
-        <h2 className="wt-blur-text wt-text-2">
-          {['Crafting', 'dynamic', 'digital', 'experiences.'].map((word, i) => (
-            <span key={i} className={`wt-blur-word wt-word-2 ${i > 1 ? 'wt-blur-highlight' : ''}`}>{word}</span>
-          ))}
-        </h2>
-      </section>
-
-      {/* ─── 2. Sticky Projects Section ─── */}
+      {/* ─── 1. Sticky Projects Section ─── */}
       <section id="work" className="wt-projects-section">
         <div className="wt-projects-container">
           <div className="wt-projects-left">
@@ -273,89 +277,122 @@ const WebsiteTest = ({ onBack }) => {
         </div>
       </section>
 
-      {/* ─── 3. About Me Section (Grid/Pills) ─── */}
+      {/* ─── 2. Text Blur Section ─── */}
+      <section className="wt-blur-section">
+        <h2 className="wt-blur-text wt-text-1">
+          {['Clean', 'aesthetics', 'pixel', 'perfect', 'details.'].map((word, i) => (
+            <span key={i} className={`wt-blur-word wt-word-1 ${i > 1 ? 'wt-blur-highlight' : ''}`}>{word}</span>
+          ))}
+        </h2>
+        <h2 className="wt-blur-text wt-text-2">
+          {['Crafting', 'dynamic', 'digital', 'experiences.'].map((word, i) => (
+            <span key={i} className={`wt-blur-word wt-word-2 ${i > 1 ? 'wt-blur-highlight' : ''}`}>{word}</span>
+          ))}
+        </h2>
+      </section>
+
+      {/* ─── 3. About Me Section ─── */}
       <section id="about" className="wt-about-section">
-        <div className="wt-about-header">
-          <p className="section-label">About</p>
-          <h2 className="section-title">
-            <ShinyText text="Get To Know Me" speed={2.5} color="#b5b5b5" shineColor="#ffffff" spread={120} direction="left" />
-          </h2>
-        </div>
-
         <div className="about-combined-section">
-          <div className="wt-about-3col wt-about-anim">
-            
-            {/* Column 1: Image Card */}
-            <div id="about-card" className="profile-container">
-              <Suspense fallback={<div style={{ width: '100%', maxWidth: '300px', height: '450px', background: 'rgba(255,255,255,0.05)', borderRadius: '20px' }}/>}>
-                <ProfileCard
-                  name="Tamas Gal"
-                  title="Media Designer"
-                  handle="tamasgal"
-                  status="Available"
-                  avatarUrl={portraitImage}
-                  showUserInfo={true}
-                  enableTilt={true}
-                  enableMobileTilt={false}
-                  hideContact={true}
-                  monoColor={true}
-                />
-              </Suspense>
-            </div>
+          <div className="wt-about-panel wt-about-anim">
+            <div className="wt-about-panel-inner">
+              <div className="wt-about-photo-wrap">
+                <div className="wt-about-photo-glow" aria-hidden="true" />
+                <img src={portraitImage} alt="Tamas Gal portrait" className="wt-about-photo" loading="lazy" />
+              </div>
 
-            {/* Column 2: Biography Text */}
-            <div className="bio-container">
-              <p className="bio-text">
-                Hi, I'm Tomi, a Media Designer who loves exploring all sides of creativity.
-              </p>
-              <p className="bio-text">
-                What started as self-taught video editing has evolved into a versatile skillset spanning 3D design, motion, 2D graphics, VFX, and a growing interest in UI.
-              </p>
-              <p className="bio-text">
-                I am a perfectionist who favors clean aesthetics and obsesses over pixel-perfect details, striving to create work that is not just seen, but admired for being well put together.
-              </p>
-              <p className="bio-text">
-                In my downtime, you can usually find me taking photos, gaming with friends, or hanging out with my cats.
-              </p>
-            </div>
-
-            {/* Column 3: Software Icons */}
-            <div className="wt-skills-column">
-              {[...adobeLogos, ...otherLogos].map((logo, index) => (
-                <div
-                  key={index}
-                  className="skill-item"
-                  title={logo.title}
-                  style={{ cursor: 'pointer' }}
-                >
-                  {logo.node}
+              <div className="wt-about-copy">
+                <div className="wt-about-kicker">
+                  <span>Get To Know Me</span>
+                  <i aria-hidden="true" />
                 </div>
-              ))}
+
+                <h2 className="wt-about-title">
+                  Media Designer
+                  <span>& Creative Problem Solver</span>
+                </h2>
+
+                <p className="wt-about-bio">
+                  I'm Tomi, a Budapest based Media Designer with a versatile creative skillset spanning 3D design, motion, 2D graphics, VFX, UI experiments, and social media content.
+                </p>
+                <p className="wt-about-bio">
+                  I like clean aesthetics, functional details, and work that feels carefully put together from the first glance to the final pixel.
+                </p>
+
+                <div className="wt-tools-block">
+                  <p className="wt-tools-label">Tools I Use</p>
+                  <div className="wt-skills-rotator" aria-label="Software skills">
+                    {visibleSkills.map((logo, index) => (
+                      <div
+                        key={`${logo.title}-${skillOffset}-${index}`}
+                        className="skill-item"
+                        title={logo.title}
+                        style={{ cursor: 'pointer', '--skill-index': index }}
+                      >
+                        {logo.node}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
 
+            <a href="#work" className="wt-work-link">
+              <span>View My Work</span>
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+                <path d="M4 11L11 4M11 4H5.5M11 4V9.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
 
       {/* ─── 4. Contact Section ─── */}
       <section id="contact" className="wt-contact-section">
-        <div style={{width: '100%', padding: '0 2rem', textAlign: 'center'}} className="wt-contact-anim">
-          <p className="section-label">Get in Touch</p>
-          <h2 className="section-title">
-            <ShinyText text="Let's Chat" speed={2.5} color="#b5b5b5" shineColor="#ffffff" spread={120} direction="left" />
-          </h2>
-        </div>
-
-        <section id="contact-folder" className="folder-section wt-contact-anim" style={{ flex: 1 }}>
-          <StarConstellation side="left" />
-          <div className="folder-container">
-            <Suspense fallback={<div style={{ minHeight: '50vh' }}/>}>
-              <Folder size={isMobile ? 1.4 : 2} color="#667eea" className="custom-folder" items={socialItems} />
-            </Suspense>
-            <div className="folder-base-line" />
+        <div className="wt-contact-layout wt-contact-anim">
+          <div className="wt-contact-folder-panel">
+            <p className="wt-contact-label">Contact</p>
+            <div className="folder-container wt-contact-folder-container">
+              <Suspense fallback={<div style={{ minHeight: '280px' }}/>}>
+                <Folder size={isMobile ? 1.35 : 2.1} color="#667eea" className="custom-folder" items={socialItems} />
+              </Suspense>
+              <div className="folder-base-line" />
+            </div>
+            <p className="wt-contact-folder-note">Open the folder for quick links.</p>
           </div>
-          <StarConstellation side="right" />
-        </section>
+
+          <div className="wt-contact-copy">
+            <p className="wt-contact-eyebrow">Let's Chat</p>
+            <h2 className="wt-contact-title">Have a project, role, or weird visual idea?</h2>
+            <p className="wt-contact-intro">
+              I am open to selected freelance work, design collaborations, internships, and creative conversations around 3D, motion, UI, and social content.
+            </p>
+
+            <div className="wt-contact-details" aria-label="Contact details">
+              <a className="wt-contact-detail" href="mailto:tamasgaldesign@gmail.com">
+                <span>Email</span>
+                <strong>tamasgaldesign@gmail.com</strong>
+              </a>
+              <div className="wt-contact-detail">
+                <span>Location</span>
+                <strong>Budapest, Hungary</strong>
+              </div>
+              <div className="wt-contact-detail">
+                <span>Focus</span>
+                <strong>3D, motion, UI, content</strong>
+              </div>
+            </div>
+
+            <div className="wt-contact-actions">
+              <a className="wt-contact-primary" href="mailto:tamasgaldesign@gmail.com">
+                Start a conversation
+              </a>
+              <button className="wt-contact-secondary" type="button" onClick={onBack}>
+                Back to projects
+              </button>
+            </div>
+          </div>
+        </div>
 
         <footer className="footer">
           <p className="footer-text">Created by Tamas Gal - All rights reserved</p>
