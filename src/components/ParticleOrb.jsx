@@ -387,24 +387,24 @@ const ParticleOrb = ({ onBack }) => {
         mouseVelocity = mouse3D.distanceTo(prevMouse3D);
         
         // Fast mouse coordinate displacements boost the shakeScore
-        if (mouseVelocity > 0.06) {
-          shakeScore += mouseVelocity * 3.8;
+        if (mouseVelocity > 0.07) { // slightly higher speed threshold
+          shakeScore += mouseVelocity * 1.6; // slower build-up (was 3.8)
         } else {
-          shakeScore -= 0.03;
+          shakeScore -= 0.12; // faster cool-down decay when moving slowly (was 0.03)
         }
       } else {
-        shakeScore -= 0.08;
+        shakeScore -= 0.2; // faster decay when not dragging at all
       }
       shakeScore = Math.max(0, Math.min(10, shakeScore));
       prevMouse3D.copy(mouse3D);
 
       // Animate uniform shake amount for shader jitter
-      const targetShake = isDragging ? Math.min(shakeScore / 3.0, 1.0) : 0.0;
+      const targetShake = isDragging ? Math.min(shakeScore / 6.5, 1.0) : 0.0; // match new split threshold scale
       shakeAmount += (targetShake - shakeAmount) * 0.15;
       uniforms.uShakeAmount.value = shakeAmount;
 
-      // Split trigger (vigorously shaking builds score)
-      if (shakeScore > 3.0 && !isSplit) {
+      // Split trigger (vigorously shaking builds score to threshold of 6.5)
+      if (shakeScore > 6.5 && !isSplit) { // raised split threshold (was 3.0)
         isSplit = true;
         setIsSplitState(true);
         splitTimer = elapsedTime;
