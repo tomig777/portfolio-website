@@ -101,6 +101,8 @@ const ParticleOrb = ({ onBack }) => {
       uniform float uHoverStrength;
       uniform float uSplitProgress;
       uniform float uShakeAmount;
+      uniform vec3 uOrbPosA;
+      uniform vec3 uOrbPosB;
       attribute float aSize;
       attribute float aSplitDirection;
       varying vec3 vColor;
@@ -109,7 +111,29 @@ const ParticleOrb = ({ onBack }) => {
         vColor = color;
         vec3 pos = position;
 
-        // 1. Shake vibration feedback
+        // 1. Individual orb rotation (around its own local center before translation)
+        float rotY = uTime * 0.25;
+        float rotX = uTime * 0.15;
+        
+        float cosY = cos(rotY);
+        float sinY = sin(rotY);
+        mat3 rotMatY = mat3(
+          cosY, 0.0, sinY,
+          0.0,  1.0, 0.0,
+          -sinY, 0.0, cosY
+        );
+        
+        float cosX = cos(rotX);
+        float sinX = sin(rotX);
+        mat3 rotMatX = mat3(
+          1.0, 0.0,  0.0,
+          0.0, cosX, -sinX,
+          0.0, sinX,  cosX
+        );
+        
+        pos = rotMatY * rotMatX * pos;
+
+        // 2. Shake vibration feedback
         if (uShakeAmount > 0.05) {
           float shakeTime = uTime * 45.0;
           pos.x += sin(shakeTime + position.y * 20.0) * 0.03 * uShakeAmount;
@@ -117,25 +141,28 @@ const ParticleOrb = ({ onBack }) => {
           pos.z += sin(shakeTime * 0.9 + position.x * 20.0) * 0.03 * uShakeAmount;
         }
 
-        // 2. Idle floating noise (subtle wave movement)
+        // 3. Idle floating noise (subtle wave movement)
         pos.x += sin(uTime * 0.8 + position.y * 2.0) * 0.04;
         pos.y += cos(uTime * 0.7 + position.z * 2.0) * 0.04;
         pos.z += sin(uTime * 0.9 + position.x * 2.0) * 0.04;
 
-        // 3. Liquidy Split Mitosis
+        // 4. Translate particles to their respective sub-orb centers (A or B)
+        float dir = aSplitDirection;
+        vec3 centerPos = (dir < 0.0) ? uOrbPosA : uOrbPosB;
+        pos += centerPos;
+
+        // 5. Liquidy Split Mitosis (neck/bridge effect between centers)
         if (uSplitProgress > 0.0) {
-          float splitDistance = 1.5; // separation distance
-          float dir = aSplitDirection;
-          float separation = dir * splitDistance * uSplitProgress;
+          vec3 midPoint = (uOrbPosA + uOrbPosB) * 0.5;
+          vec3 pullDir = midPoint - pos;
           
-          // Liquidy neck stretch (mitosis cells cling to each other)
-          float bridgeFactor = exp(-pow(pos.y, 2.0) * 1.5 - pow(pos.z, 2.0) * 1.5);
+          // bridgeFactor: particles close to the midpoint connection line are pulled
+          float bridgeFactor = exp(-pow(pos.y - midPoint.y, 2.0) * 2.0 - pow(pos.z - midPoint.z, 2.0) * 2.0);
+          
           if (uSplitProgress < 0.7) {
             float snapCurve = 1.0 - (uSplitProgress / 0.7);
-            separation *= (1.0 - bridgeFactor * 0.55 * snapCurve);
+            pos += pullDir * bridgeFactor * 0.5 * snapCurve;
           }
-          
-          pos.x += separation;
           
           // Fluid wobble during division
           float divisionWobble = sin(uTime * 15.0 + pos.y * 12.0) * 0.06 * sin(uSplitProgress * 3.1415);
@@ -143,20 +170,20 @@ const ParticleOrb = ({ onBack }) => {
           pos.x += divisionWobble * 0.5;
         }
 
-        // 4. Cursor repulsion interaction
+        // 6. Cursor repulsion interaction (in world space)
         float dist = distance(pos, uMousePos);
         if (dist < uHoverRadius) {
-          vec3 dir = pos - uMousePos;
-          float len = length(dir);
+          vec3 dirVec = pos - uMousePos;
+          float len = length(dirVec);
           if (len > 0.0) {
-            dir = dir / len;
+            dirVec = dirVec / len;
           } else {
-            dir = vec3(0.0, 1.0, 0.0);
+            dirVec = vec3(0.0, 1.0, 0.0);
           }
 
           float force = 1.0 - (dist / uHoverRadius);
-          vec3 swirl = vec3(-dir.y, dir.x, sin(uTime + pos.x) * 0.2);
-          pos += (dir * 0.8 + swirl * 0.3) * force * uHoverStrength;
+          vec3 swirl = vec3(-dirVec.y, dirVec.x, sin(uTime + pos.x) * 0.2);
+          pos += (dirVec * 0.6 + swirl * 0.2) * force * uHoverStrength;
         }
 
         vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
@@ -196,6 +223,8 @@ const ParticleOrb = ({ onBack }) => {
       uHoverStrength: { value: 0 },
       uSplitProgress: { value: 0 },
       uShakeAmount: { value: 0 },
+      uOrbPosA: { value: new THREE.Vector3(0, 0, 0) },
+      uOrbPosB: { value: new THREE.Vector3(0, 0, 0) },
     };
 
     const material = new THREE.ShaderMaterial({
@@ -215,15 +244,21 @@ const ParticleOrb = ({ onBack }) => {
     const mouse2D = new THREE.Vector2(-999, -999);
     const mouse3D = new THREE.Vector3(999, 999, 999);
     const prevMouse3D = new THREE.Vector3(0, 0, 0);
-    const targetOrbPos = new THREE.Vector3(0, 0, 0);
-    const currentOrbPos = new THREE.Vector3(0, 0, 0);
+
+    // Orb positional tracking
+    const currentOrbPos = new THREE.Vector3(0, 0, 0);      // Merged current position
+    const targetOrbPos = new THREE.Vector3(0, 0, 0);       // Merged target position
+    const currentOrbPosA = new THREE.Vector3(0, 0, 0);     // Sub-orb A current position
+    const targetOrbPosA = new THREE.Vector3(0, 0, 0);      // Sub-orb A target position
+    const currentOrbPosB = new THREE.Vector3(0, 0, 0);     // Sub-orb B current position
+    const targetOrbPosB = new THREE.Vector3(0, 0, 0);      // Sub-orb B target position
+    
     const restOffset = new THREE.Vector3(0, 0, 0);
 
     let isMouseOver = false;
     let hoverStrength = 0;
     let isDragging = false;
-    
-    // Shake to split tracking
+    let dragTarget = 'merged'; // 'merged', 'A', or 'B'
     let shakeScore = 0;
     let isSplit = false;
     let splitProgress = 0;
@@ -251,13 +286,17 @@ const ParticleOrb = ({ onBack }) => {
       const worldMouse = projectMouseToZ0(e.clientX, e.clientY);
       mouse3D.copy(worldMouse);
 
-      // Convert global 3D mouse coordinate to local coordinates relative to the particle system
-      const localMouse = particleSystem.worldToLocal(worldMouse.clone());
-      uniforms.uMousePos.value.copy(localMouse);
+      // In world space calculation, mouse coordinate is just the global 3D mouse pos
+      uniforms.uMousePos.value.copy(worldMouse);
 
       if (isDragging) {
-        // Update the target drag coordinate
-        targetOrbPos.copy(worldMouse);
+        if (dragTarget === 'A') {
+          targetOrbPosA.copy(worldMouse);
+        } else if (dragTarget === 'B') {
+          targetOrbPosB.copy(worldMouse);
+        } else {
+          targetOrbPos.copy(worldMouse);
+        }
       }
     };
 
@@ -271,12 +310,31 @@ const ParticleOrb = ({ onBack }) => {
     const handleMouseDown = (e) => {
       const worldMouse = projectMouseToZ0(e.clientX, e.clientY);
       
-      // Check if user clicked within the bounds of the particle system (approx radius ~2.5)
-      const distanceToCenter = worldMouse.distanceTo(particleSystem.position);
-      if (distanceToCenter < 2.5) {
-        isDragging = true;
-        setIsGrabbing(true);
-        targetOrbPos.copy(worldMouse);
+      if (isSplit) {
+        // Hit-test sub-orbs A and B
+        const distA = worldMouse.distanceTo(currentOrbPosA);
+        const distB = worldMouse.distanceTo(currentOrbPosB);
+        
+        if (distA < 1.4 && distA <= distB) {
+          isDragging = true;
+          setIsGrabbing(true);
+          dragTarget = 'A';
+          targetOrbPosA.copy(worldMouse);
+        } else if (distB < 1.4) {
+          isDragging = true;
+          setIsGrabbing(true);
+          dragTarget = 'B';
+          targetOrbPosB.copy(worldMouse);
+        }
+      } else {
+        // Hit-test merged orb
+        const distMerged = worldMouse.distanceTo(currentOrbPos);
+        if (distMerged < 1.6) {
+          isDragging = true;
+          setIsGrabbing(true);
+          dragTarget = 'merged';
+          targetOrbPos.copy(worldMouse);
+        }
       }
     };
 
@@ -294,11 +352,16 @@ const ParticleOrb = ({ onBack }) => {
       const worldMouse = projectMouseToZ0(touch.clientX, touch.clientY);
       mouse3D.copy(worldMouse);
 
-      const localMouse = particleSystem.worldToLocal(worldMouse.clone());
-      uniforms.uMousePos.value.copy(localMouse);
+      uniforms.uMousePos.value.copy(worldMouse);
 
       if (isDragging) {
-        targetOrbPos.copy(worldMouse);
+        if (dragTarget === 'A') {
+          targetOrbPosA.copy(worldMouse);
+        } else if (dragTarget === 'B') {
+          targetOrbPosB.copy(worldMouse);
+        } else {
+          targetOrbPos.copy(worldMouse);
+        }
       }
     };
 
@@ -308,13 +371,32 @@ const ParticleOrb = ({ onBack }) => {
       const touch = e.touches[0];
       const worldMouse = projectMouseToZ0(touch.clientX, touch.clientY);
       
-      const distanceToCenter = worldMouse.distanceTo(particleSystem.position);
-      if (distanceToCenter < 2.5) {
-        isDragging = true;
-        setIsGrabbing(true);
-        targetOrbPos.copy(worldMouse);
-        // Prevent scrolling on touch devices during drag
-        e.preventDefault();
+      if (isSplit) {
+        const distA = worldMouse.distanceTo(currentOrbPosA);
+        const distB = worldMouse.distanceTo(currentOrbPosB);
+        
+        if (distA < 1.4 && distA <= distB) {
+          isDragging = true;
+          setIsGrabbing(true);
+          dragTarget = 'A';
+          targetOrbPosA.copy(worldMouse);
+          e.preventDefault();
+        } else if (distB < 1.4) {
+          isDragging = true;
+          setIsGrabbing(true);
+          dragTarget = 'B';
+          targetOrbPosB.copy(worldMouse);
+          e.preventDefault();
+        }
+      } else {
+        const distMerged = worldMouse.distanceTo(currentOrbPos);
+        if (distMerged < 1.6) {
+          isDragging = true;
+          setIsGrabbing(true);
+          dragTarget = 'merged';
+          targetOrbPos.copy(worldMouse);
+          e.preventDefault();
+        }
       }
     };
 
@@ -358,73 +440,108 @@ const ParticleOrb = ({ onBack }) => {
       hoverStrength += (targetStrength - hoverStrength) * 0.1;
       uniforms.uHoverStrength.value = hoverStrength;
 
-      // Subtle float oscillation when not dragged
-      if (!isDragging) {
-        restOffset.x = Math.sin(elapsedTime * 0.8) * 0.15;
-        restOffset.y = Math.cos(elapsedTime * 0.6) * 0.15;
-        
-        // Glide towards resting offset position
-        const restTarget = targetOrbPos.clone().add(restOffset);
-        particleSystem.position.lerp(restTarget, 0.05);
+      // Subtle float oscillations & dragging positions
+      if (isSplit) {
+        // Orb A update
+        if (isDragging && dragTarget === 'A') {
+          currentOrbPosA.lerp(targetOrbPosA, 0.1);
+        } else {
+          const floatA = new THREE.Vector3(
+            Math.sin(elapsedTime * 0.8) * 0.08,
+            Math.cos(elapsedTime * 0.6) * 0.08,
+            0
+          );
+          currentOrbPosA.lerp(targetOrbPosA.clone().add(floatA), 0.05);
+        }
+
+        // Orb B update
+        if (isDragging && dragTarget === 'B') {
+          currentOrbPosB.lerp(targetOrbPosB, 0.1);
+        } else {
+          const floatB = new THREE.Vector3(
+            Math.sin(elapsedTime * 0.9 + 2.0) * 0.08,
+            Math.cos(elapsedTime * 0.7 + 2.0) * 0.08,
+            0
+          );
+          currentOrbPosB.lerp(targetOrbPosB.clone().add(floatB), 0.05);
+        }
+
+        // Collision Check: merge back together when brought on top of each other
+        // Only run collision check when split is fully completed (splitProgress > 0.95)
+        const distanceBetweenSubOrbs = currentOrbPosA.distanceTo(currentOrbPosB);
+        if (distanceBetweenSubOrbs < 0.95 && splitProgress > 0.95) {
+          isSplit = false;
+          setIsSplitState(false);
+          
+          // Midpoint of collision becomes new target for merged state
+          targetOrbPos.addVectors(currentOrbPosA, currentOrbPosB).multiplyScalar(0.5);
+          currentOrbPos.copy(targetOrbPos);
+        }
       } else {
-        // Follow the mouse directly with inertial lag
-        particleSystem.position.lerp(targetOrbPos, 0.1);
+        // Merged state updates
+        if (isDragging && dragTarget === 'merged') {
+          currentOrbPos.lerp(targetOrbPos, 0.1);
+        } else {
+          const floatMerged = new THREE.Vector3(
+            Math.sin(elapsedTime * 0.8) * 0.12,
+            Math.cos(elapsedTime * 0.6) * 0.12,
+            0
+          );
+          currentOrbPos.lerp(targetOrbPos.clone().add(floatMerged), 0.05);
+        }
+
+        // Converge A and B back to the merged position
+        currentOrbPosA.lerp(currentOrbPos, 0.08);
+        currentOrbPosB.lerp(currentOrbPos, 0.08);
+        
+        targetOrbPosA.copy(currentOrbPosA);
+        targetOrbPosB.copy(currentOrbPosB);
       }
 
-      // Smoothly rotate points over time
-      particleSystem.rotation.y += 0.003;
-      particleSystem.rotation.x += 0.001;
-
-      // Rotate extra based on movement velocity (drag lag rotation)
-      const diffX = particleSystem.position.x - currentOrbPos.x;
-      const diffY = particleSystem.position.y - currentOrbPos.y;
-      particleSystem.rotation.y += diffX * 0.08;
-      particleSystem.rotation.x -= diffY * 0.08;
+      // Sync uniforms with coordinates
+      uniforms.uOrbPosA.value.copy(currentOrbPosA);
+      uniforms.uOrbPosB.value.copy(currentOrbPosB);
 
       // Track drag velocity in animate loop for shake-to-split trigger
       let mouseVelocity = 0;
       if (isDragging && isMouseOver) {
         mouseVelocity = mouse3D.distanceTo(prevMouse3D);
         
-        // Fast mouse coordinate displacements boost the shakeScore
-        if (mouseVelocity > 0.07) { // slightly higher speed threshold
-          shakeScore += mouseVelocity * 1.6; // slower build-up (was 3.8)
+        // Fast mouse coordinate displacements boost the shakeScore (only in merged state)
+        if (mouseVelocity > 0.07 && !isSplit) {
+          shakeScore += mouseVelocity * 1.6;
         } else {
-          shakeScore -= 0.12; // faster cool-down decay when moving slowly (was 0.03)
+          shakeScore -= 0.12;
         }
       } else {
-        shakeScore -= 0.2; // faster decay when not dragging at all
+        shakeScore -= 0.2;
       }
       shakeScore = Math.max(0, Math.min(10, shakeScore));
       prevMouse3D.copy(mouse3D);
 
       // Animate uniform shake amount for shader jitter
-      const targetShake = isDragging ? Math.min(shakeScore / 6.5, 1.0) : 0.0; // match new split threshold scale
+      const targetShake = (isDragging && !isSplit) ? Math.min(shakeScore / 6.5, 1.0) : 0.0;
       shakeAmount += (targetShake - shakeAmount) * 0.15;
       uniforms.uShakeAmount.value = shakeAmount;
 
       // Split trigger (vigorously shaking builds score to threshold of 6.5)
-      if (shakeScore > 6.5 && !isSplit) { // raised split threshold (was 3.0)
+      if (shakeScore > 6.5 && !isSplit) {
         isSplit = true;
         setIsSplitState(true);
         splitTimer = elapsedTime;
+        
+        // Initialize sub-orb coordinates with left/right spawn offset
+        targetOrbPosA.copy(currentOrbPos).add(new THREE.Vector3(-0.9, 0, 0));
+        targetOrbPosB.copy(currentOrbPos).add(new THREE.Vector3(0.9, 0, 0));
       }
 
       // Animate mitosis split progress
       if (isSplit) {
         splitProgress += (1.0 - splitProgress) * 0.06;
-        
-        // Auto-merge back after 5 seconds
-        if (elapsedTime - splitTimer > 5.0) {
-          isSplit = false;
-          setIsSplitState(false);
-        }
       } else {
         splitProgress += (0.0 - splitProgress) * 0.06;
       }
       uniforms.uSplitProgress.value = splitProgress;
-
-      currentOrbPos.copy(particleSystem.position);
 
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
@@ -466,12 +583,12 @@ const ParticleOrb = ({ onBack }) => {
       
       <div className="particle-orb-instructions">
         <p className="orb-label-top" style={{ color: isSplitState ? '#b800ff' : '#00aaff', textShadow: isSplitState ? '0 0 10px rgba(184, 0, 255, 0.4)' : '0 0 10px rgba(0, 170, 255, 0.4)' }}>
-          {isSplitState ? "MITOSIS DETECTED" : "INTERACTIVE EXPLORATION"}
+          {isSplitState ? "MITOSIS COMPLETE" : "INTERACTIVE EXPLORATION"}
         </p>
-        <h1 className="orb-title-main">{isSplitState ? "SPLIT CELL" : "PARTICLE ORB"}</h1>
+        <h1 className="orb-title-main">{isSplitState ? "DUAL CELLS" : "PARTICLE ORB"}</h1>
         <p className="orb-help-text">
           {isSplitState 
-            ? "Orbs split! Recombining shortly..." 
+            ? "Drag each cell individually • Bring them together to merge them back" 
             : "Grab and shake the orb vigorously to split it in two"}
         </p>
       </div>
