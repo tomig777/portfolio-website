@@ -11,8 +11,8 @@ const ParticleOrb = ({ onBack }) => {
     if (!canvasRef.current || !containerRef.current) return;
 
     // --- Scene Setup ---
-    const width = containerRef.current.clientWidth;
-    const height = containerRef.current.clientHeight;
+    const width = containerRef.current.clientWidth || window.innerWidth || 800;
+    const height = containerRef.current.clientHeight || window.innerHeight || 600;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
@@ -136,9 +136,6 @@ const ParticleOrb = ({ onBack }) => {
 
     const fragmentShader = `
       varying vec3 vColor;
-      varying float vDistanceToMouse;
-      uniform float uHoverRadius;
-      uniform float uHoverStrength;
 
       void main() {
         // Render round glowing points
@@ -173,6 +170,7 @@ const ParticleOrb = ({ onBack }) => {
       transparent: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
+      vertexColors: true,
     });
 
     const particleSystem = new THREE.Points(geometry, material);
