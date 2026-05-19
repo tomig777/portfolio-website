@@ -16,7 +16,7 @@ const ParticleOrb = ({ onBack }) => {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
-    camera.position.z = 6;
+    camera.position.z = 8.5; // Moved camera further back to make the orb smaller on screen
 
     const renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current,
@@ -45,13 +45,13 @@ const ParticleOrb = ({ onBack }) => {
 
       let r, theta, phi;
       if (isCore) {
-        // High density cluster close to center
-        r = Math.pow(Math.random(), 2.5) * 0.7;
+        // High density cluster close to center (smaller radius)
+        r = Math.pow(Math.random(), 2.5) * 0.45;
         theta = Math.random() * Math.PI * 2;
         phi = Math.acos((Math.random() * 2) - 1);
       } else {
-        // Lower density floating shell
-        r = 0.8 + Math.random() * 1.6;
+        // Lower density floating shell (smaller radius)
+        r = 0.55 + Math.random() * 0.95;
         theta = Math.random() * Math.PI * 2;
         phi = Math.acos((Math.random() * 2) - 1);
       }
@@ -78,8 +78,8 @@ const ParticleOrb = ({ onBack }) => {
       colors[i * 3 + 1] = chosenColor.g;
       colors[i * 3 + 2] = chosenColor.b;
 
-      // Size distribution (Core slightly larger/dense, Outer smaller/floating)
-      sizes[i] = isCore ? (2.0 + Math.random() * 3.5) : (1.0 + Math.random() * 2.5);
+      // Size distribution (Core slightly larger/dense, Outer smaller/floating) - Significantly smaller particles
+      sizes[i] = isCore ? (0.6 + Math.random() * 0.8) : (0.4 + Math.random() * 0.6);
     }
 
     const geometry = new THREE.BufferGeometry();
@@ -130,7 +130,7 @@ const ParticleOrb = ({ onBack }) => {
         gl_Position = projectionMatrix * mvPosition;
 
         // Size attenuation based on depth
-        gl_PointSize = aSize * (280.0 / -mvPosition.z);
+        gl_PointSize = aSize * (100.0 / -mvPosition.z); // Reduced multiplier for smaller, finer particles
       }
     `;
 
@@ -159,7 +159,7 @@ const ParticleOrb = ({ onBack }) => {
     const uniforms = {
       uTime: { value: 0 },
       uMousePos: { value: new THREE.Vector3(999, 999, 999) },
-      uHoverRadius: { value: 2.2 },
+      uHoverRadius: { value: 1.3 }, // Reduced hover radius to match smaller scale
       uHoverStrength: { value: 0 },
     };
 
