@@ -34,28 +34,34 @@ const ParticleOrb = ({ onBack }) => {
     const sizes = new Float32Array(particleCount);
     const splitDirections = new Float32Array(particleCount);
 
-    const colorCore1 = new THREE.Color('#7a00ff'); // Deep Indigo-purple
-    const colorCore2 = new THREE.Color('#b800ff'); // Purple
-    const colorCore3 = new THREE.Color('#4c00ff'); // Violet-Blue
-
-    const colorOuter1 = new THREE.Color('#0044ff'); // Electric Blue
-    const colorOuter2 = new THREE.Color('#0088ff'); // Bright Blue
-    const colorOuter3 = new THREE.Color('#00ccff'); // Cyan-Blue
+    const color1 = new THREE.Color('#00f2fe'); // Neon blue-cyan
+    const color2 = new THREE.Color('#4facfe'); // Electric cyan
+    const color3 = new THREE.Color('#00ffd5'); // Luminous neon teal
 
     for (let i = 0; i < particleCount; i++) {
-      const isCore = i < 2200; // 2200 core particles, 4800 outer shell
+      const isCore = i < 4500; // 4500 core particles (highly dense), 2500 outer shell (sparse)
 
       let r, theta, phi;
       if (isCore) {
-        // High density cluster close to center (smaller radius)
-        r = Math.pow(Math.random(), 2.5) * 0.45;
+        // Inner sphere: dense distribution with latitude bands
+        r = 0.44 * Math.pow(Math.random(), 0.7); // radius up to 0.44
         theta = Math.random() * Math.PI * 2;
-        phi = Math.acos((Math.random() * 2) - 1);
+        
+        // Latitude bands
+        const bands = 14;
+        const bandIndex = Math.floor(Math.random() * bands);
+        phi = (bandIndex / (bands - 1)) * Math.PI;
+        phi += (Math.random() - 0.5) * 0.022; // slight organic noise
       } else {
-        // Lower density floating shell (smaller radius)
-        r = 0.55 + Math.random() * 0.95;
+        // Outer sphere: sparse distribution with latitude bands
+        r = 0.85 + Math.random() * 0.55; // radius from 0.85 to 1.4
         theta = Math.random() * Math.PI * 2;
-        phi = Math.acos((Math.random() * 2) - 1);
+        
+        // Outer bands
+        const bandsOuter = 16;
+        const bandIndexOuter = Math.floor(Math.random() * bandsOuter);
+        phi = (bandIndexOuter / (bandsOuter - 1)) * Math.PI;
+        phi += (Math.random() - 0.5) * 0.032;
       }
 
       const x = r * Math.sin(phi) * Math.cos(theta);
@@ -66,22 +72,16 @@ const ParticleOrb = ({ onBack }) => {
       positions[i * 3 + 1] = y;
       positions[i * 3 + 2] = z;
 
-      // Color variation
-      let chosenColor;
-      if (isCore) {
-        const rand = Math.random();
-        chosenColor = rand < 0.3 ? colorCore1 : rand < 0.75 ? colorCore2 : colorCore3;
-      } else {
-        const rand = Math.random();
-        chosenColor = rand < 0.4 ? colorOuter1 : rand < 0.8 ? colorOuter2 : colorOuter3;
-      }
+      // Color variation: Unified glowing electric cyan scheme for both layers
+      const rand = Math.random();
+      const chosenColor = rand < 0.35 ? color1 : rand < 0.7 ? color2 : color3;
 
       colors[i * 3] = chosenColor.r;
       colors[i * 3 + 1] = chosenColor.g;
       colors[i * 3 + 2] = chosenColor.b;
 
-      // Size distribution (Core slightly larger/dense, Outer smaller/floating) - Significantly smaller particles
-      sizes[i] = isCore ? (0.6 + Math.random() * 0.8) : (0.4 + Math.random() * 0.6);
+      // Size distribution: Core slightly larger, Outer smaller/floating
+      sizes[i] = isCore ? (0.55 + Math.random() * 0.55) : (0.4 + Math.random() * 0.4);
 
       // Alternate division direction: half of particles go left (-1.0), half go right (1.0)
       splitDirections[i] = i % 2 === 0 ? -1.0 : 1.0;
