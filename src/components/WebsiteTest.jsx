@@ -199,22 +199,6 @@ const WebsiteTest = ({ onBack }) => {
 
   return (
     <div className="App wt-scroll-container" ref={containerRef} style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
-      {onBack && (
-        <button 
-          onClick={onBack} 
-          style={{
-            position: 'fixed', top: '20px', left: '20px', zIndex: 10000, display: 'flex', alignItems: 'center', gap: '6px', 
-            background: 'rgba(10,10,10,0.6)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', 
-            padding: '8px 16px', color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontWeight: 500, 
-            backdropFilter: 'blur(12px)', cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.8)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(255,255,255,0.4)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; }}
-        >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 3L5 8L10 13" /></svg>
-          Back
-        </button>
-      )}
 
       {/* ─── Hero Section ─── */}
       <div className="plasma-background">

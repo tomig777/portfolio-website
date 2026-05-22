@@ -6,7 +6,6 @@ const ParticleOrb = ({ onBack }) => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const [isGrabbing, setIsGrabbing] = useState(false);
-  const [isSplitState, setIsSplitState] = useState(false);
 
   useEffect(() => {
     if (!canvasRef.current || !containerRef.current) return;
@@ -451,7 +450,6 @@ const ParticleOrb = ({ onBack }) => {
         const distanceBetweenSubOrbs = currentOrbPosA.distanceTo(currentOrbPosB);
         if (distanceBetweenSubOrbs < 1.15 && splitProgress > 0.95) {
           isSplit = false;
-          setIsSplitState(false);
           
           // Midpoint of collision becomes new target for merged state
           targetOrbPos.addVectors(currentOrbPosA, currentOrbPosB).multiplyScalar(0.5);
@@ -507,7 +505,6 @@ const ParticleOrb = ({ onBack }) => {
       // Split trigger (vigorously shaking builds score to threshold of 6.5)
       if (shakeScore > 6.5 && !isSplit) {
         isSplit = true;
-        setIsSplitState(true);
         splitTimer = elapsedTime;
         
         // Initialize sub-orb coordinates with left/right spawn offset
@@ -552,27 +549,6 @@ const ParticleOrb = ({ onBack }) => {
       className={`particle-orb-container ${isGrabbing ? 'grabbing' : 'grab'}`} 
       ref={containerRef}
     >
-      {onBack && (
-        <button className="particle-orb-back" onClick={onBack} aria-label="Go back">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M10 3L5 8L10 13" />
-          </svg>
-          Back
-        </button>
-      )}
-      
-      <div className="particle-orb-instructions">
-        <p className="orb-label-top" style={{ color: isSplitState ? '#b800ff' : '#00aaff', textShadow: isSplitState ? '0 0 10px rgba(184, 0, 255, 0.4)' : '0 0 10px rgba(0, 170, 255, 0.4)' }}>
-          {isSplitState ? "MITOSIS COMPLETE" : "INTERACTIVE EXPLORATION"}
-        </p>
-        <h1 className="orb-title-main">{isSplitState ? "DUAL CELLS" : "PARTICLE ORB"}</h1>
-        <p className="orb-help-text">
-          {isSplitState 
-            ? "Drag each cell individually • Bring them together to merge them back" 
-            : "Grab and shake the orb vigorously to split it in two"}
-        </p>
-      </div>
-
       <canvas ref={canvasRef} className="particle-orb-canvas" />
     </div>
   );
