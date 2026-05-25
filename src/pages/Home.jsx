@@ -12,7 +12,7 @@ import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremi
 import { HiMail } from 'react-icons/hi';
 import cardImage from '../assets/port1.jpg';
 import card1Image from '../assets/szia.png';
-import portraitImage from '../assets/portrait-1.png';
+import portraitImage from '../assets/portrait_3.png';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
 import kep9 from '../assets/kep9.png';
