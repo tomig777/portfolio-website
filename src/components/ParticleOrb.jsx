@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
+import logoDark from '../assets/logo-dark.png';
 import './ParticleOrb.css';
 
 const ParticleOrb = ({ onBack }) => {
@@ -313,6 +314,7 @@ const ParticleOrb = ({ onBack }) => {
           setIsGrabbing(true);
           dragTarget = 'merged';
           targetOrbPos.copy(worldMouse);
+          shakeScore = 0; // Reset shake score when starting to grab the merged orb
         }
       }
     };
@@ -374,6 +376,7 @@ const ParticleOrb = ({ onBack }) => {
           setIsGrabbing(true);
           dragTarget = 'merged';
           targetOrbPos.copy(worldMouse);
+          shakeScore = 0; // Reset shake score when starting to grab the merged orb
           e.preventDefault();
         }
       }
@@ -450,6 +453,7 @@ const ParticleOrb = ({ onBack }) => {
         const distanceBetweenSubOrbs = currentOrbPosA.distanceTo(currentOrbPosB);
         if (distanceBetweenSubOrbs < 1.15 && splitProgress > 0.95) {
           isSplit = false;
+          shakeScore = 0; // Reset shake score to prevent immediate splitting after merge
           
           // Midpoint of collision becomes new target for merged state
           targetOrbPos.addVectors(currentOrbPosA, currentOrbPosB).multiplyScalar(0.5);
@@ -487,24 +491,25 @@ const ParticleOrb = ({ onBack }) => {
         
         // Fast mouse coordinate displacements boost the shakeScore (only in merged state)
         if (mouseVelocity > 0.07 && !isSplit) {
-          shakeScore += mouseVelocity * 1.6;
+          shakeScore += mouseVelocity * 1.0; // Reduced accumulation rate for more resistance (was 1.6)
         } else {
-          shakeScore -= 0.12;
+          shakeScore -= 0.15; // Increased decay rate (was 0.12)
         }
       } else {
         shakeScore -= 0.2;
       }
-      shakeScore = Math.max(0, Math.min(10, shakeScore));
+      shakeScore = Math.max(0, Math.min(15, shakeScore)); // Increased max shake score limit (was 10)
       prevMouse3D.copy(mouse3D);
 
       // Animate uniform shake amount for shader jitter
-      const targetShake = (isDragging && !isSplit) ? Math.min(shakeScore / 6.5, 1.0) : 0.0;
+      const targetShake = (isDragging && !isSplit) ? Math.min(shakeScore / 9.0, 1.0) : 0.0; // Increased shake divisor (was 6.5)
       shakeAmount += (targetShake - shakeAmount) * 0.15;
       uniforms.uShakeAmount.value = shakeAmount;
 
-      // Split trigger (vigorously shaking builds score to threshold of 6.5)
-      if (shakeScore > 6.5 && !isSplit) {
+      // Split trigger (vigorously shaking builds score to threshold of 9.0)
+      if (shakeScore > 9.0 && !isSplit) { // Increased threshold to 9.0 (was 6.5)
         isSplit = true;
+        shakeScore = 0; // Reset shake score on split
         splitTimer = elapsedTime;
         
         // Initialize sub-orb coordinates with left/right spawn offset
@@ -549,6 +554,32 @@ const ParticleOrb = ({ onBack }) => {
       className={`particle-orb-container ${isGrabbing ? 'grabbing' : 'grab'}`} 
       ref={containerRef}
     >
+      {onBack && (
+        <div
+          onClick={onBack}
+          style={{
+            position: 'fixed',
+            top: '24px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            cursor: 'pointer',
+            zIndex: 10,
+            opacity: 0.7,
+            transition: 'opacity 0.3s ease, transform 0.3s ease',
+            userSelect: 'none',
+            WebkitTapHighlightColor: 'transparent',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateX(-50%) scale(1.05)'; }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = '0.7'; e.currentTarget.style.transform = 'translateX(-50%) scale(1)'; }}
+        >
+          <img
+            src={logoDark}
+            alt="Back to home"
+            style={{ height: '36px', width: 'auto', display: 'block', pointerEvents: 'none' }}
+            draggable={false}
+          />
+        </div>
+      )}
       <canvas ref={canvasRef} className="particle-orb-canvas" />
     </div>
   );
