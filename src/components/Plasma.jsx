@@ -33,6 +33,7 @@ uniform float uOpacity;
 uniform vec2 uMouse;
 uniform float uMouseInteractive;
 uniform float uIterations;
+uniform float uHorizontal;
 out vec4 fragColor;
 
 void mainImage(out vec4 o, vec2 C) {
@@ -46,17 +47,25 @@ void mainImage(out vec4 o, vec2 C) {
   vec3 O, p, S;
 
   for (vec2 r = iResolution.xy, Q; ++i < float(uIterations); O += o.w/d*o.xyz) {
-    p = z*normalize(vec3(C-.5*r,r.y)); 
-    p.z -= 4.; 
+    p = z*normalize(vec3(C-.5*r,r.y));
+    p.z -= 4.;
     S = p;
-    d = p.y-T;
-    
-    p.x += .4*(1.+p.y)*sin(d + p.x*0.1)*cos(.34*d + p.x*0.05); 
-    Q = p.xz *= mat2(cos(p.y+vec4(0,11,33,0)-T)); 
-    z+= d = abs(sqrt(length(Q*Q)) - .25*(5.+S.y))/3.+8e-4; 
-    o = 1.+sin(S.y+p.z*.5+S.z-length(S-p)+vec4(2,1,0,8));
+
+    if (uHorizontal > 0.5) {
+      d = p.x + T;
+      p.y += .4*(1.+p.x)*sin(d + p.y*0.1)*cos(.34*d + p.y*0.05);
+      Q = p.zy *= mat2(cos(p.x+vec4(0,11,33,0)+T));
+      z+= d = abs(sqrt(length(Q*Q)) - .25*(5.+S.x))/3.+8e-4;
+      o = 1.+sin(S.x+p.z*.5+S.z-length(S-p)+vec4(2,1,0,8));
+    } else {
+      d = p.y - T;
+      p.x += .4*(1.+p.y)*sin(d + p.x*0.1)*cos(.34*d + p.x*0.05);
+      Q = p.xz *= mat2(cos(p.y+vec4(0,11,33,0)-T));
+      z+= d = abs(sqrt(length(Q*Q)) - .25*(5.+S.y))/3.+8e-4;
+      o = 1.+sin(S.y+p.z*.5+S.z-length(S-p)+vec4(2,1,0,8));
+    }
   }
-  
+
   o.xyz = tanh(O/1e4);
 }
 
@@ -73,11 +82,11 @@ void main() {
   vec4 o = vec4(0.0);
   mainImage(o, gl_FragCoord.xy);
   vec3 rgb = sanitize(o.rgb);
-  
+
   float intensity = (rgb.r + rgb.g + rgb.b) / 3.0;
   vec3 customColor = intensity * uCustomColor;
   vec3 finalColor = mix(rgb, customColor, step(0.5, uUseCustomColor));
-  
+
   float alpha = length(rgb) * uOpacity;
   fragColor = vec4(finalColor, alpha);
 }`;
@@ -86,6 +95,7 @@ export const Plasma = ({
   color = '#ffffff',
   speed = 1,
   direction = 'forward',
+  flowDirection = 'vertical',
   scale = 1,
   opacity = 1,
   mouseInteractive = true,
@@ -104,22 +114,18 @@ export const Plasma = ({
 
     const directionMultiplier = direction === 'reverse' ? -1.0 : 1.0;
 
-    let renderer;
-    let gl;
-    let raf = 0;
-
     try {
-      renderer = new Renderer({
+      const renderer = new Renderer({
         webgl: 2,
         alpha: true,
         antialias: false,
-        dpr: 1,
-        powerPreference: 'high-performance', // High performance for recording
+        dpr: 1, // Fixed at 1 to save resources
+        powerPreference: 'low-power',
         preserveDrawingBuffer: false,
-        depth: false,
-        stencil: false
+        depth: false, // Disable depth buffer
+        stencil: false // Disable stencil buffer
       });
-      gl = renderer.gl;
+      const gl = renderer.gl;
 
       if (!gl) {
         console.error('WebGL not supported');
@@ -152,7 +158,8 @@ export const Plasma = ({
           uOpacity: { value: opacity },
           uMouse: { value: new Float32Array([0, 0]) },
           uMouseInteractive: { value: mouseInteractive ? 1.0 : 0.0 },
-          uIterations: { value: settings.plasmaIterations }
+          uIterations: { value: settings.plasmaIterations },
+          uHorizontal: { value: flowDirection === 'horizontal' ? 1.0 : 0.0 }
         }
       });
 
@@ -187,11 +194,14 @@ export const Plasma = ({
       ro.observe(containerRef.current);
       setSize();
 
+      let raf = 0;
       const t0 = window.performance.now();
       const loop = t => {
-        raf = requestAnimationFrame(loop);
-
-        if (paused) return;
+        // Skip animation if paused
+        if (paused) {
+          raf = requestAnimationFrame(loop);
+          return;
+        }
 
         let timeValue = (t - t0) * 0.001;
 
@@ -202,14 +212,13 @@ export const Plasma = ({
 
         program.uniforms.iTime.value = timeValue;
         renderer.render({ scene: mesh });
+        raf = requestAnimationFrame(loop);
       };
-
       raf = requestAnimationFrame(loop);
 
       return () => {
-        if (raf) cancelAnimationFrame(raf);
+        cancelAnimationFrame(raf);
         ro.disconnect();
-
         if (mouseInteractive && containerRef.current) {
           containerRef.current.removeEventListener('mousemove', handleMouseMove);
         }
@@ -217,19 +226,20 @@ export const Plasma = ({
           if (containerRef.current && containerRef.current.contains(canvas)) {
             containerRef.current.removeChild(canvas);
           }
-          const ext = gl.getExtension('WEBGL_lose_context');
-          if (ext) ext.loseContext();
-        } catch (e) {
-          console.warn('Cleanup warning:', e);
+        } catch {
+          console.warn('Canvas already removed from container');
         }
       };
     } catch (error) {
       console.error('Plasma component error:', error);
+      console.error('Error details:', error.message, error.stack);
     }
-  }, [color, speed, direction, scale, opacity, mouseInteractive, paused, settings.plasmaIterations]);
+  }, [color, speed, direction, flowDirection, scale, opacity, mouseInteractive, paused]);
 
   return (
-    <div ref={containerRef} className="plasma-container" />
+    <div ref={containerRef} className="plasma-container" style={{
+      minHeight: '100vh'
+    }} />
   );
 };
 

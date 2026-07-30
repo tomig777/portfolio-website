@@ -1,7 +1,10 @@
-import React, { useState, useCallback, useEffect, Suspense, lazy } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useCallback, useEffect, useRef, Suspense, lazy } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import FlowingMenu from './FlowingMenu';
 import ErrorBoundary from './ErrorBoundary';
+import ClickSpark from './ClickSpark';
+import BubblePasswordGate from './BubblePasswordGate';
+import { runRouteTransition } from '../utils/pageTransition';
 import './ProjectPicker.css';
 
 /* Assets */
@@ -12,8 +15,10 @@ import logo from '../assets/logo-light.png';
    Lazy-loaded project components
    ──────────────────────────────────────────── */
 const AsciiFluidVortex = lazy(() => import('./AsciiFluidVortex'));
-const ParticleOrb = lazy(() => import('./ParticleOrb'));
-const WebsiteTest = lazy(() => import('./WebsiteTest'));
+const MusicPlayer = lazy(() => import('./MusicPlayer'));
+const SketchRelay = lazy(() => import('./SketchRelay'));
+const GradientDrift = lazy(() => import('./GradientDrift'));
+const WebsiteArchive = lazy(() => import('../pages/Home'));
 
 // Placeholder for future projects
 const ComingSoon = ({ name }) => (
@@ -29,12 +34,11 @@ const ComingSoon = ({ name }) => (
    ──────────────────────────────────────────── */
 const PROJECTS = [
   { id: 'ascii-vortex',   text: 'ASCII Vortex',   image: imgLanyard },
-  { id: 'particle-orb',   text: 'Particle Orb',   image: imgLanyard },
-  { id: 'website-test',   text: 'Website Test',   image: imgLanyard },
-  { id: 'game-test',      text: 'Game Test',      image: imgLanyard },
-  { id: 'creative-hub',   text: 'Creative Hub',   image: imgLanyard },
-  { id: 'color-picker',   text: 'Color Studio',   image: imgLanyard },
-  { id: 'pixel-canvas',   text: 'Pixel Canvas',   image: imgLanyard },
+  { id: 'music-player',   text: 'Music Player',   image: imgLanyard },
+  { id: 'sketch-relay',   text: 'Sketch Relay',   image: imgLanyard },
+  { id: 'gradient-drift', text: 'Gradient Drift', image: imgLanyard },
+  { id: 'minigame',       text: 'Pocket Arcade',  image: imgLanyard },
+  { id: 'website-archive', text: 'Website Archive', image: imgLanyard },
 ];
 
 /* ────────────────────────────────────────────
@@ -44,18 +48,20 @@ const renderProject = (projectId, onBack) => {
   switch (projectId) {
     case 'ascii-vortex':
       return <AsciiFluidVortex onBack={onBack} />;
-    case 'particle-orb':
-      return <ParticleOrb onBack={onBack} />;
-    case 'website-test':
-      return <WebsiteTest onBack={onBack} />;
-    case 'game-test':
-      return <ComingSoon name="Game Test" />;
-    case 'creative-hub':
-      return <ComingSoon name="Creative Hub" />;
-    case 'color-picker':
-      return <ComingSoon name="Color Studio" />;
-    case 'pixel-canvas':
-      return <ComingSoon name="Pixel Canvas" />;
+    case 'sketch-relay':
+      return <SketchRelay />;
+    case 'minigame':
+      return <ComingSoon name="Pocket Arcade" />;
+    case 'music-player':
+      return <MusicPlayer />;
+    case 'gradient-drift':
+      return <GradientDrift />;
+    case 'website-archive':
+      return (
+        <ClickSpark sparkColor="#667eea" sparkSize={12} sparkRadius={20} sparkCount={8} duration={500}>
+          <WebsiteArchive />
+        </ClickSpark>
+      );
     default:
       return null;
   }
@@ -66,15 +72,24 @@ const renderProject = (projectId, onBack) => {
    ════════════════════════════════════════════ */
 const ProjectPicker = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [activeProject, setActiveProject] = useState(null);
   const [isClosingProject, setIsClosingProject] = useState(false);
   const [passwordPrompt, setPasswordPrompt] = useState(false);
-  const [passwordValue, setPasswordValue] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const activePageRef = useRef(null);
 
   const handleGoHome = useCallback(() => {
-    navigate('/');
-  }, [navigate]);
+    const returnToMenu = location.state?.returnToMenu === true;
+    const scrollTop = location.state?.scrollTop || 0;
+
+    runRouteTransition(() => {
+      navigate('/', {
+        state: returnToMenu
+          ? { reopenMenu: true, scrollTop }
+          : null
+      });
+    });
+  }, [location.state, navigate]);
 
   const handleBackToGrid = useCallback(() => {
     setIsClosingProject(true);
@@ -85,9 +100,7 @@ const ProjectPicker = () => {
   }, []);
 
   const handleSelectProject = useCallback((projectId) => {
-    if (projectId === 'website-test') {
-      setPasswordValue('');
-      setPasswordError('');
+    if (projectId === 'website-archive') {
       setPasswordPrompt(true);
       return;
     }
@@ -95,32 +108,24 @@ const ProjectPicker = () => {
     setActiveProject(projectId);
   }, []);
 
-  const handlePasswordSubmit = useCallback((e) => {
-    e.preventDefault();
-
-    if (passwordValue === '2330') {
-      setPasswordPrompt(false);
-      setPasswordValue('');
-      setPasswordError('');
-      setActiveProject('website-test');
-      return;
-    }
-
-    setPasswordError('Incorrect password');
-    setPasswordValue('');
-  }, [passwordValue]);
-
   const handlePasswordClose = useCallback(() => {
     setPasswordPrompt(false);
-    setPasswordValue('');
-    setPasswordError('');
+  }, []);
+
+  const verifyArchivePassword = useCallback(async (password) => {
+    if (password !== '2330') throw new Error('That code does not match.');
+  }, []);
+
+  const openWebsiteArchive = useCallback(() => {
+    setPasswordPrompt(false);
+    setActiveProject('website-archive');
   }, []);
 
   // ESC key handler
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === 'Escape') {
-        if (passwordPrompt) handlePasswordClose();
+        if (passwordPrompt) return;
         else if (activeProject) handleBackToGrid();
         else handleGoHome();
       }
@@ -129,10 +134,18 @@ const ProjectPicker = () => {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [activeProject, passwordPrompt, handleBackToGrid, handleGoHome, handlePasswordClose]);
 
+  useEffect(() => {
+    if (activeProject) activePageRef.current?.scrollTo({ top: 0, left: 0 });
+  }, [activeProject]);
+
   /* ── Active project fullscreen view ── */
   if (activeProject) {
     return (
-      <div className={`pp-active ${isClosingProject ? 'pp-closing' : ''}`}>
+      <div
+        ref={activePageRef}
+        className={`pp-active ${activeProject === 'website-archive' ? 'pp-active--scrollable ' : ''}${isClosingProject ? 'pp-closing' : ''}`}
+        style={activeProject === 'website-archive' ? { overflowX: 'hidden', overflowY: 'auto' } : undefined}
+      >
         <button className="pp-back-btn" onClick={handleBackToGrid}>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M10 3L5 8L10 13" />
@@ -184,32 +197,16 @@ const ProjectPicker = () => {
       </div>
 
       {passwordPrompt && (
-        <div className="pp-password-overlay" role="dialog" aria-modal="true" aria-labelledby="pp-password-title">
-          <form className="pp-password-card" onSubmit={handlePasswordSubmit}>
-            <button type="button" className="pp-password-close" onClick={handlePasswordClose} aria-label="Close password prompt">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-                <path d="M4.5 4.5L13.5 13.5M13.5 4.5L4.5 13.5" />
-              </svg>
-            </button>
-
-            <span className="pp-password-label">Protected Project</span>
-            <h2 id="pp-password-title" className="pp-password-title">Website Test</h2>
-            <input
-              className="pp-password-input"
-              type="password"
-              inputMode="numeric"
-              value={passwordValue}
-              onChange={(e) => {
-                setPasswordValue(e.target.value);
-                setPasswordError('');
-              }}
-              placeholder="Password"
-              autoFocus
-            />
-            {passwordError && <p className="pp-password-error">{passwordError}</p>}
-            <button className="pp-password-submit" type="submit">Enter</button>
-          </form>
-        </div>
+        <BubblePasswordGate
+          accessibleTitle="Website Archive password"
+          brand="Portfolio / Archive access"
+          idleMessage="Type the four-digit archive code"
+          footerNote="Protected project / Website Archive"
+          variant="dark-popup"
+          onSubmit={verifyArchivePassword}
+          onSuccess={openWebsiteArchive}
+          onCancel={handlePasswordClose}
+        />
       )}
     </div>
   );

@@ -1,0 +1,1146 @@
+.wt-site-header {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  transition: all 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.wt-site-header__container {
+  display: flex;
+  justify-content: center;
+}
+
+.wt-scroll-container {
+  --wt-nav-text: #ffffff;
+  --wt-nav-glass: rgba(10, 10, 10, 0.45);
+  --wt-nav-glass-solid: rgba(10, 10, 10, 0.95);
+  --wt-nav-border: rgba(255, 255, 255, 0.08);
+  --wt-nav-divider: rgba(255, 255, 255, 0.09);
+  --wt-nav-active: rgba(255, 255, 255, 0.12);
+  --wt-glow-h: 245;
+  --wt-glow-s: 100%;
+  --wt-glow-l: 72%;
+}
+
+.wt-scroll-container.wt-header-theme-red {
+  --wt-glow-h: 354;
+  --wt-glow-s: 62%;
+  --wt-glow-l: 44%;
+}
+
+.wt-scroll-container.wt-header-theme-bone {
+  --wt-glow-h: 39;
+  --wt-glow-s: 35%;
+  --wt-glow-l: 74%;
+}
+
+.wt-scroll-container.wt-header-theme-brown {
+  --wt-glow-h: 25;
+  --wt-glow-s: 32%;
+  --wt-glow-l: 48%;
+}
+
+.wt-scroll-container.wt-header-theme-forest {
+  --wt-glow-h: 142;
+  --wt-glow-s: 39%;
+  --wt-glow-l: 32%;
+}
+
+/* Three separate sections floating next to each other */
+.header__three-sections {
+  display: flex;
+  gap: 6px; /* Gap between separate glass boxes */
+  align-items: center;
+  justify-content: center;
+  transition: gap 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Glass box default styling */
+.header__glass-box {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --edge-sensitivity: 15;
+  --color-sensitivity: 25;
+  --border-radius: 6px;
+  --glow-padding: 30px;
+  --cone-spread: 22;
+
+  /* Glow colors (Deep purple light tracking the cursor) */
+  --glow-color: hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 100%);
+  --glow-color-60: hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 60%);
+  --glow-color-50: hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 50%);
+  --glow-color-40: hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 40%);
+  --glow-color-30: hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 30%);
+  --glow-color-20: hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 20%);
+  --glow-color-10: hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 10%);
+
+  /* Gradient stroke lights for edge border glow */
+  --gradient-one: radial-gradient(at 80% 55%, hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 85%) 0px, transparent 50%);
+  --gradient-two: radial-gradient(at 69% 34%, hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 70%) 0px, transparent 50%);
+  --gradient-three: radial-gradient(at 8% 6%, hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 70%) 0px, transparent 50%);
+  --gradient-four: radial-gradient(at 41% 38%, hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 65%) 0px, transparent 50%);
+  --gradient-five: radial-gradient(at 86% 85%, hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 60%) 0px, transparent 50%);
+  --gradient-six: radial-gradient(at 82% 18%, hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 50%) 0px, transparent 50%);
+  --gradient-seven: radial-gradient(at 51% 4%, hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l) / 50%) 0px, transparent 50%);
+  --gradient-base: linear-gradient(hsl(var(--wt-glow-h) var(--wt-glow-s) var(--wt-glow-l)) 0 100%);
+
+  position: relative;
+  border-radius: var(--border-radius);
+  isolation: isolate;
+  background: var(--wt-nav-glass);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid var(--wt-nav-border);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: visible;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+/* Individual box paddings and styles */
+.header__logo-box {
+  width: 120px;
+  justify-content: center;
+  padding: 0;
+  transition: width 0.55s cubic-bezier(0.76, 0, 0.24, 1), 
+              border-radius 0.55s cubic-bezier(0.76, 0, 0.24, 1), 
+              border-color 0.3s;
+}
+
+.header__menu-box {
+  padding: 0 2.25rem;
+  max-width: 520px;
+  opacity: 1;
+  transition: max-width 0.55s cubic-bezier(0.76, 0, 0.24, 1), 
+              opacity 0.4s cubic-bezier(0.76, 0, 0.24, 1), 
+              padding 0.55s cubic-bezier(0.76, 0, 0.24, 1),
+              border-color 0.3s ease;
+}
+
+.header__more-box {
+  width: 72px;
+  height: 56px;
+  justify-content: center;
+  padding: 0;
+  transition: width 0.55s cubic-bezier(0.76, 0, 0.24, 1), 
+              border-radius 0.55s cubic-bezier(0.76, 0, 0.24, 1), 
+              border-color 0.3s;
+}
+
+/* Collapsed menu box when scrolled */
+.wt-site-header--scrolled .header__menu-box {
+  max-width: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  border-color: transparent;
+}
+
+/* Scroll capsule merging */
+.wt-site-header--scrolled .header__three-sections {
+  gap: 2px; /* Tight split-capsule gap */
+}
+
+.wt-site-header--scrolled .header__logo-box {
+  padding: 0;
+  justify-content: center;
+  border-radius: 6px 0 0 6px;
+}
+
+.wt-site-header--scrolled .header__more-box {
+  width: 56px;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Laser glow effects tracking cursor position inside glass box */
+.header__glass-box::before,
+.header__glass-box::after,
+.header__glass-box > .edge-light {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  transition: opacity 0.25s ease-out;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.header__glass-box:not(:hover)::before,
+.header__glass-box:not(:hover)::after,
+.header__glass-box:not(:hover) > .edge-light {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* 1. Gradient border outline path glow */
+.header__glass-box::before {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--wt-nav-glass-solid) 0 100%) padding-box,
+    linear-gradient(rgb(255 255 255 / 0%) 0% 100%) border-box,
+    var(--gradient-one) border-box,
+    var(--gradient-two) border-box,
+    var(--gradient-three) border-box,
+    var(--gradient-four) border-box,
+    var(--gradient-five) border-box,
+    var(--gradient-six) border-box,
+    var(--gradient-seven) border-box,
+    var(--gradient-base) border-box;
+
+  opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+
+  mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center,
+      black calc(var(--cone-spread) * 1%),
+      transparent calc((var(--cone-spread) + 15) * 1%),
+      transparent calc((100 - var(--cone-spread) - 15) * 1%),
+      black calc((100 - var(--cone-spread)) * 1%)
+    );
+  -webkit-mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center,
+      black calc(var(--cone-spread) * 1%),
+      transparent calc((var(--cone-spread) + 15) * 1%),
+      transparent calc((100 - var(--cone-spread) - 15) * 1%),
+      black calc((100 - var(--cone-spread)) * 1%)
+    );
+  mask-clip: border-box;
+  -webkit-mask-clip: border-box;
+  z-index: 2;
+}
+
+/* 2. Outer light flare tracking cursor angle */
+.header__glass-box > .edge-light {
+  inset: calc(var(--glow-padding) * -1);
+  z-index: 1;
+
+  mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%
+    );
+  -webkit-mask-image:
+    conic-gradient(
+      from var(--cursor-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%
+    );
+
+  opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+  mix-blend-mode: plus-lighter;
+}
+
+.header__glass-box > .edge-light::before {
+  content: "";
+  position: absolute;
+  inset: var(--glow-padding);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--glow-color),
+    0 0 3px 0 var(--glow-color-60),
+    0 0 6px 0 var(--glow-color-40),
+    0 0 15px 0 var(--glow-color-30);
+}
+
+/* Content stacking elevation */
+.wt-site-header__logo,
+.header__menu-links,
+.header__more-btn {
+  position: relative;
+  z-index: 3;
+}
+
+/* Logo Image */
+.wt-site-header__logo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.3s ease;
+  outline: none;
+}
+
+.wt-site-header__logo:focus {
+  outline: none;
+}
+
+/* Logo hover scale and filter resets to override any global leaks */
+.wt-site-header__logo:hover {
+  transform: none !important;
+}
+
+.wt-site-header__logo:hover .wt-site-header__logo-img {
+  filter: none !important;
+}
+
+.wt-site-header__logo-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Menu Links */
+.header__menu-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  height: 100%;
+  overflow: hidden; /* Clip translating link buttons for split text effect */
+}
+
+/* Default state: buttons are translated up and visible */
+.header__menu-links .nav-link-btn {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+/* Scroll collapsed state: instantly hide by translating down */
+.wt-site-header--scrolled .header__menu-links .nav-link-btn {
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.2s ease-in, opacity 0.15s ease; /* quick slide down on scroll */
+}
+
+/* Same delay when transitioning back up (revealing) to keep them aligned */
+.wt-site-header:not(.wt-site-header--scrolled) .header__menu-links .nav-link-btn {
+  transition-delay: 0.15s;
+}
+
+.nav-link-btn {
+  background: none;
+  border: none;
+  color: var(--wt-nav-text);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.98rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 0.2rem;
+  outline: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link-btn:focus {
+  outline: none;
+}
+
+/* 3D Roll Link animation */
+.roll-text {
+  position: relative;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
+  vertical-align: top;
+  perspective: 200px;
+}
+
+.roll-text__original,
+.roll-text__copy {
+  display: block;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  backface-visibility: hidden;
+  color: var(--wt-nav-text);
+  will-change: transform;
+}
+
+.roll-text__original {
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+  transform-origin: bottom center;
+}
+
+.roll-text__copy {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  transform: translate3d(0, 0, 0) rotateX(-90deg);
+  transform-origin: top center;
+}
+
+.nav-link-btn:hover .roll-text__original {
+  transform: translate3d(0, -100%, 0) rotateX(90deg);
+}
+
+.nav-link-btn:hover .roll-text__copy {
+  transform: translate3d(0, -100%, 0) rotateX(0deg);
+}
+
+/* Three dots more options button */
+.header__more-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--wt-nav-text);
+  outline: none;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.wt-header-theme-controls {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 10010;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wt-header-theme-controls .header__glass-box {
+  height: 56px;
+}
+
+.wt-header-theme-controls__group {
+  width: 56px;
+  padding: 0;
+  justify-content: flex-end;
+  transition:
+    width 0.58s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.wt-header-theme-controls__group:hover,
+.wt-header-theme-controls__group:focus-within {
+  width: 112px;
+}
+
+.wt-header-theme-trigger,
+.wt-header-theme-button {
+  border: 0;
+  background: transparent;
+  color: var(--wt-nav-text);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+}
+
+.wt-header-theme-trigger {
+  position: absolute;
+  z-index: 4;
+  inset: 0 0 0 auto;
+  width: 54px;
+  border-radius: 5px;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.18s ease 0.18s,
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wt-header-theme-controls__group:hover .wt-header-theme-trigger,
+.wt-header-theme-controls__group:focus-within .wt-header-theme-trigger {
+  opacity: 0;
+  transform: scale(0.82);
+  pointer-events: none;
+  transition-delay: 0s;
+}
+
+.wt-header-theme-options {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(14px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wt-header-theme-controls__group:hover .wt-header-theme-options,
+.wt-header-theme-controls__group:focus-within .wt-header-theme-options {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition-delay: 0.09s;
+}
+
+.wt-header-theme-button {
+  position: relative;
+  z-index: 3;
+  width: 56px;
+  flex: 0 0 56px;
+  height: 100%;
+  border-radius: 5px;
+  opacity: 0;
+  transform: translateX(12px) scale(0.9);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    opacity 0.28s ease,
+    transform 0.46s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(0.025s * var(--theme-option-index));
+}
+
+.wt-header-theme-controls__group:hover .wt-header-theme-button,
+.wt-header-theme-controls__group:focus-within .wt-header-theme-button {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.wt-header-theme-button:hover {
+  transform: translateY(-1px);
+}
+
+.wt-header-theme-button.is-active {
+  background: var(--wt-nav-active);
+}
+
+.wt-header-theme-trigger:focus,
+.wt-header-theme-trigger:focus-visible,
+.wt-header-theme-trigger:active,
+.wt-header-theme-button:focus,
+.wt-header-theme-button:focus-visible,
+.wt-header-theme-button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.wt-header-theme-button + .wt-header-theme-button::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  bottom: 17px;
+  left: 0;
+  width: 1px;
+  background: var(--wt-nav-divider);
+  pointer-events: none;
+}
+
+@media (max-width: 1160px) {
+  .wt-header-theme-controls {
+    top: 0.75rem;
+    right: 0.75rem;
+    transform: scale(0.86);
+    transform-origin: top right;
+  }
+}
+
+@media (max-width: 760px) {
+  .wt-header-theme-controls {
+    top: 0.75rem;
+    right: 0.75rem;
+    bottom: auto;
+    transform: scale(0.82);
+    transform-origin: top right;
+  }
+}
+
+.header__more-btn:focus {
+  outline: none;
+}
+
+.header__more-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Container for the morphing dots */
+.dots-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+/* Individual dots */
+.dot-item {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor; /* Matches the text color */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: absolute;
+  transform-origin: center center;
+}
+
+/* Position dots horizontally in default state */
+.dot-item--left {
+  left: calc(50% - 10px);
+  top: calc(50% - 2.5px);
+}
+
+.dot-item--center {
+  left: calc(50% - 2.5px);
+  top: calc(50% - 2.5px);
+}
+
+.dot-item--right {
+  left: calc(50% + 5px);
+  top: calc(50% - 2.5px);
+}
+
+/* Top and bottom dots overlay the center dot by default */
+.dot-item--top {
+  left: calc(50% - 2.5px);
+  top: calc(50% - 2.5px);
+}
+
+.dot-item--bottom {
+  left: calc(50% - 2.5px);
+  top: calc(50% - 2.5px);
+}
+
+/* Hover morphing animation to Plus (+) shape */
+.header__more-btn:hover .dot-item--top {
+  top: calc(50% - 10px);
+}
+
+.header__more-btn:hover .dot-item--bottom {
+  top: calc(50% + 5px);
+}
+
+.wt-site-header--menu-open .header__more-btn .dot-item--top {
+  top: calc(50% - 10px);
+}
+
+.wt-site-header--menu-open .header__more-btn .dot-item--bottom {
+  top: calc(50% + 5px);
+}
+
+.menu-drop {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483200;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #ffffff;
+  background: #010101; /* solid main background color */
+  transform: translateY(-100%);
+  animation: menuDropIn 0.76s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  will-change: transform;
+}
+
+.menu-drop--closing {
+  animation: menuDropOut 0.74s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+/* When returning from a page opened through the menu, the route transition
+   already hides the state swap. Restore the finished menu with no second
+   entrance animation underneath it. */
+.menu-drop--restored {
+  transform: translateY(0);
+  animation: none;
+}
+
+.menu-drop--restored .menu-drop__action,
+.menu-drop--restored .menu-drop__nav-link,
+.menu-drop--restored .menu-drop__contact-list li,
+.menu-drop--restored .menu-drop__socials-block,
+.menu-drop--restored .menu-drop__clock {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+.menu-drop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: none; /* remove glow highlights */
+}
+
+.menu-drop button,
+.menu-drop button:focus,
+.menu-drop button:focus-visible,
+.menu-drop button:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.menu-drop__top {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px; /* clear gap between buttons */
+  background: transparent; /* transparent to resolve horizontal line stretch glitch */
+  border-bottom: none; /* remove bottom stroke line */
+  align-items: start; /* lets only the hovered item grow downwards */
+  height: clamp(110px, 14vh, 130px); /* fixed height matching default button size to keep layout flow stable */
+  overflow: visible; /* allows hovered button stretch without pushing text below */
+}
+
+.menu-drop__action {
+  height: clamp(110px, 14vh, 130px); /* default taller height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none; /* no stroke lines */
+  background: #1c1c1f; /* lighter black/grey background */
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(0.9rem, 1.4vw, 1.2rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  transition:
+    height 0.48s cubic-bezier(0.175, 0.885, 0.32, 1.275), /* springy liquid height stretch */
+    background 0.35s ease,
+    color 0.35s ease;
+  animation: menuTopFadeIn 0.5s ease both;
+  animation-delay: 0.42s;
+}
+
+.menu-drop__action:hover {
+  height: clamp(160px, 21vh, 185px); /* even longer stretch downwards */
+  background: #ffffff;
+  color: #000000;
+}
+
+.menu-drop__action--extra:hover {
+  color: #ffffff;
+  background: var(--wt-main-accent-deep);
+}
+
+/* Center Close Button */
+.menu-drop__action--center {
+  background: #1c1c1f;
+}
+
+.menu-drop__dots {
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  line-height: 0.5;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.menu-drop__close-icon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  transform: scale(0.6) rotate(-45deg);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: currentColor; /* black on hover, white default */
+}
+
+.menu-drop__close-dot {
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  left: calc(var(--dot-x) * 6.5px);
+  top: calc(var(--dot-y) * 6.5px);
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.menu-drop__action--center:hover .menu-drop__dots {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.menu-drop__action--center:hover .menu-drop__close-icon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Contact Button */
+.menu-drop__action--contact {
+  background: #1c1c1f;
+}
+
+.menu-drop__action--contact .green-dot {
+  color: #4ade80;
+  margin-left: 0.35rem;
+  font-size: 1.25rem;
+  vertical-align: middle;
+  transition: color 0.35s ease;
+}
+
+.menu-drop__action--contact:hover .green-dot {
+  color: #06150d;
+}
+
+.menu-drop__action--contact:hover {
+  color: #06150d;
+  background: #42d88d;
+}
+
+/* --- Layout Grid Below --- */
+.menu-drop__content {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 2.5rem, 1180px);
+  min-height: calc(100vh - 180px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vh, 4rem) 0;
+}
+
+.menu-drop__layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Left Column: Large Links */
+.menu-drop__nav-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.menu-drop__nav-link {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.48);
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(3rem, 6.5vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-drop__nav-link:hover {
+  color: #ffffff;
+  transform: translateX(12px);
+}
+
+/* Right Column: Contact Block & Socials */
+.menu-drop__info-column {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 6vh, 4.5rem);
+}
+
+.menu-drop__contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.menu-drop__contact-list li {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Add custom dots to list items just like in the screenshot */
+.menu-drop__contact-list li::before {
+  content: '•';
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1.1rem;
+}
+
+.menu-drop__contact-list a,
+.menu-drop__contact-list span {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.menu-drop__contact-list a:hover,
+.menu-drop__contact-list span:hover {
+  color: #ffffff;
+}
+
+.menu-drop__socials-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.menu-drop__socials-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.36);
+}
+
+.menu-drop__socials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.menu-drop__socials-list a,
+.menu-drop__socials-list span {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+  display: inline-block;
+  width: fit-content;
+}
+
+.menu-drop__socials-list a:hover,
+.menu-drop__socials-list span:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* --- Live Clock --- */
+.menu-drop__clock {
+  position: absolute;
+  bottom: clamp(1rem, 3vh, 2rem);
+  right: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.36);
+}
+
+/* Animations Trigger */
+.menu-drop__nav-link,
+.menu-drop__contact-list li,
+.menu-drop__socials-block,
+.menu-drop__clock {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: menuContentIn 0.76s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.menu-drop__action:nth-child(1) { animation-delay: 0.36s; }
+.menu-drop__action:nth-child(2) { animation-delay: 0.42s; }
+.menu-drop__action:nth-child(3) { animation-delay: 0.48s; }
+
+.menu-drop__nav-link:nth-child(1) { animation-delay: 0.54s; }
+.menu-drop__nav-link:nth-child(2) { animation-delay: 0.60s; }
+.menu-drop__nav-link:nth-child(3) { animation-delay: 0.66s; }
+.menu-drop__nav-link:nth-child(4) { animation-delay: 0.72s; }
+
+.menu-drop__contact-list li { animation-delay: 0.78s; }
+.menu-drop__socials-block { animation-delay: 0.84s; }
+.menu-drop__clock { animation-delay: 0.90s; }
+
+@keyframes menuContentIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-drop--closing .menu-drop__nav-link,
+.menu-drop--closing .menu-drop__contact-list li,
+.menu-drop--closing .menu-drop__socials-block,
+.menu-drop--closing .menu-drop__clock {
+  animation: menuContentOut 0.32s ease forwards;
+}
+
+@keyframes menuContentOut {
+  to {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+}
+
+.menu-drop--closing .menu-drop__action {
+  animation: menuTopFadeOut 0.2s ease forwards;
+}
+
+@keyframes menuTopFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes menuTopFadeOut {
+  to { opacity: 0; }
+}
+
+@media (max-width: 760px) {
+  .menu-drop__top {
+    width: min(100% - 1rem, 1180px);
+    grid-template-columns: 1.25fr 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .menu-drop__action {
+    height: 72px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .menu-drop__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .menu-drop__content {
+    width: min(100% - 1.5rem, 1180px);
+    min-height: calc(100vh - 100px);
+    padding-top: 2rem;
+    justify-content: flex-start;
+  }
+
+  .menu-drop__nav-link {
+    font-size: clamp(2.2rem, 10vw, 4rem);
+  }
+
+  .menu-drop__clock {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+  }
+}
+
+@keyframes menuDropIn {
+  0% {
+    transform: translateY(-100%);
+    border-bottom-left-radius: 44vw 9vh;
+    border-bottom-right-radius: 44vw 9vh;
+  }
+  100% {
+    transform: translateY(0);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+@keyframes menuDropOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+    border-bottom-left-radius: 44vw 9vh;
+    border-bottom-right-radius: 44vw 9vh;
+  }
+}
+
+@keyframes menuAtmosphereIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menuAtmosphereOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes menuButtonIn {
+  from {
+    opacity: 0;
+    transform: translateY(-28px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes menuXIn {
+  to {
+    transform: rotate(90deg) scale(1);
+  }
+}
+
+@keyframes menuContentIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menuContentOut {
+  to {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+}
+
+@media (max-width: 760px) {
+  .menu-drop__top {
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-top: 0;
+    background: transparent;
+    border-bottom: none;
+    height: 76px;
+    overflow: visible;
+  }
+
+  .menu-drop__action {
+    height: 76px;
+    font-size: 0.75rem;
+    border-radius: 0;
+    background: #1c1c1f;
+  }
+
+  .menu-drop__action:hover {
+    height: 98px;
+  }
+
+  .menu-drop__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .menu-drop__content {
+    width: min(100% - 1.5rem, 1180px);
+    min-height: calc(100vh - 100px);
+    padding-top: 2rem;
+    justify-content: flex-start;
+  }
+
+  .menu-drop__nav-link {
+    font-size: clamp(2.2rem, 10vw, 4rem);
+  }
+
+  .menu-drop__clock {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+  }
+}

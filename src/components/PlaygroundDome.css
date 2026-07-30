@@ -1,0 +1,250 @@
+.playground-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #080808;
+  z-index: 20000;
+  display: flex;
+  flex-direction: column;
+  color: #f0ede8;
+  font-family: 'Space Mono', monospace;
+  overflow: hidden;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+.playground-overlay.is-active {
+  opacity: 1;
+}
+
+.playground-canvas-container {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.playground-canvas-container canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pg-expanded-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: rgba(0, 0, 0, 0.34);
+  cursor: zoom-out;
+}
+
+.pg-expanded-image {
+  position: absolute;
+  z-index: 21;
+  display: block;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
+  transform-origin: center;
+  pointer-events: none;
+  will-change: left, top, width, height, transform, opacity;
+}
+
+/* UI Corners */
+.pg-ui {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pg-ui.is-visible {
+  opacity: 1;
+}
+
+.pg-ui__corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 2.5rem;
+}
+
+.pg-ui__corner--tl {
+  top: 0;
+  left: 0;
+}
+
+.pg-ui__corner--tr {
+  top: 0;
+  right: 0;
+  align-items: flex-end;
+  text-align: right;
+  pointer-events: auto; /* Close button and header items are interactive */
+}
+
+.pg-ui__corner--bl {
+  bottom: 0;
+  left: 0;
+}
+
+.pg-ui__corner--br {
+  bottom: 0;
+  right: 0;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.pg-ui__brand {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+}
+
+.pg-ui__brand::before {
+  content: "/";
+  margin-right: 0.5rem;
+  color: #30b8ff;
+}
+
+.pg-ui__sub {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.pg-ui__stats {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1rem;
+  row-gap: 0.4rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.pg-ui__lbl {
+  opacity: 0.45;
+  text-align: left;
+}
+
+.pg-ui__num {
+  font-weight: 700;
+  color: #fff;
+  text-align: right;
+}
+
+.pg-ui__hint {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* Centered Logo Button */
+.pg-logo-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: auto;
+  outline: none;
+}
+
+.pg-logo-btn:focus {
+  outline: none;
+}
+
+.pg-logo-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+.pg-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.pg-logo-btn:hover .pg-logo-img {
+  opacity: 0.8;
+}
+
+/* Back navigation */
+.pg-back-link {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pg-back-link:hover {
+  opacity: 1;
+}
+
+/* Loader */
+.pg-loader {
+  position: absolute;
+  inset: 0;
+  background: #080808;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+  gap: 1rem;
+}
+
+.pg-loader-text {
+  font-family: 'Syne', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: #f0ede8;
+  animation: pgBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes pgBlink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@media screen and (max-width: 768px) {
+  .pg-ui__corner {
+    padding: 1rem;
+  }
+  .pg-close-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+}

@@ -8,7 +8,8 @@ import PerformanceOptimized from '../components/PerformanceOptimized';
 import StarConstellation from '../components/StarConstellation';
 import ShinyText from '../components/ShinyText';
 import { Suspense, lazy } from 'react';
-import { SiAdobephotoshop, SiAdobeillustrator, SiAdobeaftereffects, SiAdobepremierepro, SiFigma, SiBlender, SiAdobelightroom, SiDavinciresolve, SiInstagram, SiLinkedin, SiAdobeaudition, SiAutodesk, SiCinema4D, SiThreedotjs } from 'react-icons/si';
+import { SiFigma, SiBlender, SiDavinciresolve, SiInstagram, SiAutodesk, SiCinema4D, SiThreedotjs } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 import cardImage from '../assets/port1.jpg';
 import card1Image from '../assets/szia.png';
@@ -16,6 +17,12 @@ import portraitImage from '../assets/portrait_3.png';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
 import kep9 from '../assets/kep9.png';
+
+const SkillBadge = ({ children }) => (
+  <span className="skill-text-badge" aria-hidden="true">
+    {children}
+  </span>
+);
 
 const Lanyard = lazy(() => import('../components/Lanyard'));
 const BorderGlow = lazy(() => import('../components/BorderGlow'));
@@ -27,12 +34,12 @@ import ScrollIndicator from '../components/ScrollIndicator';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 const adobeLogos = [
-  { node: <SiAdobeillustrator />, title: "Adobe Illustrator" },
-  { node: <SiAdobephotoshop />, title: "Adobe Photoshop" },
-  { node: <SiAdobepremierepro />, title: "Adobe Premiere Pro" },
-  { node: <SiAdobeaftereffects />, title: "Adobe After Effects" },
-  { node: <SiAdobeaudition />, title: "Adobe Audition" },
-  { node: <SiAdobelightroom />, title: "Adobe Lightroom" },
+  { node: <SkillBadge>Ai</SkillBadge>, title: "Adobe Illustrator" },
+  { node: <SkillBadge>Ps</SkillBadge>, title: "Adobe Photoshop" },
+  { node: <SkillBadge>Pr</SkillBadge>, title: "Adobe Premiere Pro" },
+  { node: <SkillBadge>Ae</SkillBadge>, title: "Adobe After Effects" },
+  { node: <SkillBadge>Au</SkillBadge>, title: "Adobe Audition" },
+  { node: <SkillBadge>Lr</SkillBadge>, title: "Adobe Lightroom" },
 ];
 
 const otherLogos = [
@@ -50,7 +57,7 @@ const socialItems = [
     <SiInstagram />
   </a>,
   <a key="linkedin" href="https://www.linkedin.com/in/tamasgal77/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-    <SiLinkedin />
+    <FaLinkedin />
   </a>,
   <a key="email" href="mailto:tamasgaldesign@gmail.com" aria-label="Email">
     <HiMail />
@@ -319,4 +326,3 @@ const Home = () => {
 };
 
 export default Home;
-

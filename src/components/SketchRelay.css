@@ -1,0 +1,883 @@
+.sketch-relay {
+  --toy-red: #ef3d2f;
+  --toy-red-dark: #bd211c;
+  --toy-yellow: #f7d64b;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(239, 61, 47, 0.09), transparent 32rem),
+    #f1efe8;
+  color: #171717;
+  padding: clamp(3.5rem, 6vh, 5rem) 2rem clamp(1rem, 2vh, 1.75rem);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.sketch-relay__intro {
+  width: min(1100px, 100%);
+  margin: 0 auto clamp(1.35rem, 2.8vh, 2rem);
+  text-align: center;
+}
+
+.sketch-relay__eyebrow {
+  margin: 0 0 0.6rem;
+  color: rgba(23, 23, 23, 0.48);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sketch-relay__intro h1 {
+  margin: 0;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(2.8rem, 5.4vw, 5rem);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.92;
+}
+
+.sketch-relay__intro h1 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.sketch-relay__intro > p:last-child {
+  margin: 0.85rem 0 0;
+  color: rgba(23, 23, 23, 0.56);
+  font-size: clamp(0.92rem, 1.3vw, 1.05rem);
+}
+
+.sketch-board-section {
+  width: min(820px, calc((100vh - 250px) * 1.24), 100%);
+  margin: 0 auto;
+}
+
+.sketch-board {
+  position: relative;
+  width: 100%;
+  padding: clamp(1.5rem, 3vw, 2.4rem) clamp(1.6rem, 4vw, 3.2rem) clamp(1.05rem, 2vw, 1.6rem);
+  overflow: hidden;
+  border: 1px solid rgba(111, 18, 13, 0.36);
+  border-radius: clamp(1.8rem, 4vw, 3.5rem);
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.28), transparent 24%),
+    linear-gradient(180deg, #ff5545 0%, var(--toy-red) 46%, var(--toy-red-dark) 100%);
+  box-shadow:
+    0 3.2rem 5rem rgba(78, 26, 18, 0.2),
+    0 0.4rem 0 rgba(125, 15, 11, 0.38),
+    inset 0 2px 0 rgba(255, 255, 255, 0.32),
+    inset 0 -1.5rem 3rem rgba(101, 10, 8, 0.18);
+  isolation: isolate;
+}
+
+.sketch-board__shine {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% -10%, rgba(255, 255, 255, 0.32), transparent 47%);
+  pointer-events: none;
+}
+
+.sketch-board__screen-frame {
+  padding: clamp(0.8rem, 1.8vw, 1.35rem);
+  border-radius: clamp(1.2rem, 2.5vw, 2.1rem);
+  background: linear-gradient(180deg, #a91916, #d42b24);
+  box-shadow:
+    inset 0 0.7rem 1.4rem rgba(71, 7, 5, 0.42),
+    0 2px 0 rgba(255, 255, 255, 0.16);
+}
+
+.sketch-board__screen {
+  position: relative;
+  aspect-ratio: 900 / 560;
+  overflow: hidden;
+  border: 1px solid rgba(44, 45, 42, 0.46);
+  border-radius: clamp(0.75rem, 1.7vw, 1.35rem);
+  background: #d8d9d5;
+  box-shadow:
+    inset 0 0 2.4rem rgba(73, 75, 70, 0.23),
+    0 0.2rem 0 rgba(255, 255, 255, 0.14);
+}
+
+.sketch-board__screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.27), transparent 24%),
+    radial-gradient(circle at 50% 50%, transparent 58%, rgba(55, 56, 53, 0.12));
+  mix-blend-mode: soft-light;
+}
+
+.sketch-board__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+  user-select: none;
+}
+
+.sketch-board__cursor {
+  position: absolute;
+  z-index: 2;
+  width: 7px;
+  height: 7px;
+  border: 1px solid rgba(30, 30, 30, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.sketch-board__wipe {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: -14%;
+  width: 13%;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.74), transparent);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.sketch-board__screen.is-clearing .sketch-board__cursor {
+  opacity: 0;
+}
+
+.sketch-board__screen.is-clearing .sketch-board__wipe {
+  opacity: 1;
+  animation: sketchWipe 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sketchWipe {
+  to { left: 102%; }
+}
+
+.sketch-board__controls {
+  min-height: clamp(6.6rem, 12vw, 8.5rem);
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) minmax(14rem, 2.1fr) minmax(7rem, 1fr);
+  align-items: end;
+  gap: clamp(0.9rem, 3vw, 2.4rem);
+  padding-top: clamp(1rem, 2vw, 1.65rem);
+}
+
+.sketch-board__dial-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.sketch-board__axis {
+  color: rgba(255, 235, 225, 0.62);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.sketch-board__knob {
+  --knob-turn: 0deg;
+  position: relative;
+  width: clamp(4.8rem, 8vw, 6.5rem);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 0deg, #d9d8d3 0deg 2deg, #aaa9a4 2deg 4deg),
+    #d6d5d0;
+  box-shadow:
+    0 0.75rem 1.1rem rgba(88, 7, 5, 0.34),
+    inset 0 0 0 0.55rem rgba(255, 255, 255, 0.54),
+    inset 0 -0.55rem 0.8rem rgba(80, 78, 73, 0.2);
+  cursor: ew-resize;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sketch-board__dial-group:last-child .sketch-board__knob {
+  cursor: ns-resize;
+}
+
+.sketch-board__knob::after {
+  content: '';
+  position: absolute;
+  inset: 16%;
+  border-radius: inherit;
+  background: radial-gradient(circle at 44% 34%, #ffffff, #d2d1cc 52%, #aaa9a4 100%);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.sketch-board__knob span {
+  position: absolute;
+  z-index: 2;
+  top: 13%;
+  left: 50%;
+  width: 3px;
+  height: 18%;
+  border-radius: 99px;
+  background: rgba(77, 75, 71, 0.5);
+  transform: translateX(-50%) rotate(var(--knob-turn));
+  transform-origin: 50% 205%;
+}
+
+.sketch-board__center-controls {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.sketch-board__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2em;
+  margin: 0 0 auto;
+  color: var(--toy-yellow);
+  font-family: Georgia, serif;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-style: italic;
+  letter-spacing: -0.07em;
+  line-height: 1;
+  text-shadow:
+    1px 2px 0 #6f160f,
+    -1px -1px 0 rgba(255, 255, 255, 0.18);
+  transform: rotate(-3deg);
+}
+
+.sketch-board__brand strong {
+  font-size: 1.18em;
+}
+
+.sketch-board__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.sketch-board__save {
+  min-height: 2.4rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(117, 14, 10, 0.24);
+  color: #fff8ed;
+  font: 700 0.68rem/1 'Inter', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.sketch-board__save:hover {
+  background: rgba(95, 8, 6, 0.42);
+  transform: translateY(-1px);
+}
+
+.sketch-board__clear {
+  display: grid;
+  grid-template-columns: 2.25rem auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 245, 237, 0.73);
+  cursor: pointer;
+}
+
+.sketch-board__clear > span {
+  position: relative;
+  width: 2.25rem;
+  aspect-ratio: 1;
+  border: 0.35rem solid #d7d6d1;
+  border-radius: 50%;
+  background:
+    conic-gradient(from 20deg, #9d9c98, #f3f2ee, #aaa9a5, #eeede8, #9d9c98);
+  box-shadow: 0 0.35rem 0.65rem rgba(92, 7, 5, 0.3);
+}
+
+.sketch-board__clear > span::after {
+  content: '';
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 2px;
+  height: 31%;
+  border-radius: 99px;
+  background: rgba(54, 53, 50, 0.52);
+  transform: translateX(-50%);
+}
+
+.sketch-board__clear.is-turning > span {
+  animation: clearDialTurn 180ms linear infinite;
+}
+
+@keyframes clearDialTurn {
+  to { transform: rotate(360deg); }
+}
+
+.sketch-board__clear small {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sketch-board button:disabled {
+  cursor: default;
+  opacity: 0.58;
+}
+
+.sketch-board__status {
+  min-height: 1em;
+  margin: 0.55rem 0 0;
+  color: rgba(255, 238, 226, 0.66);
+  font-size: 0.61rem;
+  letter-spacing: 0.03em;
+}
+
+.sketch-board__hint {
+  margin: 1.2rem 0 0;
+  color: rgba(23, 23, 23, 0.48);
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+  text-align: center;
+}
+
+.sketch-wall {
+  width: min(1180px, 100%);
+  margin: clamp(5.5rem, 10vh, 8rem) auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(23, 23, 23, 0.14);
+}
+
+.sketch-wall__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sketch-wall__heading h2 {
+  margin: 0;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
+.sketch-wall__mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  border-radius: 999px;
+  color: rgba(23, 23, 23, 0.58);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sketch-wall__mode i {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #a4a49f;
+}
+
+.sketch-wall__mode--shared i {
+  background: #35ae66;
+  box-shadow: 0 0 0 4px rgba(53, 174, 102, 0.12);
+}
+
+.sketch-wall__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.sketch-wall__card {
+  position: relative;
+  margin: 0;
+  padding: 0.65rem;
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.sketch-wall__card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 900 / 560;
+  border-radius: 0.45rem;
+  object-fit: cover;
+  filter: contrast(0.98);
+}
+
+.sketch-wall__card > span,
+.sketch-wall__card time {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  padding: 0.3rem 0.42rem;
+  border-radius: 0.25rem;
+  background: rgba(20, 20, 20, 0.72);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.55rem;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.sketch-wall__card > span {
+  left: 1rem;
+}
+
+.sketch-wall__card time {
+  top: auto;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.sketch-wall__delete {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.7);
+  color: rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+  opacity: 0.72;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 180ms ease, color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.sketch-wall__delete svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.sketch-wall__delete:hover {
+  opacity: 1;
+  color: #fff;
+  background: #cf3027;
+  transform: rotate(5deg) scale(1.05);
+}
+
+.sketch-board__knob,
+.sketch-board__clear {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.sketch-board__knob:focus,
+.sketch-board__knob:focus-visible,
+.sketch-board__knob:active,
+.sketch-board__clear:focus,
+.sketch-board__clear:focus-visible,
+.sketch-board__clear:active {
+  outline: none;
+}
+
+.sketch-wall__empty {
+  min-height: 18rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  border: 1px dashed rgba(23, 23, 23, 0.17);
+  border-radius: 1rem;
+  color: rgba(23, 23, 23, 0.38);
+}
+
+.sketch-wall__empty span {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+}
+
+.sketch-wall__empty p {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  font-style: italic;
+}
+
+/* Password deletion flow — capsule-to-orbs motion adapted from the supplied reference. */
+.delete-auth {
+  position: fixed;
+  z-index: 10060;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: rgba(248, 247, 244, 0.97);
+  color: #171717;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  backdrop-filter: blur(16px) saturate(0.8);
+  -webkit-backdrop-filter: blur(16px) saturate(0.8);
+  animation: deleteAuthIn 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.delete-auth--closing {
+  animation: deleteAuthOut 260ms ease both;
+}
+
+.delete-auth--approved {
+  animation: deleteAuthApproved 780ms cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+
+@keyframes deleteAuthIn {
+  from { opacity: 0; filter: blur(9px); }
+  to { opacity: 1; filter: blur(0); }
+}
+
+@keyframes deleteAuthOut {
+  to { opacity: 0; filter: blur(8px); }
+}
+
+@keyframes deleteAuthApproved {
+  0%, 48% { opacity: 1; }
+  100% { opacity: 0; filter: blur(10px); }
+}
+
+.delete-auth__brand {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  color: rgba(23, 23, 23, 0.58);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.delete-auth__form {
+  position: relative;
+  width: min(30rem, calc(100% - 2rem));
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+}
+
+.delete-auth__form h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.delete-auth__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.delete-auth__sequence {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.72rem;
+  min-width: 14rem;
+  min-height: 3.5rem;
+}
+
+.delete-auth__sequence::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  width: 4.4rem;
+  height: 2.35rem;
+  border-radius: 999px;
+  background: #eceaf1;
+  transform: translate(-50%, -50%) scaleX(0.86);
+  animation: deleteCapsuleOpen 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes deleteCapsuleOpen {
+  0% { opacity: 0; transform: translate(-50%, -50%) scaleX(0.55); }
+  22% { opacity: 1; }
+  66% { width: 14rem; transform: translate(-50%, -50%) scaleX(1); }
+  100% { width: 14rem; opacity: 0; transform: translate(-50%, -50%) scaleX(1.04); }
+}
+
+.delete-auth__orb {
+  --orb-index: 0;
+  width: 2.55rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: #eceaf1;
+  color: #4c4b50;
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(calc((1.5 - var(--orb-index)) * 0.85rem)) scale(0.25);
+  animation: deleteOrbIn 460ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(210ms + (var(--orb-index) * 55ms));
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+@keyframes deleteOrbIn {
+  to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.delete-auth__orb.is-active {
+  border-color: #58bfd0;
+  background: rgba(88, 191, 208, 0.08);
+  box-shadow: 0 0 0 3px rgba(88, 191, 208, 0.08);
+}
+
+.delete-auth__orb.is-active::after {
+  content: '';
+  width: 1px;
+  height: 1rem;
+  background: #5cb8c7;
+  animation: deleteCaret 920ms steps(1, end) infinite;
+}
+
+.delete-auth__orb.is-filled::after {
+  display: none;
+}
+
+@keyframes deleteCaret {
+  50% { opacity: 0; }
+}
+
+.delete-auth--checking .delete-auth__orb {
+  animation: deleteOrbCheck 700ms ease-in-out infinite alternate;
+  animation-delay: calc(var(--orb-index) * 55ms);
+}
+
+@keyframes deleteOrbCheck {
+  to { transform: translateY(-0.2rem); background: #e8eef0; }
+}
+
+.delete-auth--error .delete-auth__sequence {
+  animation: deleteAuthShake 420ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.delete-auth--error .delete-auth__orb {
+  border-color: rgba(207, 48, 39, 0.42);
+  background: rgba(207, 48, 39, 0.09);
+  color: #bd2821;
+}
+
+@keyframes deleteAuthShake {
+  20%, 60% { transform: translateX(-0.5rem); }
+  40%, 80% { transform: translateX(0.5rem); }
+}
+
+.delete-auth--approved .delete-auth__orb {
+  animation: deleteOrbApproved 540ms cubic-bezier(0.7, 0, 0.2, 1) forwards;
+  animation-delay: calc((3 - var(--orb-index)) * 45ms);
+}
+
+@keyframes deleteOrbApproved {
+  55% { opacity: 1; transform: translateX(calc((1.5 - var(--orb-index)) * -2.9rem)) scale(0.78); }
+  100% { opacity: 0; transform: translateX(calc((1.5 - var(--orb-index)) * -3.25rem)) scale(0.12); }
+}
+
+.delete-auth__message {
+  min-height: 1rem;
+  margin: 1.3rem 0 0;
+  color: rgba(23, 23, 23, 0.48);
+  font-size: 0.63rem;
+  letter-spacing: 0.045em;
+  text-align: center;
+}
+
+.delete-auth--error .delete-auth__message {
+  color: #b72c25;
+}
+
+.delete-auth__cancel {
+  position: absolute;
+  left: 50%;
+  bottom: 4rem;
+  padding: 0.65rem 1rem;
+  border: 0;
+  background: transparent;
+  color: rgba(23, 23, 23, 0.48);
+  font: 600 0.62rem/1 'Inter', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.delete-auth__cancel:hover {
+  color: #171717;
+}
+
+.delete-auth__cancel:focus-visible {
+  outline: 1px solid rgba(23, 23, 23, 0.48);
+  outline-offset: 4px;
+}
+
+.delete-auth__note {
+  position: absolute;
+  left: 50%;
+  bottom: 1.35rem;
+  margin: 0;
+  color: rgba(23, 23, 23, 0.28);
+  font-size: 0.52rem;
+  letter-spacing: 0.04em;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+@media (max-height: 820px) and (min-width: 761px) {
+  .sketch-relay {
+    padding: 3.5rem 2rem 0.75rem;
+  }
+
+  .sketch-relay__intro {
+    margin-bottom: 1rem;
+  }
+
+  .sketch-relay__eyebrow {
+    margin-bottom: 0.35rem;
+  }
+
+  .sketch-relay__intro h1 {
+    font-size: clamp(2.6rem, 5vw, 3.8rem);
+  }
+
+  .sketch-relay__intro > p:last-child {
+    margin-top: 0.5rem;
+  }
+
+  .sketch-board-section {
+    width: min(630px, calc((100vh - 185px) * 1.24), 100%);
+  }
+
+  .sketch-board__controls {
+    min-height: 5.8rem;
+  }
+
+  .sketch-board__knob {
+    width: clamp(4rem, 7vw, 5.2rem);
+  }
+
+  .sketch-board__axis {
+    display: none;
+  }
+
+  .sketch-board__hint {
+    margin-top: 0.8rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .sketch-relay {
+    padding: 4.5rem 0.85rem 0.8rem;
+  }
+
+  .sketch-relay__intro {
+    margin-bottom: 1rem;
+  }
+
+  .sketch-board {
+    padding: 1.5rem 1rem 1.2rem;
+    border-radius: 2rem;
+  }
+
+  .sketch-board__controls {
+    min-height: 7.6rem;
+    grid-template-columns: 5.2rem minmax(7rem, 1fr) 5.2rem;
+    gap: 0.55rem;
+  }
+
+  .sketch-board__axis {
+    display: none;
+  }
+
+  .sketch-board__knob {
+    width: 4.8rem;
+  }
+
+  .sketch-board__brand {
+    margin-top: 0.7rem;
+    font-size: 1.2rem;
+  }
+
+  .sketch-board__clear {
+    grid-template-columns: 2.1rem;
+  }
+
+  .sketch-board__clear > span {
+    width: 2.1rem;
+  }
+
+  .sketch-board__clear small {
+    display: none;
+  }
+
+  .sketch-board__hint {
+    max-width: 24rem;
+    margin: 0.8rem auto 0;
+    line-height: 1.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sketch-board__screen.is-clearing .sketch-board__wipe {
+    animation-duration: 1ms;
+  }
+
+  .sketch-board__clear.is-turning > span {
+    animation: none;
+  }
+}

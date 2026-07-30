@@ -3,17 +3,18 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import ClickSpark from './components/ClickSpark';
 import { ThemeProvider } from './contexts/ThemeContext';
-import Home from './pages/Home';
 import RecordBackground from './pages/RecordBackground';
 const Secret = lazy(() => import('./pages/Secret'));
 const ProjectPicker = lazy(() => import('./components/ProjectPicker'));
+const WebsiteTest = lazy(() => import('./components/WebsiteTest'));
 
 function AppContent() {
   const location = useLocation();
 
   const isSecret = location.pathname === '/secret';
   const isProjects = location.pathname === '/projects';
-  const isSpecialPage = isSecret || isProjects;
+  const isPortfolio = location.pathname === '/';
+  const isSpecialPage = isSecret || isProjects || isPortfolio;
 
   return (
     <>
@@ -22,6 +23,7 @@ function AppContent() {
           <Routes>
             <Route path="/secret" element={<Secret />} />
             <Route path="/projects" element={<ProjectPicker />} />
+            <Route path="/" element={<WebsiteTest />} />
           </Routes>
         </Suspense>
       ) : (
@@ -33,7 +35,6 @@ function AppContent() {
           duration={500}
         >
           <Routes>
-            <Route path="/" element={<Home />} />
             <Route path="/record" element={<RecordBackground />} />
           </Routes>
         </ClickSpark>

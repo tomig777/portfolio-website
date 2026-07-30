@@ -93,35 +93,39 @@
   transform: translate(-50%, 10%);
   width: 70%;
   height: 80%;
-  background: linear-gradient(135deg, rgba(177, 158, 239, 0.15) 0%, rgba(147, 197, 253, 0.1) 100%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 35% 15%, rgba(75, 68, 153, 0.18), transparent 48%),
+    rgba(9, 9, 14, 0.9);
+  border: 0;
   border-radius: 12px;
   transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  color: rgba(224, 224, 224, 0.9);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: rgba(238, 238, 244, 0.9);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
 }
 
 .paper:nth-child(2) {
-  background: linear-gradient(135deg, rgba(177, 158, 239, 0.2) 0%, rgba(147, 197, 253, 0.15) 100%);
   width: 80%;
   height: 70%;
   font-size: 28px;
 }
 
 .paper:nth-child(3) {
-  background: linear-gradient(135deg, rgba(177, 158, 239, 0.25) 0%, rgba(147, 197, 253, 0.2) 100%);
   width: 90%;
   height: 60%;
   font-size: 28px;
 }
 
 .paper a {
+  position: relative;
+  z-index: 2;
   color: rgba(224, 224, 224, 0.7);
   transition: all 0.3s ease;
   display: inline-flex;
@@ -131,6 +135,14 @@
   border-radius: 50%;
   background: transparent;
   outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.paper a:focus,
+.paper a:focus-visible,
+.paper a:active {
+  outline: none;
+  box-shadow: none;
 }
 
 .paper a:hover {

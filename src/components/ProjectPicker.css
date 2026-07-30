@@ -81,6 +81,11 @@
   animation: ppFadeIn 0.3s ease forwards;
 }
 
+.pp-active--scrollable {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .pp-active.pp-closing {
   animation: ppFadeOut 0.25s ease forwards;
 }
@@ -95,26 +100,40 @@
   top: 20px;
   left: 20px;
   z-index: 10002;
-  display: flex;
+  min-height: 40px;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
-  padding: 8px 16px;
+  gap: 0.55rem;
+  padding: 0 1rem;
+  background: rgba(8, 8, 10, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
   font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: color 220ms ease, border-color 220ms ease, background 220ms ease, transform 220ms ease;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .pp-back-btn:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.8);
+  color: #070708;
+  border-color: #fff;
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.pp-back-btn:focus,
+.pp-back-btn:focus-visible,
+.pp-back-btn:active,
+.pp-home-btn:focus,
+.pp-home-btn:focus-visible,
+.pp-home-btn:active {
+  outline: none;
+  box-shadow: none;
 }
 
 /* ─── Loading ─── */

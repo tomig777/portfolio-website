@@ -617,6 +617,18 @@ body {
   filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.15));
 }
 
+.skill-text-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  font-size: 0.42em;
+  font-weight: 700;
+  line-height: 1;
+}
+
 /* Custom skill icon masks - uses currentColor for exact color matching */
 .skill-icon-mask {
   width: 56px;
@@ -1399,4 +1411,37 @@ html {
 
 .folder-decoration--right .decoration-ring--inner {
   animation-direction: normal;
+}
+/* Route-safe version of the portfolio page transition. It remains mounted
+   while React switches between the main site and the project picker. */
+.site-route-transition {
+  position: fixed;
+  z-index: 2147483647 !important;
+  inset: 0 !important;
+  pointer-events: none;
+  display: block !important;
+  background: #090d2a !important;
+  transform: translateY(100%);
+  animation: siteRouteTransition 1.68s cubic-bezier(0.76, 0, 0.24, 1) both;
+  will-change: transform;
+}
+
+:root[data-portfolio-theme='red'] .site-route-transition,
+:root[data-portfolio-theme='red'] .wt-case-transition {
+  background: #24060b !important;
+}
+
+@keyframes siteRouteTransition {
+  0% {
+    transform: translateY(100%);
+  }
+
+  42%,
+  66% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
 }
