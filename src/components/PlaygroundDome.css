@@ -158,41 +158,12 @@
   opacity: 0.6;
 }
 
-/* Centered Logo Button */
-.pg-logo-btn {
+/* Keep the gallery exit above the WebGL canvas while sharing the case-study
+   back-button treatment and mobile sizing. */
+.playground-overlay .pg-gallery-back {
   position: absolute;
-  top: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
   pointer-events: auto;
-  outline: none;
-}
-
-.pg-logo-btn:focus {
-  outline: none;
-}
-
-.pg-logo-btn:hover {
-  transform: translateX(-50%) scale(1.05);
-}
-
-.pg-logo-img {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-  transition: opacity 0.3s ease;
-}
-
-.pg-logo-btn:hover .pg-logo-img {
-  opacity: 0.8;
 }
 
 /* Back navigation */

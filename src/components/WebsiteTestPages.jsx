@@ -48,7 +48,7 @@ const aboutSkillGroups = [
 ];
 
 export const WorkArchivePage = ({ themePreset = 'violet' }) => (
-  <main className="wt-nav-page wt-nav-page--work" aria-label="Work archive">
+  <main className="wt-nav-page wt-nav-page--work" aria-label="Work archive" data-lenis-prevent>
     <div className="wt-work-rays" aria-hidden="true">
       <LightRays
         raysOrigin="top-center"
@@ -66,15 +66,10 @@ export const WorkArchivePage = ({ themePreset = 'violet' }) => (
     </div>
     <section className="wt-work-swap-hero" aria-labelledby="work-swap-title">
       <div className="wt-work-swap-copy">
-        <p className="wt-nav-page__eyebrow">Selected archive / 01&mdash;04</p>
         <h1 id="work-swap-title">Ideas<br /><em>in motion.</em></h1>
         <p className="wt-work-swap-intro">
           A rotating selection of visual identities, digital experiments, motion studies, and three-dimensional worlds, each shaped to feel distinct, considered, and alive.
         </p>
-        <div className="wt-work-swap-notes" aria-label="Archive details">
-          <span>Four selected works</span>
-          <span>Continuous rotation</span>
-        </div>
       </div>
 
       <div className="wt-work-swap-stage" aria-label="Animated selected work stack">
@@ -125,7 +120,7 @@ export const AboutProfilePage = ({ skills, themePreset = 'violet' }) => {
   const skillsByTitle = new Map(skills.map((skill) => [skill.title, skill]));
 
   return (
-    <main className="wt-nav-page wt-nav-page--about" aria-label="About Tamas Gal">
+    <main className="wt-nav-page wt-nav-page--about" aria-label="About Tamas Gal" data-lenis-prevent>
       <div className="wt-about-page__aurora" aria-hidden="true">
         <AuroraBackground
           colorStops={ABOUT_AURORA_COLORS[themePreset] || ABOUT_AURORA_COLORS.violet}
@@ -248,7 +243,7 @@ export const ContactFormPage = ({ themePreset = 'violet' }) => {
   }[status];
 
   return (
-    <main className="wt-nav-page wt-nav-page--contact" aria-label="Contact Tamas Gal">
+    <main className="wt-nav-page wt-nav-page--contact" aria-label="Contact Tamas Gal" data-lenis-prevent>
       <div className="wt-work-rays wt-contact-rays" aria-hidden="true">
         <LightRays
           raysOrigin="top-center"
@@ -266,7 +261,6 @@ export const ContactFormPage = ({ themePreset = 'violet' }) => {
       </div>
       <section className="wt-contact-page__layout">
         <div className="wt-contact-page__copy">
-          <p className="wt-nav-page__eyebrow">Contact / New project</p>
           <h1>Let’s make<br /><em>something felt.</em></h1>
           <p>
             Tell me a little about your idea, timeline, or the problem you want to solve. I’ll get back to you as soon as I can.

@@ -18,6 +18,7 @@ const AsciiFluidVortex = lazy(() => import('./AsciiFluidVortex'));
 const MusicPlayer = lazy(() => import('./MusicPlayer'));
 const SketchRelay = lazy(() => import('./SketchRelay'));
 const GradientDrift = lazy(() => import('./GradientDrift'));
+const MobilePreview = lazy(() => import('./MobilePreview'));
 const WebsiteArchive = lazy(() => import('../pages/Home'));
 
 // Placeholder for future projects
@@ -37,7 +38,7 @@ const PROJECTS = [
   { id: 'music-player',   text: 'Music Player',   image: imgLanyard },
   { id: 'sketch-relay',   text: 'Sketch Relay',   image: imgLanyard },
   { id: 'gradient-drift', text: 'Gradient Drift', image: imgLanyard },
-  { id: 'minigame',       text: 'Pocket Arcade',  image: imgLanyard },
+  { id: 'minigame',       text: 'Mobile Preview', image: imgLanyard },
   { id: 'website-archive', text: 'Website Archive', image: imgLanyard },
 ];
 
@@ -51,7 +52,7 @@ const renderProject = (projectId, onBack) => {
     case 'sketch-relay':
       return <SketchRelay />;
     case 'minigame':
-      return <ComingSoon name="Pocket Arcade" />;
+      return <MobilePreview />;
     case 'music-player':
       return <MusicPlayer />;
     case 'gradient-drift':
@@ -75,7 +76,7 @@ const ProjectPicker = () => {
   const location = useLocation();
   const [activeProject, setActiveProject] = useState(null);
   const [isClosingProject, setIsClosingProject] = useState(false);
-  const [passwordPrompt, setPasswordPrompt] = useState(false);
+  const [passwordPrompt, setPasswordPrompt] = useState(null);
   const activePageRef = useRef(null);
 
   const handleGoHome = useCallback(() => {
@@ -100,8 +101,8 @@ const ProjectPicker = () => {
   }, []);
 
   const handleSelectProject = useCallback((projectId) => {
-    if (projectId === 'website-archive') {
-      setPasswordPrompt(true);
+    if (projectId === 'website-archive' || projectId === 'minigame') {
+      setPasswordPrompt(projectId);
       return;
     }
 
@@ -109,17 +110,18 @@ const ProjectPicker = () => {
   }, []);
 
   const handlePasswordClose = useCallback(() => {
-    setPasswordPrompt(false);
+    setPasswordPrompt(null);
   }, []);
 
   const verifyArchivePassword = useCallback(async (password) => {
     if (password !== '2330') throw new Error('That code does not match.');
   }, []);
 
-  const openWebsiteArchive = useCallback(() => {
-    setPasswordPrompt(false);
-    setActiveProject('website-archive');
-  }, []);
+  const openPasswordProject = useCallback(() => {
+    const projectId = passwordPrompt;
+    setPasswordPrompt(null);
+    if (projectId) setActiveProject(projectId);
+  }, [passwordPrompt]);
 
   // ESC key handler
   useEffect(() => {
@@ -176,10 +178,11 @@ const ProjectPicker = () => {
   return (
     <div className="pp-page">
       <div className="pp-top-bar">
-        <button className="pp-home-btn" onClick={handleGoHome}>
+        <button className="pp-home-btn" onClick={handleGoHome} aria-label="Back to the portfolio">
           <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M10 3L5 8L10 13" />
           </svg>
+          <span>Back</span>
         </button>
         <img src={logo} alt="Logo" className="pp-logo" />
       </div>
@@ -198,13 +201,13 @@ const ProjectPicker = () => {
 
       {passwordPrompt && (
         <BubblePasswordGate
-          accessibleTitle="Website Archive password"
-          brand="Portfolio / Archive access"
-          idleMessage="Type the four-digit archive code"
-          footerNote="Protected project / Website Archive"
+          accessibleTitle={`${passwordPrompt === 'minigame' ? 'Mobile Preview' : 'Website Archive'} password`}
+          brand="Portfolio / Protected access"
+          idleMessage="Type the four-digit project code"
+          footerNote={`Protected project / ${passwordPrompt === 'minigame' ? 'Mobile Preview' : 'Website Archive'}`}
           variant="dark-popup"
           onSubmit={verifyArchivePassword}
-          onSuccess={openWebsiteArchive}
+          onSuccess={openPasswordProject}
           onCancel={handlePasswordClose}
         />
       )}

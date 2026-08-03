@@ -17,7 +17,9 @@ const WebsiteTestHeader = ({
   onThemePresetChange,
   menuReturnToken = 0,
   forceCollapsed = false,
-  onMenuScrollLock
+  onMenuScrollLock,
+  mobilePreview = false,
+  showThemeControls = true
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,6 +30,10 @@ const WebsiteTestHeader = ({
   const onMenuScrollLockRef = useRef(onMenuScrollLock);
   const [timeStr, setTimeStr] = useState('');
   const activeTheme = headerThemeOptions.find((theme) => theme.id === themePreset) || headerThemeOptions[0];
+  const togglePreviewTheme = () => {
+    if (!mobilePreview) return;
+    onThemePresetChange?.(themePreset === 'red' ? 'violet' : 'red');
+  };
 
   useEffect(() => {
     onMenuScrollLockRef.current = onMenuScrollLock;
@@ -335,7 +341,8 @@ const WebsiteTestHeader = ({
         </div>
       </div>
     </header>
-    <div className="wt-header-theme-controls" aria-label="Header appearance">
+    {showThemeControls && (
+    <div className={`wt-header-theme-controls${mobilePreview ? ' wt-header-theme-controls--mobile-preview' : ''}`} aria-label="Header appearance">
       <div
         className="header__glass-box wt-header-theme-controls__group"
         onPointerMove={handlePointerMove}
@@ -344,32 +351,36 @@ const WebsiteTestHeader = ({
         <button
           type="button"
           className="wt-header-theme-trigger"
-          aria-label={`Open theme picker. Current theme: ${activeTheme.name}`}
-          aria-haspopup="true"
+          aria-label={mobilePreview ? `Toggle theme. Current theme: ${activeTheme.name}` : `Open theme picker. Current theme: ${activeTheme.name}`}
+          aria-haspopup={mobilePreview ? undefined : 'true'}
+          onClick={mobilePreview ? togglePreviewTheme : undefined}
         >
-          {activeTheme.number}
+          <span className="wt-header-theme-trigger__number">{activeTheme.number}</span>
         </button>
-        <div className="wt-header-theme-options">
-          {headerThemeOptions.map((theme, index) => (
-            <button
-              key={theme.id}
-              type="button"
-              className={`wt-header-theme-button${themePreset === theme.id ? ' is-active' : ''}`}
-              style={{ '--theme-option-index': index }}
-              aria-label={`Use ${theme.name.toLowerCase()} header theme`}
-              aria-pressed={themePreset === theme.id}
-              onClick={(event) => {
-                onThemePresetChange?.(theme.id);
-                event.currentTarget.blur();
-              }}
-            >
-              {theme.number}
-            </button>
-          ))}
-        </div>
+        {!mobilePreview && (
+          <div className="wt-header-theme-options">
+            {headerThemeOptions.map((theme, index) => (
+              <button
+                key={theme.id}
+                type="button"
+                className={`wt-header-theme-button${themePreset === theme.id ? ' is-active' : ''}`}
+                style={{ '--theme-option-index': index }}
+                aria-label={`Use ${theme.name.toLowerCase()} header theme`}
+                aria-pressed={themePreset === theme.id}
+                onClick={(event) => {
+                  onThemePresetChange?.(theme.id);
+                  event.currentTarget.blur();
+                }}
+              >
+                {theme.number}
+              </button>
+            ))}
+          </div>
+        )}
         <span className="edge-light" />
       </div>
     </div>
+    )}
     {isMenuOpen && (
       <div
         className={`menu-drop${isMenuClosing ? ' menu-drop--closing' : ''}${isMenuRestored ? ' menu-drop--restored' : ''}`}
@@ -422,6 +433,11 @@ const WebsiteTestHeader = ({
               <button onClick={() => handleMenuNavigation('home')} className="menu-drop__nav-link">
                 Home
               </button>
+              {mobilePreview && (
+                <button onClick={() => handleMenuNavigation('gallery')} className="menu-drop__nav-link">
+                  Gallery
+                </button>
+              )}
               <button onClick={() => handleMenuNavigation('work')} className="menu-drop__nav-link">
                 Work
               </button>
@@ -435,6 +451,7 @@ const WebsiteTestHeader = ({
 
             {/* Right Column: Contact & Socials */}
             <div className="menu-drop__info-column">
+              {!mobilePreview && (
               <div className="menu-drop__contact-block">
                 <ul className="menu-drop__contact-list">
                   <li>+36 20 000 00 00</li>
@@ -442,15 +459,13 @@ const WebsiteTestHeader = ({
                   <li><span>Available for select collaborations</span></li>
                 </ul>
               </div>
+              )}
 
               <div className="menu-drop__socials-block">
                 <span className="menu-drop__socials-title">Social</span>
                 <div className="menu-drop__socials-list">
                   <span>Instagram</span>
-                  <span>Facebook</span>
                   <span>LinkedIn</span>
-                  <span>Awwwards</span>
-                  <span>Behance</span>
                 </div>
               </div>
             </div>

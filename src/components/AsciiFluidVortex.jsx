@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useCallback } from 'react';
-import logoDark from '../assets/logo-dark.png';
 
 const DENSITY_CHARS = ' .:-=+*#%@';
 const CHAR_COUNT = DENSITY_CHARS.length;
@@ -214,13 +213,12 @@ function getFluidColor(density, velocity, schemeIdx) {
 }
 
 // --- Main Component ---
-const AsciiFluidVortex = ({ onBack }) => {
+const AsciiFluidVortex = () => {
   const canvasRef = useRef(null);
   const fluidRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0, px: 0, py: 0, active: false });
   const idleTimerRef = useRef(null);
   const isIdleRef = useRef(false);
-  const backBtnRef = useRef(null);
   const gridRef = useRef({ cols: 0, rows: 0, cellW: 0, cellH: 0 });
   const animRef = useRef(null);
   const schemeIdxRef = useRef(0);
@@ -256,11 +254,9 @@ const AsciiFluidVortex = ({ onBack }) => {
 
     const resetIdle = () => {
       isIdleRef.current = false;
-      if (backBtnRef.current) backBtnRef.current.style.opacity = '0';
       clearTimeout(mouseTimeout);
       mouseTimeout = setTimeout(() => {
         isIdleRef.current = true;
-        if (backBtnRef.current) backBtnRef.current.style.opacity = '1';
       }, 3000);
     };
 
@@ -391,30 +387,6 @@ const AsciiFluidVortex = ({ onBack }) => {
         }}
         style={{ display: 'block', width: '100vw', height: '100vh', cursor: 'default', touchAction: 'none' }}
       />
-      <div
-        onClick={onBack}
-        style={{
-          position: 'fixed',
-          top: '24px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          cursor: 'pointer',
-          zIndex: 10,
-          opacity: 0.7,
-          transition: 'opacity 0.3s ease, transform 0.3s ease',
-          userSelect: 'none',
-          WebkitTapHighlightColor: 'transparent',
-        }}
-        onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateX(-50%) scale(1.05)'; }}
-        onMouseLeave={e => { e.currentTarget.style.opacity = '0.7'; e.currentTarget.style.transform = 'translateX(-50%) scale(1)'; }}
-      >
-        <img
-          src={logoDark}
-          alt="Back to home"
-          style={{ height: '36px', width: 'auto', display: 'block', pointerEvents: 'none' }}
-          draggable={false}
-        />
-      </div>
     </div>
   );
 };

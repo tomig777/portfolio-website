@@ -772,20 +772,103 @@
   }
 
   .ipod-classic {
-    width: min(326px, calc(100vw - 1.5rem));
+    width: min(210px, calc(100vw - 4.25rem));
     min-height: 0;
-    padding: 17px 17px 13px;
-    border-radius: 25px;
-    transform: translateY(-2.25rem);
+    padding: 12px 12px 10px;
+    border-radius: 22px;
+    transform: none;
   }
 
   .ipod-volume-slider {
-    width: min(210px, 74%);
+    width: min(145px, 74%);
+    min-height: 28px;
+  }
+
+  .ipod-volume-slider__mute {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+    min-height: 17px;
+  }
+
+  .ipod-volume-slider .elastic-slider__root {
+    min-height: 0;
   }
 
   .click-wheel {
-    width: min(205px, 62vw);
-    margin-top: 9px;
+    width: min(140px, 50vw);
+    margin-top: 6px;
+  }
+
+  .ipod-screen {
+    padding: 7px;
+    border-radius: 7px;
+  }
+
+  .ipod-screen__status {
+    height: 18px;
+    padding-inline: 5px;
+    font-size: 8px;
+  }
+
+  .ipod-screen__status strong {
+    font-size: 10px;
+  }
+
+  .ipod-screen__titlebar {
+    height: 20px;
+    padding-inline: 5px;
+    font-size: 9px;
+  }
+
+  .ipod-screen__titlebar span:last-child {
+    font-size: 7px;
+  }
+
+  .ipod-screen__track {
+    height: calc(100% - 52px);
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .ipod-screen__artwork {
+    width: 62px;
+  }
+
+  .ipod-screen__metadata {
+    gap: 2px;
+    font-size: 8px;
+  }
+
+  .ipod-screen__metadata strong {
+    font-size: 9.5px;
+    line-height: 1.08;
+  }
+
+  .ipod-screen__progress {
+    right: 5px;
+    bottom: 0;
+    left: 5px;
+    height: 14px;
+    padding-top: 2px;
+  }
+
+  .ipod-screen__progress-track {
+    display: none;
+  }
+
+  .ipod-screen__progress > div {
+    padding-top: 2px;
+    font-size: 7px;
+  }
+
+  .ipod-classic__brand {
+    margin-top: 8px;
+  }
+
+  .ipod-classic__shuffle-state {
+    margin-top: 6px;
   }
 
   .click-wheel__center {
@@ -810,30 +893,33 @@
 
 @media (max-width: 760px) {
   .music-customizer {
-    width: min(22rem, calc(100vw - 1.5rem));
+    width: min(13rem, calc(100vw - 3.5rem));
     top: auto;
     right: auto;
-    bottom: 0.55rem;
+    bottom: 1.8rem;
     left: 50%;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
     padding: 0;
     transform: translateX(-50%);
   }
 
   .music-customizer__group {
+    width: 100%;
     min-width: 0;
-    flex: 1;
   }
 
   .music-customizer__options {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0.35rem;
+    grid-template-columns: repeat(6, auto);
+    justify-content: center;
+    gap: 0.45rem;
   }
 
   .music-customizer__swatch {
-    width: min(1.45rem, 5.8vw);
+    width: min(1.5rem, 5.8vw);
+    min-width: 0;
+    min-height: 0;
   }
 
 }

@@ -836,8 +836,9 @@
 
 @media (max-width: 600px) {
   .wt-work-swap-hero {
-    padding-top: 6.5rem;
-    gap: 1.5rem;
+    padding-top: 8rem;
+    padding-bottom: 1.5rem;
+    gap: 0.75rem;
   }
 
   .wt-work-swap-copy h1 {
@@ -850,11 +851,29 @@
   }
 
   .wt-work-swap-stage {
-    min-height: 500px;
+    min-height: 455px;
+    margin-top: -4.75rem;
   }
 
   .wt-work-swap-stage .card-swap-container {
-    transform: translate(50%, 5%) scale(0.68);
+    transform: translate(50%, 1%) scale(0.68);
+  }
+
+  .wt-nav-page--work {
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .wt-nav-page--work > .wt-nav-page__footer {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin-top: 0;
+  }
+
+  .wt-nav-page--work > .wt-nav-page__footer span:last-child {
+    display: none;
   }
 
   .wt-work-swap-card {
@@ -1362,4 +1381,136 @@
     margin-top: 0.8rem;
     padding-top: 0.7rem;
   }
+}
+
+/* Mobile-preview About page: a deliberate vertical reading flow instead of
+   compressing the desktop single-frame composition into two tiny columns. */
+.wt-mobile-preview .wt-nav-page--about {
+  height: auto;
+  min-height: 100dvh;
+  overflow-y: auto !important;
+}
+
+.wt-mobile-preview .wt-about-frame {
+  width: calc(100% - 2rem);
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  margin: 0 auto;
+  padding: 7.75rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.65rem;
+  transform: none;
+}
+
+.wt-mobile-preview .wt-about-frame__visual {
+  width: 100%;
+  max-width: none;
+  padding-top: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  justify-self: auto;
+}
+
+.wt-mobile-preview .wt-about-frame__portrait {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 4.35;
+}
+
+.wt-mobile-preview .wt-about-frame__facts > div {
+  min-height: 46px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  align-items: center;
+}
+
+.wt-mobile-preview .wt-about-frame__facts dt {
+  margin: 0;
+  font-size: 0.5rem;
+}
+
+.wt-mobile-preview .wt-about-frame__facts dd {
+  font-size: 0.66rem;
+  text-align: right;
+}
+
+.wt-mobile-preview .wt-about-frame__content .wt-nav-page__eyebrow {
+  margin-bottom: 0.7rem;
+  font-size: 0.5rem;
+  line-height: 1.5;
+}
+
+.wt-mobile-preview .wt-about-frame__content h1 {
+  font-size: clamp(2.75rem, 15vw, 4rem);
+  line-height: 0.92;
+}
+
+.wt-mobile-preview .wt-about-frame__lead {
+  margin-top: 1rem;
+  font-size: 0.86rem;
+  line-height: 1.42;
+}
+
+.wt-mobile-preview .wt-about-frame__bio {
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  line-height: 1.62;
+}
+
+.wt-mobile-preview .wt-about-frame__actions {
+  margin-top: 1.2rem;
+  gap: 0.8rem;
+  font-size: 0.49rem;
+}
+
+.wt-mobile-preview .wt-about-frame__actions .wt-about-page__resume {
+  min-height: 36px;
+  padding: 0 0.9rem;
+  font-size: 0.55rem;
+}
+
+.wt-mobile-preview .wt-about-frame__tool-groups {
+  margin-top: 1.35rem;
+  padding-top: 1.15rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem 1rem;
+}
+
+.wt-mobile-preview .wt-about-frame__tool-group h2 {
+  margin-bottom: 0.65rem;
+  font-size: 0.47rem;
+}
+
+.wt-mobile-preview .wt-about-frame__tool-group ul {
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+}
+
+.wt-mobile-preview .wt-about-frame__tool-group li {
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 0.45rem;
+  font-size: 0.55rem;
+  line-height: 1.25;
+}
+
+.wt-mobile-preview .wt-about-frame__tool-icon {
+  width: 17px;
+  height: 17px;
+  display: grid;
+}
+
+.wt-mobile-preview .wt-about-frame__tool-icon svg,
+.wt-mobile-preview .wt-about-frame__tool-icon img,
+.wt-mobile-preview .wt-about-frame__tool-icon > * {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px;
+  max-height: 16px;
 }

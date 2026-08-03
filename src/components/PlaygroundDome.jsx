@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import gsap from 'gsap';
-import logoDark from '../assets/logo-dark.png';
 import { GALLERY_IMAGE_URLS, preparePlaygroundGallery } from '../utils/galleryAssets';
 import './PlaygroundDome.css';
 
@@ -872,9 +871,13 @@ export default function PlaygroundDome({ onClose }) {
       {/* WebGL Dome Canvas Container */}
       <div ref={containerRef} className="playground-canvas-container" />
 
-      {/* Centered logo button to return to main page */}
-      <button className="pg-logo-btn" onClick={onClose} aria-label="Exit Playground">
-        <img src={logoDark} alt="Logo" className="pg-logo-img" />
+      <button
+        type="button"
+        className="wt-case-back pg-gallery-back"
+        onClick={onClose}
+        aria-label="Back to the portfolio"
+      >
+        <span aria-hidden="true">←</span> Back
       </button>
     </div>
   );

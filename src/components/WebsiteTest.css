@@ -26,6 +26,18 @@
   --wt-ascii-arm-color: #5763bd;
 }
 
+/* The device preview keeps native scrolling, but its narrow viewport should
+   not reserve a visible desktop scrollbar gutter along the screen edge. */
+.wt-scroll-container.wt-mobile-preview {
+  scrollbar-gutter: auto;
+  scrollbar-width: none;
+}
+
+.wt-scroll-container.wt-mobile-preview::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 .wt-scroll-content {
   position: relative;
   width: 100%;
@@ -487,8 +499,8 @@
   width: 170vmax;
   height: 170vmax;
   border-radius: 50%;
-  background: #deddd9;
-  box-shadow: 0 -1.5rem 5rem rgba(255, 255, 255, 0.05);
+  background: var(--wt-main-accent-surface);
+  box-shadow: 0 -1.5rem 5rem rgb(var(--wt-main-accent-rgb) / 0.08);
   will-change: transform, opacity;
 }
 
@@ -498,9 +510,9 @@
   inset: 0;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.3), transparent 52%),
-    #deddd9;
-  color: #080808;
+    radial-gradient(circle at 50% 48%, rgb(var(--wt-main-accent-rgb) / 0.2), transparent 56%),
+    var(--wt-main-accent-surface);
+  color: #fff;
   opacity: 0;
   visibility: hidden;
   isolation: isolate;
@@ -528,12 +540,14 @@
   left: 50%;
   top: 50%;
   margin: 0;
-  color: #080808;
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(7.5rem, 16vw, 19.25rem);
-  font-weight: 700;
+  font-style: italic;
+  font-weight: 400;
   line-height: 0.9;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.02em;
+  text-transform: none;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
@@ -797,6 +811,10 @@
   transition: color 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.wt-bubble-final-email {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .wt-exhibit-copy {
     font-size: clamp(1.9rem, 4.4vw, 2.6rem);
@@ -855,6 +873,28 @@
   .wt-exhibit-copy {
     font-size: clamp(1.4rem, 8vw, 1.9rem);
   }
+}
+
+/* Preview-only mobile tuning. The iframe supplies a real phone-sized viewport,
+   while this class keeps these adjustments out of the production desktop page. */
+.wt-mobile-preview .hero-text {
+  margin-top: 13vh;
+  padding: 0 0.75rem;
+}
+
+.wt-mobile-preview .hero-text__subtitle {
+  margin-top: 7.25rem;
+  padding: 0 0.8rem;
+  font-size: clamp(0.58rem, 2.55vw, 0.76rem);
+  line-height: 1.55;
+}
+
+.wt-mobile-preview .wt-hero-role-line {
+  gap: 0.15rem;
+}
+
+.wt-mobile-preview .wt-hero-specialties {
+  max-width: 18rem;
 }
 
 /* ─── Sticky Projects Section ─── */
@@ -2381,4 +2421,158 @@ a.wt-contact-detail:hover strong {
     top: calc(1.25rem + 12px);
     right: 1.25rem;
   }
+}
+
+/* Phone-project preview: keep each featured project in one clean vertical
+   composition without changing the real desktop/tablet presentation. */
+.wt-mobile-preview .wt-projects-stage {
+  --wt-featured-frame-width: min(80vw, 240px);
+  --wt-featured-frame-height: calc(var(--wt-featured-frame-width) * 789 / 735);
+  --wt-featured-frame-center: 43%;
+  --wt-featured-frame-top: calc(var(--wt-featured-frame-center) - (var(--wt-featured-frame-height) / 2));
+}
+
+.wt-mobile-preview .wt-featured-image-wrap {
+  width: var(--wt-featured-frame-width);
+  border-radius: 22px;
+}
+
+.wt-mobile-preview .wt-featured-copy {
+  width: 100vw;
+  max-width: none;
+  padding: 0;
+}
+
+.wt-mobile-preview .wt-featured-count {
+  top: calc(var(--wt-featured-frame-top) - 2.25rem);
+  left: calc(50% - (var(--wt-featured-frame-width) / 2));
+  gap: 0.55rem;
+}
+
+.wt-mobile-preview .wt-featured-count span {
+  font-size: 1.8rem;
+}
+
+.wt-mobile-preview .wt-featured-count small {
+  padding-top: 0.12rem;
+  font-size: 0.68rem;
+}
+
+.wt-mobile-preview .wt-featured-title-group {
+  top: calc(var(--wt-featured-frame-center) + (var(--wt-featured-frame-height) / 2) + 1.5rem);
+  bottom: auto;
+  width: 100%;
+  transform: none;
+  text-align: center;
+}
+
+.wt-mobile-preview .wt-featured-title-group h3 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.55rem, 8.5vw, 1.9rem);
+  line-height: 1;
+}
+
+.wt-mobile-preview .wt-featured-button {
+  min-height: 42px;
+  padding: 0 1rem;
+  font-size: 0.6rem;
+}
+
+.wt-mobile-preview .wt-featured-description {
+  top: calc(var(--wt-featured-frame-center) + (var(--wt-featured-frame-height) / 2) + 8.35rem);
+  right: 50%;
+  bottom: auto;
+  width: min(82vw, 250px);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.76rem;
+  line-height: 1.48;
+  text-align: center;
+  transform: translateX(50%);
+}
+
+/* Mobile final-contact composition. */
+.wt-mobile-preview .wt-bubble-final-meta {
+  display: none;
+}
+
+.wt-mobile-preview .wt-bubble-ascii-hands {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wt-mobile-preview .wt-bubble-final-name-mask {
+  height: 9rem;
+}
+
+.wt-mobile-preview .wt-bubble-final-name {
+  bottom: 3.45rem;
+  font-size: clamp(3.2rem, 16vw, 4rem);
+  gap: 0.17em;
+}
+
+.wt-mobile-preview .wt-bubble-final-email {
+  position: absolute;
+  z-index: 5;
+  right: 1rem;
+  bottom: 1.25rem;
+  left: 1rem;
+  display: block;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.48);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.52rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* Keep preview subpages genuinely scrollable without showing a browser-style
+   scrollbar inside the phone shell. The small transparent tail also preserves
+   touch/wheel movement while these placeholder pages are still short. */
+.wt-mobile-preview .wt-case-study-page,
+.wt-mobile-preview .wt-nav-page {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.wt-mobile-preview .wt-case-back {
+  top: 5rem;
+  left: 1rem;
+  width: auto;
+  min-width: 68px;
+  min-height: 28px;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0 0.65rem;
+  font-size: 0.72rem;
+}
+
+/* The compact theme toggle belongs to the mobile hero only. */
+.wt-mobile-preview.wt-case-open > .wt-header-theme-controls {
+  display: none !important;
+}
+
+.wt-mobile-preview .wt-case-study-page::-webkit-scrollbar,
+.wt-mobile-preview .wt-nav-page::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.wt-mobile-preview .wt-nav-page::after {
+  content: '';
+  position: absolute;
+  top: calc(100dvh + 3rem);
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
 }

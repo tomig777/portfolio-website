@@ -114,7 +114,7 @@ const ASCII_TRAIL_FRAME_INTERVAL = 64;
 const ASCII_TRAIL_MATRIX_CACHE_MS = 48;
 const ASCII_TRAIL_MIN_POINTER_DISTANCE = 2.5;
 
-const AsciiHandsArtWithTrail = () => {
+const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
   const svgRef = useRef(null);
   const leftPointerMotionRef = useRef(null);
   const rightPointerMotionRef = useRef(null);
@@ -477,8 +477,8 @@ const AsciiHandsArtWithTrail = () => {
     <svg
       ref={svgRef}
       className="wt-bubble-ascii-hands"
-      viewBox="0 0 1600 700"
-      preserveAspectRatio="xMidYMid slice"
+      viewBox={mobilePreview ? '0 0 700 1400' : '0 0 1600 700'}
+      preserveAspectRatio={mobilePreview ? 'xMidYMid meet' : 'xMidYMid slice'}
       aria-hidden="true"
     >
       <defs>
@@ -571,6 +571,7 @@ const AsciiHandsArtWithTrail = () => {
         width="900"
         height="510"
         fill="transparent"
+        transform={mobilePreview ? 'rotate(25 350 350)' : undefined}
         onPointerEnter={hideLeftHover}
         onPointerMove={moveLeftHover}
         onPointerLeave={hideLeftHover}
@@ -582,12 +583,17 @@ const AsciiHandsArtWithTrail = () => {
         width="900"
         height="510"
         fill="transparent"
+        transform={mobilePreview ? 'translate(-900 700) rotate(25 1250 350)' : undefined}
         onPointerEnter={hideRightHover}
         onPointerMove={moveRightHover}
         onPointerLeave={hideRightHover}
       />
 
       <g className="wt-bubble-ascii-hand wt-bubble-ascii-hand--left">
+        <g
+          className="wt-bubble-ascii-hand-layout"
+          transform={mobilePreview ? 'rotate(25 350 350)' : undefined}
+        >
         <g ref={leftPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion">
           <g mask="url(#wt-bubble-left-hand-mask)">
             <text className="wt-bubble-ascii-pattern" x="-24" y="94" xmlSpace="preserve">
@@ -605,9 +611,14 @@ const AsciiHandsArtWithTrail = () => {
             {renderTrailPool('left')}
           </g>
         </g>
+        </g>
       </g>
 
       <g className="wt-bubble-ascii-hand wt-bubble-ascii-hand--right">
+        <g
+          className="wt-bubble-ascii-hand-layout"
+          transform={mobilePreview ? 'translate(-900 700) rotate(25 1250 350)' : undefined}
+        >
         <g ref={rightPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion">
           <g mask="url(#wt-bubble-right-hand-mask)">
             <text className="wt-bubble-ascii-pattern" x="-24" y="94" xmlSpace="preserve">
@@ -624,6 +635,7 @@ const AsciiHandsArtWithTrail = () => {
           >
             {renderTrailPool('right')}
           </g>
+        </g>
         </g>
       </g>
     </svg>
@@ -927,8 +939,13 @@ const HeroRoleReel = () => {
 const WebsiteTest = ({ onBack }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isMobilePreview = new URLSearchParams(location.search).get('mobilePreview') === '1';
   const [selectedWork, setSelectedWork] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  // The mobile preview is the production phone layout. Keep the query flag for
+  // the framed preview project, and activate the same UI automatically on real
+  // phone-sized viewports.
+  const useMobileLayout = isMobilePreview || isMobile;
   const [activeCaseStudy, setActiveCaseStudy] = useState(null);
   const [activeNavPage, setActiveNavPage] = useState(null);
   const [navPageOrigin, setNavPageOrigin] = useState('header');
@@ -1383,6 +1400,12 @@ const WebsiteTest = ({ onBack }) => {
     const ringPoint = (p, stageW, stageH) => {
       // Rotation ramps in only once the card is on the ring, and out before it leaves
       const ramp = smooth01((p - RING_START) / 0.1) * (1 - smooth01((p - (RING_END - 0.1)) / 0.1));
+      // A portrait viewport would turn the original stage-relative path into a
+      // tall loop. Keep the phone preview on a deliberate horizontal ellipse;
+      // its widest points may pass beyond the screen and be naturally clipped.
+      const ringRadiusX = useMobileLayout ? stageW * 0.56 : stageW * 0.36;
+      const ringRadiusY = useMobileLayout ? stageW * 0.39 : stageH * LANE_Y;
+      const ringLaneY = ringRadiusY / stageH;
 
       let x;
       let y;
@@ -1394,14 +1417,14 @@ const WebsiteTest = ({ onBack }) => {
         // Fast entry dash: straight line A → B (slightly diagonal), growing 0.8 → 1
         const t = p / RING_START;
         x = (-GATE_X + (GATE_X * t)) * stageW;
-        y = (GATE_Y + ((LANE_Y - GATE_Y) * t)) * stageH;
+        y = (GATE_Y + ((ringLaneY - GATE_Y) * t)) * stageH;
         z = 220;
         baseScale = 0.8 + (0.2 * t);
       } else if (p > RING_END) {
         // Fast exit dash: straight line B' → A' (slightly diagonal), shrinking 1 → 0.8
         const t = (p - RING_END) / (1 - RING_END);
         x = GATE_X * t * stageW;
-        y = (LANE_Y + ((GATE_Y - LANE_Y) * t)) * stageH;
+        y = (ringLaneY + ((GATE_Y - ringLaneY) * t)) * stageH;
         z = 220;
         baseScale = 1 - (0.2 * t);
         phi = 360;
@@ -1411,8 +1434,8 @@ const WebsiteTest = ({ onBack }) => {
         phi = RING_SWEEP * t;
         const phiRad = phi * (Math.PI / 180);
         const cosPhi = Math.cos(phiRad);
-        x = stageW * 0.36 * Math.sin(phiRad);
-        y = stageH * LANE_Y * cosPhi;
+        x = ringRadiusX * Math.sin(phiRad);
+        y = ringRadiusY * cosPhi;
         z = 220 * cosPhi;
         baseScale = 0.68 + (0.32 * ((cosPhi + 1) * 0.5));
       }
@@ -1616,7 +1639,7 @@ const WebsiteTest = ({ onBack }) => {
           duration: 0.65,
           stagger: 0.18,
           ease: 'power2.out'
-        }, 0.38)
+        }, 0.06)
         .to(textGroups, {
           opacity: 0,
           y: -7,
@@ -1652,7 +1675,9 @@ const WebsiteTest = ({ onBack }) => {
           autoAlpha: 1
         }, `bubbleStart+=${bubbleRevealOffset}`)
         .to(bubbleWhitePanel, {
-          clipPath: 'circle(85vmax at 50% 100%)',
+          clipPath: useMobileLayout
+            ? 'circle(112vmax at 50% 100%)'
+            : 'circle(85vmax at 50% 100%)',
           duration: bubbleRevealDuration,
           ease: prefersReducedMotion ? 'none' : 'power2.inOut'
         }, `bubbleStart+=${bubbleRevealOffset}`)
@@ -1808,7 +1833,7 @@ const WebsiteTest = ({ onBack }) => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill(true));
       }
     };
-  }, [isMobile, activeCaseStudy, activeNavPage]);
+  }, [isMobile, useMobileLayout, activeCaseStudy, activeNavPage]);
 
   // triggerScreenTransition definition moved to top of component to support memoized callbacks
 
@@ -1855,7 +1880,7 @@ const WebsiteTest = ({ onBack }) => {
 
   return (
     <div
-      className={`App wt-scroll-container wt-header-theme-${headerTheme}${activeCaseStudy || activeNavPage ? ' wt-case-open' : ''}${activeNavPage ? ' wt-nav-chrome-visible' : ''}`}
+      className={`App wt-scroll-container wt-header-theme-${headerTheme}${useMobileLayout ? ' wt-mobile-preview' : ''}${activeCaseStudy || activeNavPage ? ' wt-case-open' : ''}${activeNavPage ? ' wt-nav-chrome-visible' : ''}`}
       ref={containerRef}
       style={{ overflowY: 'auto', overflowX: 'hidden' }}
     >
@@ -1898,8 +1923,10 @@ const WebsiteTest = ({ onBack }) => {
         onGalleryClick={handleOpenPlayground}
         themePreset={headerTheme}
         onThemePresetChange={setHeaderTheme}
-        forceCollapsed={Boolean(activeNavPage)}
+        forceCollapsed={Boolean(activeNavPage) || useMobileLayout}
         onMenuScrollLock={handleMenuScrollLock}
+        mobilePreview={useMobileLayout}
+        showThemeControls={!activeCaseStudy && !activeNavPage}
         onLogoClick={() => triggerScreenTransition(() => {
           if (activeNavPage) {
             setActiveNavPage(null);
@@ -2077,7 +2104,7 @@ const WebsiteTest = ({ onBack }) => {
                   </div>
                 </div>
 
-                <AsciiHandsArtWithTrail />
+                <AsciiHandsArtWithTrail mobilePreview={useMobileLayout} />
 
                 <div className="wt-bubble-contact-folder">
                   <Folder
@@ -2094,6 +2121,7 @@ const WebsiteTest = ({ onBack }) => {
                     <span>Tamas</span> <em>Gal</em><i>.</i>
                   </h2>
                 </div>
+                <p className="wt-bubble-final-email">tamasgaldesign@gmail.com</p>
               </div>
 
               <div className="wt-bubble-disc" aria-hidden="true" />
@@ -2115,7 +2143,7 @@ const WebsiteTest = ({ onBack }) => {
                   bandWidth={6}
                   transparent
                 />
-                <h2 className="wt-bubble-contact-word">Contact</h2>
+                <h2 className="wt-bubble-contact-word">contact</h2>
               </div>
             </div>
           )}
@@ -2237,7 +2265,7 @@ const WebsiteTest = ({ onBack }) => {
       )}
 
       {activeCaseStudy && (
-        <main className="wt-case-study-page">
+        <main className="wt-case-study-page" data-lenis-prevent>
           <button type="button" className="wt-case-back" onClick={closeCaseStudy}>
             <span aria-hidden="true">←</span> Back
           </button>
