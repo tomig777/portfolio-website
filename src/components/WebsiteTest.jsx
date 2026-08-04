@@ -693,10 +693,12 @@ const WebsiteTest = ({ onBack }) => {
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      syncTouch: false,
-      lerp: 0.085,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1,
+      syncTouch: useMobileLayout,
+      syncTouchLerp: useMobileLayout ? 0.11 : 0.075,
+      touchInertiaExponent: useMobileLayout ? 1.35 : 1.7,
+      lerp: useMobileLayout ? 0.1 : 0.085,
+      wheelMultiplier: useMobileLayout ? 0.68 : 0.9,
+      touchMultiplier: useMobileLayout ? 0.72 : 1,
       overscroll: false,
       autoResize: true,
       autoRaf: false
@@ -727,7 +729,7 @@ const WebsiteTest = ({ onBack }) => {
         lenisRef.current = null;
       }
     };
-  }, []);
+  }, [useMobileLayout]);
 
   const triggerScreenTransition = useCallback((actionCallback) => {
     if (caseTransitionInProgress.current) return;
