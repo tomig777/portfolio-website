@@ -683,6 +683,18 @@
 
 .wt-bubble-ascii-hand-pointer-motion {
   will-change: transform;
+  opacity: 1;
+  transform-box: view-box;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.wt-bubble-ascii-hand-pointer-motion--left {
+  transform-origin: 340px 350px;
+}
+
+.wt-bubble-ascii-hand-pointer-motion--right {
+  transform-origin: 1260px 350px;
 }
 
 .wt-bubble-contact-folder {

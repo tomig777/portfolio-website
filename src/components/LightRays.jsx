@@ -52,6 +52,7 @@ const LightRays = ({
   noiseAmount = 0,
   distortion = 0,
   dpr = 2,
+  maxFps = 60,
   className = '',
 }) => {
   const containerRef = useRef(null);
@@ -256,7 +257,13 @@ const LightRays = ({
       uniforms.rayDir.value = direction;
     };
 
+    let lastRender = 0;
     const render = (time) => {
+      animationFrameRef.current = requestAnimationFrame(render);
+      if (document.visibilityState !== 'visible') return;
+      const frameInterval = 1000 / maxFps;
+      if (time - lastRender < frameInterval) return;
+      lastRender = time;
       uniforms.iTime.value = time * 0.001;
 
       if (followMouse && mouseInfluence > 0) {
@@ -272,7 +279,6 @@ const LightRays = ({
       }
 
       renderer.render({ scene: mesh });
-      animationFrameRef.current = requestAnimationFrame(render);
     };
 
     window.addEventListener('resize', updatePlacement);
@@ -293,10 +299,12 @@ const LightRays = ({
     };
   }, [
     distortion,
+    dpr,
     fadeDistance,
     followMouse,
     isVisible,
     lightSpread,
+    maxFps,
     mouseInfluence,
     noiseAmount,
     pulsating,

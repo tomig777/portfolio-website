@@ -82,9 +82,12 @@ export default function DarkVeil({
   scanlineFrequency = 0,
   warpAmount = 0,
   resolutionScale = 1,
-  dpr = 2
+  dpr = 2,
+  maxFps = 60,
+  active = true
 }) {
   const canvasRef = useRef(null);
+  const activeRef = useRef(active);
   const settingsRef = useRef({
     hueShift,
     noiseIntensity,
@@ -104,6 +107,10 @@ export default function DarkVeil({
       warpAmount
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount]);
+
+  useEffect(() => {
+    activeRef.current = active;
+  }, [active]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -146,26 +153,31 @@ export default function DarkVeil({
 
     const start = performance.now();
     let frame = 0;
+    let lastRender = 0;
 
-    const loop = () => {
+    const loop = (now) => {
+      frame = requestAnimationFrame(loop);
+      if (!activeRef.current || document.visibilityState !== 'visible') return;
+      const frameInterval = 1000 / maxFps;
+      if (now - lastRender < frameInterval) return;
+      lastRender = now;
       const settings = settingsRef.current;
-      program.uniforms.uTime.value = ((performance.now() - start) / 1000) * settings.speed;
+      program.uniforms.uTime.value = ((now - start) / 1000) * settings.speed;
       program.uniforms.uHueShift.value = settings.hueShift;
       program.uniforms.uNoise.value = settings.noiseIntensity;
       program.uniforms.uScan.value = settings.scanlineIntensity;
       program.uniforms.uScanFreq.value = settings.scanlineFrequency;
       program.uniforms.uWarp.value = settings.warpAmount;
       renderer.render({ scene: mesh });
-      frame = requestAnimationFrame(loop);
     };
 
-    loop();
+    frame = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
     };
-  }, [resolutionScale]);
+  }, [dpr, maxFps, resolutionScale]);
 
   return <canvas ref={canvasRef} className="darkveil-canvas" />;
 }

@@ -1,32 +1,14 @@
-const gallerySourceModules = import.meta.glob(
-  '../assets/gallery/*.{png,jpg,jpeg,webp,avif,gif}',
-  { eager: true, import: 'default' }
-);
-
 const galleryOptimizedModules = import.meta.glob(
   '../assets/gallery-optimized/*.webp',
   { eager: true, import: 'default' }
 );
 
-const getGalleryAssetKey = (path) => path
-  .split('/')
-  .pop()
-  .replace(/\.[^.]+$/, '')
-  .toLocaleLowerCase();
-
-const optimizedGalleryUrls = new Map(
-  Object.entries(galleryOptimizedModules).map(([path, imageUrl]) => [
-    getGalleryAssetKey(path),
-    imageUrl
-  ])
-);
-
-export const GALLERY_IMAGE_URLS = Object.entries(gallerySourceModules)
+export const GALLERY_IMAGE_URLS = Object.entries(galleryOptimizedModules)
   .sort(([pathA], [pathB]) => pathA.localeCompare(pathB, undefined, {
     numeric: true,
     sensitivity: 'base'
   }))
-  .map(([path, imageUrl]) => optimizedGalleryUrls.get(getGalleryAssetKey(path)) || imageUrl);
+  .map(([, imageUrl]) => imageUrl);
 
 function getImageCategory(aspectRatio) {
   if (aspectRatio < 0.86) return 'portrait';

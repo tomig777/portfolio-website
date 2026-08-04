@@ -379,6 +379,53 @@ body {
   overflow: visible;
 }
 
+.wt-mobile-lanyard-poster {
+  position: relative;
+  width: 7.2rem;
+  height: 15rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  display: grid;
+  place-items: end center;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wt-mobile-lanyard-poster:focus,
+.wt-mobile-lanyard-poster:focus-visible {
+  outline: none;
+}
+
+.wt-mobile-lanyard-cord {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 7.2rem;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.8) 0 4px, transparent 4px 10px);
+}
+
+.wt-mobile-lanyard-card {
+  position: relative;
+  width: 5.6rem;
+  height: 7.2rem;
+  border-radius: .35rem;
+  background: #050505;
+  box-shadow: 0 1rem 2.5rem rgba(0,0,0,.38);
+  display: grid;
+  place-items: center;
+}
+
+.wt-mobile-lanyard-card img {
+  width: 2.7rem;
+  height: auto;
+  object-fit: contain;
+}
+
 
 
 .hero-text {

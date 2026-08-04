@@ -223,10 +223,15 @@ const SideRays = ({
     };
 
     let animationFrame = 0;
+    let lastRender = 0;
+    const frameInterval = window.innerWidth <= 768 ? 1000 / 30 : 0;
     const render = (time) => {
+      animationFrame = requestAnimationFrame(render);
+      if (document.visibilityState !== 'visible') return;
+      if (frameInterval && time - lastRender < frameInterval) return;
+      lastRender = time;
       uniforms.iTime.value = time * 0.001;
       renderer.render({ scene: mesh });
-      animationFrame = requestAnimationFrame(render);
     };
 
     window.addEventListener('resize', resize);

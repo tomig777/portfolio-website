@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, Suspense, lazy } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, useMemo, Suspense, lazy } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -10,10 +10,8 @@ import ErrorBoundary from './ErrorBoundary';
 
 // Background & Playground Components
 import DarkVeil from './DarkVeil';
-import { preparePlaygroundGallery } from '../utils/galleryAssets';
 import Folder from './Folder';
 import SideRays from './SideRays';
-import LightRays from './LightRays';
 
 // Keep interaction-only pages and modals out of the first mobile bundle. They
 // are fetched when the corresponding control is opened.
@@ -21,6 +19,7 @@ const WorkModal = lazy(() => import('./WorkModal'));
 const ResumeModal = lazy(() => import('./ResumeModal'));
 const PlaygroundDome = lazy(() => import('./PlaygroundDome'));
 const ColorBends = lazy(() => import('./ColorBends'));
+const LightRays = lazy(() => import('./LightRays'));
 const WorkArchivePage = lazy(() => import('./WebsiteTestPages').then(({ WorkArchivePage: Page }) => ({ default: Page })));
 const AboutProfilePage = lazy(() => import('./WebsiteTestPages').then(({ AboutProfilePage: Page }) => ({ default: Page })));
 const ContactFormPage = lazy(() => import('./WebsiteTestPages').then(({ ContactFormPage: Page }) => ({ default: Page })));
@@ -30,13 +29,10 @@ import { FaLinkedin } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 
 import card1Image from '../assets/szia.png';
-import card1Video from '../assets/szia_5.mp4';
 import card2Image from '../assets/szia_2.jpg';
-import card2Video from '../assets/szia_10.mp4';
 import card3Image from '../assets/szia_3.jpg';
-import card3Video from '../assets/szia_8.mp4';
-import card4Video from '../assets/szia_9.mp4';
 import flowCard4 from '../assets/gallery-optimized/GalTamas_MediaLabor1_BeautyRender.webp';
+import logoDark from '../assets/logo-dark.png';
 import kep9 from '../assets/kep9.png';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
@@ -47,8 +43,6 @@ import afterEffectsLogo from '../assets/aftereffects_logo.svg';
 import auditionLogo from '../assets/audition_logo.svg';
 import lightroomLogo from '../assets/lightroom_logo.svg';
 import touchDesignerLogo from '../assets/touchdesigner_logo.png';
-import handLeftSvg from '../assets/hand-left.svg';
-import handRightSvg from '../assets/right-hand.svg';
 import { runRouteTransition } from '../utils/pageTransition';
 
 import './WebsiteTest.css';
@@ -101,14 +95,13 @@ const createAsciiHandRows = (mirrorDensity = false) => Array.from({ length: ASCI
   }).join('')
 ));
 
-const ASCII_LEFT_HAND_ROWS = createAsciiHandRows();
-const ASCII_RIGHT_HAND_ROWS = createAsciiHandRows(true);
-
-const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
+const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg }) => {
   const svgRef = useRef(null);
   const leftPointerMotionRef = useRef(null);
   const rightPointerMotionRef = useRef(null);
   const cursorTargetRef = useRef({ x: 0, y: 0 });
+  const leftRows = useMemo(() => createAsciiHandRows(), []);
+  const rightRows = useMemo(() => createAsciiHandRows(true), []);
   const handMotionRef = useRef({
     x: 0,
     y: 0,
@@ -128,6 +121,15 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
       return;
     }
 
+    // Pointer events and high-refresh monitors can otherwise make this large
+    // masked SVG repaint at 120–240 Hz. The reference implementation uses one
+    // canvas; keeping this compositor layer at 60 Hz gives the same perceived
+    // motion without multiplying the paint cost.
+    if (motion.lastTime && time - motion.lastTime < 16) {
+      motion.animationFrame = window.requestAnimationFrame(animateHands);
+      return;
+    }
+
     const elapsed = motion.lastTime ? Math.min(34, time - motion.lastTime) : 16.67;
     const smoothing = 1 - Math.exp(-elapsed * 0.0125);
     const targetRotation = target.x * 0.038;
@@ -141,34 +143,20 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
     const yDistance = Math.abs(target.y - motion.y);
     const rotationDistance = Math.abs(targetRotation - motion.rotation);
     const isSettled = xDistance < 0.008 && yDistance < 0.008 && rotationDistance < 0.001;
-    const movementStrength = Math.min(
-      1,
-      Math.max(xDistance / 0.18, yDistance / 0.18, rotationDistance / 0.01)
-    );
-    const rasterBrightnessCompensation = 0.975 + (movementStrength * 0.025);
-
     if (isSettled) {
       motion.x = target.x;
       motion.y = target.y;
       motion.rotation = targetRotation;
     }
 
-    leftPointerMotionRef.current?.setAttribute(
-      'transform',
-      `translate(${(-motion.x).toFixed(3)} ${motion.y.toFixed(3)}) rotate(${motion.rotation.toFixed(3)} 340 350)`
-    );
-    leftPointerMotionRef.current?.setAttribute(
-      'opacity',
-      rasterBrightnessCompensation.toFixed(3)
-    );
-    rightPointerMotionRef.current?.setAttribute(
-      'transform',
-      `translate(${motion.x.toFixed(3)} ${motion.y.toFixed(3)}) rotate(${(-motion.rotation).toFixed(3)} 1260 350)`
-    );
-    rightPointerMotionRef.current?.setAttribute(
-      'opacity',
-      rasterBrightnessCompensation.toFixed(3)
-    );
+    if (leftPointerMotionRef.current) {
+      leftPointerMotionRef.current.style.transform =
+        `translate3d(${(-motion.x).toFixed(3)}px, ${motion.y.toFixed(3)}px, 0) rotate(${motion.rotation.toFixed(3)}deg)`;
+    }
+    if (rightPointerMotionRef.current) {
+      rightPointerMotionRef.current.style.transform =
+        `translate3d(${motion.x.toFixed(3)}px, ${motion.y.toFixed(3)}px, 0) rotate(${(-motion.rotation).toFixed(3)}deg)`;
+    }
 
     if (isSettled) {
       motion.animationFrame = null;
@@ -222,8 +210,8 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
     <svg
       ref={svgRef}
       className="wt-bubble-ascii-hands"
-      viewBox={mobilePreview ? '0 0 700 1400' : '0 0 1600 700'}
-      preserveAspectRatio={mobilePreview ? 'xMidYMid meet' : 'xMidYMid slice'}
+      viewBox="0 0 1600 700"
+      preserveAspectRatio="xMidYMid slice"
       aria-hidden="true"
     >
       <defs>
@@ -270,12 +258,12 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
       <g className="wt-bubble-ascii-hand wt-bubble-ascii-hand--left">
         <g
           className="wt-bubble-ascii-hand-layout"
-          transform={mobilePreview ? 'rotate(25 350 350)' : undefined}
+          transform={undefined}
         >
-        <g ref={leftPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion">
+        <g ref={leftPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion wt-bubble-ascii-hand-pointer-motion--left">
           <g mask="url(#wt-bubble-left-hand-mask)">
             <text className="wt-bubble-ascii-pattern" x="-24" y="94" xmlSpace="preserve">
-              {ASCII_LEFT_HAND_ROWS.map((row, index) => (
+              {leftRows.map((row, index) => (
                 <tspan x="-24" dy={index === 0 ? 0 : 10} key={`left-${index}`}>{row}</tspan>
               ))}
             </text>
@@ -287,12 +275,12 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
       <g className="wt-bubble-ascii-hand wt-bubble-ascii-hand--right">
         <g
           className="wt-bubble-ascii-hand-layout"
-          transform={mobilePreview ? 'translate(-900 700) rotate(25 1250 350)' : undefined}
+          transform={undefined}
         >
-        <g ref={rightPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion">
+        <g ref={rightPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion wt-bubble-ascii-hand-pointer-motion--right">
           <g mask="url(#wt-bubble-right-hand-mask)">
             <text className="wt-bubble-ascii-pattern" x="-24" y="94" xmlSpace="preserve">
-              {ASCII_RIGHT_HAND_ROWS.map((row, index) => (
+              {rightRows.map((row, index) => (
                 <tspan x="-24" dy={index === 0 ? 0 : 10} key={`right-${index}`}>{row}</tspan>
               ))}
             </text>
@@ -304,7 +292,9 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
   );
 };
 
-const AsciiHandsArt = () => {
+const AsciiHandsArt = ({ handLeftSvg, handRightSvg }) => {
+  const leftRows = useMemo(() => createAsciiHandRows(), []);
+  const rightRows = useMemo(() => createAsciiHandRows(true), []);
   const leftPointerMotionRef = useRef(null);
   const rightPointerMotionRef = useRef(null);
   const cursorTargetRef = useRef({ x: 0, y: 0 });
@@ -449,7 +439,7 @@ const AsciiHandsArt = () => {
         <g ref={leftPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion">
           <g mask="url(#wt-bubble-left-hand-mask-static)">
             <text className="wt-bubble-ascii-pattern" x="-24" y="94" xmlSpace="preserve">
-              {ASCII_LEFT_HAND_ROWS.map((row, index) => (
+              {leftRows.map((row, index) => (
                 <tspan x="-24" dy={index === 0 ? 0 : 10} key={`left-static-${index}`}>{row}</tspan>
               ))}
             </text>
@@ -461,7 +451,7 @@ const AsciiHandsArt = () => {
         <g ref={rightPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion">
           <g mask="url(#wt-bubble-right-hand-mask-static)">
             <text className="wt-bubble-ascii-pattern" x="-24" y="94" xmlSpace="preserve">
-              {ASCII_RIGHT_HAND_ROWS.map((row, index) => (
+              {rightRows.map((row, index) => (
                 <tspan x="-24" dy={index === 0 ? 0 : 10} key={`right-static-${index}`}>{row}</tspan>
               ))}
             </text>
@@ -561,31 +551,35 @@ const socialItems = [
   </a>
 ];
 
-const featuredProjects = [
+const featuredProjectData = [
   {
     title: 'Signal Bloom',
     description: 'A focused identity test built around glossy forms, quiet motion, and a restrained digital mood shaped for clean presentation.',
-    image: card1Image,
-    video: card1Video
+    image: card1Image
   },
   {
     title: 'Glass Index',
     description: 'A clean interface study with layered depth, editorial pacing, soft reflections, and a calm system built around visual clarity.',
-    image: card2Image,
-    video: card2Video
+    image: card2Image
   },
   {
     title: 'Soft Circuit',
     description: 'A compact digital system shaped for smooth product storytelling, subtle movement, and flexible layouts across content moments.',
-    image: card3Image,
-    video: card3Video
+    image: card3Image
   },
   {
     title: 'Midnight Atlas',
     description: 'A moody visual direction exploring contrast, texture, scale, and atmospheric details for a cinematic project identity.',
-    video: card4Video
+    image: card1Image
   }
 ];
+
+const loadCaseStudyVideos = () => Promise.all([
+  import('../assets/szia_5.mp4'),
+  import('../assets/szia_10.mp4'),
+  import('../assets/szia_8.mp4'),
+  import('../assets/szia_9.mp4')
+]).then((modules) => modules.map((module) => module.default));
 
 // ─── Ring carousel: one continuous line of cards circling the sentence ───
 // All cards currently share the same 16:9 render (uniform size keeps the queue collision-free).
@@ -645,6 +639,9 @@ const WebsiteTest = ({ onBack }) => {
   // phone-sized viewports.
   const useMobileLayout = isMobilePreview || isMobile;
   const [shouldLoadLanyard, setShouldLoadLanyard] = useState(false);
+  const [desktopVideos, setDesktopVideos] = useState([]);
+  const [handAssets, setHandAssets] = useState(null);
+  const [shouldRenderLightRays, setShouldRenderLightRays] = useState(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState(null);
   const [activeNavPage, setActiveNavPage] = useState(null);
   const [navPageOrigin, setNavPageOrigin] = useState('header');
@@ -669,6 +666,10 @@ const WebsiteTest = ({ onBack }) => {
       ? { scrollTop: location.state.scrollTop || 0 }
       : null
   );
+  const featuredProjects = useMemo(() => featuredProjectData.map((project, index) => ({
+    ...project,
+    video: useMobileLayout ? null : desktopVideos[index] || null
+  })), [desktopVideos, useMobileLayout]);
 
   useEffect(() => {
     document.documentElement.dataset.portfolioTheme = headerTheme;
@@ -763,10 +764,15 @@ const WebsiteTest = ({ onBack }) => {
     });
   }, [triggerScreenTransition]);
 
+  const prepareGallery = useCallback(async () => {
+    const { preparePlaygroundGallery } = await import('../utils/galleryAssets');
+    return preparePlaygroundGallery();
+  }, []);
+
   const handleOpenPlayground = useCallback(() => {
-    preparePlaygroundGallery();
+    prepareGallery();
     triggerScreenTransition(() => setIsPlaygroundOpen(true));
-  }, [triggerScreenTransition]);
+  }, [prepareGallery, triggerScreenTransition]);
 
   const handleProjectPicker = useCallback(() => {
     const scrollTop = containerRef.current?.scrollTop || 0;
@@ -871,21 +877,68 @@ const WebsiteTest = ({ onBack }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // The lanyard is an intentionally retained 3D detail, but loading its
-  // Three/Rapier chunk during the first render makes a phone wait for the
-  // interactive scene before the portfolio shell can paint. Let the browser
-  // paint the page first, then fetch the detail during idle time.
   useEffect(() => {
+    let cancelled = false;
+    if (useMobileLayout) {
+      setDesktopVideos([]);
+      setHandAssets(null);
+      return undefined;
+    }
+
+    loadCaseStudyVideos().then((videos) => {
+      if (!cancelled) setDesktopVideos(videos);
+    });
+    Promise.all([
+      import('../assets/hand-left.svg'),
+      import('../assets/right-hand.svg')
+    ]).then(([left, right]) => {
+      if (!cancelled) setHandAssets({ left: left.default, right: right.default });
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [useMobileLayout]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return undefined;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const shouldRender = container.scrollTop > window.innerHeight * 0.42;
+      setShouldRenderLightRays((current) => current === shouldRender ? current : shouldRender);
+    };
+    const handleScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    update();
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  // Keep the desktop lanyard automatic. On phones the matching static card is
+  // immediate and the expensive Three/Rapier scene is fetched only after a tap.
+  useEffect(() => {
+    if (useMobileLayout) {
+      setShouldLoadLanyard(false);
+      return undefined;
+    }
     let timeoutId = null;
     let idleId = null;
     const loadLanyard = () => setShouldLoadLanyard(true);
 
     if (typeof window.requestIdleCallback === 'function') {
       idleId = window.requestIdleCallback(loadLanyard, {
-        timeout: useMobileLayout ? 1200 : 500
+        timeout: 500
       });
     } else {
-      timeoutId = window.setTimeout(loadLanyard, useMobileLayout ? 450 : 0);
+      timeoutId = window.setTimeout(loadLanyard, 0);
     }
 
     return () => {
@@ -1548,7 +1601,7 @@ const WebsiteTest = ({ onBack }) => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill(true));
       }
     };
-  }, [isMobile, useMobileLayout, activeCaseStudy, activeNavPage]);
+  }, [isMobile, useMobileLayout, activeCaseStudy, activeNavPage, handAssets]);
 
   // triggerScreenTransition definition moved to top of component to support memoized callbacks
 
@@ -1607,28 +1660,35 @@ const WebsiteTest = ({ onBack }) => {
           speed={1}
           scanlineFrequency={0}
           warpAmount={3}
-          resolutionScale={useMobileLayout ? 0.72 : 1.3}
+          resolutionScale={useMobileLayout ? 0.58 : 1.3}
           dpr={useMobileLayout ? 1 : 2}
+          maxFps={useMobileLayout ? 30 : 60}
+          active={!shouldRenderLightRays}
         />
         <div className="background-fade-overlay" />
       </div>
 
       {/* Light rays page background — hidden at the hero, fades in on first scroll */}
       <div className="wt-light-rays-bg" aria-hidden="true">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor={headerTheme === 'red' ? '#b52b3a' : '#6f7ff2'}
-          raysSpeed={0.8}
-          lightSpread={0.7}
-          rayLength={1.4}
-          fadeDistance={0.9}
-          saturation={0.6}
-          followMouse={true}
-          mouseInfluence={0.08}
-          noiseAmount={0.04}
-          distortion={0.03}
-          dpr={useMobileLayout ? 1 : 2}
-        />
+        {shouldRenderLightRays && (
+          <Suspense fallback={null}>
+            <LightRays
+              raysOrigin="top-center"
+              raysColor={headerTheme === 'red' ? '#b52b3a' : '#6f7ff2'}
+              raysSpeed={0.8}
+              lightSpread={0.7}
+              rayLength={1.4}
+              fadeDistance={0.9}
+              saturation={0.6}
+              followMouse={!useMobileLayout}
+              mouseInfluence={useMobileLayout ? 0 : 0.08}
+              noiseAmount={0.04}
+              distortion={0.03}
+              dpr={useMobileLayout ? 1 : 2}
+              maxFps={useMobileLayout ? 30 : 60}
+            />
+          </Suspense>
+        )}
       </div>
 
       {/* Header Navigation Bar */}
@@ -1636,7 +1696,7 @@ const WebsiteTest = ({ onBack }) => {
         onNavigate={openNavPage}
         menuReturnToken={menuReturnToken}
         onProjectPicker={handleProjectPicker}
-        onGalleryPrepare={preparePlaygroundGallery}
+        onGalleryPrepare={prepareGallery}
         onGalleryClick={handleOpenPlayground}
         themePreset={headerTheme}
         onThemePresetChange={setHeaderTheme}
@@ -1664,15 +1724,27 @@ const WebsiteTest = ({ onBack }) => {
       <section className="hero-section">
         <ErrorBoundary fallback={null}>
           <Suspense fallback={null}>
-            {shouldLoadLanyard && (
-              <div className="lanyard-container">
+            <div className="lanyard-container">
+              {shouldLoadLanyard ? (
                 <Lanyard
                   position={isMobile ? [0, 0, 35] : [0, 0, 20]}
                   gravity={[0, -40, 0]}
                   dpr={useMobileLayout ? [1, 1] : [1, 1.5]}
                 />
-              </div>
-            )}
+              ) : useMobileLayout ? (
+                <button
+                  type="button"
+                  className="wt-mobile-lanyard-poster"
+                  onClick={() => setShouldLoadLanyard(true)}
+                  aria-label="Activate interactive lanyard"
+                >
+                  <span className="wt-mobile-lanyard-cord" aria-hidden="true" />
+                  <span className="wt-mobile-lanyard-card">
+                    <img src={logoDark} alt="" />
+                  </span>
+                </button>
+              ) : null}
+            </div>
           </Suspense>
         </ErrorBoundary>
 
@@ -1828,7 +1900,12 @@ const WebsiteTest = ({ onBack }) => {
                   </div>
                 </div>
 
-                <AsciiHandsArtWithTrail mobilePreview={useMobileLayout} />
+                {!useMobileLayout && handAssets && (
+                  <AsciiHandsArtWithTrail
+                    handLeftSvg={handAssets.left}
+                    handRightSvg={handAssets.right}
+                  />
+                )}
 
                 <div className="wt-bubble-contact-folder">
                   <Folder

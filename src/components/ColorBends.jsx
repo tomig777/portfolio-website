@@ -233,6 +233,8 @@ export default function ColorBends({
     const clock = new THREE.Clock();
     let visibilityFrame = 0;
     let shouldRender = false;
+    let lastRender = 0;
+    const frameInterval = window.innerWidth <= 768 ? 1000 / 30 : 0;
 
     const updateVisibility = () => {
       const rect = container.getBoundingClientRect();
@@ -264,7 +266,10 @@ export default function ColorBends({
       window.addEventListener('resize', handleResize);
     }
 
-    const renderFrame = () => {
+    const renderFrame = (time) => {
+      frameRef.current = window.requestAnimationFrame(renderFrame);
+      if (frameInterval && time - lastRender < frameInterval) return;
+      lastRender = time;
       const delta = clock.getDelta();
       const elapsed = clock.elapsedTime;
 
@@ -288,7 +293,6 @@ export default function ColorBends({
         renderer.render(scene, camera);
       }
 
-      frameRef.current = window.requestAnimationFrame(renderFrame);
     };
 
     frameRef.current = window.requestAnimationFrame(renderFrame);
