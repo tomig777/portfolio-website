@@ -562,7 +562,7 @@
 /* Phone-sized viewports use touch-sized controls and a direct tap-to-toggle
    theme button. The same class also powers the framed mobile preview. */
 .wt-mobile-preview .wt-site-header {
-  top: 3.35rem;
+  top: 2.65rem;
   width: calc(100% - 0.9rem);
   max-width: 100%;
 }
@@ -647,7 +647,7 @@
 }
 
 .wt-mobile-preview .wt-header-theme-controls {
-  top: 3.35rem;
+  top: 2.65rem;
   right: 0.65rem;
   left: auto;
   transform: none;

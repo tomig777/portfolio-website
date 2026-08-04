@@ -32,7 +32,6 @@ import card1Image from '../assets/szia.png';
 import card2Image from '../assets/szia_2.jpg';
 import card3Image from '../assets/szia_3.jpg';
 import flowCard4 from '../assets/gallery-optimized/GalTamas_MediaLabor1_BeautyRender.webp';
-import logoDark from '../assets/logo-dark.png';
 import kep9 from '../assets/kep9.png';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
@@ -638,7 +637,6 @@ const WebsiteTest = ({ onBack }) => {
   // the framed preview project, and activate the same UI automatically on real
   // phone-sized viewports.
   const useMobileLayout = isMobilePreview || isMobile;
-  const [shouldLoadLanyard, setShouldLoadLanyard] = useState(false);
   const [desktopVideos, setDesktopVideos] = useState([]);
   const [handAssets, setHandAssets] = useState(null);
   const [shouldRenderLightRays, setShouldRenderLightRays] = useState(false);
@@ -921,31 +919,6 @@ const WebsiteTest = ({ onBack }) => {
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
-
-  // Keep the desktop lanyard automatic. On phones the matching static card is
-  // immediate and the expensive Three/Rapier scene is fetched only after a tap.
-  useEffect(() => {
-    if (useMobileLayout) {
-      setShouldLoadLanyard(false);
-      return undefined;
-    }
-    let timeoutId = null;
-    let idleId = null;
-    const loadLanyard = () => setShouldLoadLanyard(true);
-
-    if (typeof window.requestIdleCallback === 'function') {
-      idleId = window.requestIdleCallback(loadLanyard, {
-        timeout: 500
-      });
-    } else {
-      timeoutId = window.setTimeout(loadLanyard, 0);
-    }
-
-    return () => {
-      if (idleId !== null) window.cancelIdleCallback?.(idleId);
-      if (timeoutId !== null) window.clearTimeout(timeoutId);
-    };
-  }, [useMobileLayout]);
 
   useEffect(() => {
     return () => {
@@ -1725,25 +1698,11 @@ const WebsiteTest = ({ onBack }) => {
         <ErrorBoundary fallback={null}>
           <Suspense fallback={null}>
             <div className="lanyard-container">
-              {shouldLoadLanyard ? (
-                <Lanyard
-                  position={isMobile ? [0, 0, 35] : [0, 0, 20]}
-                  gravity={[0, -40, 0]}
-                  dpr={useMobileLayout ? [1, 1] : [1, 1.5]}
-                />
-              ) : useMobileLayout ? (
-                <button
-                  type="button"
-                  className="wt-mobile-lanyard-poster"
-                  onClick={() => setShouldLoadLanyard(true)}
-                  aria-label="Activate interactive lanyard"
-                >
-                  <span className="wt-mobile-lanyard-cord" aria-hidden="true" />
-                  <span className="wt-mobile-lanyard-card">
-                    <img src={logoDark} alt="" />
-                  </span>
-                </button>
-              ) : null}
+              <Lanyard
+                position={isMobile ? [0, 0, 35] : [0, 0, 20]}
+                gravity={[0, -40, 0]}
+                dpr={useMobileLayout ? [1, 1] : [1, 1.5]}
+              />
             </div>
           </Suspense>
         </ErrorBoundary>

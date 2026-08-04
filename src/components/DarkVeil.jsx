@@ -144,8 +144,15 @@ export default function DarkVeil({
     const resize = () => {
       const width = parent.clientWidth;
       const height = parent.clientHeight;
-      renderer.setSize(width * resolutionScale, height * resolutionScale);
-      program.uniforms.uResolution.value.set(width, height);
+      const renderWidth = Math.max(1, width * resolutionScale);
+      const renderHeight = Math.max(1, height * resolutionScale);
+      renderer.setSize(renderWidth, renderHeight);
+      // OGL's setSize also writes pixel dimensions into the canvas's inline
+      // style. Keep the reduced mobile render buffer, but stretch that buffer
+      // across the full hero instead of visually shrinking the background.
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
+      program.uniforms.uResolution.value.set(renderWidth, renderHeight);
     };
 
     window.addEventListener('resize', resize);
