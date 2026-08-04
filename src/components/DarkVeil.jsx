@@ -81,7 +81,8 @@ export default function DarkVeil({
   speed = 0.5,
   scanlineFrequency = 0,
   warpAmount = 0,
-  resolutionScale = 1
+  resolutionScale = 1,
+  dpr = 2
 }) {
   const canvasRef = useRef(null);
   const settingsRef = useRef({
@@ -110,7 +111,7 @@ export default function DarkVeil({
     if (!canvas || !parent) return undefined;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: Math.min(window.devicePixelRatio, dpr),
       canvas
     });
 

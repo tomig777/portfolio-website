@@ -519,6 +519,13 @@
   will-change: transform, border-radius, clip-path;
 }
 
+.wt-contact-color-bends-deferred {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+
 .wt-contact-color-bends {
   position: absolute;
   z-index: 0;
@@ -662,10 +669,6 @@
   will-change: transform, opacity;
 }
 
-.wt-bubble-ascii-hit-area {
-  pointer-events: all;
-}
-
 .wt-bubble-ascii-pattern {
   fill: var(--wt-ascii-arm-color);
   font-family: 'Courier New', ui-monospace, monospace;
@@ -680,25 +683,6 @@
 
 .wt-bubble-ascii-hand-pointer-motion {
   will-change: transform;
-}
-
-.wt-bubble-ascii-trail {
-  pointer-events: none;
-}
-
-.wt-bubble-ascii-trail-cell rect {
-  display: none;
-}
-
-.wt-bubble-ascii-trail-cell text {
-  fill: var(--wt-main-accent-soft);
-  font-family: 'Courier New', ui-monospace, monospace;
-  font-size: 8.2px;
-  font-weight: 700;
-  text-anchor: middle;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: geometricPrecision;
 }
 
 .wt-bubble-contact-folder {

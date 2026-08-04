@@ -4,11 +4,24 @@ import devilInANewDress from '../assets/devilinanewdress.mp3';
 import mbdtfCover from '../assets/mbdtf_cover.jpg';
 import highsAndLows from '../assets/highsandlows.mp3';
 import bullyCover from '../assets/bully_cover.jpg';
+import theStorm from '../assets/thestorm.mp3';
+import chakras from '../assets/chakras.mp3';
+import newBody from '../assets/newbody.mp3';
+import yandhiCover from '../assets/yandhi_cover.jpg';
+import canUBe from '../assets/canube.mp3';
+import volturesCover from '../assets/voltures_cover.jpg';
 import ElasticSlider from './ElasticSlider';
 
 import './MusicPlayer.css';
 
 const tracks = [
+  {
+    title: 'Chakras',
+    artist: 'Kanye West',
+    album: 'Yandhi',
+    artwork: yandhiCover,
+    source: chakras
+  },
   {
     title: 'Devil in a New Dress',
     artist: 'Kanye West',
@@ -22,6 +35,27 @@ const tracks = [
     album: 'Bully',
     artwork: bullyCover,
     source: highsAndLows
+  },
+  {
+    title: 'The Storm',
+    artist: 'Kanye West',
+    album: 'Yandhi',
+    artwork: yandhiCover,
+    source: theStorm
+  },
+  {
+    title: 'New Body',
+    artist: 'Kanye West',
+    album: 'Yandhi',
+    artwork: yandhiCover,
+    source: newBody
+  },
+  {
+    title: 'Can U Be',
+    artist: 'Kanye West',
+    album: 'Vultures',
+    artwork: volturesCover,
+    source: canUBe
   }
 ];
 

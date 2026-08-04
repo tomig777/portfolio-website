@@ -6,20 +6,24 @@ import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
 import WebsiteTestHeader from './WebsiteTestHeader';
-import { AboutProfilePage, ContactFormPage, WorkArchivePage } from './WebsiteTestPages';
-import WorkModal from './WorkModal';
-import ResumeModal from './ResumeModal';
 import ErrorBoundary from './ErrorBoundary';
 
 // Background & Playground Components
 import DarkVeil from './DarkVeil';
-import PlaygroundDome from './PlaygroundDome';
 import { preparePlaygroundGallery } from '../utils/galleryAssets';
-import GlassSurface from './GlassSurface';
 import Folder from './Folder';
 import SideRays from './SideRays';
 import LightRays from './LightRays';
-import ColorBends from './ColorBends';
+
+// Keep interaction-only pages and modals out of the first mobile bundle. They
+// are fetched when the corresponding control is opened.
+const WorkModal = lazy(() => import('./WorkModal'));
+const ResumeModal = lazy(() => import('./ResumeModal'));
+const PlaygroundDome = lazy(() => import('./PlaygroundDome'));
+const ColorBends = lazy(() => import('./ColorBends'));
+const WorkArchivePage = lazy(() => import('./WebsiteTestPages').then(({ WorkArchivePage: Page }) => ({ default: Page })));
+const AboutProfilePage = lazy(() => import('./WebsiteTestPages').then(({ AboutProfilePage: Page }) => ({ default: Page })));
+const ContactFormPage = lazy(() => import('./WebsiteTestPages').then(({ ContactFormPage: Page }) => ({ default: Page })));
 
 import { SiFigma, SiBlender, SiDavinciresolve, SiInstagram, SiAutodesk, SiCinema4D, SiUnrealengine } from 'react-icons/si';
 import { FaLinkedin } from 'react-icons/fa';
@@ -32,15 +36,7 @@ import card2Video from '../assets/szia_10.mp4';
 import card3Image from '../assets/szia_3.jpg';
 import card3Video from '../assets/szia_8.mp4';
 import card4Video from '../assets/szia_9.mp4';
-import flowCard1 from '../assets/gallery-optimized/caranimtv0016.webp';
-import flowCard2 from '../assets/gallery-optimized/GalTamas_MediaLabor1_Szoba.webp';
-import flowCard3 from '../assets/gallery-optimized/GalTamas_MediaLabor1_Gameboy.webp';
 import flowCard4 from '../assets/gallery-optimized/GalTamas_MediaLabor1_BeautyRender.webp';
-import flowCard5 from '../assets/gallery-optimized/GalTamas_MediaLabor1_MaterialRender.webp';
-import flowCard6 from '../assets/gallery-optimized/Sequence 01.00_00_35_04.Still004.webp';
-import flowCard7 from '../assets/gallery-optimized/HighresScreenshot00004.webp';
-import flowCard8 from '../assets/gallery-optimized/final2.webp';
-import flowCard9 from '../assets/gallery-optimized/kep9.webp';
 import kep9 from '../assets/kep9.png';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
@@ -107,19 +103,11 @@ const createAsciiHandRows = (mirrorDensity = false) => Array.from({ length: ASCI
 
 const ASCII_LEFT_HAND_ROWS = createAsciiHandRows();
 const ASCII_RIGHT_HAND_ROWS = createAsciiHandRows(true);
-const ASCII_TRAIL_CHARACTERS = '@#$%^&*+=<>?/{}[]';
-const ASCII_TRAIL_LIFETIME = 520;
-const ASCII_TRAIL_MAX_CELLS = 40;
-const ASCII_TRAIL_FRAME_INTERVAL = 64;
-const ASCII_TRAIL_MATRIX_CACHE_MS = 48;
-const ASCII_TRAIL_MIN_POINTER_DISTANCE = 2.5;
 
 const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
   const svgRef = useRef(null);
   const leftPointerMotionRef = useRef(null);
   const rightPointerMotionRef = useRef(null);
-  const leftTrailGroupRef = useRef(null);
-  const rightTrailGroupRef = useRef(null);
   const cursorTargetRef = useRef({ x: 0, y: 0 });
   const handMotionRef = useRef({
     x: 0,
@@ -127,37 +115,6 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
     rotation: 0,
     lastTime: 0,
     animationFrame: null
-  });
-  const trailCellsRef = useRef({
-    left: new Map(),
-    right: new Map()
-  });
-  const trailNodeRefs = useRef({
-    left: [],
-    right: []
-  });
-  const renderedTrailCountRef = useRef({
-    left: 0,
-    right: 0
-  });
-  const trailAnimationRef = useRef({
-    timer: null
-  });
-  const previousPointerRef = useRef({
-    left: null,
-    right: null
-  });
-  const pendingPointerRef = useRef({
-    left: null,
-    right: null
-  });
-  const hoverFrameRef = useRef({
-    left: null,
-    right: null
-  });
-  const trailMatrixCacheRef = useRef({
-    left: { inverse: null, updatedAt: 0 },
-    right: { inverse: null, updatedAt: 0 }
   });
 
   const animateHands = useCallback((time) => {
@@ -261,218 +218,6 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
     };
   }, [ensureHandAnimation]);
 
-  const updateTrailNodes = useCallback((side, time) => {
-    const cells = trailCellsRef.current[side];
-    const nodes = trailNodeRefs.current[side];
-
-    cells.forEach((cell, key) => {
-      if (cell.expiresAt <= time) cells.delete(key);
-    });
-
-    let index = 0;
-    cells.forEach((cell) => {
-      if (index >= ASCII_TRAIL_MAX_CELLS) return;
-      const node = nodes[index];
-      if (!node) return;
-
-      const cellX = ASCII_GRID.x + cell.column * ASCII_GRID.columnWidth;
-      const cellBaselineY = ASCII_GRID.baselineY + cell.row * ASCII_GRID.rowHeight;
-      const remaining = cell.expiresAt - time;
-      const opacity = Math.min(1, Math.max(0, remaining / 260));
-      const character = ASCII_TRAIL_CHARACTERS[
-        (Math.floor(time / ASCII_TRAIL_FRAME_INTERVAL) + cell.seed) % ASCII_TRAIL_CHARACTERS.length
-      ];
-      const textNode = node.lastElementChild;
-
-      node.setAttribute('transform', `translate(${cellX.toFixed(2)} ${cellBaselineY.toFixed(2)})`);
-      node.setAttribute('opacity', opacity.toFixed(2));
-      if (textNode?.textContent !== character) textNode.textContent = character;
-      index += 1;
-    });
-
-    const previousCount = renderedTrailCountRef.current[side];
-    for (let hiddenIndex = index; hiddenIndex < previousCount; hiddenIndex += 1) {
-      nodes[hiddenIndex]?.setAttribute('opacity', '0');
-    }
-    renderedTrailCountRef.current[side] = index;
-
-    return cells.size > 0;
-  }, []);
-
-  const animateTrail = useCallback(() => {
-    const time = performance.now();
-    const hasLeftCells = updateTrailNodes('left', time);
-    const hasRightCells = updateTrailNodes('right', time);
-
-    if (!hasLeftCells && !hasRightCells) {
-      trailAnimationRef.current.timer = null;
-      return;
-    }
-
-    trailAnimationRef.current.timer = window.setTimeout(
-      animateTrail,
-      ASCII_TRAIL_FRAME_INTERVAL
-    );
-  }, [updateTrailNodes]);
-
-  const ensureTrailAnimation = useCallback(() => {
-    const animation = trailAnimationRef.current;
-    if (animation.timer === null) {
-      updateTrailNodes('left', performance.now());
-      updateTrailNodes('right', performance.now());
-      animation.timer = window.setTimeout(animateTrail, ASCII_TRAIL_FRAME_INTERVAL);
-    }
-  }, [animateTrail, updateTrailNodes]);
-
-  useEffect(() => () => {
-    const trailTimer = trailAnimationRef.current.timer;
-    if (trailTimer !== null) window.clearTimeout(trailTimer);
-    ['left', 'right'].forEach((side) => {
-      const hoverFrame = hoverFrameRef.current[side];
-      if (hoverFrame !== null) window.cancelAnimationFrame(hoverFrame);
-    });
-  }, []);
-
-  const createTrailAtPointer = useCallback((side, pointer) => {
-    const svg = svgRef.current;
-    const trailGroup = side === 'left'
-      ? leftTrailGroupRef.current
-      : rightTrailGroupRef.current;
-    if (!svg || !trailGroup) return;
-
-    const now = performance.now();
-    const matrixCache = trailMatrixCacheRef.current[side];
-    if (
-      !matrixCache.inverse
-      || now - matrixCache.updatedAt >= ASCII_TRAIL_MATRIX_CACHE_MS
-    ) {
-      const screenMatrix = trailGroup.getScreenCTM();
-      if (!screenMatrix) return;
-      matrixCache.inverse = screenMatrix.inverse();
-      matrixCache.updatedAt = now;
-    }
-
-    const screenPoint = svg.createSVGPoint();
-    screenPoint.x = pointer.clientX;
-    screenPoint.y = pointer.clientY;
-    const localPoint = screenPoint.matrixTransform(matrixCache.inverse);
-    const x = localPoint.x;
-    const y = localPoint.y;
-    const previousPointer = previousPointerRef.current[side];
-    const previous = previousPointer ?? { x, y };
-    const distance = Math.hypot(x - previous.x, y - previous.y);
-
-    if (previousPointer && distance < ASCII_TRAIL_MIN_POINTER_DISTANCE) return;
-
-    const pathSteps = Math.max(1, Math.min(2, Math.ceil(distance / 46)));
-    const cells = trailCellsRef.current[side];
-
-    for (let step = 0; step < pathSteps; step += 1) {
-      const progress = pathSteps === 1 ? 1 : step / (pathSteps - 1);
-      const pathX = previous.x + (x - previous.x) * progress;
-      const pathY = previous.y + (y - previous.y) * progress;
-
-      for (let attempt = 0; attempt < 3; attempt += 1) {
-        if (Math.random() < 0.24) continue;
-
-        const angle = Math.random() * Math.PI * 2;
-        const spread = Math.pow(Math.random(), 0.72);
-        const sampleX = pathX + Math.cos(angle) * spread * 35;
-        const sampleY = pathY + Math.sin(angle) * spread * 26;
-        const column = Math.round((sampleX - ASCII_GRID.x) / ASCII_GRID.columnWidth);
-        const row = Math.round((sampleY - ASCII_GRID.baselineY) / ASCII_GRID.rowHeight);
-
-        if (
-          column < 0
-          || column >= ASCII_GRID.columns
-          || row < 0
-          || row >= ASCII_GRID.rows
-        ) continue;
-
-        const key = `${row}:${column}`;
-        const existing = cells.get(key);
-        const lifetimeVariation = Math.random() * 180;
-
-        if (existing) {
-          existing.expiresAt = now + ASCII_TRAIL_LIFETIME + lifetimeVariation;
-        } else {
-          cells.set(key, {
-            row,
-            column,
-            seed: Math.floor(Math.random() * ASCII_TRAIL_CHARACTERS.length),
-            expiresAt: now + ASCII_TRAIL_LIFETIME + lifetimeVariation
-          });
-        }
-      }
-    }
-
-    while (cells.size > ASCII_TRAIL_MAX_CELLS) {
-      const oldestKey = cells.keys().next().value;
-      cells.delete(oldestKey);
-    }
-
-    previousPointerRef.current[side] = { x, y };
-    ensureTrailAnimation();
-  }, [ensureTrailAnimation]);
-
-  const moveHandHover = useCallback((event, side) => {
-    pendingPointerRef.current[side] = {
-      clientX: event.clientX,
-      clientY: event.clientY
-    };
-
-    if (hoverFrameRef.current[side] !== null) return;
-
-    hoverFrameRef.current[side] = window.requestAnimationFrame(() => {
-      hoverFrameRef.current[side] = null;
-      const pointer = pendingPointerRef.current[side];
-      if (pointer) createTrailAtPointer(side, pointer);
-    });
-  }, [createTrailAtPointer]);
-
-  const moveLeftHover = useCallback((event) => {
-    moveHandHover(event, 'left');
-  }, [moveHandHover]);
-
-  const moveRightHover = useCallback((event) => {
-    moveHandHover(event, 'right');
-  }, [moveHandHover]);
-
-  const hideLeftHover = useCallback(() => {
-    previousPointerRef.current.left = null;
-    pendingPointerRef.current.left = null;
-    trailMatrixCacheRef.current.left.inverse = null;
-    trailMatrixCacheRef.current.left.updatedAt = 0;
-  }, []);
-
-  const hideRightHover = useCallback(() => {
-    previousPointerRef.current.right = null;
-    pendingPointerRef.current.right = null;
-    trailMatrixCacheRef.current.right.inverse = null;
-    trailMatrixCacheRef.current.right.updatedAt = 0;
-  }, []);
-
-  const renderTrailPool = (side) => Array.from({ length: ASCII_TRAIL_MAX_CELLS }, (_, index) => (
-      <g
-        className="wt-bubble-ascii-trail-cell"
-        key={`${side}-trail-${index}`}
-        opacity="0"
-        ref={(node) => {
-          trailNodeRefs.current[side][index] = node;
-        }}
-      >
-        <rect
-          x="-0.45"
-          y="-7.65"
-          width={ASCII_GRID.columnWidth + 0.9}
-          height={9.25}
-        />
-        <text x="2.75" y="0">
-          {ASCII_TRAIL_CHARACTERS[index % ASCII_TRAIL_CHARACTERS.length]}
-        </text>
-      </g>
-  ));
-
   return (
     <svg
       ref={svgRef}
@@ -502,27 +247,6 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
           />
         </mask>
         <mask
-          id="wt-bubble-left-hand-trail-mask"
-          x="-110"
-          y="100"
-          width="950"
-          height="560"
-          maskUnits="userSpaceOnUse"
-          maskContentUnits="userSpaceOnUse"
-          style={{ maskType: 'alpha' }}
-        >
-          <g transform="translate(353 380) scale(1.035) translate(-353 -380)">
-            <image
-              href={handLeftSvg}
-              x="-72"
-              y="145"
-              width="850"
-              height="470"
-              preserveAspectRatio="xMidYMid meet"
-            />
-          </g>
-        </mask>
-        <mask
           id="wt-bubble-right-hand-mask"
           x="770"
           y="110"
@@ -541,53 +265,7 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
             preserveAspectRatio="xMidYMid meet"
           />
         </mask>
-        <mask
-          id="wt-bubble-right-hand-trail-mask"
-          x="760"
-          y="100"
-          width="950"
-          height="560"
-          maskUnits="userSpaceOnUse"
-          maskContentUnits="userSpaceOnUse"
-          style={{ maskType: 'alpha' }}
-        >
-          <g transform="translate(1247 380) scale(1.035) translate(-1247 -380)">
-            <image
-              href={handRightSvg}
-              x="822"
-              y="145"
-              width="850"
-              height="470"
-              preserveAspectRatio="xMidYMid meet"
-            />
-          </g>
-        </mask>
       </defs>
-
-      <rect
-        className="wt-bubble-ascii-hit-area wt-bubble-ascii-left-hit-area"
-        x="-90"
-        y="125"
-        width="900"
-        height="510"
-        fill="transparent"
-        transform={mobilePreview ? 'rotate(25 350 350)' : undefined}
-        onPointerEnter={hideLeftHover}
-        onPointerMove={moveLeftHover}
-        onPointerLeave={hideLeftHover}
-      />
-      <rect
-        className="wt-bubble-ascii-hit-area wt-bubble-ascii-right-hit-area"
-        x="790"
-        y="125"
-        width="900"
-        height="510"
-        fill="transparent"
-        transform={mobilePreview ? 'translate(-900 700) rotate(25 1250 350)' : undefined}
-        onPointerEnter={hideRightHover}
-        onPointerMove={moveRightHover}
-        onPointerLeave={hideRightHover}
-      />
 
       <g className="wt-bubble-ascii-hand wt-bubble-ascii-hand--left">
         <g
@@ -601,14 +279,6 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
                 <tspan x="-24" dy={index === 0 ? 0 : 10} key={`left-${index}`}>{row}</tspan>
               ))}
             </text>
-          </g>
-
-          <g
-            ref={leftTrailGroupRef}
-            className="wt-bubble-ascii-trail"
-            mask="url(#wt-bubble-left-hand-trail-mask)"
-          >
-            {renderTrailPool('left')}
           </g>
         </g>
         </g>
@@ -626,14 +296,6 @@ const AsciiHandsArtWithTrail = ({ mobilePreview = false }) => {
                 <tspan x="-24" dy={index === 0 ? 0 : 10} key={`right-${index}`}>{row}</tspan>
               ))}
             </text>
-          </g>
-
-          <g
-            ref={rightTrailGroupRef}
-            className="wt-bubble-ascii-trail"
-            mask="url(#wt-bubble-right-hand-trail-mask)"
-          >
-            {renderTrailPool('right')}
           </g>
         </g>
         </g>
@@ -827,6 +489,42 @@ const OpenAiIcon = () => (
 
 const Lanyard = lazy(() => import('./Lanyard'));
 
+const DeferredColorBends = (props) => {
+  const containerRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return undefined;
+
+    if (typeof IntersectionObserver !== 'function') {
+      setShouldLoad(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setShouldLoad(true);
+        observer.disconnect();
+      },
+      { rootMargin: '1000px 0px' }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="wt-contact-color-bends-deferred" aria-hidden="true">
+      {shouldLoad && (
+        <Suspense fallback={null}>
+          <ColorBends {...props} />
+        </Suspense>
+      )}
+    </div>
+  );
+};
+
 const adobeLogos = [
   { node: <SkillLogoImage src={illustratorLogo} invert />, title: "Adobe Illustrator" },
   { node: <SkillLogoImage src={photoshopLogo} invert />, title: "Adobe Photoshop" },
@@ -946,6 +644,7 @@ const WebsiteTest = ({ onBack }) => {
   // the framed preview project, and activate the same UI automatically on real
   // phone-sized viewports.
   const useMobileLayout = isMobilePreview || isMobile;
+  const [shouldLoadLanyard, setShouldLoadLanyard] = useState(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState(null);
   const [activeNavPage, setActiveNavPage] = useState(null);
   const [navPageOrigin, setNavPageOrigin] = useState('header');
@@ -1172,6 +871,29 @@ const WebsiteTest = ({ onBack }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // The lanyard is an intentionally retained 3D detail, but loading its
+  // Three/Rapier chunk during the first render makes a phone wait for the
+  // interactive scene before the portfolio shell can paint. Let the browser
+  // paint the page first, then fetch the detail during idle time.
+  useEffect(() => {
+    let timeoutId = null;
+    let idleId = null;
+    const loadLanyard = () => setShouldLoadLanyard(true);
+
+    if (typeof window.requestIdleCallback === 'function') {
+      idleId = window.requestIdleCallback(loadLanyard, {
+        timeout: useMobileLayout ? 1200 : 500
+      });
+    } else {
+      timeoutId = window.setTimeout(loadLanyard, useMobileLayout ? 450 : 0);
+    }
+
+    return () => {
+      if (idleId !== null) window.cancelIdleCallback?.(idleId);
+      if (timeoutId !== null) window.clearTimeout(timeoutId);
+    };
+  }, [useMobileLayout]);
+
   useEffect(() => {
     return () => {
       caseTransitionTimers.current.forEach((timer) => window.clearTimeout(timer));
@@ -1251,7 +973,10 @@ const WebsiteTest = ({ onBack }) => {
         scroller: scrollContainer,
         start: 'top top',
         end: `+=${projectScrollPercent}%`,
-        pin: '.wt-projects-stage',
+        // Pin the complete section rather than only the stage. Pinning the
+        // child leaves one viewport of its parent exposed after the last card
+        // exits, which reads as a blank/grey gap before the text transition.
+        pin: true,
         pinType: 'fixed',
         scrub: 1.08,
         anticipatePin: 0
@@ -1310,20 +1035,10 @@ const WebsiteTest = ({ onBack }) => {
         .to({}, { duration: 0.44 });
     }
 
-    workTl
-      .to(copyLayers[projectCount - 1], {
-        x: 0,
-        y: -48,
-        autoAlpha: 0,
-        filter: 'blur(10px)',
-        ease: 'power2.in',
-        duration: 0.34
-      })
-      .to(imageFrame, {
-        y: '-108vh',
-        ease: 'power2.inOut',
-        duration: 0.86
-      }, '<0.06');
+    // Hold the final case study through the end of the pinned section. The
+    // section itself naturally scrolls away into the next transition; taking
+    // the last card out here leaves a blank viewport-sized tail after the
+    // case-study animation has finished.
     // 1b. Light rays background: invisible at the hero, fades in across the first
     // viewport of scrolling and stays for the rest of the page
     gsap.fromTo('.wt-light-rays-bg',
@@ -1892,7 +1607,8 @@ const WebsiteTest = ({ onBack }) => {
           speed={1}
           scanlineFrequency={0}
           warpAmount={3}
-          resolutionScale={1.3}
+          resolutionScale={useMobileLayout ? 0.72 : 1.3}
+          dpr={useMobileLayout ? 1 : 2}
         />
         <div className="background-fade-overlay" />
       </div>
@@ -1911,6 +1627,7 @@ const WebsiteTest = ({ onBack }) => {
           mouseInfluence={0.08}
           noiseAmount={0.04}
           distortion={0.03}
+          dpr={useMobileLayout ? 1 : 2}
         />
       </div>
 
@@ -1947,9 +1664,15 @@ const WebsiteTest = ({ onBack }) => {
       <section className="hero-section">
         <ErrorBoundary fallback={null}>
           <Suspense fallback={null}>
-            <div className="lanyard-container">
-              <Lanyard position={isMobile ? [0, 0, 35] : [0, 0, 20]} gravity={[0, -40, 0]} />
-            </div>
+            {shouldLoadLanyard && (
+              <div className="lanyard-container">
+                <Lanyard
+                  position={isMobile ? [0, 0, 35] : [0, 0, 20]}
+                  gravity={[0, -40, 0]}
+                  dpr={useMobileLayout ? [1, 1] : [1, 1.5]}
+                />
+              </div>
+            )}
           </Suspense>
         </ErrorBoundary>
 
@@ -1978,7 +1701,7 @@ const WebsiteTest = ({ onBack }) => {
             <div className="wt-featured-image-wrap">
               <div className="wt-featured-image-track">
                 {featuredProjects.map((project, projectIndex) => (
-                  project.video ? (
+                  project.video && !useMobileLayout ? (
                     <video
                       key={project.title}
                       className="wt-featured-image wt-featured-image-layer"
@@ -1986,8 +1709,8 @@ const WebsiteTest = ({ onBack }) => {
                       muted
                       loop
                       playsInline
-                      preload="auto"
-                      poster={project.image}
+                      preload="metadata"
+                      poster={project.image || card1Image}
                       aria-label={`${project.title} project preview`}
                     >
                       <source src={project.video} type="video/mp4" />
@@ -1995,10 +1718,11 @@ const WebsiteTest = ({ onBack }) => {
                   ) : (
                     <img
                       key={project.title}
-                      src={project.image}
+                      src={project.image || card1Image}
                       alt={`${project.title} project preview`}
                       className="wt-featured-image wt-featured-image-layer"
                       loading={projectIndex === 0 ? 'eager' : 'lazy'}
+                      fetchPriority={projectIndex === 0 ? 'high' : 'low'}
                     />
                   )
                 ))}
@@ -2037,7 +1761,7 @@ const WebsiteTest = ({ onBack }) => {
           </div>
         </div>
 
-        <div className="wt-projects-container wt-projects-container--legacy" aria-hidden="true">
+        {!useMobileLayout && <div className="wt-projects-container wt-projects-container--legacy" aria-hidden="true">
           <div className="wt-projects-left">
             <div>
               <p className="section-label">Work</p>
@@ -2065,7 +1789,7 @@ const WebsiteTest = ({ onBack }) => {
             {/* Invisible spacer to extend the content box, allowing Project 6 to stay sticky for an extra 90vh */}
             <div style={{ height: '90vh', width: '100%', flexShrink: 0 }} aria-hidden="true"></div>
           </div>
-        </div>
+        </div>}
       </section>
 
       {/* ─── 2. Text Reveal → Gradient Title Transition → Contact Scene ─── */}
@@ -2126,7 +1850,7 @@ const WebsiteTest = ({ onBack }) => {
 
               <div className="wt-bubble-disc" aria-hidden="true" />
               <div className="wt-bubble-white-panel">
-                <ColorBends
+                <DeferredColorBends
                   className="wt-contact-color-bends"
                   colors={CONTACT_BEND_PALETTES[headerTheme] || CONTACT_BEND_PALETTES.violet}
                   rotation={90}
@@ -2258,10 +1982,14 @@ const WebsiteTest = ({ onBack }) => {
 
       {/* Modals */}
       {selectedWork && (
-        <WorkModal workId={selectedWork} onClose={() => setSelectedWork(null)} />
+        <Suspense fallback={null}>
+          <WorkModal workId={selectedWork} onClose={() => setSelectedWork(null)} />
+        </Suspense>
       )}
       {showResumeModal && (
-        <ResumeModal onClose={() => setShowResumeModal(false)} />
+        <Suspense fallback={null}>
+          <ResumeModal onClose={() => setShowResumeModal(false)} />
+        </Suspense>
       )}
 
       {activeCaseStudy && (
@@ -2291,19 +2019,27 @@ const WebsiteTest = ({ onBack }) => {
       )}
 
       {activeNavPage === 'work' && (
-        <WorkArchivePage themePreset={headerTheme} />
+        <Suspense fallback={null}>
+          <WorkArchivePage themePreset={headerTheme} />
+        </Suspense>
       )}
 
       {activeNavPage === 'about' && (
-        <AboutProfilePage skills={skillLogos} themePreset={headerTheme} />
+        <Suspense fallback={null}>
+          <AboutProfilePage skills={skillLogos} themePreset={headerTheme} />
+        </Suspense>
       )}
 
       {activeNavPage === 'contact' && (
-        <ContactFormPage themePreset={headerTheme} />
+        <Suspense fallback={null}>
+          <ContactFormPage themePreset={headerTheme} />
+        </Suspense>
       )}
 
       {isPlaygroundOpen && (
-        <PlaygroundDome onClose={handleClosePlayground} />
+        <Suspense fallback={null}>
+          <PlaygroundDome onClose={handleClosePlayground} />
+        </Suspense>
       )}
 
     </div>

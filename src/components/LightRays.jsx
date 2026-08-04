@@ -51,6 +51,7 @@ const LightRays = ({
   mouseInfluence = 0.1,
   noiseAmount = 0,
   distortion = 0,
+  dpr = 2,
   className = '',
 }) => {
   const containerRef = useRef(null);
@@ -80,7 +81,7 @@ const LightRays = ({
     if (!isVisible || !container) return undefined;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: Math.min(window.devicePixelRatio, window.innerWidth <= 768 ? 1 : dpr),
       alpha: true,
     });
     rendererRef.current = renderer;

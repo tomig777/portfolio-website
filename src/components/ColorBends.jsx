@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import './ColorBends.css';
 
@@ -160,12 +160,25 @@ export default function ColorBends({
   const resizeObserverRef = useRef(null);
   const rotationRef = useRef(rotation);
   const autoRotateRef = useRef(autoRotate);
+  const [isVisible, setIsVisible] = useState(false);
   const pointerTargetRef = useRef(new THREE.Vector2(0, 0));
   const pointerCurrentRef = useRef(new THREE.Vector2(0, 0));
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: '160px' }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || !isVisible) return undefined;
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -210,7 +223,7 @@ export default function ColorBends({
     });
     rendererRef.current = renderer;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth <= 768 ? 1 : 1.5));
     renderer.setClearColor(0x000000, transparent ? 0 : 1);
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
@@ -296,6 +309,8 @@ export default function ColorBends({
       if (renderer.domElement.parentElement === container) {
         container.removeChild(renderer.domElement);
       }
+      materialRef.current = null;
+      rendererRef.current = null;
     };
   }, [
     bandWidth,
@@ -308,7 +323,8 @@ export default function ColorBends({
     scale,
     speed,
     transparent,
-    warpStrength
+    warpStrength,
+    isVisible
   ]);
 
   useEffect(() => {

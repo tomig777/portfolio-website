@@ -15,7 +15,7 @@ import './Lanyard.css';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true }) {
+export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, dpr = [1, 2] }) {
   const containerRef = useRef();
   const [paused, setPaused] = useState(false);
 
@@ -66,7 +66,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
           powerPreference: 'high-performance',
           failIfMajorPerformanceCaveat: false
         }}
-        dpr={[1, 2]} // Cap DPR for performance
+        dpr // Keep the mobile scene at a single device pixel ratio for a lighter first view
         onCreated={({ gl }) => {
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
         }}
@@ -250,7 +250,6 @@ function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
     </>
   );
 }
-
 
 
 

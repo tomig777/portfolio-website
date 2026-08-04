@@ -60,7 +60,7 @@ const SideRays = ({
     if (!isVisible || !container) return undefined;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: Math.min(window.devicePixelRatio, window.innerWidth <= 768 ? 1 : 2),
       alpha: true,
     });
     const { gl } = renderer;
