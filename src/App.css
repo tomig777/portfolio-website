@@ -67,8 +67,7 @@ body {
 /* Font Face - Hyperspace Race Capsule */
 @font-face {
   font-family: 'Hyperspace Race Capsule';
-  src: url('./assets/fonts/HyperspaceRaceCapsule.otf') format('opentype'),
-    url('./assets/fonts/HyperspaceRaceCapsule.ttf') format('truetype');
+  src: url('./assets/fonts/HyperspaceRaceCapsule.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

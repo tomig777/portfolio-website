@@ -20,6 +20,8 @@ const SketchRelay = lazy(() => import('./SketchRelay'));
 const GradientDrift = lazy(() => import('./GradientDrift'));
 const MobilePreview = lazy(() => import('./MobilePreview'));
 const WebsiteArchive = lazy(() => import('../pages/Home'));
+const RouletteGame = lazy(() => import('./RouletteGame'));
+const RacingGame = lazy(() => import('./RacingGame'));
 
 // Placeholder for future projects
 const ComingSoon = ({ name }) => (
@@ -38,8 +40,9 @@ const PROJECTS = [
   { id: 'music-player',   text: 'Music Player',   image: imgLanyard },
   { id: 'sketch-relay',   text: 'Sketch Relay',   image: imgLanyard },
   { id: 'gradient-drift', text: 'Gradient Drift', image: imgLanyard },
-  { id: 'minigame',       text: 'Mobile Preview', image: imgLanyard },
-  { id: 'website-archive', text: 'Website Archive', image: imgLanyard },
+  { id: 'archive-preview', text: 'Archive Preview', image: imgLanyard },
+  { id: 'roulette',      text: 'Roulette',        image: imgLanyard },
+  { id: 'racing',        text: 'One Lap',         image: imgLanyard },
 ];
 
 /* ────────────────────────────────────────────
@@ -63,6 +66,10 @@ const renderProject = (projectId, onBack) => {
           <WebsiteArchive />
         </ClickSpark>
       );
+    case 'roulette':
+      return <RouletteGame />;
+    case 'racing':
+      return <RacingGame />;
     default:
       return null;
   }
@@ -77,6 +84,7 @@ const ProjectPicker = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [isClosingProject, setIsClosingProject] = useState(false);
   const [passwordPrompt, setPasswordPrompt] = useState(null);
+  const [archiveChoiceOpen, setArchiveChoiceOpen] = useState(false);
   const activePageRef = useRef(null);
 
   const handleGoHome = useCallback(() => {
@@ -101,7 +109,7 @@ const ProjectPicker = () => {
   }, []);
 
   const handleSelectProject = useCallback((projectId) => {
-    if (projectId === 'website-archive' || projectId === 'minigame') {
+    if (projectId === 'archive-preview') {
       setPasswordPrompt(projectId);
       return;
     }
@@ -118,23 +126,31 @@ const ProjectPicker = () => {
   }, []);
 
   const openPasswordProject = useCallback(() => {
-    const projectId = passwordPrompt;
     setPasswordPrompt(null);
-    if (projectId) setActiveProject(projectId);
-  }, [passwordPrompt]);
+    setArchiveChoiceOpen(true);
+  }, []);
+
+  const chooseArchivePreview = useCallback((choice) => {
+    setArchiveChoiceOpen(false);
+    setActiveProject(choice === '1' ? 'minigame' : 'website-archive');
+  }, []);
 
   // ESC key handler
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === 'Escape') {
         if (passwordPrompt) return;
+        if (archiveChoiceOpen) {
+          setArchiveChoiceOpen(false);
+          return;
+        }
         else if (activeProject) handleBackToGrid();
         else handleGoHome();
       }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [activeProject, passwordPrompt, handleBackToGrid, handleGoHome, handlePasswordClose]);
+  }, [activeProject, archiveChoiceOpen, passwordPrompt, handleBackToGrid, handleGoHome]);
 
   useEffect(() => {
     if (activeProject) activePageRef.current?.scrollTo({ top: 0, left: 0 });
@@ -201,15 +217,30 @@ const ProjectPicker = () => {
 
       {passwordPrompt && (
         <BubblePasswordGate
-          accessibleTitle={`${passwordPrompt === 'minigame' ? 'Mobile Preview' : 'Website Archive'} password`}
+          accessibleTitle="Archive Preview password"
           brand="Portfolio / Protected access"
           idleMessage="Type the four-digit project code"
-          footerNote={`Protected project / ${passwordPrompt === 'minigame' ? 'Mobile Preview' : 'Website Archive'}`}
+          footerNote="Protected project / Archive Preview"
           variant="dark-popup"
           onSubmit={verifyArchivePassword}
           onSuccess={openPasswordProject}
           onCancel={handlePasswordClose}
         />
+      )}
+
+      {archiveChoiceOpen && (
+        <div className="pp-password-overlay pp-archive-choice-overlay" role="dialog" aria-modal="true" aria-labelledby="pp-archive-choice-title">
+          <div className="pp-password-card pp-archive-choice-card">
+            <p className="pp-password-label">Access granted</p>
+            <h2 className="pp-password-title" id="pp-archive-choice-title">Choose an archive preview</h2>
+            <p className="pp-archive-choice-copy">Select the version you want to explore.</p>
+            <div className="pp-archive-choice-buttons">
+              <button type="button" onClick={() => chooseArchivePreview('1')}><span>1</span><small>Mobile preview</small></button>
+              <button type="button" onClick={() => chooseArchivePreview('2')}><span>2</span><small>Website archive</small></button>
+            </div>
+            <button type="button" className="pp-password-close pp-archive-choice-cancel" aria-label="Close archive choices" onClick={() => setArchiveChoiceOpen(false)}>×</button>
+          </div>
+        </div>
       )}
     </div>
   );

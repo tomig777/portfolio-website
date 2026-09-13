@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
 import './DarkVeil.css';
+import { createAnimationLoop } from '../utils/animationLoop';
 
 const vertex = `
 attribute vec2 position;
@@ -88,6 +89,7 @@ export default function DarkVeil({
 }) {
   const canvasRef = useRef(null);
   const activeRef = useRef(active);
+  const loopRef = useRef(null);
   const settingsRef = useRef({
     hueShift,
     noiseIntensity,
@@ -110,6 +112,7 @@ export default function DarkVeil({
 
   useEffect(() => {
     activeRef.current = active;
+    loopRef.current?.setActive(active);
   }, [active]);
 
   useEffect(() => {
@@ -159,15 +162,7 @@ export default function DarkVeil({
     resize();
 
     const start = performance.now();
-    let frame = 0;
-    let lastRender = 0;
-
     const loop = (now) => {
-      frame = requestAnimationFrame(loop);
-      if (!activeRef.current || document.visibilityState !== 'visible') return;
-      const frameInterval = 1000 / maxFps;
-      if (now - lastRender < frameInterval) return;
-      lastRender = now;
       const settings = settingsRef.current;
       program.uniforms.uTime.value = ((now - start) / 1000) * settings.speed;
       program.uniforms.uHueShift.value = settings.hueShift;
@@ -178,11 +173,15 @@ export default function DarkVeil({
       renderer.render({ scene: mesh });
     };
 
-    frame = requestAnimationFrame(loop);
+    const animation = createAnimationLoop(loop, { maxFps, active: activeRef.current });
+    loopRef.current = animation;
 
     return () => {
-      cancelAnimationFrame(frame);
+      animation.dispose();
+      loopRef.current = null;
       window.removeEventListener('resize', resize);
+      geometry.remove();
+      program.remove();
     };
   }, [dpr, maxFps, resolutionScale]);
 

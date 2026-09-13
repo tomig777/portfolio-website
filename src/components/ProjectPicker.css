@@ -328,6 +328,15 @@
   transform: translateY(-1px);
 }
 
+.pp-archive-choice-card { gap: 12px; }
+.pp-archive-choice-copy { margin: -2px 0 6px; color: rgba(255,255,255,.48); font: .8rem/1.5 Inter, sans-serif; }
+.pp-archive-choice-buttons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.pp-archive-choice-buttons button { min-height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; background: rgba(255,255,255,.045); color: rgba(255,255,255,.82); cursor: pointer; transition: border-color .2s, background .2s, transform .2s; }
+.pp-archive-choice-buttons button:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); transform: translateY(-2px); }
+.pp-archive-choice-buttons span { font: 500 2rem/1 Inter, sans-serif; }
+.pp-archive-choice-buttons small { color: rgba(255,255,255,.45); font: .68rem/1.2 Inter, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
+.pp-archive-choice-cancel { top: 14px; right: 14px; font-size: 1.2rem; }
+
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .pp-top-bar {

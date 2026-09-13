@@ -40,15 +40,15 @@ const WebsiteTestHeader = ({
   }, [onMenuScrollLock]);
 
   useEffect(() => {
-    const updateClock = () => {
-      const options = {
+    if (!isMenuOpen) return undefined;
+    const formatter = new Intl.DateTimeFormat('en-GB', {
         timeZone: 'Europe/Budapest',
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
         hour12: false
-      };
-      const formatter = new Intl.DateTimeFormat('en-GB', options);
+    });
+    const updateClock = () => {
       const parts = formatter.formatToParts(new Date());
       const h = parts.find(p => p.type === 'hour').value;
       const m = parts.find(p => p.type === 'minute').value;
@@ -59,7 +59,7 @@ const WebsiteTestHeader = ({
     updateClock();
     const timerId = setInterval(updateClock, 1000);
     return () => clearInterval(timerId);
-  }, []);
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const handleScroll = (e) => {

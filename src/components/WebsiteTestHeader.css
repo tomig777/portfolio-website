@@ -562,7 +562,7 @@
 /* Phone-sized viewports use touch-sized controls and a direct tap-to-toggle
    theme button. The same class also powers the framed mobile preview. */
 .wt-mobile-preview .wt-site-header {
-  top: 1.25rem;
+  top: 2.9rem;
   width: calc(100% - 0.9rem);
   max-width: 100%;
 }
@@ -647,7 +647,7 @@
 }
 
 .wt-mobile-preview .wt-header-theme-controls {
-  top: 1.25rem;
+  top: 2.9rem;
   right: 0.65rem;
   left: auto;
   transform: none;
@@ -1140,11 +1140,13 @@
     width: min(100% - 1rem, 1180px);
     grid-template-columns: 1.25fr 1fr 1fr;
     gap: 0.5rem;
-    margin-top: 0.8rem;
+    margin-top: 0;
+    height: 128px;
   }
 
   .menu-drop__action {
-    height: 72px;
+    height: 128px;
+    padding-top: 2.4rem;
     font-size: 0.75rem;
     border-radius: 8px;
   }
@@ -1250,12 +1252,13 @@
     margin-top: 0;
     background: transparent;
     border-bottom: none;
-    height: 76px;
+    height: 128px;
     overflow: visible;
   }
 
   .menu-drop__action {
-    height: 76px;
+    height: 128px;
+    padding-top: 2.4rem;
     font-size: 0.75rem;
     border-radius: 0;
     background: #1c1c1f;

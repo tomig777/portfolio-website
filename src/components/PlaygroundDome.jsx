@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { GALLERY_IMAGE_URLS, preparePlaygroundGallery } from '../utils/galleryAssets';
 import './PlaygroundDome.css';
+import { createAnimationLoop } from '../utils/animationLoop';
 
 const MOSAIC_PATTERN = [
   { x: 0, y: 0, width: 17, height: 22, category: 'portrait' },
@@ -697,15 +698,13 @@ export default function PlaygroundDome({ onClose }) {
     // 5. Rendering & Animation loop
     let prevScrollX = 0;
     let prevScrollY = 0;
-    let animationFrameId;
+    let animation;
     let hoverRaycastElapsed = 0;
     let hasRenderedFirstFrame = false;
     const clock = new THREE.Clock();
 
     const animate = () => {
-      animationFrameId = requestAnimationFrame(animate);
-
-      const delta = clock.getDelta();
+      const delta = Math.min(clock.getDelta(), 0.05);
       hoverRaycastElapsed += delta;
 
       // Constant drift
@@ -777,7 +776,7 @@ export default function PlaygroundDome({ onClose }) {
 
     // Wait until GSAP finishes reveal
     const animationStartTimer = window.setTimeout(() => {
-      animate();
+      animation = createAnimationLoop(animate);
     }, 100);
 
     // 6. Resize listener
@@ -811,7 +810,7 @@ export default function PlaygroundDome({ onClose }) {
 
     // Clean up
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      animation?.dispose();
       window.clearTimeout(animationStartTimer);
       window.clearTimeout(overlayRevealTimer);
       window.clearTimeout(resumeAutoScrollTimer);

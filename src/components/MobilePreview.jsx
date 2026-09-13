@@ -11,6 +11,7 @@ const MobilePreview = () => (
       <div className="mobile-preview-side-button mobile-preview-side-button--top" aria-hidden="true" />
       <div className="mobile-preview-side-button mobile-preview-side-button--middle" aria-hidden="true" />
       <div className="mobile-preview-side-button mobile-preview-side-button--bottom" aria-hidden="true" />
+      <div className="mobile-preview-side-button mobile-preview-side-button--right" aria-hidden="true" />
 
       <div className="mobile-preview-bezel">
         <div className="mobile-preview-screen">

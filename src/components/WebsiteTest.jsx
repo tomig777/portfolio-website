@@ -15,7 +15,6 @@ import SideRays from './SideRays';
 
 // Keep interaction-only pages and modals out of the first mobile bundle. They
 // are fetched when the corresponding control is opened.
-const WorkModal = lazy(() => import('./WorkModal'));
 const ResumeModal = lazy(() => import('./ResumeModal'));
 const PlaygroundDome = lazy(() => import('./PlaygroundDome'));
 const ColorBends = lazy(() => import('./ColorBends'));
@@ -31,8 +30,12 @@ import { HiMail } from 'react-icons/hi';
 import card1Image from '../assets/szia.png';
 import card2Image from '../assets/szia_2.jpg';
 import card3Image from '../assets/szia_3.jpg';
-import flowCard4 from '../assets/gallery-optimized/GalTamas_MediaLabor1_BeautyRender.webp';
-import kep9 from '../assets/kep9.png';
+import exhibitWheat from '../assets/exhibit-wheat.jpg';
+import exhibitForest from '../assets/exhibit-forest.jpg';
+import exhibitLavender from '../assets/exhibit-lavender.jpg';
+import exhibitBlueberry from '../assets/exhibit-blueberry.jpg';
+import exhibitAutumn from '../assets/exhibit-autumn.jpg';
+import exhibitBlossom from '../assets/exhibit-blossom.jpg';
 import nukeLogo from '../assets/nuke_logo2.png';
 import substanceLogo from '../assets/substance_logo.png';
 import illustratorLogo from '../assets/illustrator_logo.svg';
@@ -176,6 +179,7 @@ const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg }) => {
 
   useEffect(() => {
     const finalScene = svgRef.current?.closest('.wt-bubble-final-scene');
+    const motion = handMotionRef.current;
 
     const updateTarget = (event) => {
       if (finalScene?.style.visibility === 'hidden') return;
@@ -199,8 +203,8 @@ const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg }) => {
       window.removeEventListener('pointermove', updateTarget);
       window.removeEventListener('blur', resetTarget);
       document.documentElement.removeEventListener('pointerleave', resetTarget);
-      if (handMotionRef.current.animationFrame !== null) {
-        window.cancelAnimationFrame(handMotionRef.current.animationFrame);
+      if (motion.animationFrame !== null) {
+        window.cancelAnimationFrame(motion.animationFrame);
       }
     };
   }, [ensureHandAnimation]);
@@ -357,6 +361,7 @@ const AsciiHandsArt = ({ handLeftSvg, handRightSvg }) => {
 
   useEffect(() => {
     const finalScene = leftPointerMotionRef.current?.closest('.wt-bubble-final-scene');
+    const motion = handMotionRef.current;
 
     const updateTarget = (event) => {
       if (finalScene?.style.visibility === 'hidden') return;
@@ -380,8 +385,8 @@ const AsciiHandsArt = ({ handLeftSvg, handRightSvg }) => {
       window.removeEventListener('pointermove', updateTarget);
       window.removeEventListener('blur', resetTarget);
       document.documentElement.removeEventListener('pointerleave', resetTarget);
-      if (handMotionRef.current.animationFrame !== null) {
-        window.cancelAnimationFrame(handMotionRef.current.animationFrame);
+      if (motion.animationFrame !== null) {
+        window.cancelAnimationFrame(motion.animationFrame);
       }
     };
   }, [ensureHandAnimation]);
@@ -584,12 +589,12 @@ const loadCaseStudyVideos = () => Promise.all([
 // All cards currently share the same 16:9 render (uniform size keeps the queue collision-free).
 const CARD_STRIP_COUNT = 9; // vertical facets per card — fanned out they read as a smooth physical curl
 const transitionCards = [
-  { id: 'A', image: flowCard4, alt: 'Interior design beauty render', width: 330, height: 186 },
-  { id: 'B', image: flowCard4, alt: 'Interior design beauty render', width: 330, height: 186, mobileHide: true },
-  { id: 'C', image: flowCard4, alt: 'Interior design beauty render', width: 330, height: 186 },
-  { id: 'D', image: flowCard4, alt: 'Interior design beauty render', width: 330, height: 186 },
-  { id: 'E', image: flowCard4, alt: 'Interior design beauty render', width: 330, height: 186 },
-  { id: 'F', image: flowCard4, alt: 'Interior design beauty render', width: 330, height: 186, mobileHide: true }
+  { id: 'A', image: exhibitWheat, alt: 'Sunlit wheat field with a soft white mark', width: 330, height: 186 },
+  { id: 'B', image: exhibitForest, alt: 'Mossy forest clearing with a mountain mark', width: 330, height: 186 },
+  { id: 'C', image: exhibitLavender, alt: 'Lavender flowers in soft evening light', width: 330, height: 186 },
+  { id: 'D', image: exhibitBlueberry, alt: 'Blueberries with a floating white symbol', width: 330, height: 186 },
+  { id: 'E', image: exhibitAutumn, alt: 'Warm autumn leaves with a white leaf mark', width: 330, height: 186 },
+  { id: 'F', image: exhibitBlossom, alt: 'Pink spring blossoms with a white flower mark', width: 330, height: 186 }
 ];
 const visibleTransitionCards = transitionCards;
 const heroRoles = [
@@ -631,18 +636,17 @@ const WebsiteTest = ({ onBack }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isMobilePreview = new URLSearchParams(location.search).get('mobilePreview') === '1';
-  const [selectedWork, setSelectedWork] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   // The mobile preview is the production phone layout. Keep the query flag for
   // the framed preview project, and activate the same UI automatically on real
   // phone-sized viewports.
   const useMobileLayout = isMobilePreview || isMobile;
   const [desktopVideos, setDesktopVideos] = useState([]);
+  const [exhibitImagesReady, setExhibitImagesReady] = useState(false);
   const [handAssets, setHandAssets] = useState(null);
   const [shouldRenderLightRays, setShouldRenderLightRays] = useState(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState(null);
   const [activeNavPage, setActiveNavPage] = useState(null);
-  const [navPageOrigin, setNavPageOrigin] = useState('header');
   const [menuReturnToken, setMenuReturnToken] = useState(0);
   const [showResumeModal, setShowResumeModal] = useState(false);
   const [headerTheme, setHeaderTheme] = useState(() => {
@@ -655,7 +659,6 @@ const WebsiteTest = ({ onBack }) => {
   const containerRef = useRef(null);
   const contentRef = useRef(null);
   const lenisRef = useRef(null);
-  const navPageScrollRef = useRef(0);
   const caseStudyScrollRef = useRef(0);
   const caseTransitionTimers = useRef([]);
   const caseTransitionInProgress = useRef(false);
@@ -680,6 +683,8 @@ const WebsiteTest = ({ onBack }) => {
 
   // Playground Overlay visibility state
   const [isPlaygroundOpen, setIsPlaygroundOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const homeEffectsActive = !activeCaseStudy && !activeNavPage && !isPlaygroundOpen && !isMenuOpen && !showResumeModal;
 
   useLayoutEffect(() => {
     const wrapper = containerRef.current;
@@ -790,6 +795,7 @@ const WebsiteTest = ({ onBack }) => {
   }, [navigate, onBack]);
 
   const handleMenuScrollLock = useCallback((isLocked) => {
+    setIsMenuOpen(isLocked);
     const lenis = lenisRef.current;
     if (!lenis) return;
 
@@ -798,10 +804,10 @@ const WebsiteTest = ({ onBack }) => {
       return;
     }
 
-    if (!activeCaseStudy && !activeNavPage && !isPlaygroundOpen && !selectedWork && !showResumeModal) {
+    if (!activeCaseStudy && !activeNavPage && !isPlaygroundOpen && !showResumeModal) {
       lenis.start();
     }
-  }, [activeCaseStudy, activeNavPage, isPlaygroundOpen, selectedWork, showResumeModal]);
+  }, [activeCaseStudy, activeNavPage, isPlaygroundOpen, showResumeModal]);
 
   useEffect(() => {
     const lenis = lenisRef.current;
@@ -811,7 +817,6 @@ const WebsiteTest = ({ onBack }) => {
       activeCaseStudy
       || activeNavPage
       || isPlaygroundOpen
-      || selectedWork
       || showResumeModal
     );
 
@@ -822,7 +827,7 @@ const WebsiteTest = ({ onBack }) => {
 
     lenis.start();
     lenis.resize();
-  }, [activeCaseStudy, activeNavPage, isPlaygroundOpen, selectedWork, showResumeModal]);
+  }, [activeCaseStudy, activeNavPage, isPlaygroundOpen, showResumeModal]);
 
   useLayoutEffect(() => {
     const pendingReturn = pendingMenuReturnRef.current;
@@ -841,33 +846,11 @@ const WebsiteTest = ({ onBack }) => {
     window.requestAnimationFrame(() => ScrollTrigger.refresh());
   }, [navigate]);
 
-  const openNavPage = useCallback((page, origin = 'header') => {
+  const openNavPage = useCallback((page) => {
     triggerScreenTransition(() => {
-      navPageScrollRef.current = containerRef.current?.scrollTop || 0;
-      setNavPageOrigin(origin);
       setActiveNavPage(page);
     });
   }, [triggerScreenTransition]);
-
-  const closeNavPage = useCallback(() => {
-    triggerScreenTransition(() => {
-      setActiveNavPage(null);
-      if (navPageOrigin === 'menu') {
-        setMenuReturnToken((current) => current + 1);
-      }
-      window.requestAnimationFrame(() => {
-        if (containerRef.current) {
-          if (lenisRef.current) {
-            lenisRef.current.scrollTo(navPageScrollRef.current, { immediate: true, force: true });
-          } else {
-            containerRef.current.scrollTop = navPageScrollRef.current;
-          }
-          containerRef.current.dispatchEvent(new Event('scroll', { bubbles: true }));
-        }
-        ScrollTrigger.refresh();
-      });
-    });
-  }, [navPageOrigin, triggerScreenTransition]);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -929,14 +912,48 @@ const WebsiteTest = ({ onBack }) => {
     };
   }, []);
 
-  // Preload gallery image + exhibition stage card images
+  // Clipping-aware observation also excludes the other stacked project videos.
+  // Keep their posters in place, without downloading/decoding invisible movies.
   useEffect(() => {
-    const img = new Image();
-    img.src = kep9;
-    visibleTransitionCards.forEach((card) => {
-      const cardImg = new Image();
-      cardImg.src = card.image;
-    });
+    const videos = [...(containerRef.current?.querySelectorAll('.wt-featured-image-track video') || [])];
+    const visible = new Set();
+    const updatePlayback = () => {
+      videos.forEach((video) => {
+        if (homeEffectsActive && document.visibilityState !== 'hidden' && visible.has(video)) {
+          video.play().catch(() => {}); // Browser autoplay policy may require a gesture.
+        } else {
+          video.pause();
+        }
+      });
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.001) visible.add(entry.target);
+        else visible.delete(entry.target);
+      });
+      updatePlayback();
+    }, { threshold: [0, 0.001] });
+    videos.forEach((video) => observer.observe(video));
+    document.addEventListener('visibilitychange', updatePlayback);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', updatePlayback);
+      videos.forEach((video) => video.pause());
+    };
+  }, [desktopVideos, useMobileLayout, homeEffectsActive]);
+
+  // Prepare the exhibition before it arrives, not while the hero and physics
+  // engine are competing for the first page load's bandwidth.
+  useEffect(() => {
+    const section = containerRef.current?.querySelector('.wt-blur-section');
+    if (!section) return undefined;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      setExhibitImagesReady(true);
+      observer.disconnect();
+    }, { rootMargin: '2000px 0px' });
+    observer.observe(section);
+    return () => observer.disconnect();
   }, []);
 
   // GSAP Animations
@@ -1636,7 +1653,7 @@ const WebsiteTest = ({ onBack }) => {
           resolutionScale={useMobileLayout ? 0.58 : 1.3}
           dpr={useMobileLayout ? 1 : 2}
           maxFps={useMobileLayout ? 30 : 60}
-          active={!shouldRenderLightRays}
+          active={!shouldRenderLightRays && homeEffectsActive}
         />
         <div className="background-fade-overlay" />
       </div>
@@ -1646,6 +1663,7 @@ const WebsiteTest = ({ onBack }) => {
         {shouldRenderLightRays && (
           <Suspense fallback={null}>
             <LightRays
+              active={homeEffectsActive}
               raysOrigin="top-center"
               raysColor={headerTheme === 'red' ? '#b52b3a' : '#6f7ff2'}
               raysSpeed={0.8}
@@ -1699,9 +1717,10 @@ const WebsiteTest = ({ onBack }) => {
           <Suspense fallback={null}>
             <div className="lanyard-container">
               <Lanyard
+                active={homeEffectsActive}
                 position={isMobile ? [0, 0, 35] : [0, 0, 20]}
                 gravity={[0, -40, 0]}
-                dpr={useMobileLayout ? [1, 1] : [1, 1.5]}
+                dpr={1}
               />
             </div>
           </Suspense>
@@ -1736,11 +1755,10 @@ const WebsiteTest = ({ onBack }) => {
                     <video
                       key={project.title}
                       className="wt-featured-image wt-featured-image-layer"
-                      autoPlay
                       muted
                       loop
                       playsInline
-                      preload="metadata"
+                      preload="none"
                       poster={project.image || card1Image}
                       aria-label={`${project.title} project preview`}
                     >
@@ -1792,35 +1810,6 @@ const WebsiteTest = ({ onBack }) => {
           </div>
         </div>
 
-        {!useMobileLayout && <div className="wt-projects-container wt-projects-container--legacy" aria-hidden="true">
-          <div className="wt-projects-left">
-            <div>
-              <p className="section-label">Work</p>
-              <h2 className="section-title">Selected<br/>Projects</h2>
-            </div>
-            <div style={{color: 'rgba(255,255,255,0.5)', maxWidth: '400px', lineHeight: 1.6, fontFamily: 'Inter, sans-serif', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-              <p>A collection of my latest works ranging from 3D visualization to UI design. Scroll to explore the details.</p>
-              <p>Each project is approached with a unique perspective, ensuring that the final result not only looks stunning but also serves its functional purpose perfectly.</p>
-            </div>
-          </div>
-          
-          <div className="wt-projects-right">
-            {[1, 2, 3, 4, 5, 6].map((num, index) => (
-              <React.Fragment key={num}>
-                <div className="wt-project-card project-card-anim" onClick={() => setSelectedWork(num)} style={{ cursor: 'pointer' }}>
-                  <img src={card1Image} alt={`Project ${num}`} className="wt-project-card-image" loading="lazy" />
-                  <div className="wt-project-card-overlay">
-                    <h3 className="wt-project-card-title">Project {num}</h3>
-                  </div>
-                </div>
-                {/* Spacer between cards to create scroll distance without affecting sticky bounding box calculations */}
-                {index < 5 && <div style={{ height: '50vh', width: '100%', flexShrink: 0 }} aria-hidden="true"></div>}
-              </React.Fragment>
-            ))}
-            {/* Invisible spacer to extend the content box, allowing Project 6 to stay sticky for an extra 90vh */}
-            <div style={{ height: '90vh', width: '100%', flexShrink: 0 }} aria-hidden="true"></div>
-          </div>
-        </div>}
       </section>
 
       {/* ─── 2. Text Reveal → Gradient Title Transition → Contact Scene ─── */}
@@ -1887,6 +1876,7 @@ const WebsiteTest = ({ onBack }) => {
               <div className="wt-bubble-disc" aria-hidden="true" />
               <div className="wt-bubble-white-panel">
                 <DeferredColorBends
+                  active={homeEffectsActive}
                   className="wt-contact-color-bends"
                   colors={CONTACT_BEND_PALETTES[headerTheme] || CONTACT_BEND_PALETTES.violet}
                   rotation={90}
@@ -1945,7 +1935,7 @@ const WebsiteTest = ({ onBack }) => {
                       style={{
                         width: `${100 / CARD_STRIP_COUNT}%`,
                         marginLeft: `${-50 / CARD_STRIP_COUNT}%`,
-                        backgroundImage: `url(${card.image})`,
+                        backgroundImage: exhibitImagesReady ? `url(${card.image})` : 'none',
                         backgroundSize: `${CARD_STRIP_COUNT * 100}% 100%`,
                         backgroundPosition: `${(stripIndex / (CARD_STRIP_COUNT - 1)) * 100}% 0`
                       }}
@@ -2017,11 +2007,6 @@ const WebsiteTest = ({ onBack }) => {
       </div>
 
       {/* Modals */}
-      {selectedWork && (
-        <Suspense fallback={null}>
-          <WorkModal workId={selectedWork} onClose={() => setSelectedWork(null)} />
-        </Suspense>
-      )}
       {showResumeModal && (
         <Suspense fallback={null}>
           <ResumeModal onClose={() => setShowResumeModal(false)} />

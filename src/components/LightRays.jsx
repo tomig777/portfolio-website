@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Mesh, Program, Renderer, Triangle } from 'ogl';
 import './LightRays.css';
+import { createAnimationLoop } from '../utils/animationLoop';
 
 const DEFAULT_COLOR = '#ffffff';
 
@@ -53,16 +54,23 @@ const LightRays = ({
   distortion = 0,
   dpr = 2,
   maxFps = 60,
+  active = true,
   className = '',
 }) => {
   const containerRef = useRef(null);
   const rendererRef = useRef(null);
   const uniformsRef = useRef(null);
   const meshRef = useRef(null);
-  const animationFrameRef = useRef(null);
+  const animationRef = useRef(null);
+  const activeRef = useRef(active);
   const mouseRef = useRef({ x: 0.5, y: 0.5 });
   const smoothMouseRef = useRef({ x: 0.5, y: 0.5 });
   const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    activeRef.current = active;
+    animationRef.current?.setActive(active);
+  }, [active]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -257,13 +265,7 @@ const LightRays = ({
       uniforms.rayDir.value = direction;
     };
 
-    let lastRender = 0;
     const render = (time) => {
-      animationFrameRef.current = requestAnimationFrame(render);
-      if (document.visibilityState !== 'visible') return;
-      const frameInterval = 1000 / maxFps;
-      if (time - lastRender < frameInterval) return;
-      lastRender = time;
       uniforms.iTime.value = time * 0.001;
 
       if (followMouse && mouseInfluence > 0) {
@@ -272,10 +274,8 @@ const LightRays = ({
           smoothMouseRef.current.x * smoothing + mouseRef.current.x * (1 - smoothing);
         smoothMouseRef.current.y =
           smoothMouseRef.current.y * smoothing + mouseRef.current.y * (1 - smoothing);
-        uniforms.mousePos.value = [
-          smoothMouseRef.current.x,
-          smoothMouseRef.current.y,
-        ];
+        uniforms.mousePos.value[0] = smoothMouseRef.current.x;
+        uniforms.mousePos.value[1] = smoothMouseRef.current.y;
       }
 
       renderer.render({ scene: mesh });
@@ -283,14 +283,15 @@ const LightRays = ({
 
     window.addEventListener('resize', updatePlacement);
     updatePlacement();
-    animationFrameRef.current = requestAnimationFrame(render);
+    const animation = createAnimationLoop(render, { maxFps, active: activeRef.current });
+    animationRef.current = animation;
 
     return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-        animationFrameRef.current = null;
-      }
+      animation.dispose();
+      animationRef.current = null;
       window.removeEventListener('resize', updatePlacement);
+      geometry.remove();
+      program.remove();
       container.replaceChildren();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
       rendererRef.current = null;
@@ -325,10 +326,10 @@ const LightRays = ({
       };
     };
 
-    if (!followMouse) return undefined;
+    if (!followMouse || !active || !isVisible) return undefined;
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [followMouse]);
+  }, [followMouse, active, isVisible]);
 
   return (
     <div

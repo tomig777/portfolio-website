@@ -1,0 +1,43 @@
+.roulette-game,
+.racing-game {
+  min-height: 100dvh;
+  box-sizing: border-box;
+  padding: clamp(5.8rem, 10vh, 7.2rem) clamp(1rem, 4vw, 4rem) 3rem;
+  color: #f4f0e8;
+  background: radial-gradient(circle at 50% 12%, rgba(79, 94, 156, .24), transparent 42%), #08090c;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: auto;
+}
+
+.game-heading { max-width: 680px; margin: 0 auto 2rem; text-align: center; }
+.game-kicker, .game-control-label { color: rgba(244, 240, 232, .45); font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; }
+.game-kicker { margin: 0 0 .65rem; }
+.game-heading h1 { margin: 0; font-size: clamp(2.5rem, 7vw, 5.4rem); letter-spacing: -.07em; font-weight: 500; }
+.game-heading p:last-child { margin: .75rem auto 0; max-width: 420px; color: rgba(244, 240, 232, .6); line-height: 1.55; }
+.roulette-layout { display: grid; grid-template-columns: minmax(280px, 530px) minmax(260px, 390px); align-items: center; justify-content: center; gap: clamp(2rem, 7vw, 7rem); max-width: 1100px; margin: 0 auto; }
+.roulette-stage { position: relative; width: min(78vw, 510px); aspect-ratio: 1; margin: auto; }
+.roulette-wheel { position: absolute; inset: 5%; border: 10px solid #272b37; border-radius: 50%; box-shadow: 0 0 0 2px rgba(255,255,255,.16), inset 0 0 0 7px #08090c, 0 26px 65px rgba(0,0,0,.5); transition: transform 4.2s cubic-bezier(.13,.73,.17,1); overflow: hidden; }
+.roulette-wheel__rim { position: absolute; inset: 7%; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; box-shadow: inset 0 0 0 9px rgba(0,0,0,.22); }
+.roulette-number { position: absolute; left: 50%; top: 50%; width: 1.3em; margin: -.5em 0 0 -.65em; color: rgba(255,255,255,.9); font-size: clamp(.5rem, 1.35vw, .76rem); text-align: center; transform: rotate(var(--number-angle)) translateY(-17.2vw) rotate(calc(var(--number-angle) * -1)); transform-origin: center; }
+.roulette-number--green { color: #b9f4d4; font-weight: 700; }
+.roulette-wheel__hub { position: absolute; width: 16%; aspect-ratio: 1; left: 42%; top: 42%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #eff5ff, #8590a9 55%, #343a4b 57%, #11131a 72%); box-shadow: 0 0 0 6px #222634; }
+.roulette-pointer { position: absolute; z-index: 4; top: -1%; left: 50%; width: 0; height: 0; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 26px solid #e5c47e; filter: drop-shadow(0 3px 2px #000); }
+.roulette-ball { position: absolute; z-index: 5; left: 50%; top: 50%; width: 15px; height: 15px; border-radius: 50%; background: #f9f5ea; box-shadow: 0 1px 7px #fff, 0 0 0 2px rgba(0,0,0,.3); transform: translate(-50%, -50%) rotate(var(--ball-angle)) translateY(-40%); transform-origin: center; transition: transform 4.2s cubic-bezier(.13,.73,.17,1); }
+.roulette-ball.is-spinning { transform: translate(-50%, -50%) rotate(calc(var(--ball-angle) + 1440deg)) translateY(-40%); }
+.roulette-controls { display: flex; flex-direction: column; gap: 1.15rem; }
+.game-balance { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: .85rem; border-bottom: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.5); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+.game-balance strong { color: #f4f0e8; font-size: 1.65rem; font-weight: 500; letter-spacing: -.04em; }
+.game-reset-button { margin-left: auto; border: 0; background: none; color: rgba(255,255,255,.38); cursor: pointer; font: .65rem Inter, sans-serif; text-transform: uppercase; letter-spacing: .12em; }.game-reset-button:hover:not(:disabled) { color: #fff; }.game-reset-button:disabled { cursor: not-allowed; opacity: .25; }
+.game-control-group { display: flex; flex-direction: column; gap: .6rem; }
+.game-choice-row { display: flex; flex-wrap: wrap; gap: .45rem; }
+.game-choice-row button, .roulette-number-grid button { border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.045); color: rgba(255,255,255,.7); cursor: pointer; transition: background .2s, border-color .2s, transform .2s; }
+.game-choice-row button { min-height: 37px; padding: 0 .75rem; border-radius: 999px; font-size: .75rem; text-transform: capitalize; }
+.game-choice-row button:hover, .game-choice-row button.is-selected, .roulette-number-grid button.is-selected { border-color: #e7c47e; background: rgba(231,196,126,.18); color: #fff; }
+.roulette-color-choice--red { color: #ff8d99 !important; }.roulette-color-choice--black { color: #d2d7e2 !important; }.roulette-color-choice--green { color: #8ce1b0 !important; }
+.roulette-number-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: .25rem; }
+.roulette-number-grid button { min-height: 25px; border-radius: 5px; font-size: .65rem; }
+.roulette-number-grid button.red { color: #ff9ba5; }.roulette-number-grid button.black { color: #d2d7e2; }.roulette-number-grid button.green { color: #8ce1b0; }
+.game-primary-button { min-height: 48px; border: 0; border-radius: 999px; background: #efe2c7; color: #17130d; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s; }.game-primary-button:hover:not(:disabled) { transform: translateY(-2px); background: #fff5df; }.game-primary-button:disabled { cursor: not-allowed; opacity: .45; }
+.game-result { min-height: 2.4em; margin: 0; color: rgba(255,255,255,.58); font-size: .82rem; line-height: 1.5; }.game-result strong { color: #f4f0e8; font-size: 1.2rem; }.game-result.is-win { color: #a7e6bd; }.game-result.is-loss { color: #ffabb2; }
+.game-disclaimer { margin: 0; color: rgba(255,255,255,.28); font-size: .65rem; }
+@media (max-width: 760px) { .roulette-layout { grid-template-columns: 1fr; gap: 1.5rem; max-width: 520px; }.roulette-stage { width: min(87vw, 420px); }.roulette-number { transform: rotate(var(--number-angle)) translateY(-37vw) rotate(calc(var(--number-angle) * -1)); } .game-heading { margin-bottom: 1.25rem; } }

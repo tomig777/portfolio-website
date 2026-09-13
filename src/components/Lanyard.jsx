@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
@@ -12,16 +11,19 @@ import lanyard from '../assets/lanyard.png';
 
 import * as THREE from 'three';
 import './Lanyard.css';
+import usePageVisibility from '../hooks/usePageVisibility';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, dpr = [1, 2] }) {
+export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, dpr = 1, active = true }) {
   const containerRef = useRef();
-  const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(true);
+  const pageVisible = usePageVisibility();
+  const paused = !active || !inView || !pageVisible;
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setPaused(!entry.isIntersecting);
+      setInView(entry.isIntersecting);
     }, { threshold: 0.1 });
 
     if (containerRef.current) {
@@ -66,7 +68,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
           powerPreference: 'high-performance',
           failIfMajorPerformanceCaveat: false
         }}
-        dpr // Keep the mobile scene at a single device pixel ratio for a lighter first view
+        dpr={dpr}
         onCreated={({ gl }) => {
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
         }}
@@ -117,10 +119,13 @@ function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
     j2 = useRef(),
     j3 = useRef(),
     card = useRef();
-  const vec = new THREE.Vector3(),
-    ang = new THREE.Vector3(),
-    rot = new THREE.Vector3(),
-    dir = new THREE.Vector3();
+  const [{ vec, ang, rot, dir, curveSamples }] = useState(() => ({
+    vec: new THREE.Vector3(),
+    ang: new THREE.Vector3(),
+    rot: new THREE.Vector3(),
+    dir: new THREE.Vector3(),
+    curveSamples: Array.from({ length: 33 }, () => new THREE.Vector3())
+  }));
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
   const { nodes, materials } = useGLTF(cardGLB);
   const texture = useTexture(lanyard);
@@ -181,7 +186,10 @@ function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
       curve.points[1].copy(j2.current.lerped);
       curve.points[2].copy(j1.current.lerped);
       curve.points[3].copy(fixed.current.translation());
-      band.current.geometry.setPoints(curve.getPoints(32));
+      for (let i = 0; i < curveSamples.length; i += 1) {
+        curve.getPoint(i / 32, curveSamples[i]);
+      }
+      band.current.geometry.setPoints(curveSamples);
 
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());
@@ -250,6 +258,3 @@ function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
     </>
   );
 }
-
-
-

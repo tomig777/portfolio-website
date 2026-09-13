@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Mesh, Program, Renderer, Triangle } from 'ogl';
 import './SideRays.css';
+import { createAnimationLoop } from '../utils/animationLoop';
 
 const hexToRgb = (hex) => {
   const match = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -222,25 +223,20 @@ const SideRays = ({
       ];
     };
 
-    let animationFrame = 0;
-    let lastRender = 0;
-    const frameInterval = window.innerWidth <= 768 ? 1000 / 30 : 0;
     const render = (time) => {
-      animationFrame = requestAnimationFrame(render);
-      if (document.visibilityState !== 'visible') return;
-      if (frameInterval && time - lastRender < frameInterval) return;
-      lastRender = time;
       uniforms.iTime.value = time * 0.001;
       renderer.render({ scene: mesh });
     };
 
     window.addEventListener('resize', resize);
     resize();
-    animationFrame = requestAnimationFrame(render);
+    const animation = createAnimationLoop(render, { maxFps: window.innerWidth <= 768 ? 30 : 60 });
 
     return () => {
-      cancelAnimationFrame(animationFrame);
+      animation.dispose();
       window.removeEventListener('resize', resize);
+      geometry.remove();
+      program.remove();
       container.replaceChildren();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useCallback } from 'react';
+import { createAnimationLoop } from '../utils/animationLoop';
 
 const DENSITY_CHARS = ' .:-=+*#%@';
 const CHAR_COUNT = DENSITY_CHARS.length;
@@ -217,10 +218,8 @@ const AsciiFluidVortex = () => {
   const canvasRef = useRef(null);
   const fluidRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0, px: 0, py: 0, active: false });
-  const idleTimerRef = useRef(null);
   const isIdleRef = useRef(false);
   const gridRef = useRef({ cols: 0, rows: 0, cellW: 0, cellH: 0 });
-  const animRef = useRef(null);
   const schemeIdxRef = useRef(0);
 
   const FLUID_SIZE = 128;
@@ -295,7 +294,6 @@ const AsciiFluidVortex = () => {
     const render = () => {
       const { cols, rows, cellW, cellH, fontSize } = gridRef.current;
       if (!cols || !rows) {
-        animRef.current = requestAnimationFrame(render);
         return;
       }
 
@@ -364,13 +362,12 @@ const AsciiFluidVortex = () => {
         }
       }
 
-      animRef.current = requestAnimationFrame(render);
     };
 
-    animRef.current = requestAnimationFrame(render);
+    const animation = createAnimationLoop(render);
 
     return () => {
-      cancelAnimationFrame(animRef.current);
+      animation.dispose();
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('resize', handleResize);

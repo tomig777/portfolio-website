@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { useLayoutEffect, useMemo, useRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial } from '@react-three/drei';
+import usePageVisibility from '../hooks/usePageVisibility';
 
 const DEFAULT_COLORS = [
   '#360021',
@@ -191,12 +192,14 @@ const LensField = () => {
 const FluidGlassBubbles = ({
   colors = DEFAULT_COLORS,
   speed = 1,
-}) => (
+}) => {
+  const visible = usePageVisibility();
+  return (
   <Canvas
     orthographic
     camera={{ position: [0, 0, 10], zoom: 80 }}
     dpr={[1, 1.5]}
-    frameloop="always"
+    frameloop={visible ? 'always' : 'never'}
     gl={{ alpha: false, antialias: true, powerPreference: 'high-performance' }}
   >
     <color attach="background" args={['#f7f3f1']} />
@@ -206,6 +209,7 @@ const FluidGlassBubbles = ({
     <ColorField colors={colors} speed={speed} />
     <LensField />
   </Canvas>
-);
+  );
+};
 
 export default FluidGlassBubbles;

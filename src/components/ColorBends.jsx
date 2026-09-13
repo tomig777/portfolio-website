@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import './ColorBends.css';
+import { createAnimationLoop } from '../utils/animationLoop';
 
 const MAX_COLORS = 8;
 
@@ -151,11 +152,13 @@ export default function ColorBends({
   noise = 0.15,
   iterations = 1,
   intensity = 1.5,
-  bandWidth = 6
+  bandWidth = 6,
+  active = true
 }) {
   const containerRef = useRef(null);
   const rendererRef = useRef(null);
   const frameRef = useRef(null);
+  const activeRef = useRef(active);
   const materialRef = useRef(null);
   const resizeObserverRef = useRef(null);
   const rotationRef = useRef(rotation);
@@ -163,6 +166,11 @@ export default function ColorBends({
   const [isVisible, setIsVisible] = useState(false);
   const pointerTargetRef = useRef(new THREE.Vector2(0, 0));
   const pointerCurrentRef = useRef(new THREE.Vector2(0, 0));
+
+  useEffect(() => {
+    activeRef.current = active;
+    frameRef.current?.setActive(active);
+  }, [active]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -233,8 +241,6 @@ export default function ColorBends({
     const clock = new THREE.Clock();
     let visibilityFrame = 0;
     let shouldRender = false;
-    let lastRender = 0;
-    const frameInterval = window.innerWidth <= 768 ? 1000 / 30 : 0;
 
     const updateVisibility = () => {
       const rect = container.getBoundingClientRect();
@@ -266,10 +272,7 @@ export default function ColorBends({
       window.addEventListener('resize', handleResize);
     }
 
-    const renderFrame = (time) => {
-      frameRef.current = window.requestAnimationFrame(renderFrame);
-      if (frameInterval && time - lastRender < frameInterval) return;
-      lastRender = time;
+    const renderFrame = () => {
       const delta = clock.getDelta();
       const elapsed = clock.elapsedTime;
 
@@ -295,12 +298,15 @@ export default function ColorBends({
 
     };
 
-    frameRef.current = window.requestAnimationFrame(renderFrame);
+    const animation = createAnimationLoop(renderFrame, {
+      maxFps: window.innerWidth <= 768 ? 30 : 60,
+      active: activeRef.current
+    });
+    frameRef.current = animation;
 
     return () => {
-      if (frameRef.current !== null) {
-        window.cancelAnimationFrame(frameRef.current);
-      }
+      animation.dispose();
+      frameRef.current = null;
       if (resizeObserverRef.current) {
         resizeObserverRef.current.disconnect();
       } else {
