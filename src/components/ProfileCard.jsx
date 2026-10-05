@@ -34,15 +34,8 @@ const ProfileCardComponent = ({
   enableTilt = true,
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
-  miniAvatarUrl,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
-  handle = 'javicodes',
-  status = 'Online',
-  contactText = 'Contact',
-  showUserInfo = true,
-  onContactClick,
-  hideContact = false,
   monoColor = false
 }) => {
   const wrapRef = useRef(null);
@@ -246,10 +239,6 @@ const ProfileCardComponent = ({
     [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient, monoColor]
   );
 
-  const handleContactClick = useCallback(() => {
-    onContactClick?.();
-  }, [onContactClick]);
-
   return (
     <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
       <section ref={cardRef} className="pc-card">
@@ -282,5 +271,4 @@ const ProfileCardComponent = ({
 const ProfileCard = React.memo(ProfileCardComponent);
 
 export default ProfileCard;
-
 

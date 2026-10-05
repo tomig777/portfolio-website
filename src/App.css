@@ -1,4 +1,25 @@
 /* Global Styles */
+.not-found-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 1.5rem;
+  background: #050508;
+  color: #f7f3ea;
+  text-align: center;
+}
+
+.not-found-kicker { color: #a4a1ad; font-size: .7rem; letter-spacing: .15em; }
+.not-found-page h1 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; letter-spacing: -.05em; }
+.not-found-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; margin-top: 1rem; }
+.not-found-actions a { padding: .65rem 1.2rem; border: 1px solid #494750; border-radius: 999px; color: inherit; text-decoration: none; }
+.not-found-actions a:hover { background: #f7f3ea; color: #050508; }
+.not-found-actions a:focus-visible { outline: 2px solid #b6a5ef; outline-offset: 4px; }
+
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +61,7 @@ body {
 /* Font Face - Molten Display */
 @font-face {
   font-family: 'Molten Display';
-  src: url('./assets/fonts/Molten Display.otf') format('opentype');
+  src: url('./assets/fonts/woff2/Molten Display.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -49,7 +70,7 @@ body {
 /* Font Face - Yink */
 @font-face {
   font-family: 'Yink';
-  src: url('./assets/fonts/Yink.otf') format('opentype');
+  src: url('./assets/fonts/woff2/Yink.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -58,7 +79,7 @@ body {
 /* Font Face - Druk */
 @font-face {
   font-family: 'Druk';
-  src: url('./assets/fonts/DrukWide-SuperItalic-Trial.otf') format('opentype');
+  src: url('./assets/fonts/woff2/DrukWide-SuperItalic-Trial.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -67,7 +88,7 @@ body {
 /* Font Face - Hyperspace Race Capsule */
 @font-face {
   font-family: 'Hyperspace Race Capsule';
-  src: url('./assets/fonts/HyperspaceRaceCapsule.otf') format('opentype');
+  src: url('./assets/fonts/woff2/HyperspaceRaceCapsule.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -76,7 +97,7 @@ body {
 /* Font Face - FatChubby */
 @font-face {
   font-family: 'FatChubby';
-  src: url('./assets/fonts/FatChubby.otf') format('opentype');
+  src: url('./assets/fonts/woff2/FatChubby.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -85,7 +106,7 @@ body {
 /* Font Face - EarlyQuake */
 @font-face {
   font-family: 'EarlyQuake';
-  src: url('./assets/fonts/EarlyQuake.otf') format('opentype');
+  src: url('./assets/fonts/woff2/EarlyQuake.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -94,7 +115,7 @@ body {
 /* Font Face - Hyperspace Race Capsule 2 */
 @font-face {
   font-family: 'Hyperspace Race Capsule 2';
-  src: url('./assets/fonts/HyperspaceRaceCapsule2.otf') format('opentype');
+  src: url('./assets/fonts/woff2/HyperspaceRaceCapsule2.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -103,7 +124,7 @@ body {
 /* Font Face - Nero */
 @font-face {
   font-family: 'Nero';
-  src: url('./assets/fonts/Nero.ttf') format('truetype');
+  src: url('./assets/fonts/woff2/Nero.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -112,7 +133,7 @@ body {
 /* Font Face - Unmatched */
 @font-face {
   font-family: 'Unmatched';
-  src: url('./assets/fonts/Unmatched.otf') format('opentype');
+  src: url('./assets/fonts/woff2/Unmatched.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -121,7 +142,7 @@ body {
 /* Font Face - Amerik */
 @font-face {
   font-family: 'Amerik';
-  src: url('./assets/fonts/amerik.otf') format('opentype');
+  src: url('./assets/fonts/woff2/amerik.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -130,7 +151,7 @@ body {
 /* Font Face - Avoerocksans */
 @font-face {
   font-family: 'Avoerocksans';
-  src: url('./assets/fonts/avoerocksans.otf') format('opentype');
+  src: url('./assets/fonts/woff2/avoerocksans.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -139,7 +160,7 @@ body {
 /* Font Face - Skybold */
 @font-face {
   font-family: 'Skybold';
-  src: url('./assets/fonts/skybold.otf') format('opentype');
+  src: url('./assets/fonts/woff2/skybold.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -148,7 +169,7 @@ body {
 /* Font Face - Monr */
 @font-face {
   font-family: 'Monr';
-  src: url('./assets/fonts/monr.otf') format('opentype');
+  src: url('./assets/fonts/woff2/monr.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -157,7 +178,7 @@ body {
 /* Font Face - Move-Today */
 @font-face {
   font-family: 'Move-Today';
-  src: url('./assets/fonts/move-today.otf') format('opentype');
+  src: url('./assets/fonts/woff2/move-today.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -166,7 +187,7 @@ body {
 /* Font Face - Delusi */
 @font-face {
   font-family: 'Delusi';
-  src: url('./assets/fonts/delusi.otf') format('opentype');
+  src: url('./assets/fonts/woff2/delusi.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -175,7 +196,7 @@ body {
 /* Font Face - DrukWide */
 @font-face {
   font-family: 'DrukWide';
-  src: url('./assets/fonts/DrukWide-SuperItalic-Trial.otf') format('opentype');
+  src: url('./assets/fonts/woff2/DrukWide-SuperItalic-Trial.woff2') format('woff2');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -184,7 +205,7 @@ body {
 /* Font Face - DrukWideBold */
 @font-face {
   font-family: 'DrukWideBold';
-  src: url('./assets/fonts/DrukWideBold.ttf') format('truetype');
+  src: url('./assets/fonts/woff2/DrukWideBold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -193,7 +214,7 @@ body {
 /* Font Face - Intan */
 @font-face {
   font-family: 'Intan';
-  src: url('./assets/fonts/Intan.otf') format('opentype');
+  src: url('./assets/fonts/woff2/Intan.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -202,7 +223,7 @@ body {
 /* Font Face - Raintion */
 @font-face {
   font-family: 'Raintion';
-  src: url('./assets/fonts/Raintion-Black.ttf') format('truetype');
+  src: url('./assets/fonts/woff2/Raintion-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -211,7 +232,7 @@ body {
 /* Font Face - Strretch Sans */
 @font-face {
   font-family: 'Strretch Sans';
-  src: url('./assets/fonts/STRRETCH SANS FREE.ttf') format('truetype');
+  src: url('./assets/fonts/woff2/STRRETCH SANS FREE.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -279,7 +300,7 @@ body {
 /* Font Face - FatChubby */
 @font-face {
   font-family: 'FatChubby';
-  src: url('./assets/fonts/FatChubby.otf') format('opentype');
+  src: url('./assets/fonts/woff2/FatChubby.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -288,7 +309,7 @@ body {
 /* Font Face - Rebook */
 @font-face {
   font-family: 'Rebook';
-  src: url('./assets/fonts/rebook.otf') format('opentype');
+  src: url('./assets/fonts/woff2/rebook.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -297,7 +318,7 @@ body {
 /* Font Face - Rondey-Regular */
 @font-face {
   font-family: 'Rondey-Regular';
-  src: url('./assets/fonts/rondey-regular.otf') format('opentype');
+  src: url('./assets/fonts/woff2/rondey-regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -306,7 +327,7 @@ body {
 /* Font Face - HyperspaceRaceCapsule2 */
 @font-face {
   font-family: 'HyperspaceRaceCapsule2';
-  src: url('./assets/fonts/HyperspaceRaceCapsule2.otf') format('opentype');
+  src: url('./assets/fonts/woff2/HyperspaceRaceCapsule2.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

@@ -1,20 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { ROULETTE_NUMBERS as NUMBERS, getRouletteColor as getColor, getRouletteRotation, randomIndex, resolveRouletteBet } from '../utils/extraGames';
 import './RouletteGame.css';
 
-const NUMBERS = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26];
-const RED_NUMBERS = new Set([1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]);
 const BET_AMOUNTS = [10, 25, 50, 100];
-
-const getColor = (number) => number === 0 ? 'green' : RED_NUMBERS.has(number) ? 'red' : 'black';
-
-const randomIndex = (length) => {
-  if (globalThis.crypto?.getRandomValues) {
-    const value = new Uint32Array(1);
-    globalThis.crypto.getRandomValues(value);
-    return value[0] % length;
-  }
-  return Math.floor(Math.random() * length);
-};
 
 const RouletteGame = () => {
   const [balance, setBalance] = useState(1000);
@@ -26,37 +14,41 @@ const RouletteGame = () => {
   const [ballAngle, setBallAngle] = useState(0);
   const [result, setResult] = useState(null);
   const timerRef = useRef(null);
+  const spinningRef = useRef(false);
 
-  useEffect(() => () => timerRef.current && window.clearTimeout(timerRef.current), []);
+  useEffect(() => () => {
+    if (timerRef.current !== null) window.clearTimeout(timerRef.current);
+    spinningRef.current = false;
+  }, []);
 
   const segments = useMemo(() => NUMBERS.map((number, index) => {
     const start = (index / NUMBERS.length) * 360;
     const end = ((index + 1) / NUMBERS.length) * 360;
-    const color = number === 0 ? '#2f9365' : RED_NUMBERS.has(number) ? '#b73542' : '#171920';
+    const color = number === 0 ? '#2f9365' : getColor(number) === 'red' ? '#b73542' : '#171920';
     return `${color} ${start}deg ${end}deg`;
   }).join(', '), []);
 
   const handleSpin = () => {
-    if (spinning || balance < betAmount) return;
+    if (spinningRef.current || balance < betAmount) return;
+    spinningRef.current = true;
     const resultIndex = randomIndex(NUMBERS.length);
     const winningNumber = NUMBERS[resultIndex];
-    const sector = 360 / NUMBERS.length;
-    const center = resultIndex * sector + sector / 2;
-    const extraRotation = (360 - ((wheelRotation + 1440 + center) % 360)) % 360;
+    const bet = { mode: betMode, number: selectedNumber, amount: betAmount };
 
     setSpinning(true);
     setResult(null);
     setBalance((value) => value - betAmount);
-    setBallAngle(0);
-    setWheelRotation((value) => value + 1440 + extraRotation);
+    // Cumulative rotations animate every spin and do not unwind after a result.
+    setBallAngle((value) => value - 1800);
+    setWheelRotation(getRouletteRotation(wheelRotation, resultIndex));
 
     timerRef.current = window.setTimeout(() => {
-      const color = getColor(winningNumber);
-      const won = betMode === 'number' ? winningNumber === selectedNumber : color === betMode;
-      const payout = won ? betAmount * (betMode === 'number' ? 36 : 2) : 0;
-      setBalance((value) => value + payout);
-      setResult({ number: winningNumber, color, won, payout });
+      timerRef.current = null;
+      const settled = resolveRouletteBet(winningNumber, bet);
+      setBalance((value) => value + settled.payout);
+      setResult(settled);
       setSpinning(false);
+      spinningRef.current = false;
     }, 4200);
   };
 
@@ -87,14 +79,14 @@ const RouletteGame = () => {
             <span className="game-control-label">Bet on</span>
             <div className="game-choice-row">
               {['red', 'black', 'green'].map((choice) => (
-                <button type="button" className={`roulette-color-choice roulette-color-choice--${choice}${betMode === choice ? ' is-selected' : ''}`} onClick={() => setBetMode(choice)} key={choice}>{choice}</button>
+                <button type="button" className={`roulette-color-choice roulette-color-choice--${choice}${betMode === choice ? ' is-selected' : ''}`} disabled={spinning} aria-pressed={betMode === choice} onClick={() => setBetMode(choice)} key={choice}>{choice}</button>
               ))}
-              <button type="button" className={`roulette-number-choice${betMode === 'number' ? ' is-selected' : ''}`} onClick={() => setBetMode('number')}>number</button>
+              <button type="button" className={`roulette-number-choice${betMode === 'number' ? ' is-selected' : ''}`} disabled={spinning} aria-pressed={betMode === 'number'} onClick={() => setBetMode('number')}>number</button>
             </div>
             {betMode === 'number' && (
               <div className="roulette-number-grid" aria-label="Choose a number">
                 {NUMBERS.slice().sort((a, b) => a - b).map((number) => (
-                  <button type="button" className={`${getColor(number)}${selectedNumber === number ? ' is-selected' : ''}`} onClick={() => { setSelectedNumber(number); setBetMode('number'); }} key={number}>{number}</button>
+                  <button type="button" className={`${getColor(number)}${selectedNumber === number ? ' is-selected' : ''}`} disabled={spinning} aria-pressed={selectedNumber === number} onClick={() => { setSelectedNumber(number); setBetMode('number'); }} key={number}>{number}</button>
                 ))}
               </div>
             )}
@@ -102,12 +94,12 @@ const RouletteGame = () => {
           <div className="game-control-group">
             <span className="game-control-label">Stake</span>
             <div className="game-choice-row game-choice-row--amounts">
-              {BET_AMOUNTS.map((amount) => <button type="button" className={betAmount === amount ? 'is-selected' : ''} onClick={() => setBetAmount(amount)} key={amount}>{amount}</button>)}
+              {BET_AMOUNTS.map((amount) => <button type="button" className={betAmount === amount ? 'is-selected' : ''} disabled={spinning} aria-pressed={betAmount === amount} onClick={() => setBetAmount(amount)} key={amount}>{amount}</button>)}
             </div>
           </div>
           <button type="button" className="game-primary-button" onClick={handleSpin} disabled={spinning || balance < betAmount}>{spinning ? 'Spinning…' : 'Spin the wheel'}</button>
           <p className={`game-result${result ? (result.won ? ' is-win' : ' is-loss') : ''}`} aria-live="polite">
-            {result ? <>It landed on <strong>{result.number}</strong>. {result.won ? `You won ${result.payout} credits.` : 'Better luck next spin.'}</> : 'Number bets pay 35:1 · colour bets pay 1:1'}
+            {result ? <>It landed on <strong>{result.number}</strong>. {result.won ? `You won ${result.payout} credits.` : 'Better luck next spin.'}</> : 'Number / green pays 35:1 · red / black pays 1:1'}
           </p>
           <p className="game-disclaimer">For fun only — no real-money betting.</p>
         </div>

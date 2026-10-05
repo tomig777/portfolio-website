@@ -1,0 +1,868 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-01T14:14:50.382Z",
+  "commit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "39c42a270827a1f057306ce9fdcf0032597b4f901c06a336c85fd613381daac1",
+  "knownIssueIds": [],
+  "snapshots": [
+    {
+      "name": "hero-phone-390x844",
+      "capturedAt": "2026-10-01T14:14:50.408Z",
+      "screenshot": "screenshots/hero-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": 894.6400146484375,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -50.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -50.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 801.796875,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -42.203125,
+              "width": 390,
+              "x": 0,
+              "y": -42.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 15209,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview",
+        "scrollTop": 0,
+        "scrollViewportRatio": 18.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:15:50.784Z",
+        "cls": 0,
+        "currentPath": "/",
+        "elapsedMs": 95033,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": {
+          "element": "SPAN",
+          "size": 12672,
+          "timeMs": 452
+        },
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 111,
+          "worst": [
+            {
+              "durationMs": 60,
+              "startTimeMs": 827.2000000476837
+            },
+            {
+              "durationMs": 51,
+              "startTimeMs": 353.2999999523163
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 43.79999995231629,
+          "loadEventMs": 56.5,
+          "responseEndMs": 6.599999904632568,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 28,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-LOT5wZwD.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.4,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 4.9,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-jB4Hu_Wc.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-DQ-wDkqx.js"
+            },
+            {
+              "decodedBodyBytes": 131542,
+              "durationMs": 3.7,
+              "encodedBodyBytes": 131542,
+              "initiator": "script",
+              "transferBytes": 131842,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CPOh1hjJ.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 3.7,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-DpNC1Wej.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74619,
+              "durationMs": 4.9,
+              "encodedBodyBytes": 74619,
+              "initiator": "script",
+              "transferBytes": 74919,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-B_RnK3af.js"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 50.3,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 66874,
+              "durationMs": 6.4,
+              "encodedBodyBytes": 66874,
+              "initiator": "link",
+              "transferBytes": 67174,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+            },
+            {
+              "decodedBodyBytes": 44196,
+              "durationMs": 5.8,
+              "encodedBodyBytes": 44196,
+              "initiator": "script",
+              "transferBytes": 44496,
+              "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+            },
+            {
+              "decodedBodyBytes": 26055,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 26055,
+              "initiator": "img",
+              "transferBytes": 26355,
+              "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+            },
+            {
+              "decodedBodyBytes": 25757,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 25757,
+              "initiator": "link",
+              "transferBytes": 26057,
+              "url": "http://127.0.0.1:4173/assets/index-vjvCJfJm.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            }
+          ],
+          "reportedTransferBytes": 4708237,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "native-hero-phone-390x844",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 844,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 14365,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15209,
+          "scrollTop": 0
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": null,
+          "tag": "BODY",
+          "text": "\n  WorkWorkAboutAboutContactContactGalleryGallery1TAMASGALA Budapest-based Hunga"
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 5250,
+            "rect": {
+              "bottom": 6094,
+              "height": 5250,
+              "left": 0,
+              "right": 390,
+              "top": 844,
+              "width": 390,
+              "x": 0,
+              "y": 844
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 9115,
+            "rect": {
+              "bottom": 15209,
+              "height": 9115,
+              "left": 0,
+              "right": 390,
+              "top": 6094,
+              "width": 390,
+              "x": 0,
+              "y": 6094
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 1688,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 844,
+              "width": 390,
+              "x": 0,
+              "y": 844
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 6938,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 6094,
+              "width": 390,
+              "x": 0,
+              "y": 6094
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "0",
+            "present": true,
+            "rect": {
+              "bottom": 6938,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 6094,
+              "width": 390,
+              "x": 0,
+              "y": 6094
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "hidden"
+          }
+        ],
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "capturedAt": "2026-10-01T14:15:51.222Z",
+      "screenshot": "screenshots/native-hero-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": -793.3599853515625,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -1738.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -1738.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": -886.203125,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -1730.203125,
+              "width": 390,
+              "x": 0,
+              "y": -1730.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 15209,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview",
+        "scrollTop": 1688,
+        "scrollViewportRatio": 18.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:16:21.783Z",
+        "cls": 0,
+        "currentPath": "/",
+        "elapsedMs": 126032,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": {
+          "element": "SPAN",
+          "size": 12672,
+          "timeMs": 452
+        },
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 111,
+          "worst": [
+            {
+              "durationMs": 60,
+              "startTimeMs": 827.2000000476837
+            },
+            {
+              "durationMs": 51,
+              "startTimeMs": 353.2999999523163
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 43.79999995231629,
+          "loadEventMs": 56.5,
+          "responseEndMs": 6.599999904632568,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 30,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-LOT5wZwD.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.4,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 4.9,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-jB4Hu_Wc.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-DQ-wDkqx.js"
+            },
+            {
+              "decodedBodyBytes": 131542,
+              "durationMs": 3.7,
+              "encodedBodyBytes": 131542,
+              "initiator": "script",
+              "transferBytes": 131842,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CPOh1hjJ.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 3.7,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-DpNC1Wej.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74619,
+              "durationMs": 4.9,
+              "encodedBodyBytes": 74619,
+              "initiator": "script",
+              "transferBytes": 74919,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-B_RnK3af.js"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 50.3,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 66874,
+              "durationMs": 6.4,
+              "encodedBodyBytes": 66874,
+              "initiator": "link",
+              "transferBytes": 67174,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+            },
+            {
+              "decodedBodyBytes": 44196,
+              "durationMs": 5.8,
+              "encodedBodyBytes": 44196,
+              "initiator": "script",
+              "transferBytes": 44496,
+              "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+            },
+            {
+              "decodedBodyBytes": 26055,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 26055,
+              "initiator": "img",
+              "transferBytes": 26355,
+              "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+            },
+            {
+              "decodedBodyBytes": 25757,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 25757,
+              "initiator": "link",
+              "transferBytes": 26057,
+              "url": "http://127.0.0.1:4173/assets/index-vjvCJfJm.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            }
+          ],
+          "reportedTransferBytes": 4716125,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "work-scroll-phone-390x844",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 844,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 14365,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15209,
+          "scrollTop": 1688
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": null,
+          "tag": "BODY",
+          "text": "\n  WorkWorkAboutAboutContactContactGalleryGallery1TAMASGALA Budapest-based Hunga"
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 5250,
+            "rect": {
+              "bottom": 4406,
+              "height": 5250,
+              "left": 0,
+              "right": 390,
+              "top": -844,
+              "width": 390,
+              "x": 0,
+              "y": -844
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 9115,
+            "rect": {
+              "bottom": 13521,
+              "height": 9115,
+              "left": 0,
+              "right": 390,
+              "top": 4406,
+              "width": 390,
+              "x": 0,
+              "y": 4406
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -1688,
+              "width": 390,
+              "x": 0,
+              "y": -1688
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 5250,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 4406,
+              "width": 390,
+              "x": 0,
+              "y": 4406
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "0",
+            "present": true,
+            "rect": {
+              "bottom": 5250,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 4406,
+              "width": 390,
+              "x": 0,
+              "y": 4406
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "hidden"
+          }
+        ],
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "capturedAt": "2026-10-01T14:16:22.056Z",
+      "screenshot": "screenshots/work-scroll-phone-390x844.jpg"
+    }
+  ],
+  "manualChecks": [
+    {
+      "name": "phone-uses-native-scroll-with-two-stable-pins",
+      "passed": true,
+      "evidence": {
+        "container": {
+          "clientHeight": 844,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 14365,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15209,
+          "scrollTop": 0
+        },
+        "pins": 2
+      },
+      "capturedAt": "2026-10-01T14:15:51.256Z"
+    },
+    {
+      "name": "phone-wheel-page-moves-one-native-viewport",
+      "passed": true,
+      "evidence": {
+        "afterScroll": 844,
+        "input": "one browser wheel page",
+        "viewportHeight": 844
+      },
+      "capturedAt": "2026-10-01T14:16:21.994Z"
+    },
+    {
+      "name": "candidate-can-continue-scrolling-through-pinned-work",
+      "passed": false,
+      "evidence": {
+        "scrollTop": 1688,
+        "note": "Repeated browser scrolling controls at the work scene did not advance the main scroller beyond 1688px; native pin mode is being tested."
+      },
+      "capturedAt": "2026-10-01T14:23:48.404Z"
+    }
+  ],
+  "notes": [
+    "Windows Chromium, DPR 1, viewport overrides only; no physical touch hardware or CPU throttling."
+  ]
+}

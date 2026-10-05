@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import { detectDevicePerformance, getPerformanceSettings } from '../utils/performance';
 import './Plasma.css';
+import { createAnimationLoop } from '../utils/animationLoop';
+import useGraphicsActivity from '../hooks/useGraphicsActivity';
 
 const hexToRgb = hex => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -43,8 +45,8 @@ void mainImage(out vec4 o, vec2 C) {
   vec2 mouseOffset = (uMouse - center) * 0.0002;
   C += mouseOffset * length(C - center) * step(0.5, uMouseInteractive);
   
-  float i, d, z, T = iTime * uSpeed * uDirection;
-  vec3 O, p, S;
+  float i = 0.0, d = 0.0, z = 0.0, T = iTime * uSpeed * uDirection;
+  vec3 O = vec3(0.0), p = vec3(0.0), S = vec3(0.0);
 
   for (vec2 r = iResolution.xy, Q; ++i < float(uIterations); O += o.w/d*o.xyz) {
     p = z*normalize(vec3(C-.5*r,r.y));
@@ -102,12 +104,36 @@ export const Plasma = ({
   paused = false
 }) => {
   const containerRef = useRef(null);
-  const mousePos = useRef({ x: 0, y: 0 });
-  const devicePerformance = detectDevicePerformance();
-  const settings = getPerformanceSettings(devicePerformance);
+  const [settings] = useState(() => getPerformanceSettings(detectDevicePerformance()));
+  const propsRef = useRef({});
+  const uniformsRef = useRef(null);
+  const animationRef = useRef(null);
+  const runningRef = useRef(false);
+  const { ready, running } = useGraphicsActivity(containerRef, !paused);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    runningRef.current = running;
+    animationRef.current?.setActive(running);
+  }, [running]);
+
+  useEffect(() => {
+    propsRef.current = { color, speed, direction, flowDirection, scale, opacity, mouseInteractive };
+    const uniforms = uniformsRef.current;
+    if (!uniforms) return;
+    uniforms.uCustomColor.value.set(color ? hexToRgb(color) : [1, 1, 1]);
+    uniforms.uUseCustomColor.value = color ? 1 : 0;
+    uniforms.uSpeed.value = speed * 0.4;
+    uniforms.uDirection.value = direction === 'reverse' ? -1 : 1;
+    uniforms.uHorizontal.value = flowDirection === 'horizontal' ? 1 : 0;
+    uniforms.uScale.value = scale;
+    uniforms.uOpacity.value = opacity;
+    uniforms.uMouseInteractive.value = mouseInteractive ? 1 : 0;
+  }, [color, speed, direction, flowDirection, scale, opacity, mouseInteractive]);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!ready || !container) return;
+    const { color, speed, direction, flowDirection, scale, opacity, mouseInteractive } = propsRef.current;
 
     const useCustomColor = color ? 1.0 : 0.0;
     const customColorRgb = color ? hexToRgb(color) : [1, 1, 1];
@@ -140,7 +166,7 @@ export const Plasma = ({
       canvas.style.top = '0';
       canvas.style.left = '0';
       canvas.style.zIndex = '1';
-      containerRef.current.appendChild(canvas);
+      container.appendChild(canvas);
 
       const geometry = new Triangle(gl);
 
@@ -164,24 +190,20 @@ export const Plasma = ({
       });
 
       const mesh = new Mesh(gl, { geometry, program });
+      uniformsRef.current = program.uniforms;
 
       const handleMouseMove = e => {
-        if (!mouseInteractive) return;
-        const rect = containerRef.current.getBoundingClientRect();
-        mousePos.current.x = e.clientX - rect.left;
-        mousePos.current.y = e.clientY - rect.top;
+        if (!propsRef.current.mouseInteractive || !runningRef.current) return;
+        const rect = container.getBoundingClientRect();
         const mouseUniform = program.uniforms.uMouse.value;
-        mouseUniform[0] = mousePos.current.x;
-        mouseUniform[1] = mousePos.current.y;
+        mouseUniform[0] = e.clientX - rect.left;
+        mouseUniform[1] = e.clientY - rect.top;
       };
 
-      if (mouseInteractive) {
-        containerRef.current.addEventListener('mousemove', handleMouseMove);
-      }
+      container.addEventListener('mousemove', handleMouseMove, { passive: true });
 
       const setSize = () => {
-        if (!containerRef.current) return;
-        const rect = containerRef.current.getBoundingClientRect();
+        const rect = container.getBoundingClientRect();
         const width = Math.max(1, Math.floor(rect.width));
         const height = Math.max(1, Math.floor(rect.height));
         renderer.setSize(width, height);
@@ -191,50 +213,39 @@ export const Plasma = ({
       };
 
       const ro = new ResizeObserver(setSize);
-      ro.observe(containerRef.current);
+      ro.observe(container);
       setSize();
 
-      let raf = 0;
       const t0 = window.performance.now();
       const loop = t => {
-        // Skip animation if paused
-        if (paused) {
-          raf = requestAnimationFrame(loop);
-          return;
-        }
-
-        let timeValue = (t - t0) * 0.001;
-
-        if (direction === 'pingpong') {
+        const timeValue = (t - t0) * 0.001;
+        if (propsRef.current.direction === 'pingpong') {
           const cycle = Math.sin(timeValue * 0.5) * directionMultiplier;
           program.uniforms.uDirection.value = cycle;
         }
 
         program.uniforms.iTime.value = timeValue;
         renderer.render({ scene: mesh });
-        raf = requestAnimationFrame(loop);
       };
-      raf = requestAnimationFrame(loop);
+      const animation = createAnimationLoop(loop, { maxFps: settings.frameRate, active: runningRef.current });
+      animationRef.current = animation;
 
       return () => {
-        cancelAnimationFrame(raf);
+        animation.dispose();
+        animationRef.current = null;
+        uniformsRef.current = null;
         ro.disconnect();
-        if (mouseInteractive && containerRef.current) {
-          containerRef.current.removeEventListener('mousemove', handleMouseMove);
-        }
-        try {
-          if (containerRef.current && containerRef.current.contains(canvas)) {
-            containerRef.current.removeChild(canvas);
-          }
-        } catch {
-          console.warn('Canvas already removed from container');
-        }
+        container.removeEventListener('mousemove', handleMouseMove);
+        geometry.remove();
+        program.remove();
+        canvas.remove();
+        gl.getExtension('WEBGL_lose_context')?.loseContext();
       };
     } catch (error) {
       console.error('Plasma component error:', error);
       console.error('Error details:', error.message, error.stack);
     }
-  }, [color, speed, direction, flowDirection, scale, opacity, mouseInteractive, paused]);
+  }, [ready, settings]);
 
   return (
     <div ref={containerRef} className="plasma-container" style={{

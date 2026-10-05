@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "buildReport": "build-final.json",
+  "sourceHash": "a814432b5d43827786db2ffc13216ea3d9ce8f9c0f8101316ac7164ee9098cd4",
+  "phone": {
+    "hero": {
+      "arms": 0,
+      "graphics": [
+        {
+          "class": "darkveil-canvas",
+          "state": "running"
+        },
+        {
+          "class": "lanyard-wrapper",
+          "state": "running"
+        },
+        {
+          "class": "wt-hero-role-window",
+          "state": "running"
+        }
+      ],
+      "header": {
+        "bottom": 80.59375,
+        "height": 40,
+        "left": 6.3046875,
+        "right": 383.6953125,
+        "top": 40.59375,
+        "width": 377.390625,
+        "x": 6.3046875,
+        "y": 40.59375
+      },
+      "scroll": [
+        {
+          "height": 844,
+          "top": 0,
+          "total": 15209
+        }
+      ],
+      "theme": "dark",
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    "finalScene": {
+      "hint": "Tap to open",
+      "scene": {
+        "opacity": "1",
+        "visibility": "visible"
+      },
+      "top": 14365,
+      "total": 15209
+    },
+    "about": {
+      "footer": "tamasgaldesign@gmail.comTamas Gal — Budapest",
+      "frame": {
+        "bottom": 1235.734375,
+        "height": 1235.734375,
+        "left": 14,
+        "right": 376,
+        "top": 0,
+        "width": 362,
+        "x": 14,
+        "y": 0
+      },
+      "hasLegacy": false,
+      "heading": "Hi, this is Tomi.",
+      "portrait": [
+        {
+          "complete": true,
+          "height": 1412,
+          "width": 1114
+        }
+      ]
+    },
+    "work": {
+      "bodyWidth": 390,
+      "heading": "Ideasin motion.",
+      "page": "Work archive",
+      "width": 390
+    },
+    "contact": {
+      "fields": [
+        {
+          "fontSize": "16px",
+          "name": "name"
+        },
+        {
+          "fontSize": "16px",
+          "name": "email"
+        },
+        {
+          "fontSize": "16px",
+          "name": "message"
+        }
+      ],
+      "overflowX": false,
+      "viewport": 390,
+      "width": 390
+    },
+    "console": []
+  },
+  "notes": [
+    "CSS viewport checks in Windows Chromium, not physical-device or touch emulation.",
+    "An initial saved screenshot was the default 1280x720 viewport; it is labeled accordingly, not treated as a phone result.",
+    "Navigation checks use settled menus. An early synthetic click during the opening motion missed Work; retrying after observing the settled menu opened it normally.",
+    "About and Work return via the actual Home control; a test assumption that a Back button or automatic menu restoration existed was discarded."
+  ],
+  "desktop": {
+    "hero": {
+      "arms": 1,
+      "graphics": [
+        {
+          "class": "darkveil-canvas",
+          "state": "running"
+        },
+        {
+          "class": "lanyard-wrapper",
+          "state": "running"
+        },
+        {
+          "class": "wt-hero-role-window",
+          "state": "running"
+        },
+        {
+          "class": "wt-bubble-ascii-hands",
+          "state": "paused"
+        }
+      ],
+      "scroll": [
+        {
+          "height": 900,
+          "top": 0,
+          "total": 17568
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    "finalScene": {
+      "arms": [
+        {
+          "glyphCharacters": 34800,
+          "maskHrefs": [
+            "/assets/hand-left-db1vllgp.svg",
+            "/assets/right-hand-jLymC5RD.svg"
+          ],
+          "visible": "visible"
+        }
+      ],
+      "hint": "Click to open",
+      "scene": {
+        "opacity": "1",
+        "visibility": "visible"
+      },
+      "top": 16200,
+      "total": 17568
+    },
+    "menu": {
+      "clock": "17:30:46 (GMT+2)",
+      "hasPlaceholder": false,
+      "socialLinks": [
+        "https://www.instagram.com/arhivetkg/",
+        "https://www.linkedin.com/in/tamasgal77/"
+      ],
+      "text": "Extra...Contact Me •HomeGalleryWorkAboutContactSocialInstagramLinkedIn17:30:46 (GMT+2)"
+    },
+    "console": []
+  },
+  "archive": {
+    "choices": "ACCESS GRANTED\n\nChoose an archive preview\n\nSelect the version you want to explore.\n\n1\nMOBILE PREVIEW\n2\nWEBSITE ARCHIVE\n×",
+    "initialVideos": [
+      {
+        "duration": 94.25,
+        "error": null,
+        "opacity": "1",
+        "paused": false,
+        "readyState": 4,
+        "src": "http://127.0.0.1:4173/assets/background-faststart-BHKXiF0y.mp4",
+        "time": 0.118205,
+        "zIndex": "1"
+      },
+      {
+        "duration": 94.25,
+        "error": null,
+        "opacity": "0",
+        "paused": true,
+        "readyState": 4,
+        "src": "http://127.0.0.1:4173/assets/background-faststart-BHKXiF0y.mp4",
+        "time": 0,
+        "zIndex": "2"
+      }
+    ],
+    "laterVideos": [
+      {
+        "duration": 94.25,
+        "error": null,
+        "opacity": "0",
+        "paused": true,
+        "readyState": 4,
+        "src": "http://127.0.0.1:4173/assets/background-faststart-BHKXiF0y.mp4",
+        "time": 0,
+        "zIndex": "2"
+      },
+      {
+        "duration": 94.25,
+        "error": null,
+        "opacity": "1",
+        "paused": false,
+        "readyState": 4,
+        "src": "http://127.0.0.1:4173/assets/background-faststart-BHKXiF0y.mp4",
+        "time": 55.307814,
+        "zIndex": "1"
+      }
+    ],
+    "exit": {
+      "choicesOpen": false,
+      "path": "/projects",
+      "videoCount": 0
+    }
+  }
+}

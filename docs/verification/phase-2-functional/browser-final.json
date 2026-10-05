@@ -1,0 +1,3737 @@
+{
+  "schemaVersion": 1,
+  "commit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "ee5502098bd08638d508bddbdd8b43f8b61e136069d2e024b802678f6b2a34fe",
+  "capturedAt": "2026-10-01T01:26:33.989Z",
+  "knownIssueIds": [],
+  "snapshots": [
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 568,
+        "documentScrollWidth": 320,
+        "header": {
+          "bottom": -136.953125,
+          "height": 118.859375,
+          "left": 14,
+          "right": 291,
+          "top": -255.8125,
+          "width": 277,
+          "x": 14,
+          "y": -255.8125
+        },
+        "mobileClass": false,
+        "scrollHeight": 568,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:26:51.880Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 18048,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.4,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 14,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5406,
+              "durationMs": 3,
+              "encodedBodyBytes": 5406,
+              "initiator": "link",
+              "transferBytes": 5706,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BrqDVggg.css"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-D-Dqdb0d.js"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-Dgm7aab6.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 3.4,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 403460,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        }
+      },
+      "observation": {
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "roulette-controls",
+              "clientHeight": 731,
+              "overflowY": "visible",
+              "scrollHeight": 731,
+              "tag": "DIV"
+            },
+            {
+              "className": "roulette-layout",
+              "clientHeight": 1031,
+              "overflowY": "visible",
+              "scrollHeight": 1031,
+              "tag": "SECTION"
+            },
+            {
+              "className": "roulette-game",
+              "clientHeight": 1290,
+              "overflowY": "auto",
+              "scrollHeight": 1290,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 1290,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "visible",
+              "scrollHeight": 568,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 568,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 568,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": false,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 837.0625,
+            "height": 48,
+            "left": 14,
+            "right": 291,
+            "top": 789.0625,
+            "width": 277,
+            "x": 14,
+            "y": 789.0625
+          },
+          "text": "Spin the wheel",
+          "withinHorizontalViewport": true
+        },
+        "roulette": {
+          "ball": {
+            "bottom": -84.12562561035156,
+            "height": 15,
+            "left": 145.6875,
+            "right": 160.6875,
+            "top": -99.12562561035156,
+            "width": 15,
+            "x": 145.6875,
+            "y": -99.12562561035156
+          },
+          "ballRadiusPx": 111.36781338437667,
+          "wheel": {
+            "bottom": 145.03125,
+            "height": 250.578125,
+            "left": 27.90625,
+            "right": 278.484375,
+            "top": -105.546875,
+            "width": 250.578125,
+            "x": 27.90625,
+            "y": -105.546875
+          },
+          "wheelRadiusPx": 125.5
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 568,
+        "width": 320
+      },
+      "name": "roulette-small-phone-number-bets-320x568",
+      "kind": "roulette",
+      "capturedAt": "2026-10-01T01:26:52.365Z",
+      "screenshot": "screenshots/final-roulette-small-phone-number-bets-320x568.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 1024,
+        "documentScrollWidth": 768,
+        "header": {
+          "bottom": -62.234375,
+          "height": 152.375,
+          "left": 36.5,
+          "right": 716.5,
+          "top": -214.609375,
+          "width": 680,
+          "x": 36.5,
+          "y": -214.609375
+        },
+        "mobileClass": false,
+        "scrollHeight": 1024,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:28:17.878Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 104045,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 14,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5406,
+              "durationMs": 3,
+              "encodedBodyBytes": 5406,
+              "initiator": "link",
+              "transferBytes": 5706,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BrqDVggg.css"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-D-Dqdb0d.js"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-Dgm7aab6.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 3.4,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 403460,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        }
+      },
+      "observation": {
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "roulette-controls",
+              "clientHeight": 575,
+              "overflowY": "visible",
+              "scrollHeight": 575,
+              "tag": "DIV"
+            },
+            {
+              "className": "roulette-layout",
+              "clientHeight": 1019,
+              "overflowY": "visible",
+              "scrollHeight": 1019,
+              "tag": "SECTION"
+            },
+            {
+              "className": "roulette-game",
+              "clientHeight": 1341,
+              "overflowY": "auto",
+              "scrollHeight": 1341,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 1024,
+              "overflowY": "auto",
+              "scrollHeight": 1341,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 1024,
+              "overflowY": "visible",
+              "scrollHeight": 1024,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 1024,
+              "overflowY": "auto",
+              "scrollHeight": 1024,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 1024,
+              "overflowY": "auto",
+              "scrollHeight": 1024,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": true,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 890.49658203125,
+            "height": 48,
+            "left": 116.5,
+            "right": 636.5,
+            "top": 842.49658203125,
+            "width": 520,
+            "x": 116.5,
+            "y": 842.49658203125
+          },
+          "text": "Spin the wheel",
+          "withinHorizontalViewport": true
+        },
+        "roulette": {
+          "ball": {
+            "bottom": 7.265625,
+            "height": 15,
+            "left": 369,
+            "right": 384,
+            "top": -7.734375,
+            "width": 15,
+            "x": 369,
+            "y": -7.734375
+          },
+          "ballRadiusPx": 168,
+          "wheel": {
+            "bottom": 403.82464599609375,
+            "height": 472.1180419921875,
+            "left": 140.44097900390625,
+            "right": 612.5590209960938,
+            "top": -68.29339599609375,
+            "width": 472.1180419921875,
+            "x": 140.44097900390625,
+            "y": -68.29339599609375
+          },
+          "wheelRadiusPx": 189
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 1024,
+        "width": 768
+      },
+      "name": "roulette-tablet-768x1024",
+      "kind": "roulette",
+      "capturedAt": "2026-10-01T01:28:18.437Z",
+      "screenshot": "screenshots/final-roulette-tablet-768x1024.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 900,
+        "documentScrollWidth": 1440,
+        "header": {
+          "bottom": 284.34375,
+          "height": 191.546875,
+          "left": 380,
+          "right": 1060,
+          "top": 92.796875,
+          "width": 680,
+          "x": 380,
+          "y": 92.796875
+        },
+        "mobileClass": false,
+        "scrollHeight": 900,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:28:17.878Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 104045,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 14,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5406,
+              "durationMs": 3,
+              "encodedBodyBytes": 5406,
+              "initiator": "link",
+              "transferBytes": 5706,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BrqDVggg.css"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-D-Dqdb0d.js"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-Dgm7aab6.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 3.4,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 403460,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        }
+      },
+      "observation": {
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "roulette-controls",
+              "clientHeight": 491,
+              "overflowY": "visible",
+              "scrollHeight": 491,
+              "tag": "DIV"
+            },
+            {
+              "className": "roulette-layout",
+              "clientHeight": 510,
+              "overflowY": "visible",
+              "scrollHeight": 542,
+              "tag": "SECTION"
+            },
+            {
+              "className": "roulette-game",
+              "clientHeight": 900,
+              "overflowY": "auto",
+              "scrollHeight": 900,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 900,
+              "overflowY": "auto",
+              "scrollHeight": 900,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 900,
+              "overflowY": "visible",
+              "scrollHeight": 900,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 900,
+              "overflowY": "auto",
+              "scrollHeight": 900,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 900,
+              "overflowY": "auto",
+              "scrollHeight": 900,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": true,
+          "hasScrollableAncestor": false,
+          "rect": {
+            "bottom": 732.086669921875,
+            "height": 48,
+            "left": 840.390625,
+            "right": 1230.390625,
+            "top": 684.086669921875,
+            "width": 390,
+            "x": 840.390625,
+            "y": 684.086669921875
+          },
+          "text": "Spin the wheel",
+          "withinHorizontalViewport": true
+        },
+        "roulette": {
+          "ball": {
+            "bottom": 374.84375,
+            "height": 15,
+            "left": 467.09375,
+            "right": 482.09375,
+            "top": 359.84375,
+            "width": 15,
+            "x": 467.09375,
+            "y": 359.84375
+          },
+          "ballRadiusPx": 203.99996948242415,
+          "wheel": {
+            "bottom": 857.9867858886719,
+            "height": 573.2861328125,
+            "left": 187.95065307617188,
+            "right": 761.2367858886719,
+            "top": 284.7006530761719,
+            "width": 573.2861328125,
+            "x": 187.95065307617188,
+            "y": 284.7006530761719
+          },
+          "wheelRadiusPx": 229.5
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      },
+      "name": "roulette-desktop-1440x900",
+      "kind": "roulette",
+      "capturedAt": "2026-10-01T01:28:18.534Z",
+      "screenshot": "screenshots/final-roulette-desktop-1440x900.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 900,
+        "documentScrollWidth": 1440,
+        "header": {
+          "bottom": 284.34375,
+          "height": 191.546875,
+          "left": 380,
+          "right": 1060,
+          "top": 92.796875,
+          "width": 680,
+          "x": 380,
+          "y": 92.796875
+        },
+        "mobileClass": false,
+        "scrollHeight": 900,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:29:13.878Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 160045,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1151
+        },
+        "resources": {
+          "count": 18,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5406,
+              "durationMs": 3,
+              "encodedBodyBytes": 5406,
+              "initiator": "link",
+              "transferBytes": 5706,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BrqDVggg.css"
+            },
+            {
+              "decodedBodyBytes": 4336,
+              "durationMs": 3.9,
+              "encodedBodyBytes": 4336,
+              "initiator": "script",
+              "transferBytes": 4636,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-BCVKGtpm.js"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-D-Dqdb0d.js"
+            },
+            {
+              "decodedBodyBytes": 3033,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 3033,
+              "initiator": "link",
+              "transferBytes": 3333,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-YsexX9xp.css"
+            }
+          ],
+          "reportedTransferBytes": 430942,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "observation": {
+        "finishedRace": {
+          "carFrontsX": [
+            827.4031372070312,
+            787.74560546875,
+            766.935546875,
+            807.2171630859375,
+            719.310791015625
+          ],
+          "carTransforms": [
+            "matrix(1, 0, 0, 1, 590.606, -14)",
+            "matrix(1, 0, 0, 1, 550.949, -14)",
+            "matrix(1, 0, 0, 1, 530.139, -14)",
+            "matrix(1, 0, 0, 1, 570.42, -14)",
+            "matrix(1, 0, 0, 1, 482.514, -14)"
+          ],
+          "finishLineX": 827.40625,
+          "result": "Comet takes the flag. You won 125 credits.",
+          "winner": "Comet",
+          "winnerFrontX": 827.4031372070312
+        },
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "racing-controls",
+              "clientHeight": 365,
+              "overflowY": "visible",
+              "scrollHeight": 365,
+              "tag": "DIV"
+            },
+            {
+              "className": "racing-layout",
+              "clientHeight": 463,
+              "overflowY": "visible",
+              "scrollHeight": 463,
+              "tag": "SECTION"
+            },
+            {
+              "className": "racing-game",
+              "clientHeight": 900,
+              "overflowY": "auto",
+              "scrollHeight": 900,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 900,
+              "overflowY": "auto",
+              "scrollHeight": 900,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 900,
+              "overflowY": "visible",
+              "scrollHeight": 900,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 900,
+              "overflowY": "auto",
+              "scrollHeight": 900,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 900,
+              "overflowY": "auto",
+              "scrollHeight": 900,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": true,
+          "hasScrollableAncestor": false,
+          "rect": {
+            "bottom": 680.15625,
+            "height": 48,
+            "left": 966.390625,
+            "right": 1054.625,
+            "top": 632.15625,
+            "width": 88.234375,
+            "x": 966.390625,
+            "y": 632.15625
+          },
+          "text": "Start the race",
+          "withinHorizontalViewport": true
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      },
+      "name": "race-desktop-finished-1440x900",
+      "kind": "race-finished",
+      "capturedAt": "2026-10-01T01:29:14.119Z",
+      "screenshot": "screenshots/final-race-desktop-finished-1440x900.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 203.25,
+          "height": 118.859375,
+          "left": 15.59375,
+          "right": 359.40625,
+          "top": 84.390625,
+          "width": 343.8125,
+          "x": 15.59375,
+          "y": 84.390625
+        },
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:29:13.878Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 160045,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1151
+        },
+        "resources": {
+          "count": 18,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5406,
+              "durationMs": 3,
+              "encodedBodyBytes": 5406,
+              "initiator": "link",
+              "transferBytes": 5706,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BrqDVggg.css"
+            },
+            {
+              "decodedBodyBytes": 4336,
+              "durationMs": 3.9,
+              "encodedBodyBytes": 4336,
+              "initiator": "script",
+              "transferBytes": 4636,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-BCVKGtpm.js"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-D-Dqdb0d.js"
+            },
+            {
+              "decodedBodyBytes": 3033,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 3033,
+              "initiator": "link",
+              "transferBytes": 3333,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-YsexX9xp.css"
+            }
+          ],
+          "reportedTransferBytes": 430942,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "observation": {
+        "finishedRace": {
+          "carFrontsX": [
+            311.0062561035156,
+            298.31396484375,
+            291.6537780761719,
+            304.5457763671875,
+            276.41162109375
+          ],
+          "carTransforms": [
+            "matrix(1, 0, 0, 1, 189.022, -14)",
+            "matrix(1, 0, 0, 1, 176.33, -14)",
+            "matrix(1, 0, 0, 1, 169.669, -14)",
+            "matrix(1, 0, 0, 1, 182.561, -14)",
+            "matrix(1, 0, 0, 1, 154.427, -14)"
+          ],
+          "finishLineX": 311.015625,
+          "result": "Comet takes the flag. You won 125 credits.",
+          "winner": "Comet",
+          "winnerFrontX": 311.0062561035156
+        },
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "racing-controls",
+              "clientHeight": 351,
+              "overflowY": "visible",
+              "scrollHeight": 351,
+              "tag": "DIV"
+            },
+            {
+              "className": "racing-layout",
+              "clientHeight": 709,
+              "overflowY": "visible",
+              "scrollHeight": 709,
+              "tag": "SECTION"
+            },
+            {
+              "className": "racing-game",
+              "clientHeight": 972,
+              "overflowY": "auto",
+              "scrollHeight": 972,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 972,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "visible",
+              "scrollHeight": 844,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": false,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 886.2926635742188,
+            "height": 48,
+            "left": 15.59375,
+            "right": 103.828125,
+            "top": 838.2926635742188,
+            "width": 88.234375,
+            "x": 15.59375,
+            "y": 838.2926635742188
+          },
+          "text": "Start the race",
+          "withinHorizontalViewport": true
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "race-phone-finished-390x844",
+      "kind": "race-finished",
+      "capturedAt": "2026-10-01T01:29:14.204Z",
+      "screenshot": "screenshots/final-race-phone-finished-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 568,
+        "documentScrollWidth": 320,
+        "header": {
+          "bottom": 200.046875,
+          "height": 118.859375,
+          "left": 14,
+          "right": 291,
+          "top": 81.1875,
+          "width": 277,
+          "x": 14,
+          "y": 81.1875
+        },
+        "mobileClass": false,
+        "scrollHeight": 568,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:29:13.878Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 160045,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1151
+        },
+        "resources": {
+          "count": 18,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5406,
+              "durationMs": 3,
+              "encodedBodyBytes": 5406,
+              "initiator": "link",
+              "transferBytes": 5706,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BrqDVggg.css"
+            },
+            {
+              "decodedBodyBytes": 4336,
+              "durationMs": 3.9,
+              "encodedBodyBytes": 4336,
+              "initiator": "script",
+              "transferBytes": 4636,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-BCVKGtpm.js"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-D-Dqdb0d.js"
+            },
+            {
+              "decodedBodyBytes": 3033,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 3033,
+              "initiator": "link",
+              "transferBytes": 3333,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-YsexX9xp.css"
+            }
+          ],
+          "reportedTransferBytes": 430942,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "observation": {
+        "finishedRace": {
+          "carFrontsX": [
+            242.6000061035156,
+            234.39398193359375,
+            230.0879364013672,
+            238.4230804443359,
+            220.23333740234375
+          ],
+          "carTransforms": [
+            "matrix(1, 0, 0, 1, 122.209, -14)",
+            "matrix(1, 0, 0, 1, 114.003, -14)",
+            "matrix(1, 0, 0, 1, 109.697, -14)",
+            "matrix(1, 0, 0, 1, 118.032, -14)",
+            "matrix(1, 0, 0, 1, 99.8427, -14)"
+          ],
+          "finishLineX": 242.609375,
+          "result": "Comet takes the flag. You won 125 credits.",
+          "winner": "Comet",
+          "winnerFrontX": 242.6000061035156
+        },
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "racing-controls",
+              "clientHeight": 351,
+              "overflowY": "visible",
+              "scrollHeight": 351,
+              "tag": "DIV"
+            },
+            {
+              "className": "racing-layout",
+              "clientHeight": 709,
+              "overflowY": "visible",
+              "scrollHeight": 709,
+              "tag": "SECTION"
+            },
+            {
+              "className": "racing-game",
+              "clientHeight": 969,
+              "overflowY": "auto",
+              "scrollHeight": 969,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 969,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "visible",
+              "scrollHeight": 568,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 568,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 568,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": false,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 884.22412109375,
+            "height": 48,
+            "left": 14,
+            "right": 102.234375,
+            "top": 836.22412109375,
+            "width": 88.234375,
+            "x": 14,
+            "y": 836.22412109375
+          },
+          "text": "Start the race",
+          "withinHorizontalViewport": true
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 568,
+        "width": 320
+      },
+      "name": "race-small-phone-finished-320x568",
+      "kind": "race-finished",
+      "capturedAt": "2026-10-01T01:29:14.265Z",
+      "screenshot": "screenshots/final-race-small-phone-finished-320x568.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 292.796875,
+          "height": 18,
+          "left": 111,
+          "right": 279,
+          "top": 274.796875,
+          "width": 168,
+          "x": 111,
+          "y": 274.796875
+        },
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:30:56.879Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 263046,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.7,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 27,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-TS_lYNPu.js"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 22032,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 22032,
+              "initiator": "script",
+              "transferBytes": 22332,
+              "url": "http://127.0.0.1:4173/assets/MusicPlayer-DuSSvuyP.js"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 16125,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 16125,
+              "initiator": "link",
+              "transferBytes": 16425,
+              "url": "http://127.0.0.1:4173/assets/MusicPlayer-CDCxhfht.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.4,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            }
+          ],
+          "reportedTransferBytes": 691399,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "music-phone-initial-390x844",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T01:30:56.981Z",
+      "screenshot": "screenshots/final-music-phone-initial-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 900,
+        "documentScrollWidth": 1440,
+        "header": {
+          "bottom": 207.296875,
+          "height": 23,
+          "left": 577,
+          "right": 863,
+          "top": 184.296875,
+          "width": 286,
+          "x": 577,
+          "y": 184.296875
+        },
+        "mobileClass": false,
+        "scrollHeight": 900,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:33:03.879Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 390046,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.4,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 29,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2726012,
+              "durationMs": 6.6,
+              "encodedBodyBytes": 2726012,
+              "initiator": "audio",
+              "transferBytes": 2726312,
+              "url": "http://127.0.0.1:4173/assets/chakras-CmplIeHn.mp3"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-TS_lYNPu.js"
+            },
+            {
+              "decodedBodyBytes": 75020,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 75020,
+              "initiator": "img",
+              "transferBytes": 75320,
+              "url": "http://127.0.0.1:4173/assets/mbdtf_cover-BGKF6Gfy.jpg"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 22032,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 22032,
+              "initiator": "script",
+              "transferBytes": 22332,
+              "url": "http://127.0.0.1:4173/assets/MusicPlayer-DuSSvuyP.js"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 16125,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 16125,
+              "initiator": "link",
+              "transferBytes": 16425,
+              "url": "http://127.0.0.1:4173/assets/MusicPlayer-CDCxhfht.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            }
+          ],
+          "reportedTransferBytes": 3493031,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      },
+      "name": "music-desktop-after-ended-1440x900",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T01:33:04.680Z",
+      "screenshot": "screenshots/final-music-desktop-after-ended-1440x900.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 292.796875,
+          "height": 18,
+          "left": 111,
+          "right": 279,
+          "top": 274.796875,
+          "width": 168,
+          "x": 111,
+          "y": 274.796875
+        },
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:33:04.881Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 391048,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 57.29999995231629,
+          "loadEventMs": 68.5,
+          "responseEndMs": 3.799999952316284,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.4,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 29,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2726012,
+              "durationMs": 6.6,
+              "encodedBodyBytes": 2726012,
+              "initiator": "audio",
+              "transferBytes": 2726312,
+              "url": "http://127.0.0.1:4173/assets/chakras-CmplIeHn.mp3"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 3.3,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-TS_lYNPu.js"
+            },
+            {
+              "decodedBodyBytes": 75020,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 75020,
+              "initiator": "img",
+              "transferBytes": 75320,
+              "url": "http://127.0.0.1:4173/assets/mbdtf_cover-BGKF6Gfy.jpg"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.4,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 22032,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 22032,
+              "initiator": "script",
+              "transferBytes": 22332,
+              "url": "http://127.0.0.1:4173/assets/MusicPlayer-DuSSvuyP.js"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 16125,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 16125,
+              "initiator": "link",
+              "transferBytes": 16425,
+              "url": "http://127.0.0.1:4173/assets/MusicPlayer-CDCxhfht.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.1,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-BN98vGnJ.js"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            }
+          ],
+          "reportedTransferBytes": 3493031,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "music-phone-paused-next-390x844",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T01:33:05.360Z",
+      "screenshot": "screenshots/final-music-phone-paused-next-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": 894.6400146484375,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -50.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -50.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 801.796875,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -42.203125,
+              "width": 390,
+              "x": 0,
+              "y": -42.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 16897,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview lenis lenis-stopped",
+        "scrollTop": 0,
+        "scrollViewportRatio": 20.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:37:15.031Z",
+        "cls": 0,
+        "currentPath": "/",
+        "elapsedMs": 28048,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": {
+          "element": "SPAN",
+          "size": 12672,
+          "timeMs": 456
+        },
+        "longTasks": {
+          "count": 1,
+          "recent8sCount": 0,
+          "totalDurationMs": 62,
+          "worst": [
+            {
+              "durationMs": 62,
+              "startTimeMs": 831.7999999523163
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 55.29999995231629,
+          "loadEventMs": 66.90000009536743,
+          "responseEndMs": 4,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 30,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-REc0f0QW.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5.4,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 4.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.4,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-CQHrzQVH.js"
+            },
+            {
+              "decodedBodyBytes": 129621,
+              "durationMs": 5.6,
+              "encodedBodyBytes": 129621,
+              "initiator": "script",
+              "transferBytes": 129921,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-OznDiBwP.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4.5,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-DuCkcAZv.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 39.5,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 4.7,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-oKPUNHA4.js"
+            },
+            {
+              "decodedBodyBytes": 65789,
+              "durationMs": 6.5,
+              "encodedBodyBytes": 65789,
+              "initiator": "link",
+              "transferBytes": 66089,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CyritHv9.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 44196,
+              "durationMs": 5.9,
+              "encodedBodyBytes": 44196,
+              "initiator": "script",
+              "transferBytes": 44496,
+              "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+            },
+            {
+              "decodedBodyBytes": 26055,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 26055,
+              "initiator": "img",
+              "transferBytes": 26355,
+              "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+            }
+          ],
+          "reportedTransferBytes": 4700776,
+          "zeroOrUnavailableTransferCount": 4
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "socialLinks": [
+          {
+            "anchor": true,
+            "href": "https://www.instagram.com/arhivetkg/",
+            "text": "Instagram"
+          },
+          {
+            "anchor": true,
+            "href": "https://www.linkedin.com/in/tamasgal77/",
+            "text": "LinkedIn"
+          }
+        ]
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "menu-phone-390x844",
+      "kind": "menu",
+      "capturedAt": "2026-10-01T01:37:15.184Z",
+      "screenshot": "screenshots/final-menu-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": -793.3599853515625,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -1738.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -1738.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": -886.203125,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -1730.203125,
+              "width": 390,
+              "x": 0,
+              "y": -1730.203125
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 2532,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview wt-case-open lenis lenis-stopped",
+        "scrollTop": 1688,
+        "scrollViewportRatio": 3
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:39:21.034Z",
+        "cls": 1,
+        "currentPath": "/",
+        "elapsedMs": 154051,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": {
+          "element": "SPAN",
+          "size": 12672,
+          "timeMs": 456
+        },
+        "longTasks": {
+          "count": 1,
+          "recent8sCount": 0,
+          "totalDurationMs": 62,
+          "worst": [
+            {
+              "durationMs": 62,
+              "startTimeMs": 831.7999999523163
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 55.29999995231629,
+          "loadEventMs": 66.90000009536743,
+          "responseEndMs": 4,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 14,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1151
+        },
+        "resources": {
+          "count": 40,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-REc0f0QW.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5.4,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 4.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.4,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-CQHrzQVH.js"
+            },
+            {
+              "decodedBodyBytes": 149244,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 149244,
+              "initiator": "css",
+              "transferBytes": 149544,
+              "url": "http://127.0.0.1:4173/assets/exhibit-wheat-ug1BVoxg.jpg"
+            },
+            {
+              "decodedBodyBytes": 139455,
+              "durationMs": 3,
+              "encodedBodyBytes": 139455,
+              "initiator": "css",
+              "transferBytes": 139755,
+              "url": "http://127.0.0.1:4173/assets/exhibit-blossom-5lZBG2dU.jpg"
+            },
+            {
+              "decodedBodyBytes": 134443,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 134443,
+              "initiator": "css",
+              "transferBytes": 134743,
+              "url": "http://127.0.0.1:4173/assets/exhibit-autumn-HjoKwBGz.jpg"
+            },
+            {
+              "decodedBodyBytes": 129621,
+              "durationMs": 5.6,
+              "encodedBodyBytes": 129621,
+              "initiator": "script",
+              "transferBytes": 129921,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-OznDiBwP.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4.5,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-DuCkcAZv.js"
+            },
+            {
+              "decodedBodyBytes": 124806,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 124806,
+              "initiator": "css",
+              "transferBytes": 125106,
+              "url": "http://127.0.0.1:4173/assets/exhibit-forest-UMfUPoW1.jpg"
+            },
+            {
+              "decodedBodyBytes": 122143,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 122143,
+              "initiator": "css",
+              "transferBytes": 122443,
+              "url": "http://127.0.0.1:4173/assets/exhibit-lavender-DP24WG1R.jpg"
+            },
+            {
+              "decodedBodyBytes": 120558,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 120558,
+              "initiator": "css",
+              "transferBytes": 120858,
+              "url": "http://127.0.0.1:4173/assets/exhibit-blueberry-CTPz0_JH.jpg"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 39.5,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            }
+          ],
+          "reportedTransferBytes": 5509364,
+          "zeroOrUnavailableTransferCount": 4
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "invalidVideoSources": 0
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "case-study-phone-390x844",
+      "kind": "case-study",
+      "capturedAt": "2026-10-01T01:39:21.080Z",
+      "screenshot": "screenshots/final-case-study-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 1170,
+            "backingWidth": 1852,
+            "rect": {
+              "bottom": -734,
+              "height": 1008,
+              "left": -85.5,
+              "right": 1510.5,
+              "top": -1742,
+              "width": 1596,
+              "x": -85.5,
+              "y": -1742
+            }
+          },
+          {
+            "backingHeight": 900,
+            "backingWidth": 1440,
+            "rect": {
+              "bottom": 900,
+              "height": 900,
+              "left": 0,
+              "right": 1440,
+              "top": 0,
+              "width": 1440,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 900,
+            "backingWidth": 1425,
+            "rect": {
+              "bottom": -833,
+              "height": 900,
+              "left": 0,
+              "right": 1425,
+              "top": -1733,
+              "width": 1425,
+              "x": 0,
+              "y": -1733
+            }
+          },
+          {
+            "backingHeight": 900,
+            "backingWidth": 1440,
+            "rect": {
+              "bottom": 922,
+              "height": 900,
+              "left": -7.5,
+              "right": 1432.5,
+              "top": 22,
+              "width": 1440,
+              "x": -7.5,
+              "y": 22
+            }
+          }
+        ],
+        "clientHeight": 900,
+        "documentScrollWidth": 1440,
+        "header": {
+          "bottom": 76,
+          "height": 56,
+          "left": 629,
+          "right": 811,
+          "top": 20,
+          "width": 182,
+          "x": 629,
+          "y": 20
+        },
+        "mobileClass": false,
+        "scrollHeight": 2610,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-case-open lenis lenis-scrolling",
+        "scrollTop": 1688,
+        "scrollViewportRatio": 2.9
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:39:50.030Z",
+        "cls": 1,
+        "currentPath": "/",
+        "elapsedMs": 183047,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": {
+          "element": "SPAN",
+          "size": 12672,
+          "timeMs": 456
+        },
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 130,
+          "worst": [
+            {
+              "durationMs": 68,
+              "startTimeMs": 162057.60000014305
+            },
+            {
+              "durationMs": 62,
+              "startTimeMs": 831.7999999523163
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 55.29999995231629,
+          "loadEventMs": 66.90000009536743,
+          "responseEndMs": 4,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.4,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1151
+        },
+        "resources": {
+          "count": 49,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2596316,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 2596316,
+              "initiator": "video",
+              "transferBytes": 2596616,
+              "url": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-REc0f0QW.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5.4,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 4.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 8.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.4,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.8,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-CQHrzQVH.js"
+            },
+            {
+              "decodedBodyBytes": 149244,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 149244,
+              "initiator": "css",
+              "transferBytes": 149544,
+              "url": "http://127.0.0.1:4173/assets/exhibit-wheat-ug1BVoxg.jpg"
+            },
+            {
+              "decodedBodyBytes": 141545,
+              "durationMs": 2,
+              "encodedBodyBytes": 141545,
+              "initiator": "image",
+              "transferBytes": 141845,
+              "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+            },
+            {
+              "decodedBodyBytes": 139455,
+              "durationMs": 3,
+              "encodedBodyBytes": 139455,
+              "initiator": "css",
+              "transferBytes": 139755,
+              "url": "http://127.0.0.1:4173/assets/exhibit-blossom-5lZBG2dU.jpg"
+            },
+            {
+              "decodedBodyBytes": 134443,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 134443,
+              "initiator": "css",
+              "transferBytes": 134743,
+              "url": "http://127.0.0.1:4173/assets/exhibit-autumn-HjoKwBGz.jpg"
+            },
+            {
+              "decodedBodyBytes": 129621,
+              "durationMs": 5.6,
+              "encodedBodyBytes": 129621,
+              "initiator": "script",
+              "transferBytes": 129921,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-OznDiBwP.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4.5,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-DuCkcAZv.js"
+            },
+            {
+              "decodedBodyBytes": 124806,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 124806,
+              "initiator": "css",
+              "transferBytes": 125106,
+              "url": "http://127.0.0.1:4173/assets/exhibit-forest-UMfUPoW1.jpg"
+            },
+            {
+              "decodedBodyBytes": 122143,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 122143,
+              "initiator": "css",
+              "transferBytes": 122443,
+              "url": "http://127.0.0.1:4173/assets/exhibit-lavender-DP24WG1R.jpg"
+            },
+            {
+              "decodedBodyBytes": 120558,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 120558,
+              "initiator": "css",
+              "transferBytes": 120858,
+              "url": "http://127.0.0.1:4173/assets/exhibit-blueberry-CTPz0_JH.jpg"
+            }
+          ],
+          "reportedTransferBytes": 8365662,
+          "zeroOrUnavailableTransferCount": 4
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "observation": {
+        "invalidVideoSources": 0
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      },
+      "name": "case-study-desktop-1440x900",
+      "kind": "case-study",
+      "capturedAt": "2026-10-01T01:39:50.263Z",
+      "screenshot": "screenshots/final-case-study-desktop-1440x900.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": null,
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:40:16.458Z",
+        "cls": 0,
+        "currentPath": "/baseline-missing-route",
+        "elapsedMs": 18036,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/baseline-missing-route",
+        "largestContentfulPaint": {
+          "element": "H1",
+          "size": 8022,
+          "timeMs": 356
+        },
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 34.89999985694885,
+          "loadEventMs": 36.5,
+          "responseEndMs": 3.299999952316284,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 13.9,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1151
+        },
+        "resources": {
+          "count": 8,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-Bzx5UO4N.js"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 32292,
+              "durationMs": 0,
+              "encodedBodyBytes": 32292,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 7.8,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 0,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 508,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 508,
+              "initiator": "script",
+              "transferBytes": 808,
+              "url": "http://127.0.0.1:4173/assets/NotFound-20oVnphj.js"
+            }
+          ],
+          "reportedTransferBytes": 261523,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "missingRoute": {
+          "headings": 1,
+          "rootText": "404 / NOT FOUNDLost in orbit.This page isn’t here, but there’s plenty to explore.Back homeOpen extras",
+          "visibleActions": 2
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/baseline-missing-route",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "unknown-route-phone-390x844",
+      "kind": "missing-route",
+      "capturedAt": "2026-10-01T01:40:16.879Z",
+      "screenshot": "screenshots/final-unknown-route-phone-390x844.jpg"
+    }
+  ],
+  "manualChecks": [
+    {
+      "name": "Small-phone number grid fits and retains 44px touch targets",
+      "passed": true,
+      "actual": {
+        "buttons": [
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.609375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.609375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.609375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.609375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.609375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.609375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.609375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          },
+          {
+            "height": 44,
+            "width": 52.59375
+          }
+        ],
+        "columns": "52.5938px 52.5938px 52.6094px 52.5938px 52.5938px",
+        "panel": {
+          "bottom": 911.34375,
+          "height": 731.40625,
+          "left": 14,
+          "right": 291,
+          "top": 179.9375,
+          "width": 277,
+          "x": 14,
+          "y": 179.9375
+        },
+        "width": 320
+      }
+    },
+    {
+      "name": "Final roulette result aligns with the ball",
+      "passed": true,
+      "actual": {
+        "alignmentErrorDegrees": 0.0029729729731116095,
+        "balance": "975",
+        "ballAngle": -1800,
+        "buttonEnabled": true,
+        "result": "18",
+        "rotation": 1512.97,
+        "sector": 287.02702702702703
+      }
+    },
+    {
+      "name": "Final race locks its bet during the round",
+      "passed": true,
+      "actual": {
+        "balance": "975",
+        "locked": true
+      }
+    },
+    {
+      "name": "Repeat race resets the cars at small-phone size",
+      "passed": true,
+      "actual": {
+        "finish": 242.609375,
+        "fronts": [
+          156.4635467529297,
+          148.94688415527344,
+          152.86642456054688,
+          154.13723754882812,
+          149.00994873046875
+        ]
+      }
+    },
+    {
+      "name": "Music starts with Chakras and shuffle can be disabled while playing",
+      "passed": true,
+      "actual": {
+        "currentTime": 0.750376,
+        "duration": 235.847007,
+        "muted": true,
+        "paused": false,
+        "playlist": "Now Playing1 of 6",
+        "shuffle": "Shuffle Off",
+        "title": "Chakras"
+      }
+    },
+    {
+      "name": "Natural ended event uses the current shuffle-off setting and continues playback",
+      "passed": true,
+      "actual": {
+        "currentTime": 47.20387,
+        "duration": 351.968073,
+        "muted": true,
+        "paused": false,
+        "playlist": "Now Playing2 of 6",
+        "shuffle": "Shuffle Off",
+        "title": "Devil in a New Dress"
+      }
+    },
+    {
+      "name": "Manual next while paused remains paused",
+      "passed": true,
+      "actual": {
+        "currentTime": 0,
+        "duration": 106.161633,
+        "muted": true,
+        "paused": true,
+        "playlist": "Now Playing3 of 6",
+        "shuffle": "Shuffle Off",
+        "title": "Highs and Lows"
+      }
+    },
+    {
+      "name": "Phone case study shows loaded artwork, without an empty video source",
+      "passed": true,
+      "details": {
+        "naturalWidth": 735,
+        "videoCount": 0
+      }
+    },
+    {
+      "name": "Open phone case study switches to loaded desktop video after resizing",
+      "passed": true,
+      "details": {
+        "readyState": 4,
+        "videoWidth": 1280
+      }
+    },
+    {
+      "name": "Missing-page recovery link opens the extras menu",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:4173/projects"
+      }
+    }
+  ],
+  "notes": [
+    "Final phase-2 production build. Desktop Chromium viewport tests, not real mobile hardware.",
+    "Original baseline is preserved. Preliminary browser.json belongs to the earlier QA build; browser-final.json is the final verification.",
+    "The game action contract now also rejects horizontal clipping; roulette radius uses the circular element diameter, not its rotated bounding rectangle."
+  ]
+}

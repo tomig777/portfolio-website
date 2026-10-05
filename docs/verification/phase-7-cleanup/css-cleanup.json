@@ -1,0 +1,544 @@
+{
+  "removedRules": [
+    {
+      "selectors": [
+        ".wt-contact-wash"
+      ],
+      "removedBytes": 509
+    },
+    {
+      "selectors": [
+        ".wt-contact-wash-drift"
+      ],
+      "removedBytes": 453
+    },
+    {
+      "selectors": [
+        ".wt-contact-gradient-curtain"
+      ],
+      "removedBytes": 391
+    },
+    {
+      "selectors": [
+        ".wt-contact-wash::before",
+        ".wt-contact-wash::after",
+        ".wt-contact-wash-drift::before",
+        ".wt-contact-wash-drift::after"
+      ],
+      "removedBytes": 189
+    },
+    {
+      "selectors": [
+        ".wt-contact-wash::before",
+        ".wt-contact-wash-drift::before"
+      ],
+      "removedBytes": 267
+    },
+    {
+      "selectors": [
+        ".wt-contact-wash::after",
+        ".wt-contact-wash-drift::after"
+      ],
+      "removedBytes": 259
+    },
+    {
+      "selectors": [
+        ".wt-contact-transition-title"
+      ],
+      "removedBytes": 315
+    },
+    {
+      "selectors": [
+        ".wt-contact-transition-title__mask"
+      ],
+      "removedBytes": 101
+    },
+    {
+      "selectors": [
+        ".wt-contact-transition-title__inner"
+      ],
+      "removedBytes": 325
+    },
+    {
+      "selectors": [
+        ".wt-contact-transition-title__inner em"
+      ],
+      "removedBytes": 162
+    },
+    {
+      "selectors": [
+        ".wt-bubble-disc"
+      ],
+      "removedBytes": 294
+    },
+    {
+      "selectors": [
+        ".wt-contact-transition-title"
+      ],
+      "removedBytes": 77
+    },
+    {
+      "selectors": [
+        ".wt-contact-transition-title__inner"
+      ],
+      "removedBytes": 87
+    },
+    {
+      "selectors": [
+        ".wt-contact-section"
+      ],
+      "removedBytes": 168
+    },
+    {
+      "selectors": [
+        ".wt-contact-section .footer"
+      ],
+      "removedBytes": 60
+    },
+    {
+      "selectors": [
+        ".wt-contact-anim"
+      ],
+      "removedBytes": 55
+    },
+    {
+      "selectors": [
+        ".wt-contact-layout"
+      ],
+      "removedBytes": 238
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-panel"
+      ],
+      "removedBytes": 168
+    },
+    {
+      "selectors": [
+        ".wt-contact-label",
+        ".wt-contact-eyebrow"
+      ],
+      "removedBytes": 230
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-container"
+      ],
+      "removedBytes": 107
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-container .custom-folder"
+      ],
+      "removedBytes": 80
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-container .folder-base-line"
+      ],
+      "removedBytes": 97
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-note"
+      ],
+      "removedBytes": 188
+    },
+    {
+      "selectors": [
+        ".wt-contact-copy"
+      ],
+      "removedBytes": 90
+    },
+    {
+      "selectors": [
+        ".wt-contact-title"
+      ],
+      "removedBytes": 212
+    },
+    {
+      "selectors": [
+        ".wt-contact-intro"
+      ],
+      "removedBytes": 218
+    },
+    {
+      "selectors": [
+        ".wt-contact-details"
+      ],
+      "removedBytes": 202
+    },
+    {
+      "selectors": [
+        ".wt-contact-detail"
+      ],
+      "removedBytes": 233
+    },
+    {
+      "selectors": [
+        ".wt-contact-detail:last-child"
+      ],
+      "removedBytes": 53
+    },
+    {
+      "selectors": [
+        ".wt-contact-detail span"
+      ],
+      "removedBytes": 211
+    },
+    {
+      "selectors": [
+        ".wt-contact-detail strong"
+      ],
+      "removedBytes": 201
+    },
+    {
+      "selectors": [
+        ".wt-contact-actions"
+      ],
+      "removedBytes": 94
+    },
+    {
+      "selectors": [
+        ".wt-contact-primary",
+        ".wt-contact-secondary"
+      ],
+      "removedBytes": 479
+    },
+    {
+      "selectors": [
+        ".wt-contact-primary"
+      ],
+      "removedBytes": 127
+    },
+    {
+      "selectors": [
+        ".wt-contact-secondary"
+      ],
+      "removedBytes": 135
+    },
+    {
+      "selectors": [
+        ".wt-contact-primary:hover",
+        ".wt-contact-secondary:hover"
+      ],
+      "removedBytes": 89
+    },
+    {
+      "selectors": [
+        ".wt-contact-primary:hover"
+      ],
+      "removedBytes": 49
+    },
+    {
+      "selectors": [
+        ".wt-contact-secondary:hover"
+      ],
+      "removedBytes": 89
+    },
+    {
+      "selectors": [
+        ".wt-contact-section"
+      ],
+      "removedBytes": 55
+    },
+    {
+      "selectors": [
+        ".wt-contact-layout"
+      ],
+      "removedBytes": 93
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-panel",
+        ".wt-contact-copy"
+      ],
+      "removedBytes": 101
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-panel"
+      ],
+      "removedBytes": 55
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-container"
+      ],
+      "removedBytes": 61
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder-container .custom-folder"
+      ],
+      "removedBytes": 88
+    },
+    {
+      "selectors": [
+        ".wt-contact-intro"
+      ],
+      "removedBytes": 50
+    },
+    {
+      "selectors": [
+        ".wt-contact-actions"
+      ],
+      "removedBytes": 56
+    },
+    {
+      "selectors": [
+        ".wt-contact-section"
+      ],
+      "removedBytes": 54
+    },
+    {
+      "selectors": [
+        ".wt-contact-title"
+      ],
+      "removedBytes": 70
+    },
+    {
+      "selectors": [
+        ".wt-contact-detail"
+      ],
+      "removedBytes": 97
+    },
+    {
+      "selectors": [
+        ".wt-contact-primary",
+        ".wt-contact-secondary"
+      ],
+      "removedBytes": 69
+    },
+    {
+      "selectors": [
+        ".wt-scroll-container.wt-case-open > .wt-contact-section"
+      ],
+      "removedBytes": 57
+    },
+    {
+      "selectors": [
+        ".wt-contact-scene"
+      ],
+      "removedBytes": 288
+    },
+    {
+      "selectors": [
+        ".wt-contact-side-rays"
+      ],
+      "removedBytes": 203
+    },
+    {
+      "selectors": [
+        ".wt-contact-side-rays::after"
+      ],
+      "removedBytes": 49
+    },
+    {
+      "selectors": [
+        ".wt-contact-scene .wt-new-footer"
+      ],
+      "removedBytes": 226
+    },
+    {
+      "selectors": [
+        ".wt-contact-container"
+      ],
+      "removedBytes": 309
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder"
+      ],
+      "removedBytes": 74
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder .folder-base-line"
+      ],
+      "removedBytes": 67
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder .folder:not(.open) .paper"
+      ],
+      "removedBytes": 120
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder .folder:not(.open):hover .paper"
+      ],
+      "removedBytes": 126
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder .folder.open .paper"
+      ],
+      "removedBytes": 56
+    },
+    {
+      "selectors": [
+        ".wt-contact-desc"
+      ],
+      "removedBytes": 202
+    },
+    {
+      "selectors": [
+        ".wt-contact-profile"
+      ],
+      "removedBytes": 192
+    },
+    {
+      "selectors": [
+        ".wt-profile-name"
+      ],
+      "removedBytes": 217
+    },
+    {
+      "selectors": [
+        ".wt-profile-email"
+      ],
+      "removedBytes": 307
+    },
+    {
+      "selectors": [
+        ".wt-profile-email:hover"
+      ],
+      "removedBytes": 74
+    },
+    {
+      "selectors": [
+        ".wt-contact-socials-row"
+      ],
+      "removedBytes": 126
+    },
+    {
+      "selectors": [
+        ".wt-social-pill"
+      ],
+      "removedBytes": 378
+    },
+    {
+      "selectors": [
+        ".wt-social-pill:hover"
+      ],
+      "removedBytes": 162
+    },
+    {
+      "selectors": [
+        ".wt-new-footer"
+      ],
+      "removedBytes": 239
+    },
+    {
+      "selectors": [
+        ".wt-footer-copyright"
+      ],
+      "removedBytes": 168
+    },
+    {
+      "selectors": [
+        ".wt-contact-scene"
+      ],
+      "removedBytes": 80
+    },
+    {
+      "selectors": [
+        ".wt-contact-folder"
+      ],
+      "removedBytes": 69
+    },
+    {
+      "selectors": [
+        ".wt-contact-profile"
+      ],
+      "removedBytes": 73
+    },
+    {
+      "selectors": [
+        ".wt-new-footer"
+      ],
+      "removedBytes": 167
+    }
+  ],
+  "additionalSelectors": [
+    ".wt-projects-container",
+    ".wt-projects-left",
+    ".wt-projects-right",
+    ".wt-project-card",
+    ".wt-project-card-image",
+    ".wt-project-card:hover .wt-project-card-image",
+    ".wt-project-card-overlay",
+    ".wt-project-card-title",
+    ".wt-about-section",
+    ".wt-about-section .about-combined-section",
+    ".wt-about-anim",
+    ".wt-about-panel",
+    ".wt-about-panel::before",
+    ".wt-about-panel-inner",
+    ".wt-about-photo-wrap",
+    ".wt-about-photo-wrap::before",
+    ".wt-about-photo-wrap::after",
+    ".wt-about-photo",
+    ".wt-about-copy",
+    ".wt-about-kicker",
+    ".wt-about-kicker i",
+    ".wt-about-title",
+    ".wt-about-title span",
+    ".wt-about-title span::first-letter",
+    ".wt-about-bio",
+    ".wt-tools-block",
+    ".wt-tools-label",
+    ".wt-skills-rotator",
+    ".wt-skills-rotator .skill-item",
+    ".wt-skills-rotator .skill-item:hover",
+    ".wt-skills-rotator .skill-text-badge",
+    ".wt-skills-rotator .skill-icon-mask",
+    ".wt-work-link",
+    ".wt-work-link svg",
+    ".wt-work-link:hover",
+    ".wt-projects-container",
+    ".wt-projects-left",
+    ".wt-projects-right",
+    ".wt-project-card",
+    ".wt-about-section",
+    ".wt-about-panel-inner",
+    ".wt-about-photo-wrap",
+    ".wt-about-copy",
+    ".wt-about-kicker",
+    ".wt-about-bio",
+    ".wt-tools-block",
+    ".wt-skills-rotator",
+    ".wt-work-link",
+    ".wt-about-section",
+    ".wt-about-panel",
+    ".wt-about-panel::before",
+    ".wt-about-panel-inner",
+    ".wt-about-title",
+    ".wt-about-kicker",
+    ".wt-about-kicker i",
+    ".wt-skills-rotator",
+    ".wt-skills-rotator .skill-item",
+    ".wt-work-link",
+    ".wt-projects-container--legacy",
+    ".wt-scroll-container.wt-case-open > .wt-about-section"
+  ],
+  "menuSelectors": [
+    ".menu-drop--restored .menu-drop__contact-list li",
+    ".menu-drop__contact-list",
+    ".menu-drop__contact-list li",
+    ".menu-drop__contact-list li::before",
+    ".menu-drop__contact-list a",
+    ".menu-drop__contact-list span",
+    ".menu-drop__contact-list a:hover",
+    ".menu-drop__contact-list span:hover",
+    ".menu-drop__contact-list li",
+    ".menu-drop__contact-list li",
+    ".menu-drop--closing .menu-drop__contact-list li"
+  ],
+  "notes": [
+    "Only selectors belonging to confirmed absent legacy markup were removed.",
+    "Mixed rules retain their live selectors; active wt-projects-section and wt-contact-color-bends rules are preserved.",
+    "Empty media queries and orphan legacy comments were removed; current About styles remain in WebsiteTestPages.css."
+  ]
+}

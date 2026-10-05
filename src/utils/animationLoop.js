@@ -6,7 +6,7 @@ export function createAnimationLoop(render, { maxFps = 60, active = true } = {})
   let enabled = active;
   let disposed = false;
   let lastRender = null;
-  const interval = 1000 / Math.max(1, maxFps);
+  let interval = 1000 / Math.max(1, maxFps);
 
   function tick(now) {
     frame = null;
@@ -31,6 +31,10 @@ export function createAnimationLoop(render, { maxFps = 60, active = true } = {})
   document.addEventListener('visibilitychange', sync);
   sync();
   return {
+    setMaxFps(value) {
+      interval = 1000 / Math.max(1, value);
+      lastRender = null;
+    },
     setActive(value) {
       if (enabled === value) return;
       enabled = value;

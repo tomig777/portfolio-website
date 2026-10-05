@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "timezone": "Europe/Budapest",
+  "startingCommit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "b77d9eebd0868a085833cefdafc53f22703eb9217d41fcd446dc4f1853af4f9e",
+  "checks": {
+    "productionBuild": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "modules": 1243,
+      "viteReportedSeconds": 5.95,
+      "existingLargeChunkWarning": true
+    },
+    "unitTests": {
+      "command": "npm test",
+      "exitCode": 0,
+      "total": 17,
+      "passed": 16,
+      "unclassifiedFailures": 0,
+      "knownFailingTodos": 1,
+      "knownFailingIssue": "B08"
+    },
+    "lint": {
+      "command": "npm run lint",
+      "exitCode": 1,
+      "errors": 28,
+      "warnings": 3,
+      "unchangedFromStartingBaseline": true
+    },
+    "capturedBrowserContracts": {
+      "command": "npm run baseline:check",
+      "exitCode": 0,
+      "passingObservations": 1,
+      "knownFailingObservations": 9,
+      "newFailingObservations": 0,
+      "knownIssueIds": ["B01", "B02", "B04", "B05", "B06", "B07", "B09"]
+    },
+    "strictCapturedBrowserContracts": {
+      "command": "npm run baseline:check -- --strict",
+      "exitCode": 1,
+      "expected": true,
+      "reason": "Strict mode rejects the existing known failing observations."
+    },
+    "productionRuntimeDiff": {
+      "command": "git diff -- src index.html vite.config.js",
+      "exitCode": 0,
+      "empty": true
+    },
+    "captureArtifacts": {
+      "snapshots": 23,
+      "screenshots": 23,
+      "missingScreenshotFiles": 0
+    }
+  },
+  "notes": [
+    "The test suite contains a real failing assertion marked TODO, not a fixed navigation bug.",
+    "Browser contracts validate recorded DOM observations, not an automated fresh browser run.",
+    "Viewport tests used desktop Chromium at DPR 1, not physical mobile hardware.",
+    "No app visuals or runtime behavior were changed, and no commit or push was made."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "timezone": "Europe/Budapest",
+  "startingCommit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "ee5502098bd08638d508bddbdd8b43f8b61e136069d2e024b802678f6b2a34fe",
+  "checks": {
+    "productionBuild": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "modules": 1247,
+      "viteReportedSeconds": 4.30,
+      "existingLargeChunkWarning": true
+    },
+    "unitTests": {
+      "command": "npm test",
+      "exitCode": 0,
+      "total": 27,
+      "passed": 27,
+      "failed": 0,
+      "skipped": 0,
+      "todos": 0
+    },
+    "lint": {
+      "command": "npm run lint",
+      "exitCode": 1,
+      "errors": 28,
+      "warnings": 2,
+      "newFindings": 0,
+      "removedWarning": "MusicPlayer stale hook dependency"
+    },
+    "strictCapturedBrowserContracts": {
+      "command": "npm run baseline:check -- --strict docs/verification/phase-2-functional/browser-final.json",
+      "exitCode": 0,
+      "passingObservations": 19,
+      "failingObservations": 0,
+      "recordedKnownFailures": 0
+    },
+    "browserInteractionChecks": {
+      "total": 10,
+      "passed": 10,
+      "failed": 0
+    },
+    "whitespace": {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    "captureArtifacts": {
+      "finalSnapshots": 13,
+      "finalScreenshots": 13,
+      "consoleErrorsReported": 0
+    }
+  },
+  "notes": [
+    "Browser contracts validate final-build saved observations, not an independent automated fresh run.",
+    "Viewport tests used desktop Chromium at DPR 1, not physical mobile hardware.",
+    "B05 and the existing lint/performance backlog remain for subsequent phases.",
+    "The original baseline and preliminary QA artifacts were preserved.",
+    "No dependencies or media assets were replaced, and no commit or push was made."
+  ]
+}

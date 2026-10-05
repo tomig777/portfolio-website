@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import GlassSurface from './GlassSurface';
-import logoDark from '../assets/logo-dark.png';
+import logoDark from '../assets/web-optimized/logo-dark.webp';
 
 const Header = ({ onResumeClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -118,4 +118,3 @@ const Header = ({ onResumeClick }) => {
 };
 
 export default Header;
-

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion as Motion, useMotionValue, useSpring } from 'framer-motion';
 import './TiltedCard.css';
 
 const springValues = {
@@ -175,7 +175,7 @@ export default function TiltedCard({
         </div>
       ) : (
         // Chrome/Firefox version with Framer Motion
-        <motion.div
+        <Motion.div
           className="tilted-card-inner"
           style={{
             width: imageWidth,
@@ -185,7 +185,7 @@ export default function TiltedCard({
             scale
           }}
         >
-          <motion.img
+          <Motion.img
             src={imageSrc}
             alt={altText}
             className="tilted-card-img"
@@ -196,32 +196,32 @@ export default function TiltedCard({
           />
 
           {displayOverlayContent && overlayContent && (
-            <motion.div className="tilted-card-overlay">{overlayContent}</motion.div>
+            <Motion.div className="tilted-card-overlay">{overlayContent}</Motion.div>
           )}
 
           {projectName && isHovered && (
             <>
-              <motion.div
+              <Motion.div
                 className="tilted-card-dim-overlay"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.2 }}
               />
-              <motion.div
+              <Motion.div
                 className="tilted-card-project-name"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.2 }}
               >
                 {projectName}
-              </motion.div>
+              </Motion.div>
             </>
           )}
-        </motion.div>
+        </Motion.div>
       )}
 
       {showTooltip && (
-        <motion.figcaption
+        <Motion.figcaption
           className="tilted-card-caption"
           style={{
             x,
@@ -231,12 +231,11 @@ export default function TiltedCard({
           }}
         >
           {captionText}
-        </motion.figcaption>
+        </Motion.figcaption>
       )}
     </figure>
   );
 }
-
 
 
 

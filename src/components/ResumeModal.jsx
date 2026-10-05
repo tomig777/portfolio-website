@@ -1,21 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useRef } from 'react';
+import { useFocusScope } from '../hooks/useFocusScope';
 import './ResumeModal.css';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 
 const ResumeModal = ({ onClose }) => {
-    useEffect(() => {
-        document.body.style.overflow = 'hidden';
-
-        const handleEscape = (e) => {
-            if (e.key === 'Escape') onClose();
-        };
-
-        window.addEventListener('keydown', handleEscape);
-        return () => {
-            document.body.style.overflow = 'unset';
-            window.removeEventListener('keydown', handleEscape);
-        };
-    }, [onClose]);
+    const dialogRef = useRef(null);
+    useFocusScope(dialogRef, { initialFocus: '.resume-modal__close', onEscape: onClose });
 
     const handleDownload = () => {
         const link = document.createElement('a');
@@ -28,8 +18,13 @@ const ResumeModal = ({ onClose }) => {
 
     return (
         <AnimatePresence>
-            <motion.div
+            <Motion.div
+                ref={dialogRef}
                 className="resume-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="resume-modal-title"
+                data-lenis-prevent
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -39,7 +34,7 @@ const ResumeModal = ({ onClose }) => {
                 <div className="resume-modal__bg" />
 
                 {/* Close button */}
-                <button className="resume-modal__close" onClick={onClose}>
+                <button type="button" className="resume-modal__close" onClick={onClose} aria-label="Close résumé">
                     <span className="resume-modal__close-line" />
                     <span className="resume-modal__close-line" />
                 </button>
@@ -47,14 +42,14 @@ const ResumeModal = ({ onClose }) => {
                 {/* Main content container */}
                 <div className="resume-modal__container">
                     {/* Left side - Info & Skills */}
-                    <motion.div
+                    <Motion.div
                         className="resume-modal__left"
                         initial={{ x: -100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <div className="resume-modal__scrollable">
-                            <h1 className="resume-modal__title">RESUME</h1>
+                            <h1 id="resume-modal-title" className="resume-modal__title">RESUME</h1>
                             <p className="resume-modal__subtitle">Creative Professional</p>
                             <div className="resume-modal__divider" />
 
@@ -90,10 +85,10 @@ const ResumeModal = ({ onClose }) => {
                                 Download PDF
                             </button>
                         </div>
-                    </motion.div>
+                    </Motion.div>
 
                     {/* Right side - Experience & Education */}
-                    <motion.div
+                    <Motion.div
                         className="resume-modal__right"
                         initial={{ x: 100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
@@ -143,12 +138,11 @@ const ResumeModal = ({ onClose }) => {
                             <span>Press ESC to close</span>
                             <div className="resume-modal__footer-line" />
                         </div>
-                    </motion.div>
+                    </Motion.div>
                 </div>
-            </motion.div>
+            </Motion.div>
         </AnimatePresence>
     );
 };
 
 export default ResumeModal;
-

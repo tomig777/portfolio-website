@@ -14,7 +14,7 @@ function FlowingMenu({
 }) {
   return (
     <div className="menu-wrap" style={{ backgroundColor: bgColor }}>
-      <nav className="menu">
+      <nav className="menu" aria-label="Extra projects">
         {items.map((item, idx) => (
           <MenuItem
             key={idx}
@@ -31,12 +31,13 @@ function FlowingMenu({
   );
 }
 
-function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marqueeTextColor, borderColor, onClick }) {
+function MenuItem({ id, link, text, image, speed, textColor, marqueeBgColor, marqueeTextColor, borderColor, onClick }) {
   const itemRef = useRef(null);
   const marqueeRef = useRef(null);
   const marqueeInnerRef = useRef(null);
   const animationRef = useRef(null);
   const [repetitions, setRepetitions] = useState(4);
+  const Control = onClick ? 'button' : 'a';
 
   const animationDefaults = { duration: 0.6, ease: 'expo' };
 
@@ -139,16 +140,18 @@ function MenuItem({ link, text, image, speed, textColor, marqueeBgColor, marquee
 
   return (
     <div className="menu__item" ref={itemRef} style={{ borderColor }}>
-      <a
+      <Control
         className="menu__item-link"
-        href={link}
+        type={onClick ? 'button' : undefined}
+        href={onClick ? undefined : link}
+        data-project-id={id}
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{ color: textColor }}
       >
         {text}
-      </a>
+      </Control>
       <div className="marquee" ref={marqueeRef} style={{ backgroundColor: marqueeBgColor }}>
         <div className="marquee__inner-wrap">
           <div className="marquee__inner" ref={marqueeInnerRef} aria-hidden="true">

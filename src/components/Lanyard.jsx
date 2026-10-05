@@ -7,56 +7,19 @@ import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
 // replace with your own imports, see the usage snippet for details
 import cardGLB from '../assets/newcard.glb';
-import lanyard from '../assets/lanyard.png';
+import lanyard from '../assets/web-optimized/lanyard.webp';
 
 import * as THREE from 'three';
 import './Lanyard.css';
-import usePageVisibility from '../hooks/usePageVisibility';
+import useGraphicsActivity from '../hooks/useGraphicsActivity';
+import { isFinitePoint, lanyardLerpAlpha, updateLanyardGeometry } from '../utils/lanyardGeometry';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
 export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], fov = 20, transparent = true, dpr = 1, active = true }) {
   const containerRef = useRef();
-  const [inView, setInView] = useState(true);
-  const pageVisible = usePageVisibility();
-  const paused = !active || !inView || !pageVisible;
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setInView(entry.isIntersecting);
-    }, { threshold: 0.1 });
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Only block scrolling for touches in the upper portion of the viewport (lanyard area)
-  useEffect(() => {
-    const canvas = containerRef.current?.querySelector('canvas');
-    if (!canvas) return;
-
-    const isMobile = window.innerWidth <= 768;
-    if (!isMobile) return;
-
-    const handleTouch = (e) => {
-      const touchY = e.touches[0].clientY;
-      const threshold = window.innerHeight * 0.4;
-      if (touchY < threshold) {
-        e.preventDefault();
-      }
-    };
-
-    canvas.addEventListener('touchstart', handleTouch, { passive: false });
-    canvas.addEventListener('touchmove', handleTouch, { passive: false });
-
-    return () => {
-      canvas.removeEventListener('touchstart', handleTouch);
-      canvas.removeEventListener('touchmove', handleTouch);
-    };
-  }, []);
+  const { running } = useGraphicsActivity(containerRef, active);
+  const paused = !running;
 
   return (
     <div ref={containerRef} className="lanyard-wrapper">
@@ -72,7 +35,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
         onCreated={({ gl }) => {
           gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1);
         }}
-        frameloop={paused ? 'never' : 'always'}
+        frameloop={paused ? 'never' : 'demand'}
       >
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={1 / 60} paused={paused}>
@@ -119,11 +82,12 @@ function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
     j2 = useRef(),
     j3 = useRef(),
     card = useRef();
-  const [{ vec, ang, rot, dir, curveSamples }] = useState(() => ({
+  const [{ vec, ang, rot, dir, smoothed, curveSamples }] = useState(() => ({
     vec: new THREE.Vector3(),
     ang: new THREE.Vector3(),
     rot: new THREE.Vector3(),
     dir: new THREE.Vector3(),
+    smoothed: [new THREE.Vector3(), new THREE.Vector3()],
     curveSamples: Array.from({ length: 33 }, () => new THREE.Vector3())
   }));
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
@@ -135,6 +99,7 @@ function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
   );
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
+  const smoothingInitialized = useRef(false);
   const [isSmall, setIsSmall] = useState(() => typeof window !== 'undefined' && window.innerWidth < 1024);
 
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
@@ -162,38 +127,57 @@ function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (!isVisible) {
+      drag(false);
+      hover(false);
+    }
+  }, [isVisible]);
+
   useFrame((state, delta) => {
-    if (!isVisible) return;
+    if (!isVisible || !band.current || !fixed.current || !j1.current || !j2.current || !j3.current || !card.current) return;
 
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
       dir.copy(vec).sub(state.camera.position).normalize();
       vec.add(dir.multiplyScalar(state.camera.position.length()));
       [card, j1, j2, j3, fixed].forEach(ref => ref.current?.wakeUp());
-      card.current?.setNextKinematicTranslation({ x: vec.x - dragged.x, y: vec.y - dragged.y, z: vec.z - dragged.z });
+      vec.sub(dragged);
+      if (isFinitePoint(vec)) card.current.setNextKinematicTranslation(vec);
     }
-    if (fixed.current) {
-      [j1, j2].forEach(ref => {
-        if (!ref.current.lerped) ref.current.lerped = new THREE.Vector3().copy(ref.current.translation());
-        const clampedDistance = Math.max(0.1, Math.min(1, ref.current.lerped.distanceTo(ref.current.translation())));
-        ref.current.lerped.lerp(
-          ref.current.translation(),
-          delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
-        );
-      });
+    {
+      const translations = [j1.current.translation(), j2.current.translation(), j3.current.translation(), fixed.current.translation()];
+      if (!translations.every(isFinitePoint)) return;
+      for (let index = 0; index < 2; index++) {
+        const point = smoothed[index];
+        const target = translations[index];
+        if (!smoothingInitialized.current || !isFinitePoint(point)) point.copy(target);
+        point.lerp(target, lanyardLerpAlpha(delta, point.distanceTo(target), minSpeed, maxSpeed));
+      }
+      smoothingInitialized.current = true;
 
-      curve.points[0].copy(j3.current.translation());
-      curve.points[1].copy(j2.current.lerped);
-      curve.points[2].copy(j1.current.lerped);
-      curve.points[3].copy(fixed.current.translation());
+      curve.points[0].copy(translations[2]);
+      curve.points[1].copy(smoothed[1]);
+      curve.points[2].copy(smoothed[0]);
+      curve.points[3].copy(translations[3]);
       for (let i = 0; i < curveSamples.length; i += 1) {
         curve.getPoint(i / 32, curveSamples[i]);
       }
-      band.current.geometry.setPoints(curveSamples);
+      const ropeChanged = updateLanyardGeometry(band.current.geometry, curveSamples);
+      const moving = Boolean(dragged) || ropeChanged
+        || !j1.current.isSleeping() || !j2.current.isSleeping() || !j3.current.isSleeping() || !card.current.isSleeping();
+      const motion = moving ? 'moving' : 'settled';
+      if (state.gl.domElement.dataset.lanyardMotion !== motion) state.gl.domElement.dataset.lanyardMotion = motion;
+      // Rapier invalidates while bodies are active. Continue just long enough
+      // for the smoothed rope to catch up, then leave the canvas completely idle.
+      if (ropeChanged || dragged) state.invalidate();
 
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());
-      card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
+      if (!card.current.isSleeping() && isFinitePoint(ang) && isFinitePoint(rot)) {
+        ang.y -= rot.y * 0.25;
+        card.current.setAngvel(ang, false);
+      }
     }
   });
 
@@ -220,7 +204,12 @@ function Band({ maxSpeed = 50, minSpeed = 0, isVisible = true }) {
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
-            onPointerUp={e => (e.target.releasePointerCapture(e.pointerId), drag(false))}
+            onPointerUp={e => {
+              e.target.releasePointerCapture(e.pointerId);
+              drag(false);
+            }}
+            onPointerCancel={() => drag(false)}
+            onLostPointerCapture={() => drag(false)}
             onPointerDown={e => (
               e.target.setPointerCapture(e.pointerId),
               drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))

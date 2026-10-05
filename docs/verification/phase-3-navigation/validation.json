@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "timezone": "Europe/Budapest",
+  "phase": 3,
+  "status": "complete",
+  "startingCommit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "3f007bb5c52b1a3e2205bdc440a8c312c7f22a6fdea28e624f5e58a537f1e2a0",
+  "runtimeSourceFileCount": 126,
+  "checks": {
+    "productionBuild": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "modules": 1251,
+      "viteReportedSeconds": 4.74,
+      "existingLargeChunkWarning": true
+    },
+    "unitTests": {
+      "command": "npm test",
+      "exitCode": 0,
+      "total": 37,
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0,
+      "todos": 0
+    },
+    "lint": {
+      "command": "npm run lint",
+      "exitCode": 1,
+      "errors": 28,
+      "warnings": 2,
+      "newFindings": 0
+    },
+    "finalBrowserInteractions": {
+      "artifact": "browser-release.json",
+      "sourceSha256": "3f007bb5c52b1a3e2205bdc440a8c312c7f22a6fdea28e624f5e58a537f1e2a0",
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "snapshots": 5,
+      "screenshots": 5
+    },
+    "broaderResponsiveMatrix": {
+      "artifact": "browser-verified.json",
+      "sourceSha256": "1acf1183a6133569a11f58f630095ef6827a7fea2e1de025a56f4d5433d0f879",
+      "predatesFinalFocusCorrections": true,
+      "total": 29,
+      "passed": 29,
+      "failed": 0,
+      "snapshots": 15,
+      "screenshots": 15
+    },
+    "strictCapturedBrowserContracts": [
+      {
+        "command": "npm run baseline:check -- --strict docs/verification/phase-3-navigation/browser-release.json",
+        "exitCode": 0,
+        "passingObservations": 3,
+        "failingObservations": 0,
+        "recordedKnownFailures": 0
+      },
+      {
+        "command": "npm run baseline:check -- --strict docs/verification/phase-3-navigation/browser-verified.json",
+        "exitCode": 0,
+        "passingObservations": 3,
+        "failingObservations": 0,
+        "recordedKnownFailures": 0
+      }
+    ],
+    "whitespace": {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    "consoleSample": {
+      "artifact": "browser-console-release.json",
+      "errors": 0,
+      "warnings": 68,
+      "completeAllRouteAudit": false
+    },
+    "sourceHashMatchesFinalBuild": true
+  },
+  "cleanup": {
+    "temporaryBrowserTabClosed": true,
+    "viewportOverrideReset": true,
+    "temporaryPreviewPort": 4173,
+    "temporaryPreviewStopped": true,
+    "portListenerCountAfterStop": 0
+  },
+  "deferredIssues": [
+    {
+      "id": "N01",
+      "phase": 4,
+      "description": "Rapid navigation during the existing 1.68s transition lock can be ignored even after a page has visually closed."
+    }
+  ],
+  "notes": [
+    "Desktop Chromium at DPR 1 with viewport overrides; physical iOS/Android and coarse-pointer behavior were not tested.",
+    "Safe-area offsets are implemented and need physical-device QA.",
+    "Captured contracts validate saved observations, not an independently driven fresh run.",
+    "The inaccessible main-page resume placeholder prevented a runtime test of ResumeModal; its focus lifecycle was source/unit reviewed.",
+    "Preliminary and earlier candidate evidence, including failed probes, was preserved separately.",
+    "No contact form was submitted and archive password protection was retained.",
+    "No dependencies or media assets were replaced, and no commit, push, or deployment was made.",
+    "Large graphics chunks, existing lint issues, and low-end-device performance validation remain for subsequent phases."
+  ]
+}

@@ -12,7 +12,6 @@ const ZenPond = () => {
     if (!canvas || !wrapper) return;
 
     const ctx = canvas.getContext('2d');
-    let w, h;
     const ripples = [];
     const stones = [];
     const fishes = [];
@@ -27,8 +26,8 @@ const ZenPond = () => {
       const rect = wrapper.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) return;
       
-      w = canvas.width = rect.width * devicePixelRatio;
-      h = canvas.height = rect.height * devicePixelRatio;
+      canvas.width = rect.width * devicePixelRatio;
+      canvas.height = rect.height * devicePixelRatio;
       ctx.setTransform(1, 0, 0, 1, 0, 0); // Prevent compounding scales!
       ctx.scale(devicePixelRatio, devicePixelRatio);
       generateGrain();

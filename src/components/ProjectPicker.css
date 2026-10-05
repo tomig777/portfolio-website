@@ -22,20 +22,22 @@
 /* ─── Top Bar ─── */
 .pp-top-bar {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   justify-content: center;
   padding: 20px 24px;
+  padding-top: max(20px, calc(var(--portfolio-safe-top) + 12px));
+  padding-right: max(24px, calc(var(--portfolio-safe-right) + 12px));
+  padding-left: max(24px, calc(var(--portfolio-safe-left) + 12px));
   flex-shrink: 0;
   background: #0a0a0a;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .pp-home-btn {
-  position: absolute;
-  left: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  justify-self: start;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +48,7 @@
   padding: 0 0.85rem;
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 999px;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.3);
   transition: all 0.25s ease;
@@ -75,8 +77,15 @@
 .pp-menu-area {
   flex: 1;
   position: relative;
-  overflow: hidden;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  padding-bottom: var(--portfolio-safe-bottom);
 }
+
+.pp-menu-area .menu-wrap { min-height: 448px; }
+.pp-menu-area .menu__item-link { font-size: max(18px, 4vh); }
 
 /* ─── Active Project View ─── */
 .pp-active {
@@ -104,7 +113,9 @@
 .pp-back-btn {
   position: fixed;
   top: 20px;
+  top: max(20px, calc(var(--portfolio-safe-top) + 12px));
   left: 20px;
+  left: max(20px, calc(var(--portfolio-safe-left) + 12px));
   z-index: 10002;
   min-height: 40px;
   display: inline-flex;
@@ -218,9 +229,11 @@
   position: fixed;
   inset: 0;
   z-index: 10010;
-  display: grid;
-  place-items: center;
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  padding: max(24px, calc(var(--portfolio-safe-top) + 12px)) max(24px, var(--portfolio-safe-right)) max(24px, calc(var(--portfolio-safe-bottom) + 12px)) max(24px, var(--portfolio-safe-left));
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
   background: rgba(0, 0, 0, 0.62);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -228,6 +241,8 @@
 }
 
 .pp-password-card {
+  margin: auto;
+  flex-shrink: 0;
   width: min(360px, 100%);
   position: relative;
   display: flex;
@@ -328,14 +343,16 @@
   transform: translateY(-1px);
 }
 
-.pp-archive-choice-card { gap: 12px; }
-.pp-archive-choice-copy { margin: -2px 0 6px; color: rgba(255,255,255,.48); font: .8rem/1.5 Inter, sans-serif; }
-.pp-archive-choice-buttons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.pp-archive-choice-buttons button { min-height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; background: rgba(255,255,255,.045); color: rgba(255,255,255,.82); cursor: pointer; transition: border-color .2s, background .2s, transform .2s; }
-.pp-archive-choice-buttons button:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); transform: translateY(-2px); }
-.pp-archive-choice-buttons span { font: 500 2rem/1 Inter, sans-serif; }
-.pp-archive-choice-buttons small { color: rgba(255,255,255,.45); font: .68rem/1.2 Inter, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
-.pp-archive-choice-cancel { top: 14px; right: 14px; font-size: 1.2rem; }
+.pp-choice-card { width: min(560px, 100%); gap: 12px; }
+.pp-choice-copy { margin: -2px 0 6px; color: rgba(255,255,255,.48); font: .8rem/1.5 Inter, sans-serif; }
+.pp-choice-buttons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.pp-choice-buttons button { min-width: 0; min-height: 132px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 14px 8px; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; background: rgba(255,255,255,.045); color: rgba(255,255,255,.82); cursor: pointer; text-align: center; transition: border-color .2s, background .2s, transform .2s; }
+.pp-choice-buttons button:not(:disabled):hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.1); transform: translateY(-2px); }
+.pp-choice-buttons button:disabled { cursor: not-allowed; color: rgba(255,255,255,.36); background: rgba(255,255,255,.02); border-style: dashed; }
+.pp-choice-buttons .pp-choice-number { font: 500 2rem/1 Inter, sans-serif; }
+.pp-choice-name { max-width: 100%; font: 500 .7rem/1.4 Inter, sans-serif; text-transform: uppercase; letter-spacing: .05em; overflow-wrap: break-word; }
+.pp-choice-status { color: rgba(255,255,255,.42); font: .62rem/1.35 Inter, sans-serif; }
+.pp-choice-cancel { top: 14px; right: 14px; font-size: 1.2rem; }
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
@@ -343,17 +360,18 @@
     /* Reserve the phone safe area so the navigation clears the status bar
        and Dynamic Island inside the mobile preview. */
     padding: 3.5rem 16px 16px;
+    padding-top: max(3.5rem, calc(var(--portfolio-safe-top) + 16px));
+    padding-right: max(16px, calc(var(--portfolio-safe-right) + 8px));
+    padding-left: max(16px, calc(var(--portfolio-safe-left) + 8px));
   }
 
   .pp-home-btn {
-    left: 16px;
     width: auto;
     min-width: 68px;
     height: 30px;
     min-height: 30px;
     padding: 0 0.65rem;
     font-size: 0.7rem;
-    transform: translateY(calc(-50% + 0.7rem));
   }
 
   .pp-home-btn svg {
@@ -367,7 +385,9 @@
 
   .pp-back-btn {
     top: 3.75rem;
+    top: max(3.75rem, calc(var(--portfolio-safe-top) + 16px));
     left: 1rem;
+    left: max(1rem, calc(var(--portfolio-safe-left) + 8px));
     min-width: 62px;
     min-height: 30px;
     height: 30px;
@@ -383,5 +403,28 @@
 
   .pp-password-card {
     padding: 28px 22px 24px;
+  }
+
+  .pp-choice-card {
+    padding: 30px 14px 22px;
+  }
+
+  .pp-choice-buttons {
+    gap: 6px;
+  }
+
+  .pp-choice-buttons button {
+    min-height: 122px;
+    padding: 12px 4px;
+    gap: 7px;
+  }
+
+  .pp-choice-name {
+    font-size: 11px;
+    letter-spacing: .01em;
+  }
+
+  .pp-choice-status {
+    font-size: 10px;
   }
 }

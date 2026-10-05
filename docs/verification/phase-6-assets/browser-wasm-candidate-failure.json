@@ -1,0 +1,445 @@
+{
+  "note": "External-WASM candidate built but failed startup because the original decoder expression had a .buffer suffix; replacing only the decoder left the new initializer object followed by .buffer (undefined). The browser then fell through to the loader default deleted URL. Fixed by replacing the complete input expression, with a regression test. Public-base URL resolution was also made explicit for CommonJS compatibility.",
+  "observation": {
+    "graphics": [
+      {
+        "canvases": [
+          {
+            "height": 1170,
+            "motion": null,
+            "width": 1852
+          }
+        ],
+        "class": "darkveil-canvas",
+        "state": "running"
+      },
+      {
+        "canvases": [],
+        "class": "wt-hero-role-window",
+        "state": "running"
+      }
+    ],
+    "images": [
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 497,
+        "naturalWidth": 505,
+        "priority": "auto",
+        "src": "http://127.0.0.1:4173/assets/logo-dark-CwVoIOUT.webp"
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      }
+    ],
+    "metrics": {
+      "capturedAt": "2026-10-02T00:36:07.153Z",
+      "cls": 0,
+      "currentPath": "/",
+      "elapsedMs": 80052,
+      "environment": {
+        "deviceMemoryGiB": 32,
+        "hardwareConcurrency": 16,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+        "visibility": "visible"
+      },
+      "initialPath": "/",
+      "largestContentfulPaint": {
+        "element": "SPAN",
+        "size": 170343,
+        "timeMs": 432
+      },
+      "longTasks": {
+        "count": 1,
+        "recent8sCount": 0,
+        "totalDurationMs": 50,
+        "worst": [
+          {
+            "durationMs": 50,
+            "startTimeMs": 418
+          }
+        ]
+      },
+      "navigation": {
+        "domContentLoadedMs": 63.70000004768371,
+        "loadEventMs": 82.20000004768372,
+        "responseEndMs": 3.5999999046325684,
+        "type": "reload"
+      },
+      "notes": [
+        "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+        "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+        "Zero transfer size can indicate a cache hit or restricted timing information.",
+        "Probe module requests are excluded from the resource totals.",
+        "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+        "The probe adds a rAF callback and publishes this hidden output once per second."
+      ],
+      "recent8sRafCadence": {
+        "gapsOver50Ms": 0,
+        "maxMs": 7.1,
+        "meanMs": 6.95,
+        "medianMs": 6.9,
+        "p95Ms": 7,
+        "samples": 1152
+      },
+      "resources": {
+        "count": 24,
+        "largestObserved": [
+          {
+            "decodedBodyBytes": 704525,
+            "durationMs": 5.9,
+            "encodedBodyBytes": 704525,
+            "initiator": "script",
+            "transferBytes": 704825,
+            "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+          },
+          {
+            "decodedBodyBytes": 235327,
+            "durationMs": 7.3,
+            "encodedBodyBytes": 235327,
+            "initiator": "script",
+            "transferBytes": 235627,
+            "url": "http://127.0.0.1:4173/assets/index-BIfW9czY.js"
+          },
+          {
+            "decodedBodyBytes": 187293,
+            "durationMs": 4.9,
+            "encodedBodyBytes": 187293,
+            "initiator": "script",
+            "transferBytes": 187593,
+            "url": "http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js"
+          },
+          {
+            "decodedBodyBytes": 158362,
+            "durationMs": 5.7,
+            "encodedBodyBytes": 158362,
+            "initiator": "script",
+            "transferBytes": 158662,
+            "url": "http://127.0.0.1:4173/assets/extends-BmWeWj7F.js"
+          },
+          {
+            "decodedBodyBytes": 136005,
+            "durationMs": 4.5,
+            "encodedBodyBytes": 136005,
+            "initiator": "script",
+            "transferBytes": 136305,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-BceSPlpU.js"
+          },
+          {
+            "decodedBodyBytes": 125723,
+            "durationMs": 5,
+            "encodedBodyBytes": 125723,
+            "initiator": "script",
+            "transferBytes": 126023,
+            "url": "http://127.0.0.1:4173/assets/Environment-CzMrRFDv.js"
+          },
+          {
+            "decodedBodyBytes": 74619,
+            "durationMs": 5.1,
+            "encodedBodyBytes": 74619,
+            "initiator": "script",
+            "transferBytes": 74919,
+            "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+          },
+          {
+            "decodedBodyBytes": 66874,
+            "durationMs": 6.5,
+            "encodedBodyBytes": 66874,
+            "initiator": "link",
+            "transferBytes": 67174,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+          },
+          {
+            "decodedBodyBytes": 51530,
+            "durationMs": 7.1,
+            "encodedBodyBytes": 51530,
+            "initiator": "link",
+            "transferBytes": 51830,
+            "url": "http://127.0.0.1:4173/assets/index-CXxrnaEn.css"
+          },
+          {
+            "decodedBodyBytes": 48256,
+            "durationMs": 35.7,
+            "encodedBodyBytes": 48256,
+            "initiator": "css",
+            "transferBytes": 48556,
+            "url": "http://127.0.0.1:4173/assets/inter-v20-UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7-Dx4kXJAl.woff2"
+          },
+          {
+            "decodedBodyBytes": 44196,
+            "durationMs": 5.8,
+            "encodedBodyBytes": 44196,
+            "initiator": "script",
+            "transferBytes": 44496,
+            "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+          },
+          {
+            "decodedBodyBytes": 36508,
+            "durationMs": 7.2,
+            "encodedBodyBytes": 36508,
+            "initiator": "link",
+            "transferBytes": 36808,
+            "url": "http://127.0.0.1:4173/assets/Yink-CEkPJqof.woff2"
+          },
+          {
+            "decodedBodyBytes": 32292,
+            "durationMs": 35.9,
+            "encodedBodyBytes": 32292,
+            "initiator": "css",
+            "transferBytes": 32592,
+            "url": "http://127.0.0.1:4173/assets/outfit-v15-QGYvz_MVcBeNP4NJtEtq-Bc-8i84L.woff2"
+          },
+          {
+            "decodedBodyBytes": 11231,
+            "durationMs": 2.3,
+            "encodedBodyBytes": 11231,
+            "initiator": "other",
+            "transferBytes": 11531,
+            "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+          },
+          {
+            "decodedBodyBytes": 9282,
+            "durationMs": 8.8,
+            "encodedBodyBytes": 9282,
+            "initiator": "script",
+            "transferBytes": 9582,
+            "url": "http://127.0.0.1:4173/assets/index-IDJwe0Vr.js"
+          },
+          {
+            "decodedBodyBytes": 4138,
+            "durationMs": 6.4,
+            "encodedBodyBytes": 4138,
+            "initiator": "img",
+            "transferBytes": 4438,
+            "url": "http://127.0.0.1:4173/assets/logo-dark-CwVoIOUT.webp"
+          }
+        ],
+        "reportedTransferBytes": 1943026,
+        "zeroOrUnavailableTransferCount": 0
+      },
+      "schemaVersion": 1,
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      }
+    },
+    "videos": [],
+    "viewport": {
+      "dpr": 1,
+      "height": 900,
+      "width": 1440
+    }
+  },
+  "logs": [
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:20:38.887Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:20:38.887Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:20:38.887Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:20:38.888Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-02T00:20:39.043Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-BpOxsunm.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:20:59.602Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:20:59.602Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:20:59.603Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:20:59.603Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-02T00:20:59.683Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-BpOxsunm.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:23:56.649Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:23:56.649Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:23:56.650Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:23:56.650Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-02T00:23:56.775Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-BpOxsunm.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:34:47.503Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:34:47.504Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:34:47.504Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:34:47.505Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "error",
+      "message": "TypeError: Failed to construct 'URL': Invalid base URL\n    at Wn (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:75454)\n    at Module.<anonymous> (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143900)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143621\n    at new Promise (<anonymous>)\n    at Js (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143369)\n    at Module.Jn [as init] (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143859)\n    at An (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:156860)",
+      "timestamp": "2026-10-02T00:34:47.905Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js"
+    },
+    {
+      "level": "warn",
+      "message": "ErrorBoundary: Rendering fallback because hasError is true",
+      "timestamp": "2026-10-02T00:34:47.908Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "warn",
+      "message": "ErrorBoundary: Rendering fallback because hasError is true",
+      "timestamp": "2026-10-02T00:34:47.909Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "error",
+      "message": "TypeError: Failed to construct 'URL': Invalid base URL\n    at Wn (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:75454)\n    at Module.<anonymous> (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143900)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143621\n    at new Promise (<anonymous>)\n    at Js (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143369)\n    at Module.Jn [as init] (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143859)\n    at An (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:156860)",
+      "timestamp": "2026-10-02T00:34:47.910Z",
+      "url": "http://127.0.0.1:4173/assets/index-BIfW9czY.js"
+    },
+    {
+      "level": "error",
+      "message": "==========================================",
+      "timestamp": "2026-10-02T00:34:47.912Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "error",
+      "message": "ErrorBoundary caught an error!",
+      "timestamp": "2026-10-02T00:34:47.912Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "error",
+      "message": "Error: TypeError: Failed to construct 'URL': Invalid base URL\n    at Wn (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:75454)\n    at Module.<anonymous> (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143900)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143621\n    at new Promise (<anonymous>)\n    at Js (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143369)\n    at Module.Jn [as init] (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143859)\n    at An (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:156860)",
+      "timestamp": "2026-10-02T00:34:47.913Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "error",
+      "message": "Error message: Failed to construct 'URL': Invalid base URL",
+      "timestamp": "2026-10-02T00:34:47.913Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "error",
+      "message": "Error stack: TypeError: Invalid base URL\n    at Wn (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:75454)\n    at Module.<anonymous> (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143900)\n    at Generator.next (<anonymous>)\n    at http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143621\n    at new Promise (<anonymous>)\n    at Js (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143369)\n    at Module.Jn [as init] (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:143859)\n    at An (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:156860)",
+      "timestamp": "2026-10-02T00:34:47.913Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "error",
+      "message": "Component stack: \n    at Zm (http://127.0.0.1:4173/assets/extends-BmWeWj7F.js:12:19654)\n    at Fc (http://127.0.0.1:4173/assets/extends-BmWeWj7F.js:1:4107)\n    at lh (<anonymous>)\n    at div (<anonymous>)\n    at sa (http://127.0.0.1:4173/assets/Lanyard-B4m0c6gd.js:114:172955)\n    at div (<anonymous>)\n    at Suspense (<anonymous>)\n    at cs (http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js:1:70118)\n    at section (<anonymous>)\n    at div (<anonymous>)\n    at div (<anonymous>)\n    at ra (http://127.0.0.1:4173/assets/WebsiteTest-BceSPlpU.js:70:26559)\n    at r0 (http://127.0.0.1:4173/assets/index-BIfW9czY.js:12:4251)\n    at mh (http://127.0.0.1:4173/assets/index-BIfW9czY.js:12:8306)\n    at Suspense (<anonymous>)\n    at i1 (http://127.0.0.1:4173/assets/index-BIfW9czY.js:12:25662)\n    at t1 (http://127.0.0.1:4173/assets/index-BIfW9czY.js:12:25055)\n    at S0 (http://127.0.0.1:4173/assets/index-BIfW9czY.js:12:7417)\n    at Q0 (http://127.0.0.1:4173/assets/index-BIfW9czY.js:12:17306)\n    at c1 (<anonymous>)",
+      "timestamp": "2026-10-02T00:34:47.913Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    },
+    {
+      "level": "error",
+      "message": "==========================================",
+      "timestamp": "2026-10-02T00:34:47.913Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Bk5ADGAO.js"
+    }
+  ]
+}

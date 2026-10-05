@@ -1,0 +1,423 @@
+{
+  "sourceHash": "d0072c1b309a556fa87f857f85e365af6533650c10a1f1c69fa918899519a59c",
+  "desktop": {
+    "graphics": [
+      {
+        "canvases": [
+          {
+            "height": 1170,
+            "motion": null,
+            "width": 1852
+          }
+        ],
+        "class": "darkveil-canvas",
+        "state": "running"
+      },
+      {
+        "canvases": [
+          {
+            "height": 900,
+            "motion": "settled",
+            "width": 1425
+          }
+        ],
+        "class": "lanyard-wrapper",
+        "state": "running"
+      },
+      {
+        "canvases": [],
+        "class": "wt-hero-role-window",
+        "state": "running"
+      },
+      {
+        "canvases": [],
+        "class": "wt-bubble-ascii-hands",
+        "state": "paused"
+      }
+    ],
+    "images": [
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 497,
+        "naturalWidth": 505,
+        "priority": "auto",
+        "src": "http://127.0.0.1:4173/assets/logo-dark-CwVoIOUT.webp"
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      }
+    ],
+    "metrics": {
+      "capturedAt": "2026-10-02T01:05:16.818Z",
+      "cls": 0,
+      "currentPath": "/",
+      "elapsedMs": 31059,
+      "environment": {
+        "deviceMemoryGiB": 32,
+        "hardwareConcurrency": 16,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+        "visibility": "visible"
+      },
+      "initialPath": "/",
+      "largestContentfulPaint": {
+        "element": "SPAN",
+        "size": 170343,
+        "timeMs": 448
+      },
+      "longTasks": {
+        "count": 1,
+        "recent8sCount": 0,
+        "totalDurationMs": 59,
+        "worst": [
+          {
+            "durationMs": 59,
+            "startTimeMs": 819.5
+          }
+        ]
+      },
+      "navigation": {
+        "domContentLoadedMs": 80,
+        "loadEventMs": 96.5,
+        "responseEndMs": 3.200000047683716,
+        "type": "reload"
+      },
+      "notes": [
+        "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+        "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+        "Zero transfer size can indicate a cache hit or restricted timing information.",
+        "Probe module requests are excluded from the resource totals.",
+        "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+        "The probe adds a rAF callback and publishes this hidden output once per second."
+      ],
+      "recent8sRafCadence": {
+        "gapsOver50Ms": 0,
+        "maxMs": 7.2,
+        "meanMs": 6.95,
+        "medianMs": 6.9,
+        "p95Ms": 7,
+        "samples": 1151
+      },
+      "resources": {
+        "count": 27,
+        "largestObserved": [
+          {
+            "decodedBodyBytes": 1569397,
+            "durationMs": 3.7,
+            "encodedBodyBytes": 1569397,
+            "initiator": "fetch",
+            "transferBytes": 1569697,
+            "url": "http://127.0.0.1:4173/assets/rapier-physics-Dl0GQskJ.wasm"
+          },
+          {
+            "decodedBodyBytes": 704525,
+            "durationMs": 5.5,
+            "encodedBodyBytes": 704525,
+            "initiator": "script",
+            "transferBytes": 704825,
+            "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+          },
+          {
+            "decodedBodyBytes": 235336,
+            "durationMs": 6.5,
+            "encodedBodyBytes": 235336,
+            "initiator": "script",
+            "transferBytes": 235636,
+            "url": "http://127.0.0.1:4173/assets/index-UtyjacYq.js"
+          },
+          {
+            "decodedBodyBytes": 212240,
+            "durationMs": 2.1,
+            "encodedBodyBytes": 212240,
+            "initiator": "fetch",
+            "transferBytes": 212540,
+            "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+          },
+          {
+            "decodedBodyBytes": 187339,
+            "durationMs": 3.5,
+            "encodedBodyBytes": 187339,
+            "initiator": "script",
+            "transferBytes": 187639,
+            "url": "http://127.0.0.1:4173/assets/Lanyard-BU3fclDT.js"
+          },
+          {
+            "decodedBodyBytes": 158362,
+            "durationMs": 4.1,
+            "encodedBodyBytes": 158362,
+            "initiator": "script",
+            "transferBytes": 158662,
+            "url": "http://127.0.0.1:4173/assets/extends-BMKcGybq.js"
+          },
+          {
+            "decodedBodyBytes": 132258,
+            "durationMs": 4.3,
+            "encodedBodyBytes": 132258,
+            "initiator": "script",
+            "transferBytes": 132558,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-BCcLTZGM.js"
+          },
+          {
+            "decodedBodyBytes": 125723,
+            "durationMs": 4.9,
+            "encodedBodyBytes": 125723,
+            "initiator": "script",
+            "transferBytes": 126023,
+            "url": "http://127.0.0.1:4173/assets/Environment-Bbjje2ws.js"
+          },
+          {
+            "decodedBodyBytes": 74619,
+            "durationMs": 5.1,
+            "encodedBodyBytes": 74619,
+            "initiator": "script",
+            "transferBytes": 74919,
+            "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+          },
+          {
+            "decodedBodyBytes": 66874,
+            "durationMs": 7.4,
+            "encodedBodyBytes": 66874,
+            "initiator": "link",
+            "transferBytes": 67174,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+          },
+          {
+            "decodedBodyBytes": 51530,
+            "durationMs": 6.4,
+            "encodedBodyBytes": 51530,
+            "initiator": "link",
+            "transferBytes": 51830,
+            "url": "http://127.0.0.1:4173/assets/index-CXxrnaEn.css"
+          },
+          {
+            "decodedBodyBytes": 48256,
+            "durationMs": 30.3,
+            "encodedBodyBytes": 48256,
+            "initiator": "css",
+            "transferBytes": 48556,
+            "url": "http://127.0.0.1:4173/assets/inter-v20-UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7-Dx4kXJAl.woff2"
+          },
+          {
+            "decodedBodyBytes": 44196,
+            "durationMs": 6.6,
+            "encodedBodyBytes": 44196,
+            "initiator": "script",
+            "transferBytes": 44496,
+            "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+          },
+          {
+            "decodedBodyBytes": 36508,
+            "durationMs": 6.4,
+            "encodedBodyBytes": 36508,
+            "initiator": "link",
+            "transferBytes": 36808,
+            "url": "http://127.0.0.1:4173/assets/Yink-CEkPJqof.woff2"
+          },
+          {
+            "decodedBodyBytes": 32292,
+            "durationMs": 30.3,
+            "encodedBodyBytes": 32292,
+            "initiator": "css",
+            "transferBytes": 32592,
+            "url": "http://127.0.0.1:4173/assets/outfit-v15-QGYvz_MVcBeNP4NJtEtq-Bc-8i84L.woff2"
+          },
+          {
+            "decodedBodyBytes": 13126,
+            "durationMs": 4.6,
+            "encodedBodyBytes": 13126,
+            "initiator": "script",
+            "transferBytes": 13426,
+            "url": "http://127.0.0.1:4173/assets/substance_logo-DJmdrpKS.js"
+          }
+        ],
+        "reportedTransferBytes": 3730233,
+        "zeroOrUnavailableTransferCount": 0
+      },
+      "schemaVersion": 1,
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      }
+    },
+    "videos": [],
+    "viewport": {
+      "dpr": 1,
+      "height": 900,
+      "width": 1440
+    }
+  },
+  "armsBefore": {
+    "arms": 1,
+    "maskHrefs": [
+      null,
+      null
+    ],
+    "rows": 2,
+    "scrollTop": 0
+  },
+  "armsAfter": {
+    "arms": [
+      {
+        "glyphCharacters": 34800,
+        "maskHrefs": [
+          "/assets/hand-left-db1vllgp.svg",
+          "/assets/right-hand-jLymC5RD.svg"
+        ],
+        "state": "running",
+        "visible": "visible"
+      }
+    ],
+    "exhibitImages": [
+      {
+        "image": "width: 330px; height: 186px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; opacity: 0; visibility: hidden; transform: translate(-50%, -50%) translate3d(220.744px, 217.146px, 173.078px) scale(0.7529, 0.7529);"
+      },
+      {
+        "image": "width: 330px; height: 186px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; opacity: 0; visibility: hidden; transform: translate(-50%, -50%) translate3d(422.096px, 185.353px, 173.078px) scale(0.722, 0.722);"
+      },
+      {
+        "image": "width: 330px; height: 186px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; opacity: 0; visibility: hidden; transform: translate(-50%, -50%) translate3d(375.644px, 192.688px, 173.078px) scale(0.7291, 0.7291);"
+      },
+      {
+        "image": "width: 330px; height: 186px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; opacity: 0; visibility: hidden; transform: translate(-50%, -50%) translate3d(913.602px, 107.747px, 173.078px) scale(0.6466, 0.6466);"
+      },
+      {
+        "image": "width: 330px; height: 186px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; opacity: 0; visibility: hidden; transform: translate(-50%, -50%) translate3d(176.972px, 224.057px, 173.078px) scale(0.7596, 0.7596);"
+      },
+      {
+        "image": "width: 330px; height: 186px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; opacity: 0; visibility: hidden; transform: translate(-50%, -50%) translate3d(298.694px, 204.838px, 173.078px) scale(0.7409, 0.7409);"
+      }
+    ],
+    "maxScroll": 16668,
+    "scrollTop": 16200,
+    "videos": [
+      {
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "paused": true,
+        "readyState": 0
+      },
+      {
+        "paused": true,
+        "readyState": 0
+      },
+      {
+        "paused": true,
+        "readyState": 0
+      }
+    ]
+  },
+  "work": {
+    "heading": "Ideasin motion.",
+    "images": [
+      {
+        "complete": true,
+        "naturalWidth": 735,
+        "src": "http://127.0.0.1:4173/assets/szia-BbMSRlbG.webp"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 1080,
+        "src": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 736,
+        "src": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+      },
+      {
+        "complete": true,
+        "naturalWidth": 736,
+        "src": "http://127.0.0.1:4173/assets/szia_4-DprtTeG4.jpg"
+      }
+    ]
+  },
+  "about": {
+    "heading": "Hi, this is Tomi.",
+    "portrait": [
+      {
+        "complete": true,
+        "height": 423,
+        "naturalHeight": 1412,
+        "naturalWidth": 1114,
+        "src": "http://127.0.0.1:4173/assets/portrait-2-CKoWjjZU.webp",
+        "width": 307.734375
+      }
+    ]
+  },
+  "contact": {
+    "fields": [
+      {
+        "name": "name",
+        "required": true
+      },
+      {
+        "name": "email",
+        "required": true
+      },
+      {
+        "name": "message",
+        "required": true
+      }
+    ],
+    "heading": "Let’s makesomething felt.",
+    "overflowX": false
+  },
+  "console": [
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:57:54.683Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:57:54.683Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:57:54.684Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:57:54.685Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    }
+  ]
+}

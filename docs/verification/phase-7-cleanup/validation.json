@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "phase": 7,
+  "status": "complete",
+  "date": "2026-10-05",
+  "buildReport": "build-final.json",
+  "browserReport": "browser-final.json",
+  "lint": { "exitCode": 0, "errors": 0, "warnings": 0 },
+  "unitTests": { "exitCode": 0, "passed": 73, "failed": 0, "skipped": 0 },
+  "savedObservationAndProvenanceChecks": { "exitCode": 0, "passed": 27, "script": "scripts/cleanup/check-phase7.mjs" },
+  "build": { "exitCode": 0, "modules": 1255, "existingLargeThreeChunkWarning": true },
+  "diffCheck": { "exitCode": 0, "existingLineEndingNotices": true },
+  "cleanup": { "ownedTabsRemaining": 0, "viewportOverrideReset": true, "previewPort4173Listeners": 0 },
+  "noPushOrCommit": true,
+  "remainingPhase": 8,
+  "notes": [
+    "The legacy pnpm-specific npm project-config warning is not an ESLint warning and remains unchanged.",
+    "Saved-observation assertions check captured browser results rather than running the UI again.",
+    "The first observation-check run failed on uppercase CSS-transformed archive choice labels; its case-sensitive text assertion was corrected, not the product or saved observation.",
+    "Physical-device, touch, throttled-network and hosted-performance verification remain outside this phase."
+  ]
+}

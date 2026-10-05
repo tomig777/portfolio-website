@@ -85,21 +85,26 @@ const ColorField = ({ colors, speed }) => {
   );
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
-    uAspect: { value: viewport.width / viewport.height },
+    uAspect: { value: 1 },
     ...Object.fromEntries(
       DEFAULT_COLORS.map((color, index) => [
         `uColor${index}`,
         { value: new THREE.Color(color) },
       ]),
     ),
-  }), [viewport.height, viewport.width]);
+  }), []);
+
+  useLayoutEffect(() => {
+    uniforms.uAspect.value = viewport.width / Math.max(0.001, viewport.height);
+  }, [uniforms, viewport.width, viewport.height]);
 
   useFrame((_, delta) => {
     if (!materialRef.current) return;
-    phaseRef.current += delta * speed;
+    const frameDelta = Math.min(Math.max(delta, 0), 0.05);
+    phaseRef.current += frameDelta * speed;
     materialRef.current.uniforms.uTime.value = phaseRef.current;
 
-    const blend = 1 - Math.exp(-delta * 5);
+    const blend = 1 - Math.exp(-frameDelta * 5);
     targetColors.forEach((color, index) => {
       materialRef.current.uniforms[`uColor${index}`].value.lerp(color, blend);
     });

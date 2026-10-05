@@ -10,6 +10,9 @@
     #050506;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   isolation: isolate;
+  overscroll-behavior-y: contain;
+  scroll-padding-top: max(7rem, calc(var(--portfolio-safe-top) + 72px));
+  scroll-padding-bottom: calc(var(--portfolio-safe-bottom) + 24px);
 }
 
 .wt-nav-page::before {
@@ -698,6 +701,13 @@
 
 .wt-contact-page__field textarea {
   min-height: 150px;
+}
+
+.wt-mobile-preview .wt-contact-page__field input,
+.wt-mobile-preview .wt-contact-page__field textarea {
+  font-size: max(16px, 1.05rem);
+  min-height: 44px;
+  scroll-margin-block: 6rem 2rem;
 }
 
 .wt-contact-page__field input::placeholder,
@@ -1399,6 +1409,8 @@
   left: auto;
   margin: 0 auto;
   padding: 7.75rem 0 3rem;
+  padding-top: max(7.75rem, calc(var(--portfolio-safe-top) + 76px));
+  padding-bottom: calc(3rem + var(--portfolio-safe-bottom));
   display: flex;
   flex-direction: column;
   align-items: stretch;

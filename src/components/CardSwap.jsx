@@ -2,6 +2,7 @@ import React, { Children, cloneElement, forwardRef, isValidElement, useEffect, u
 import gsap from 'gsap';
 
 import './CardSwap.css';
+import useGraphicsActivity from '../hooks/useGraphicsActivity';
 
 export const Card = forwardRef(({ customClass, className, ...rest }, ref) => (
   <div ref={ref} {...rest} className={`card ${customClass ?? ''} ${className ?? ''}`.trim()} />
@@ -72,6 +73,14 @@ const CardSwap = ({
   const timelineRef = useRef(null);
   const intervalRef = useRef(null);
   const containerRef = useRef(null);
+  const activityRef = useRef(null);
+  const runningRef = useRef(false);
+  const { running } = useGraphicsActivity(containerRef);
+
+  useEffect(() => {
+    runningRef.current = running;
+    activityRef.current?.setVisible(running);
+  }, [running]);
 
   useEffect(() => {
     const total = refs.length;
@@ -134,32 +143,41 @@ const CardSwap = ({
       });
     };
 
-    swap();
-    intervalRef.current = window.setInterval(swap, delay);
-
     const node = containerRef.current;
+    let visible = runningRef.current;
+    let hovered = false;
     const pause = () => {
       timelineRef.current?.pause();
       window.clearInterval(intervalRef.current);
     };
     const resume = () => {
+      if (!visible || hovered) {
+        pause();
+        return;
+      }
       timelineRef.current?.play();
       window.clearInterval(intervalRef.current);
       intervalRef.current = window.setInterval(swap, delay);
     };
+    const handleEnter = () => { hovered = true; pause(); };
+    const handleLeave = () => { hovered = false; resume(); };
+    activityRef.current = { setVisible(value) { visible = value; resume(); } };
+    swap();
+    resume();
 
     if (pauseOnHover && node) {
-      node.addEventListener('mouseenter', pause);
-      node.addEventListener('mouseleave', resume);
+      node.addEventListener('mouseenter', handleEnter);
+      node.addEventListener('mouseleave', handleLeave);
     }
 
     return () => {
       if (pauseOnHover && node) {
-        node.removeEventListener('mouseenter', pause);
-        node.removeEventListener('mouseleave', resume);
+        node.removeEventListener('mouseenter', handleEnter);
+        node.removeEventListener('mouseleave', handleLeave);
       }
       window.clearInterval(intervalRef.current);
       timelineRef.current?.kill();
+      activityRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);

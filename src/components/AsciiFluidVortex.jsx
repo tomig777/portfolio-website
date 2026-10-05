@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { createAnimationLoop } from '../utils/animationLoop';
+import { createAsciiGrid } from '../utils/asciiGrid';
 
 const DENSITY_CHARS = ' .:-=+*#%@';
 const CHAR_COUNT = DENSITY_CHARS.length;
@@ -229,16 +230,7 @@ const AsciiFluidVortex = () => {
     if (!canvas) return;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    const fontSize = Math.max(10, Math.min(14, Math.floor(window.innerWidth / 120)));
-    const cellW = fontSize * 0.6;
-    const cellH = fontSize;
-    gridRef.current = {
-      cols: Math.floor(canvas.width / cellW),
-      rows: Math.floor(canvas.height / cellH),
-      cellW,
-      cellH,
-      fontSize,
-    };
+    gridRef.current = createAsciiGrid(canvas.width, canvas.height, FLUID_SIZE);
   }, []);
 
   useEffect(() => {
@@ -270,6 +262,7 @@ const AsciiFluidVortex = () => {
     };
 
     const handleTouchMove = (e) => {
+      if (!e.touches.length) return;
       e.preventDefault();
       const touch = e.touches[0];
       const m = mouseRef.current;
@@ -292,7 +285,7 @@ const AsciiFluidVortex = () => {
 
     // --- Render Loop ---
     const render = () => {
-      const { cols, rows, cellW, cellH, fontSize } = gridRef.current;
+      const { cols, rows, fontSize, indices, x, y } = gridRef.current;
       if (!cols || !rows) {
         return;
       }
@@ -345,9 +338,7 @@ const AsciiFluidVortex = () => {
 
       for (let j = 0; j < rows; j++) {
         for (let i = 0; i < cols; i++) {
-          const fx = (i / cols) * (FLUID_SIZE - 2) + 1;
-          const fy = (j / rows) * (FLUID_SIZE - 2) + 1;
-          const idx = fluid.IX(Math.floor(fx), Math.floor(fy));
+          const idx = indices[j * cols + i];
 
           const d = fluid.density[idx];
           const vx = fluid.vx[idx];
@@ -358,7 +349,7 @@ const AsciiFluidVortex = () => {
           if (charIdx === 0) continue; // Skip spaces for performance
 
           ctx.fillStyle = getFluidColor(d, vel, schemeIdxRef.current);
-          ctx.fillText(DENSITY_CHARS[charIdx], i * cellW, j * cellH);
+          ctx.fillText(DENSITY_CHARS[charIdx], x[i], y[j]);
         }
       }
 

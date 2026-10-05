@@ -1,0 +1,1312 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-01T14:45:57.759Z",
+  "timezone": "Europe/Budapest",
+  "commit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "nodeVersion": "v24.19.0",
+  "runtimeSourceSha256": "792ee9a7a14f4c0850faf28e392684d425765404ce45304f7792852b3cbe67c3",
+  "runtimeSourceFileCount": 128,
+  "totals": {
+    ".html": {
+      "files": 2,
+      "bytes": 2066,
+      "gzipBytes": 1090
+    },
+    "": {
+      "files": 1,
+      "bytes": 11,
+      "gzipBytes": 0
+    },
+    ".webp": {
+      "files": 25,
+      "bytes": 3333630,
+      "gzipBytes": 0
+    },
+    ".js": {
+      "files": 47,
+      "bytes": 4126591,
+      "gzipBytes": 1417693
+    },
+    ".css": {
+      "files": 22,
+      "bytes": 228842,
+      "gzipBytes": 55198
+    },
+    ".otf": {
+      "files": 17,
+      "bytes": 824304,
+      "gzipBytes": 0
+    },
+    ".ttf": {
+      "files": 4,
+      "bytes": 243180,
+      "gzipBytes": 0
+    },
+    ".mp4": {
+      "files": 6,
+      "bytes": 20337895,
+      "gzipBytes": 0
+    },
+    ".jpg": {
+      "files": 14,
+      "bytes": 1349430,
+      "gzipBytes": 0
+    },
+    ".mp3": {
+      "files": 6,
+      "bytes": 25150828,
+      "gzipBytes": 0
+    },
+    ".svg": {
+      "files": 3,
+      "bytes": 258411,
+      "gzipBytes": 101137
+    },
+    ".png": {
+      "files": 8,
+      "bytes": 4881281,
+      "gzipBytes": 0
+    },
+    ".glb": {
+      "files": 1,
+      "bytes": 212240,
+      "gzipBytes": 0
+    },
+    ".pdf": {
+      "files": 1,
+      "bytes": 32622,
+      "gzipBytes": 0
+    }
+  },
+  "largestJs": [
+    {
+      "file": "dist/assets/Lanyard-BTa5Eaux.js",
+      "extension": ".js",
+      "bytes": 2279827,
+      "gzipBytes": 844041,
+      "brotliBytes": 626946
+    },
+    {
+      "file": "dist/assets/three.module-zDgAY601.js",
+      "extension": ".js",
+      "bytes": 704525,
+      "gzipBytes": 181610,
+      "brotliBytes": 146950
+    },
+    {
+      "file": "dist/assets/index-D4kZom6s.js",
+      "extension": ".js",
+      "bytes": 235288,
+      "gzipBytes": 75880,
+      "brotliBytes": 65615
+    },
+    {
+      "file": "dist/assets/extends-RCy57k2d.js",
+      "extension": ".js",
+      "bytes": 158362,
+      "gzipBytes": 50838,
+      "brotliBytes": 44645
+    },
+    {
+      "file": "dist/assets/WebsiteTest-CEWdhHvH.js",
+      "extension": ".js",
+      "bytes": 131596,
+      "gzipBytes": 46714,
+      "brotliBytes": 40922
+    },
+    {
+      "file": "dist/assets/Environment-CGW7Btrb.js",
+      "extension": ".js",
+      "bytes": 125723,
+      "gzipBytes": 40546,
+      "brotliBytes": 35102
+    },
+    {
+      "file": "dist/assets/proxy-CMbMM709.js",
+      "extension": ".js",
+      "bytes": 122914,
+      "gzipBytes": 40245,
+      "brotliBytes": 36013
+    },
+    {
+      "file": "dist/assets/pageTransition-BvkEysxB.js",
+      "extension": ".js",
+      "bytes": 74619,
+      "gzipBytes": 29412,
+      "brotliBytes": 26462
+    },
+    {
+      "file": "dist/assets/Home-BI6Em69d.js",
+      "extension": ".js",
+      "bytes": 67318,
+      "gzipBytes": 21894,
+      "brotliBytes": 19323
+    },
+    {
+      "file": "dist/assets/Mesh-uU8OXhrh.js",
+      "extension": ".js",
+      "bytes": 44196,
+      "gzipBytes": 12849,
+      "brotliBytes": 10820
+    },
+    {
+      "file": "dist/assets/MusicPlayer-DLCeuJTI.js",
+      "extension": ".js",
+      "bytes": 22032,
+      "gzipBytes": 8381,
+      "brotliBytes": 7409
+    },
+    {
+      "file": "dist/assets/GradientDrift-C3FmZK_e.js",
+      "extension": ".js",
+      "bytes": 20532,
+      "gzipBytes": 6691,
+      "brotliBytes": 6024
+    },
+    {
+      "file": "dist/assets/WebsiteTestPages-D56zMBjY.js",
+      "extension": ".js",
+      "bytes": 17435,
+      "gzipBytes": 6464,
+      "brotliBytes": 5638
+    },
+    {
+      "file": "dist/assets/substance_logo-CLEgLjHx.js",
+      "extension": ".js",
+      "bytes": 14402,
+      "gzipBytes": 8302,
+      "brotliBytes": 7413
+    },
+    {
+      "file": "dist/assets/PlaygroundDome-C38Xju9w.js",
+      "extension": ".js",
+      "bytes": 12769,
+      "gzipBytes": 5340,
+      "brotliBytes": 4769
+    }
+  ],
+  "largestBuiltMedia": [
+    {
+      "file": "dist/assets/background-DfhePvpD.mp4",
+      "extension": ".mp4",
+      "bytes": 8772165
+    },
+    {
+      "file": "dist/assets/canube-57fGVRN5.mp3",
+      "extension": ".mp3",
+      "bytes": 5917883
+    },
+    {
+      "file": "dist/assets/devilinanewdress-N1mN3x-W.mp3",
+      "extension": ".mp3",
+      "bytes": 5537841
+    },
+    {
+      "file": "dist/assets/thestorm-r_l2xWaF.mp3",
+      "extension": ".mp3",
+      "bytes": 4710399
+    },
+    {
+      "file": "dist/assets/chakras-CmplIeHn.mp3",
+      "extension": ".mp3",
+      "bytes": 3774588
+    },
+    {
+      "file": "dist/assets/newbody-DU9eaKaM.mp3",
+      "extension": ".mp3",
+      "bytes": 3591940
+    },
+    {
+      "file": "dist/assets/szia_9-D7hXO784.mp4",
+      "extension": ".mp4",
+      "bytes": 2974076
+    },
+    {
+      "file": "dist/assets/szia_10-C3EAr39K.mp4",
+      "extension": ".mp4",
+      "bytes": 2749844
+    },
+    {
+      "file": "dist/assets/szia_8-3lpQuEmZ.mp4",
+      "extension": ".mp4",
+      "bytes": 2655407
+    },
+    {
+      "file": "dist/assets/szia_5-sD6es9Ca.mp4",
+      "extension": ".mp4",
+      "bytes": 2596316
+    },
+    {
+      "file": "dist/assets/portrait-2-m0g2nDrl.png",
+      "extension": ".png",
+      "bytes": 2365311
+    },
+    {
+      "file": "dist/assets/portrait_3-CIc5Ges3.png",
+      "extension": ".png",
+      "bytes": 1694043
+    },
+    {
+      "file": "dist/assets/highsandlows-Bj-bk_mG.mp3",
+      "extension": ".mp3",
+      "bytes": 1618177
+    },
+    {
+      "file": "dist/assets/beturajz2-BAffnb21.webp",
+      "extension": ".webp",
+      "bytes": 652172
+    },
+    {
+      "file": "dist/assets/kapuvideo-M7neWWW5.mp4",
+      "extension": ".mp4",
+      "bytes": 590087
+    },
+    {
+      "file": "dist/assets/galtamas_mds4_plakat2-BO9VLUK5.webp",
+      "extension": ".webp",
+      "bytes": 493758
+    },
+    {
+      "file": "dist/assets/szia-D5JZl8UZ.png",
+      "extension": ".png",
+      "bytes": 400737
+    },
+    {
+      "file": "dist/assets/kep9-MM5cpW__.png",
+      "extension": ".png",
+      "bytes": 346957
+    },
+    {
+      "file": "dist/assets/tomi kep 3-CaReCdCc.webp",
+      "extension": ".webp",
+      "bytes": 281496
+    },
+    {
+      "file": "dist/assets/tomi kep 4-C2mfcqHl.webp",
+      "extension": ".webp",
+      "bytes": 278210
+    }
+  ],
+  "largestSourceAssets": [
+    {
+      "file": "src/assets/gallery/kep2-01.jpg",
+      "bytes": 34092988
+    },
+    {
+      "file": "src/assets/gallery/galtamas_mds4_plakat1.png",
+      "bytes": 31064603
+    },
+    {
+      "file": "src/assets/gallery/galtamas_mds4_plakat2.png",
+      "bytes": 15245072
+    },
+    {
+      "file": "src/assets/gallery/GalTamas_MediaLabor1_BeautyRender.png",
+      "bytes": 10802782
+    },
+    {
+      "file": "src/assets/background.mp4",
+      "bytes": 8772165
+    },
+    {
+      "file": "src/assets/canube.mp3",
+      "bytes": 5917883
+    },
+    {
+      "file": "src/assets/devilinanewdress.mp3",
+      "bytes": 5537841
+    },
+    {
+      "file": "src/assets/thestorm.mp3",
+      "bytes": 4710399
+    },
+    {
+      "file": "src/assets/portrait-1.png",
+      "bytes": 3951505
+    },
+    {
+      "file": "src/assets/chakras.mp3",
+      "bytes": 3774588
+    },
+    {
+      "file": "src/assets/newbody.mp3",
+      "bytes": 3591940
+    },
+    {
+      "file": "src/assets/gallery/tomi kep 4.png",
+      "bytes": 3433919
+    },
+    {
+      "file": "src/assets/gallery/tomi kep 3.png",
+      "bytes": 3425019
+    },
+    {
+      "file": "src/assets/gallery/tomi kep 2.png",
+      "bytes": 3407473
+    },
+    {
+      "file": "src/assets/gallery/tomi kep 1.png",
+      "bytes": 3166285
+    },
+    {
+      "file": "src/assets/gallery/beturajz2.jpg",
+      "bytes": 3139506
+    },
+    {
+      "file": "src/assets/szia_9.mp4",
+      "bytes": 2974076
+    },
+    {
+      "file": "src/assets/szia_6.mp4",
+      "bytes": 2797211
+    },
+    {
+      "file": "src/assets/szia_10.mp4",
+      "bytes": 2749844
+    },
+    {
+      "file": "src/assets/szia_7.mp4",
+      "bytes": 2735091
+    }
+  ],
+  "assets": [
+    {
+      "file": "dist/404.html",
+      "extension": ".html",
+      "bytes": 702,
+      "gzipBytes": 376,
+      "brotliBytes": 266
+    },
+    {
+      "file": "dist/CNAME",
+      "extension": "",
+      "bytes": 11
+    },
+    {
+      "file": "dist/assets/4444444-_TUZEHQc.webp",
+      "extension": ".webp",
+      "bytes": 36674
+    },
+    {
+      "file": "dist/assets/AsciiFluidVortex-CwOpnzup.js",
+      "extension": ".js",
+      "bytes": 6429,
+      "gzipBytes": 2503,
+      "brotliBytes": 2224
+    },
+    {
+      "file": "dist/assets/BorderGlow-BJl-hfYH.js",
+      "extension": ".js",
+      "bytes": 3162,
+      "gzipBytes": 1578,
+      "brotliBytes": 1447
+    },
+    {
+      "file": "dist/assets/BorderGlow-C6CLzegA.css",
+      "extension": ".css",
+      "bytes": 6396,
+      "gzipBytes": 1274,
+      "brotliBytes": 1091
+    },
+    {
+      "file": "dist/assets/ColorBends-CrwW8fxB.js",
+      "extension": ".js",
+      "bytes": 7570,
+      "gzipBytes": 2995,
+      "brotliBytes": 2703
+    },
+    {
+      "file": "dist/assets/ColorBends-MbwAvuph.css",
+      "extension": ".css",
+      "bytes": 81,
+      "gzipBytes": 93,
+      "brotliBytes": 43
+    },
+    {
+      "file": "dist/assets/DrukWide-SuperItalic-Trial-CutETZ-T.otf",
+      "extension": ".otf",
+      "bytes": 75252
+    },
+    {
+      "file": "dist/assets/DrukWideBold-CEzJ-NRH.ttf",
+      "extension": ".ttf",
+      "bytes": 145956
+    },
+    {
+      "file": "dist/assets/EarlyQuake-Dwm2CZdc.otf",
+      "extension": ".otf",
+      "bytes": 22756
+    },
+    {
+      "file": "dist/assets/Environment-CGW7Btrb.js",
+      "extension": ".js",
+      "bytes": 125723,
+      "gzipBytes": 40546,
+      "brotliBytes": 35102
+    },
+    {
+      "file": "dist/assets/FatChubby-L6oVfrHW.otf",
+      "extension": ".otf",
+      "bytes": 10624
+    },
+    {
+      "file": "dist/assets/Folder-D68_odtD.css",
+      "extension": ".css",
+      "bytes": 2768,
+      "gzipBytes": 886,
+      "brotliBytes": 741
+    },
+    {
+      "file": "dist/assets/Folder-DdmAsPH8.js",
+      "extension": ".js",
+      "bytes": 1611,
+      "gzipBytes": 874,
+      "brotliBytes": 776
+    },
+    {
+      "file": "dist/assets/GalTamas_MediaLabor1_BeautyRender-BXeTuk8S.webp",
+      "extension": ".webp",
+      "bytes": 67808
+    },
+    {
+      "file": "dist/assets/GalTamas_MediaLabor1_Gameboy-DG4J1lFK.webp",
+      "extension": ".webp",
+      "bytes": 25960
+    },
+    {
+      "file": "dist/assets/GalTamas_MediaLabor1_MaterialRender-D6nPAkoO.webp",
+      "extension": ".webp",
+      "bytes": 28676
+    },
+    {
+      "file": "dist/assets/GalTamas_MediaLabor1_Szoba-Bl5ylndn.webp",
+      "extension": ".webp",
+      "bytes": 36998
+    },
+    {
+      "file": "dist/assets/GradientDrift-C3FmZK_e.js",
+      "extension": ".js",
+      "bytes": 20532,
+      "gzipBytes": 6691,
+      "brotliBytes": 6024
+    },
+    {
+      "file": "dist/assets/GradientDrift-DgDGG-LA.css",
+      "extension": ".css",
+      "bytes": 2162,
+      "gzipBytes": 989,
+      "brotliBytes": 815
+    },
+    {
+      "file": "dist/assets/HighresScreenshot00004-D61jswlh.webp",
+      "extension": ".webp",
+      "bytes": 56458
+    },
+    {
+      "file": "dist/assets/Home-BI6Em69d.js",
+      "extension": ".js",
+      "bytes": 67318,
+      "gzipBytes": 21894,
+      "brotliBytes": 19323
+    },
+    {
+      "file": "dist/assets/Home-Dsb7VMuZ.css",
+      "extension": ".css",
+      "bytes": 16471,
+      "gzipBytes": 3877,
+      "brotliBytes": 3392
+    },
+    {
+      "file": "dist/assets/HyperspaceRaceCapsule-I1b56n1H.otf",
+      "extension": ".otf",
+      "bytes": 16512
+    },
+    {
+      "file": "dist/assets/HyperspaceRaceCapsule2-BSjyTQf-.otf",
+      "extension": ".otf",
+      "bytes": 16456
+    },
+    {
+      "file": "dist/assets/Intan-ZuYKcVSS.otf",
+      "extension": ".otf",
+      "bytes": 97376
+    },
+    {
+      "file": "dist/assets/Lanyard-BTa5Eaux.js",
+      "extension": ".js",
+      "bytes": 2279827,
+      "gzipBytes": 844041,
+      "brotliBytes": 626946
+    },
+    {
+      "file": "dist/assets/Lanyard-ChXAAOhV.css",
+      "extension": ".css",
+      "bytes": 149,
+      "gzipBytes": 133,
+      "brotliBytes": 84
+    },
+    {
+      "file": "dist/assets/LightRays-DwAxJEyN.css",
+      "extension": ".css",
+      "bytes": 166,
+      "gzipBytes": 128,
+      "brotliBytes": 79
+    },
+    {
+      "file": "dist/assets/LightRays-eMHyhzb7.js",
+      "extension": ".js",
+      "bytes": 7122,
+      "gzipBytes": 2564,
+      "brotliBytes": 2323
+    },
+    {
+      "file": "dist/assets/Mesh-uU8OXhrh.js",
+      "extension": ".js",
+      "bytes": 44196,
+      "gzipBytes": 12849,
+      "brotliBytes": 10820
+    },
+    {
+      "file": "dist/assets/MobilePreview-BeSZ0vnY.css",
+      "extension": ".css",
+      "bytes": 4009,
+      "gzipBytes": 1324,
+      "brotliBytes": 1097
+    },
+    {
+      "file": "dist/assets/MobilePreview-BfUtfUR7.js",
+      "extension": ".js",
+      "bytes": 1243,
+      "gzipBytes": 356,
+      "brotliBytes": 284
+    },
+    {
+      "file": "dist/assets/Molten Display-C6DjO-3S.otf",
+      "extension": ".otf",
+      "bytes": 22044
+    },
+    {
+      "file": "dist/assets/MusicPlayer-CDCxhfht.css",
+      "extension": ".css",
+      "bytes": 16125,
+      "gzipBytes": 4081,
+      "brotliBytes": 3566
+    },
+    {
+      "file": "dist/assets/MusicPlayer-DLCeuJTI.js",
+      "extension": ".js",
+      "bytes": 22032,
+      "gzipBytes": 8381,
+      "brotliBytes": 7409
+    },
+    {
+      "file": "dist/assets/Nero-Bmrezw6x.ttf",
+      "extension": ".ttf",
+      "bytes": 40240
+    },
+    {
+      "file": "dist/assets/NotFound-CfWwE9px.js",
+      "extension": ".js",
+      "bytes": 508,
+      "gzipBytes": 318,
+      "brotliBytes": 262
+    },
+    {
+      "file": "dist/assets/PlaygroundDome-C38Xju9w.js",
+      "extension": ".js",
+      "bytes": 12769,
+      "gzipBytes": 5340,
+      "brotliBytes": 4769
+    },
+    {
+      "file": "dist/assets/PlaygroundDome-DF-aGLgJ.css",
+      "extension": ".css",
+      "bytes": 2768,
+      "gzipBytes": 1028,
+      "brotliBytes": 835
+    },
+    {
+      "file": "dist/assets/ProfileCard-27A84pQ7.css",
+      "extension": ".css",
+      "bytes": 9697,
+      "gzipBytes": 2587,
+      "brotliBytes": 2221
+    },
+    {
+      "file": "dist/assets/ProfileCard-CQgZ1xNZ.js",
+      "extension": ".js",
+      "bytes": 4788,
+      "gzipBytes": 2086,
+      "brotliBytes": 1841
+    },
+    {
+      "file": "dist/assets/ProjectPicker-C2gwxdmv.js",
+      "extension": ".js",
+      "bytes": 12591,
+      "gzipBytes": 4453,
+      "brotliBytes": 3977
+    },
+    {
+      "file": "dist/assets/ProjectPicker-DHgvDnqi.css",
+      "extension": ".css",
+      "bytes": 18428,
+      "gzipBytes": 4074,
+      "brotliBytes": 3535
+    },
+    {
+      "file": "dist/assets/RacingGame-M-QCaUCV.js",
+      "extension": ".js",
+      "bytes": 4336,
+      "gzipBytes": 1743,
+      "brotliBytes": 1528
+    },
+    {
+      "file": "dist/assets/RacingGame-YsexX9xp.css",
+      "extension": ".css",
+      "bytes": 3033,
+      "gzipBytes": 1212,
+      "brotliBytes": 1009
+    },
+    {
+      "file": "dist/assets/Raintion-Black-BWy4-cMG.ttf",
+      "extension": ".ttf",
+      "bytes": 34612
+    },
+    {
+      "file": "dist/assets/RecordBackground-C_s9BDaG.js",
+      "extension": ".js",
+      "bytes": 6169,
+      "gzipBytes": 2732,
+      "brotliBytes": 2385
+    },
+    {
+      "file": "dist/assets/RecordBackground-CfdYVHv9.css",
+      "extension": ".css",
+      "bytes": 190,
+      "gzipBytes": 150,
+      "brotliBytes": 100
+    },
+    {
+      "file": "dist/assets/ResumeModal-CPHwsGDG.css",
+      "extension": ".css",
+      "bytes": 4576,
+      "gzipBytes": 1254,
+      "brotliBytes": 1059
+    },
+    {
+      "file": "dist/assets/ResumeModal-d7CIeyLc.js",
+      "extension": ".js",
+      "bytes": 8909,
+      "gzipBytes": 3218,
+      "brotliBytes": 2773
+    },
+    {
+      "file": "dist/assets/RouletteGame-BrqDVggg.css",
+      "extension": ".css",
+      "bytes": 5406,
+      "gzipBytes": 1815,
+      "brotliBytes": 1547
+    },
+    {
+      "file": "dist/assets/RouletteGame-Dgm7aab6.js",
+      "extension": ".js",
+      "bytes": 1002,
+      "gzipBytes": 641,
+      "brotliBytes": 558
+    },
+    {
+      "file": "dist/assets/RouletteGame-aH6QVbsv.js",
+      "extension": ".js",
+      "bytes": 4011,
+      "gzipBytes": 1496,
+      "brotliBytes": 1321
+    },
+    {
+      "file": "dist/assets/STRRETCH SANS FREE-BDKpcR7V.ttf",
+      "extension": ".ttf",
+      "bytes": 22372
+    },
+    {
+      "file": "dist/assets/Secret-DZt-UIjH.js",
+      "extension": ".js",
+      "bytes": 213,
+      "gzipBytes": 189,
+      "brotliBytes": 158
+    },
+    {
+      "file": "dist/assets/Sequence 01.00_00_35_04.Still004-BtZN15vs.webp",
+      "extension": ".webp",
+      "bytes": 101944
+    },
+    {
+      "file": "dist/assets/Sequence 01.00_00_38_02.Still005-3J_cTmyg.webp",
+      "extension": ".webp",
+      "bytes": 32730
+    },
+    {
+      "file": "dist/assets/Sequence 01.00_00_52_05.Still006-Duu3YriZ.webp",
+      "extension": ".webp",
+      "bytes": 69322
+    },
+    {
+      "file": "dist/assets/SketchRelay-BEQDeqxy.css",
+      "extension": ".css",
+      "bytes": 15330,
+      "gzipBytes": 4253,
+      "brotliBytes": 3702
+    },
+    {
+      "file": "dist/assets/SketchRelay-ChVFULso.js",
+      "extension": ".js",
+      "bytes": 5023,
+      "gzipBytes": 1865,
+      "brotliBytes": 1686
+    },
+    {
+      "file": "dist/assets/TiltedCard-BdPdqSlq.js",
+      "extension": ".js",
+      "bytes": 4040,
+      "gzipBytes": 1763,
+      "brotliBytes": 1572
+    },
+    {
+      "file": "dist/assets/TiltedCard-C0MVdD5s.css",
+      "extension": ".css",
+      "bytes": 1640,
+      "gzipBytes": 628,
+      "brotliBytes": 464
+    },
+    {
+      "file": "dist/assets/Triangle-DAtu0A0C.js",
+      "extension": ".js",
+      "bytes": 248,
+      "gzipBytes": 205,
+      "brotliBytes": 175
+    },
+    {
+      "file": "dist/assets/Unmatched-BnDED60J.otf",
+      "extension": ".otf",
+      "bytes": 47880
+    },
+    {
+      "file": "dist/assets/WebsiteTest-CEWdhHvH.js",
+      "extension": ".js",
+      "bytes": 131596,
+      "gzipBytes": 46714,
+      "brotliBytes": 40922
+    },
+    {
+      "file": "dist/assets/WebsiteTest-Uz6YAaAZ.css",
+      "extension": ".css",
+      "bytes": 66874,
+      "gzipBytes": 13268,
+      "brotliBytes": 11583
+    },
+    {
+      "file": "dist/assets/WebsiteTestPages-D56zMBjY.js",
+      "extension": ".js",
+      "bytes": 17435,
+      "gzipBytes": 6464,
+      "brotliBytes": 5638
+    },
+    {
+      "file": "dist/assets/WebsiteTestPages-Du7Sxdb0.css",
+      "extension": ".css",
+      "bytes": 26248,
+      "gzipBytes": 5693,
+      "brotliBytes": 4849
+    },
+    {
+      "file": "dist/assets/Yink-BiZp2aKl.otf",
+      "extension": ".otf",
+      "bytes": 74528
+    },
+    {
+      "file": "dist/assets/ZenPond-D8NVg1Wb.css",
+      "extension": ".css",
+      "bytes": 568,
+      "gzipBytes": 384,
+      "brotliBytes": 261
+    },
+    {
+      "file": "dist/assets/ZenPond-lN_lYu32.js",
+      "extension": ".js",
+      "bytes": 7951,
+      "gzipBytes": 2910,
+      "brotliBytes": 2627
+    },
+    {
+      "file": "dist/assets/amerik-DF8guD0z.otf",
+      "extension": ".otf",
+      "bytes": 22464
+    },
+    {
+      "file": "dist/assets/animationLoop-CK0KnI8C.js",
+      "extension": ".js",
+      "bytes": 575,
+      "gzipBytes": 339,
+      "brotliBytes": 286
+    },
+    {
+      "file": "dist/assets/avoerocksans-BRQyqAi4.otf",
+      "extension": ".otf",
+      "bytes": 31948
+    },
+    {
+      "file": "dist/assets/background-DfhePvpD.mp4",
+      "extension": ".mp4",
+      "bytes": 8772165
+    },
+    {
+      "file": "dist/assets/beturajz2-BAffnb21.webp",
+      "extension": ".webp",
+      "bytes": 652172
+    },
+    {
+      "file": "dist/assets/bully_cover-Bzqg_O0A.jpg",
+      "extension": ".jpg",
+      "bytes": 192445
+    },
+    {
+      "file": "dist/assets/canube-57fGVRN5.mp3",
+      "extension": ".mp3",
+      "bytes": 5917883
+    },
+    {
+      "file": "dist/assets/caranimtv0016-DumSOQI2.webp",
+      "extension": ".webp",
+      "bytes": 24874
+    },
+    {
+      "file": "dist/assets/chakras-CmplIeHn.mp3",
+      "extension": ".mp3",
+      "bytes": 3774588
+    },
+    {
+      "file": "dist/assets/delusi-xuukTXNg.otf",
+      "extension": ".otf",
+      "bytes": 99236
+    },
+    {
+      "file": "dist/assets/devilinanewdress-N1mN3x-W.mp3",
+      "extension": ".mp3",
+      "bytes": 5537841
+    },
+    {
+      "file": "dist/assets/exhibit-autumn-HjoKwBGz.jpg",
+      "extension": ".jpg",
+      "bytes": 134443
+    },
+    {
+      "file": "dist/assets/exhibit-blossom-5lZBG2dU.jpg",
+      "extension": ".jpg",
+      "bytes": 139455
+    },
+    {
+      "file": "dist/assets/exhibit-blueberry-CTPz0_JH.jpg",
+      "extension": ".jpg",
+      "bytes": 120558
+    },
+    {
+      "file": "dist/assets/exhibit-forest-UMfUPoW1.jpg",
+      "extension": ".jpg",
+      "bytes": 124806
+    },
+    {
+      "file": "dist/assets/exhibit-lavender-DP24WG1R.jpg",
+      "extension": ".jpg",
+      "bytes": 122143
+    },
+    {
+      "file": "dist/assets/exhibit-wheat-ug1BVoxg.jpg",
+      "extension": ".jpg",
+      "bytes": 149244
+    },
+    {
+      "file": "dist/assets/extends-RCy57k2d.js",
+      "extension": ".js",
+      "bytes": 158362,
+      "gzipBytes": 50838,
+      "brotliBytes": 44645
+    },
+    {
+      "file": "dist/assets/final2-BuTjMpIc.webp",
+      "extension": ".webp",
+      "bytes": 40844
+    },
+    {
+      "file": "dist/assets/galleryAssets-C6BFITst.js",
+      "extension": ".js",
+      "bytes": 3012,
+      "gzipBytes": 1063,
+      "brotliBytes": 926
+    },
+    {
+      "file": "dist/assets/galtamas_mds4_plakat1-DcSbFJpP.webp",
+      "extension": ".webp",
+      "bytes": 250118
+    },
+    {
+      "file": "dist/assets/galtamas_mds4_plakat2-BO9VLUK5.webp",
+      "extension": ".webp",
+      "bytes": 493758
+    },
+    {
+      "file": "dist/assets/hand-left-DJPLmXkM.js",
+      "extension": ".js",
+      "bytes": 63,
+      "gzipBytes": 83,
+      "brotliBytes": 66
+    },
+    {
+      "file": "dist/assets/hand-left-db1vllgp.svg",
+      "extension": ".svg",
+      "bytes": 141545,
+      "gzipBytes": 55105,
+      "brotliBytes": 50056
+    },
+    {
+      "file": "dist/assets/highsandlows-Bj-bk_mG.mp3",
+      "extension": ".mp3",
+      "bytes": 1618177
+    },
+    {
+      "file": "dist/assets/iconBase-BfSyRXah.js",
+      "extension": ".js",
+      "bytes": 2451,
+      "gzipBytes": 1078,
+      "brotliBytes": 962
+    },
+    {
+      "file": "dist/assets/index-D4kZom6s.js",
+      "extension": ".js",
+      "bytes": 235288,
+      "gzipBytes": 75880,
+      "brotliBytes": 65615
+    },
+    {
+      "file": "dist/assets/index-vjvCJfJm.css",
+      "extension": ".css",
+      "bytes": 25757,
+      "gzipBytes": 6067,
+      "brotliBytes": 5379
+    },
+    {
+      "file": "dist/assets/kapuvideo-M7neWWW5.mp4",
+      "extension": ".mp4",
+      "bytes": 590087
+    },
+    {
+      "file": "dist/assets/kep2-01-CEqbNJTW.webp",
+      "extension": ".webp",
+      "bytes": 66414
+    },
+    {
+      "file": "dist/assets/kep4-BWXcZH68.webp",
+      "extension": ".webp",
+      "bytes": 41370
+    },
+    {
+      "file": "dist/assets/kep5-_lVtwxSo.webp",
+      "extension": ".webp",
+      "bytes": 82670
+    },
+    {
+      "file": "dist/assets/kep6-BqFT61uq.webp",
+      "extension": ".webp",
+      "bytes": 41446
+    },
+    {
+      "file": "dist/assets/kep8-CuSR6y5A.webp",
+      "extension": ".webp",
+      "bytes": 49158
+    },
+    {
+      "file": "dist/assets/kep9-B5_7qaAJ.js",
+      "extension": ".js",
+      "bytes": 52,
+      "gzipBytes": 72,
+      "brotliBytes": 56
+    },
+    {
+      "file": "dist/assets/kep9-DkHTJAxk.webp",
+      "extension": ".webp",
+      "bytes": 62184
+    },
+    {
+      "file": "dist/assets/kep9-MM5cpW__.png",
+      "extension": ".png",
+      "bytes": 346957
+    },
+    {
+      "file": "dist/assets/lanyard-CsWgAU5X.png",
+      "extension": ".png",
+      "bytes": 7768
+    },
+    {
+      "file": "dist/assets/lanyard-DwIidv7_.js",
+      "extension": ".js",
+      "bytes": 55,
+      "gzipBytes": 75,
+      "brotliBytes": 59
+    },
+    {
+      "file": "dist/assets/logo-dark-CrQvFhvW.png",
+      "extension": ".png",
+      "bytes": 11231
+    },
+    {
+      "file": "dist/assets/logo-light-yWUzohzP.png",
+      "extension": ".png",
+      "bytes": 11145
+    },
+    {
+      "file": "dist/assets/mbdtf_cover-BGKF6Gfy.jpg",
+      "extension": ".jpg",
+      "bytes": 75020
+    },
+    {
+      "file": "dist/assets/mono-iYMLTA_I.webp",
+      "extension": ".webp",
+      "bytes": 33434
+    },
+    {
+      "file": "dist/assets/monr-Bl9OicAf.otf",
+      "extension": ".otf",
+      "bytes": 51488
+    },
+    {
+      "file": "dist/assets/move-today-BszDJsma.otf",
+      "extension": ".otf",
+      "bytes": 63792
+    },
+    {
+      "file": "dist/assets/newbody-DU9eaKaM.mp3",
+      "extension": ".mp3",
+      "bytes": 3591940
+    },
+    {
+      "file": "dist/assets/newcard-X4-6DBuV.glb",
+      "extension": ".glb",
+      "bytes": 212240
+    },
+    {
+      "file": "dist/assets/pageTransition-BvkEysxB.js",
+      "extension": ".js",
+      "bytes": 74619,
+      "gzipBytes": 29412,
+      "brotliBytes": 26462
+    },
+    {
+      "file": "dist/assets/port1-B_E5b9Rg.jpg",
+      "extension": ".jpg",
+      "bytes": 9919
+    },
+    {
+      "file": "dist/assets/portrait-2-m0g2nDrl.png",
+      "extension": ".png",
+      "bytes": 2365311
+    },
+    {
+      "file": "dist/assets/portrait_3-CIc5Ges3.png",
+      "extension": ".png",
+      "bytes": 1694043
+    },
+    {
+      "file": "dist/assets/proxy-CMbMM709.js",
+      "extension": ".js",
+      "bytes": 122914,
+      "gzipBytes": 40245,
+      "brotliBytes": 36013
+    },
+    {
+      "file": "dist/assets/rebook-CYaJEKQU.otf",
+      "extension": ".otf",
+      "bytes": 13224
+    },
+    {
+      "file": "dist/assets/right-hand-BV-kPn2C.js",
+      "extension": ".js",
+      "bytes": 64,
+      "gzipBytes": 84,
+      "brotliBytes": 68
+    },
+    {
+      "file": "dist/assets/right-hand-jLymC5RD.svg",
+      "extension": ".svg",
+      "bytes": 115369,
+      "gzipBytes": 45257,
+      "brotliBytes": 40911
+    },
+    {
+      "file": "dist/assets/rondey-regular-D1Rg9uSD.otf",
+      "extension": ".otf",
+      "bytes": 80680
+    },
+    {
+      "file": "dist/assets/skybold-CvAuvy4n.otf",
+      "extension": ".otf",
+      "bytes": 78044
+    },
+    {
+      "file": "dist/assets/substance_logo-CLEgLjHx.js",
+      "extension": ".js",
+      "bytes": 14402,
+      "gzipBytes": 8302,
+      "brotliBytes": 7413
+    },
+    {
+      "file": "dist/assets/szia-D5JZl8UZ.png",
+      "extension": ".png",
+      "bytes": 400737
+    },
+    {
+      "file": "dist/assets/szia_10-5dSFKCS2.js",
+      "extension": ".js",
+      "bytes": 61,
+      "gzipBytes": 81,
+      "brotliBytes": 65
+    },
+    {
+      "file": "dist/assets/szia_10-C3EAr39K.mp4",
+      "extension": ".mp4",
+      "bytes": 2749844
+    },
+    {
+      "file": "dist/assets/szia_2-Bvc5HE9r.jpg",
+      "extension": ".jpg",
+      "bytes": 98582
+    },
+    {
+      "file": "dist/assets/szia_3-BI4fnfPc.jpg",
+      "extension": ".jpg",
+      "bytes": 26055
+    },
+    {
+      "file": "dist/assets/szia_4-DprtTeG4.jpg",
+      "extension": ".jpg",
+      "bytes": 39820
+    },
+    {
+      "file": "dist/assets/szia_5-q96Qoeui.js",
+      "extension": ".js",
+      "bytes": 60,
+      "gzipBytes": 80,
+      "brotliBytes": 64
+    },
+    {
+      "file": "dist/assets/szia_5-sD6es9Ca.mp4",
+      "extension": ".mp4",
+      "bytes": 2596316
+    },
+    {
+      "file": "dist/assets/szia_8-3lpQuEmZ.mp4",
+      "extension": ".mp4",
+      "bytes": 2655407
+    },
+    {
+      "file": "dist/assets/szia_8-nDR_8SbX.js",
+      "extension": ".js",
+      "bytes": 60,
+      "gzipBytes": 80,
+      "brotliBytes": 64
+    },
+    {
+      "file": "dist/assets/szia_9-0HsEnfqt.js",
+      "extension": ".js",
+      "bytes": 60,
+      "gzipBytes": 80,
+      "brotliBytes": 64
+    },
+    {
+      "file": "dist/assets/szia_9-D7hXO784.mp4",
+      "extension": ".mp4",
+      "bytes": 2974076
+    },
+    {
+      "file": "dist/assets/thestorm-r_l2xWaF.mp3",
+      "extension": ".mp3",
+      "bytes": 4710399
+    },
+    {
+      "file": "dist/assets/three.module-zDgAY601.js",
+      "extension": ".js",
+      "bytes": 704525,
+      "gzipBytes": 181610,
+      "brotliBytes": 146950
+    },
+    {
+      "file": "dist/assets/tomi kep 1--wtewp-x.webp",
+      "extension": ".webp",
+      "bytes": 227934
+    },
+    {
+      "file": "dist/assets/tomi kep 2-yoAd72a5.webp",
+      "extension": ".webp",
+      "bytes": 250978
+    },
+    {
+      "file": "dist/assets/tomi kep 3-CaReCdCc.webp",
+      "extension": ".webp",
+      "bytes": 281496
+    },
+    {
+      "file": "dist/assets/tomi kep 4-C2mfcqHl.webp",
+      "extension": ".webp",
+      "bytes": 278210
+    },
+    {
+      "file": "dist/assets/touchdesigner_logo-DnKM02qX.png",
+      "extension": ".png",
+      "bytes": 44089
+    },
+    {
+      "file": "dist/assets/use-transform-CSw74UmC.js",
+      "extension": ".js",
+      "bytes": 1290,
+      "gzipBytes": 680,
+      "brotliBytes": 614
+    },
+    {
+      "file": "dist/assets/usePageVisibility-C_KmcDro.js",
+      "extension": ".js",
+      "bytes": 324,
+      "gzipBytes": 202,
+      "brotliBytes": 151
+    },
+    {
+      "file": "dist/assets/voltures_cover-DeCyAMWx.jpg",
+      "extension": ".jpg",
+      "bytes": 42908
+    },
+    {
+      "file": "dist/assets/yandhi_cover-BaFSdvFG.jpg",
+      "extension": ".jpg",
+      "bytes": 74032
+    },
+    {
+      "file": "dist/index.html",
+      "extension": ".html",
+      "bytes": 1364,
+      "gzipBytes": 714,
+      "brotliBytes": 519
+    },
+    {
+      "file": "dist/resume.pdf.pdf",
+      "extension": ".pdf",
+      "bytes": 32622
+    },
+    {
+      "file": "dist/vite.svg",
+      "extension": ".svg",
+      "bytes": 1497,
+      "gzipBytes": 775,
+      "brotliBytes": 672
+    }
+  ],
+  "notes": [
+    "Total emitted assets are not the initial page download: many routes and media are lazy-loaded.",
+    "gzip and Brotli sizes are calculated estimates, not observed hosting response compression.",
+    "Runtime source hash covers src JS/JSX/CSS, index.html and vite.config.js; test/docs/package-script additions do not alter it."
+  ]
+}

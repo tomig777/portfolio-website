@@ -1,0 +1,1506 @@
+{
+  "generatedAt": "2026-10-01T19:05:04.664Z",
+  "runtimeSourceSha256": "792ee9a7a14f4c0850faf28e392684d425765404ce45304f7792852b3cbe67c3",
+  "logs": [
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.513Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.514Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.520Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.520Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.527Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.527Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.534Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.534Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.541Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.541Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.548Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.548Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.555Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.555Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.562Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.562Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.569Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.569Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.576Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.576Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.583Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.583Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.590Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.590Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.597Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.597Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.604Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.604Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.610Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.611Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.617Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.618Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.624Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.624Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.631Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.631Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.638Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.638Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.645Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.645Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.652Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.652Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.659Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.659Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.666Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.666Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.673Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.673Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.680Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.680Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.687Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.687Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.694Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.694Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.701Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.701Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.708Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.708Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.715Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.715Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.721Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.722Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.729Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.729Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.735Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.736Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.742Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.743Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.749Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.750Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.756Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.756Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.763Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.764Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.770Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.770Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.777Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.778Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.784Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.784Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.791Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.791Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.798Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.798Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.805Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.805Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.812Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.812Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.819Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.819Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.826Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.826Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.833Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.833Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.840Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.840Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.846Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.847Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.854Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.854Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.861Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.861Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.867Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.868Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.874Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.874Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.881Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.881Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.888Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.889Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.895Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.896Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.902Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.902Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.909Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.909Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.916Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.916Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.923Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.923Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.930Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.930Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.937Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.937Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.944Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.944Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.951Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.951Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.957Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.958Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.965Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.965Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.971Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.972Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.979Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.979Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.985Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.986Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.992Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.992Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:08.999Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.000Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.006Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.007Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.013Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.013Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.021Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.021Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.027Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.027Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.034Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.034Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.041Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.041Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.048Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.048Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.055Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.055Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.062Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.062Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.069Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.069Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.076Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.076Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.083Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.083Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.089Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.090Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.096Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.097Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.104Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.104Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.110Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.111Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.117Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.118Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.124Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.125Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.131Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.131Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.138Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.138Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.145Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.145Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.153Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.153Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.159Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.159Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.166Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.166Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.173Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.173Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.180Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.180Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.187Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.187Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.194Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.194Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.201Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.201Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.208Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.208Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.215Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.215Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.221Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.222Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.229Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.229Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.235Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.236Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.242Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.243Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.249Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.250Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.256Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.257Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.263Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.263Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.270Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.271Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.277Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.278Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.284Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.284Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.291Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.291Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.298Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.298Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.305Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.305Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.312Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.312Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.319Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.319Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.329Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.329Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.338Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.338Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.340Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.340Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.347Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.347Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.354Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.355Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.361Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.362Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.367Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.368Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.375Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    },
+    {
+      "level": "error",
+      "message": "THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The \"position\" attribute is likely to have NaN values. HQ",
+      "timestamp": "2026-10-01T19:04:09.376Z",
+      "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+    }
+  ]
+}

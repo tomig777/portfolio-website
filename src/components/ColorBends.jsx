@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import './ColorBends.css';
 import { createAnimationLoop } from '../utils/animationLoop';
+import useGraphicsActivity from '../hooks/useGraphicsActivity';
 
 const MAX_COLORS = 8;
 
@@ -163,37 +164,55 @@ export default function ColorBends({
   const resizeObserverRef = useRef(null);
   const rotationRef = useRef(rotation);
   const autoRotateRef = useRef(autoRotate);
-  const [isVisible, setIsVisible] = useState(false);
+  const settingsRef = useRef({});
+  const { ready, running } = useGraphicsActivity(containerRef, active);
   const pointerTargetRef = useRef(new THREE.Vector2(0, 0));
   const pointerCurrentRef = useRef(new THREE.Vector2(0, 0));
 
   useEffect(() => {
-    activeRef.current = active;
-    frameRef.current?.setActive(active);
-  }, [active]);
+    activeRef.current = running;
+    frameRef.current?.setActive(running);
+  }, [running]);
+
+  useEffect(() => {
+    settingsRef.current = { rotation, autoRotate, speed, colors, transparent, scale, frequency,
+      warpStrength, mouseInfluence, parallax, noise, iterations, intensity, bandWidth };
+    const material = materialRef.current;
+    rotationRef.current = rotation;
+    autoRotateRef.current = autoRotate;
+    if (!material) return;
+    for (const [name, value] of Object.entries({ Speed: speed, Scale: scale, Frequency: frequency,
+      WarpStrength: warpStrength, MouseInfluence: mouseInfluence, Parallax: parallax, Noise: noise,
+      Iterations: iterations, Intensity: intensity, BandWidth: bandWidth })) material.uniforms[`u${name}`].value = value;
+    const palette = (colors || []).filter(Boolean).slice(0, MAX_COLORS).map(colorToVector);
+    material.uniforms.uColors.value.forEach((color, index) => {
+      if (palette[index]) color.copy(palette[index]);
+      else color.set(0, 0, 0);
+    });
+    material.uniforms.uColorCount.value = palette.length;
+    material.uniforms.uTransparent.value = transparent ? 1 : 0;
+    rendererRef.current?.setClearColor(0x000000, transparent ? 0 : 1);
+    if (mouseInfluence === 0 && parallax === 0) {
+      pointerTargetRef.current.set(0, 0);
+      pointerCurrentRef.current.set(0, 0);
+      material.uniforms.uPointer.value.set(0, 0);
+    }
+  }, [rotation, autoRotate, speed, colors, transparent, scale, frequency, warpStrength,
+    mouseInfluence, parallax, noise, iterations, intensity, bandWidth]);
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return undefined;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { rootMargin: '160px' }
-    );
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container || !isVisible) return undefined;
+    if (!container || !ready) return undefined;
+    const { speed, colors: initialColors, transparent, scale, frequency, warpStrength, mouseInfluence,
+      parallax, noise, iterations, intensity, bandWidth } = settingsRef.current;
+    const colors = (initialColors || []).filter(Boolean).slice(0, MAX_COLORS);
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const geometry = new THREE.PlaneGeometry(2, 2);
     const colorUniforms = Array.from(
       { length: MAX_COLORS },
-      () => new THREE.Vector3(0, 0, 0)
+      (_, index) => colors[index] ? colorToVector(colors[index]) : new THREE.Vector3(0, 0, 0)
     );
     const material = new THREE.ShaderMaterial({
       vertexShader,
@@ -203,7 +222,7 @@ export default function ColorBends({
         uTime: { value: 0 },
         uSpeed: { value: speed },
         uRot: { value: new THREE.Vector2(1, 0) },
-        uColorCount: { value: 0 },
+        uColorCount: { value: Math.min(colors.length, MAX_COLORS) },
         uColors: { value: colorUniforms },
         uTransparent: { value: transparent ? 1 : 0 },
         uScale: { value: scale },
@@ -239,27 +258,20 @@ export default function ColorBends({
     container.appendChild(renderer.domElement);
 
     const clock = new THREE.Clock();
-    let visibilityFrame = 0;
-    let shouldRender = false;
-
-    const updateVisibility = () => {
-      const rect = container.getBoundingClientRect();
-      const computedStyle = window.getComputedStyle(container);
-      shouldRender = (
-        document.visibilityState === 'visible'
-        && computedStyle.visibility !== 'hidden'
-        && Number(computedStyle.opacity) > 0
-        && rect.bottom > 0
-        && rect.top < window.innerHeight
-      );
-    };
+    let width = 0;
+    let height = 0;
 
     const handleResize = () => {
-      const width = container.clientWidth || 1;
-      const height = container.clientHeight || 1;
+      const nextWidth = container.clientWidth || 1;
+      const nextHeight = container.clientHeight || 1;
+      frameRef.current?.setMaxFps(window.innerWidth <= 768 ? 30 : 60);
+      const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 768 ? 1 : 1.5);
+      if (width === nextWidth && height === nextHeight && renderer.getPixelRatio() === dpr) return;
+      width = nextWidth;
+      height = nextHeight;
+      renderer.setPixelRatio(dpr);
       renderer.setSize(width, height, false);
       material.uniforms.uCanvas.value.set(width, height);
-      updateVisibility();
     };
 
     handleResize();
@@ -276,26 +288,18 @@ export default function ColorBends({
       const delta = clock.getDelta();
       const elapsed = clock.elapsedTime;
 
-      visibilityFrame += 1;
-      if (visibilityFrame % 10 === 0) {
-        updateVisibility();
-      }
+      material.uniforms.uTime.value = elapsed;
 
-      if (shouldRender) {
-        material.uniforms.uTime.value = elapsed;
+      const degrees = (rotationRef.current % 360) + autoRotateRef.current * elapsed;
+      const radians = (degrees * Math.PI) / 180;
+      material.uniforms.uRot.value.set(Math.cos(radians), Math.sin(radians));
 
-        const degrees = (rotationRef.current % 360) + autoRotateRef.current * elapsed;
-        const radians = (degrees * Math.PI) / 180;
-        material.uniforms.uRot.value.set(Math.cos(radians), Math.sin(radians));
+      const pointerCurrent = pointerCurrentRef.current;
+      const pointerTarget = pointerTargetRef.current;
+      pointerCurrent.lerp(pointerTarget, Math.min(1, delta * 8));
+      material.uniforms.uPointer.value.copy(pointerCurrent);
 
-        const pointerCurrent = pointerCurrentRef.current;
-        const pointerTarget = pointerTargetRef.current;
-        pointerCurrent.lerp(pointerTarget, Math.min(1, delta * 8));
-        material.uniforms.uPointer.value.copy(pointerCurrent);
-
-        renderer.render(scene, camera);
-      }
-
+      renderer.render(scene, camera);
     };
 
     const animation = createAnimationLoop(renderFrame, {
@@ -303,9 +307,22 @@ export default function ColorBends({
       active: activeRef.current
     });
     frameRef.current = animation;
+    const handlePointerMove = event => {
+      const settings = settingsRef.current;
+      if (!activeRef.current || (settings.mouseInfluence === 0 && settings.parallax === 0)) return;
+      const rect = container.getBoundingClientRect();
+      pointerTargetRef.current.set(
+        ((event.clientX - rect.left) / (rect.width || 1)) * 2 - 1,
+        -(((event.clientY - rect.top) / (rect.height || 1)) * 2 - 1)
+      );
+    };
+    container.addEventListener('pointermove', handlePointerMove, { passive: true });
+    window.addEventListener('resize', handleResize);
 
     return () => {
       animation.dispose();
+      container.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('resize', handleResize);
       frameRef.current = null;
       if (resizeObserverRef.current) {
         resizeObserverRef.current.disconnect();
@@ -322,94 +339,7 @@ export default function ColorBends({
       materialRef.current = null;
       rendererRef.current = null;
     };
-  }, [
-    bandWidth,
-    frequency,
-    intensity,
-    iterations,
-    mouseInfluence,
-    noise,
-    parallax,
-    scale,
-    speed,
-    transparent,
-    warpStrength,
-    isVisible
-  ]);
-
-  useEffect(() => {
-    const material = materialRef.current;
-    const renderer = rendererRef.current;
-    if (!material) return;
-
-    rotationRef.current = rotation;
-    autoRotateRef.current = autoRotate;
-    material.uniforms.uSpeed.value = speed;
-    material.uniforms.uScale.value = scale;
-    material.uniforms.uFrequency.value = frequency;
-    material.uniforms.uWarpStrength.value = warpStrength;
-    material.uniforms.uMouseInfluence.value = mouseInfluence;
-    material.uniforms.uParallax.value = parallax;
-    material.uniforms.uNoise.value = noise;
-    material.uniforms.uIterations.value = iterations;
-    material.uniforms.uIntensity.value = intensity;
-    material.uniforms.uBandWidth.value = bandWidth;
-
-    const palette = (colors || [])
-      .filter(Boolean)
-      .slice(0, MAX_COLORS)
-      .map(colorToVector);
-
-    for (let index = 0; index < MAX_COLORS; index += 1) {
-      const uniformColor = material.uniforms.uColors.value[index];
-      if (index < palette.length) {
-        uniformColor.copy(palette[index]);
-      } else {
-        uniformColor.set(0, 0, 0);
-      }
-    }
-
-    material.uniforms.uColorCount.value = palette.length;
-    material.uniforms.uTransparent.value = transparent ? 1 : 0;
-    renderer?.setClearColor(0x000000, transparent ? 0 : 1);
-  }, [
-    rotation,
-    autoRotate,
-    speed,
-    scale,
-    frequency,
-    warpStrength,
-    mouseInfluence,
-    parallax,
-    noise,
-    iterations,
-    intensity,
-    bandWidth,
-    colors,
-    transparent
-  ]);
-
-  useEffect(() => {
-    const material = materialRef.current;
-    const container = containerRef.current;
-
-    if (!material || !container || (mouseInfluence === 0 && parallax === 0)) {
-      pointerTargetRef.current.set(0, 0);
-      pointerCurrentRef.current.set(0, 0);
-      material?.uniforms.uPointer.value.set(0, 0);
-      return undefined;
-    }
-
-    const handlePointerMove = (event) => {
-      const rect = container.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / (rect.width || 1)) * 2 - 1;
-      const y = -(((event.clientY - rect.top) / (rect.height || 1)) * 2 - 1);
-      pointerTargetRef.current.set(x, y);
-    };
-
-    container.addEventListener('pointermove', handlePointerMove);
-    return () => container.removeEventListener('pointermove', handlePointerMove);
-  }, [mouseInfluence, parallax]);
+  }, [ready]);
 
   return (
     <div

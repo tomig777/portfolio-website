@@ -1,0 +1,539 @@
+{
+  "sourceHash": "3fdb9a25ae8a345d05ba433eafea266eee593bd8dec6a13b273e44aa496961b0",
+  "phone": {
+    "graphics": [
+      {
+        "canvases": [
+          {
+            "height": 489,
+            "motion": null,
+            "width": 226
+          }
+        ],
+        "class": "darkveil-canvas",
+        "state": "running"
+      },
+      {
+        "canvases": [
+          {
+            "height": 844,
+            "motion": "settled",
+            "width": 390
+          }
+        ],
+        "class": "lanyard-wrapper",
+        "state": "running"
+      },
+      {
+        "canvases": [],
+        "class": "wt-hero-role-window",
+        "state": "running"
+      }
+    ],
+    "images": [
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 497,
+        "naturalWidth": 505,
+        "priority": "auto",
+        "src": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+      },
+      {
+        "complete": true,
+        "loading": "eager",
+        "naturalHeight": 789,
+        "naturalWidth": 735,
+        "priority": "high",
+        "src": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+      },
+      {
+        "complete": true,
+        "loading": "lazy",
+        "naturalHeight": 1080,
+        "naturalWidth": 1080,
+        "priority": "low",
+        "src": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+      },
+      {
+        "complete": true,
+        "loading": "lazy",
+        "naturalHeight": 736,
+        "naturalWidth": 736,
+        "priority": "low",
+        "src": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+      },
+      {
+        "complete": true,
+        "loading": "lazy",
+        "naturalHeight": 789,
+        "naturalWidth": 735,
+        "priority": "low",
+        "src": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+      }
+    ],
+    "metrics": {
+      "capturedAt": "2026-10-02T00:21:14.278Z",
+      "cls": 0,
+      "currentPath": "/",
+      "elapsedMs": 15081,
+      "environment": {
+        "deviceMemoryGiB": 32,
+        "hardwareConcurrency": 16,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+        "visibility": "visible"
+      },
+      "initialPath": "/",
+      "largestContentfulPaint": {
+        "element": "SPAN",
+        "size": 12672,
+        "timeMs": 436
+      },
+      "longTasks": {
+        "count": 1,
+        "recent8sCount": 0,
+        "totalDurationMs": 61,
+        "worst": [
+          {
+            "durationMs": 61,
+            "startTimeMs": 791.8999998569489
+          }
+        ]
+      },
+      "navigation": {
+        "domContentLoadedMs": 79.59999990463257,
+        "loadEventMs": 89.59999990463257,
+        "responseEndMs": 3.5999999046325684,
+        "type": "reload"
+      },
+      "notes": [
+        "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+        "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+        "Zero transfer size can indicate a cache hit or restricted timing information.",
+        "Probe module requests are excluded from the resource totals.",
+        "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+        "The probe adds a rAF callback and publishes this hidden output once per second."
+      ],
+      "recent8sRafCadence": {
+        "gapsOver50Ms": 0,
+        "maxMs": 7.2,
+        "meanMs": 6.95,
+        "medianMs": 6.9,
+        "p95Ms": 7.1,
+        "samples": 1152
+      },
+      "resources": {
+        "count": 30,
+        "largestObserved": [
+          {
+            "decodedBodyBytes": 2280995,
+            "durationMs": 9.4,
+            "encodedBodyBytes": 2280995,
+            "initiator": "script",
+            "transferBytes": 2281295,
+            "url": "http://127.0.0.1:4173/assets/Lanyard-BpOxsunm.js"
+          },
+          {
+            "decodedBodyBytes": 704525,
+            "durationMs": 4.7,
+            "encodedBodyBytes": 704525,
+            "initiator": "script",
+            "transferBytes": 704825,
+            "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+          },
+          {
+            "decodedBodyBytes": 400737,
+            "durationMs": 7.9,
+            "encodedBodyBytes": 400737,
+            "initiator": "img",
+            "transferBytes": 401037,
+            "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+          },
+          {
+            "decodedBodyBytes": 235336,
+            "durationMs": 7.4,
+            "encodedBodyBytes": 235336,
+            "initiator": "script",
+            "transferBytes": 235636,
+            "url": "http://127.0.0.1:4173/assets/index-OAmPOGKA.js"
+          },
+          {
+            "decodedBodyBytes": 212240,
+            "durationMs": 2.8,
+            "encodedBodyBytes": 212240,
+            "initiator": "fetch",
+            "transferBytes": 212540,
+            "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+          },
+          {
+            "decodedBodyBytes": 158362,
+            "durationMs": 4.3,
+            "encodedBodyBytes": 158362,
+            "initiator": "script",
+            "transferBytes": 158662,
+            "url": "http://127.0.0.1:4173/assets/extends-ClXrBBCY.js"
+          },
+          {
+            "decodedBodyBytes": 132407,
+            "durationMs": 4.1,
+            "encodedBodyBytes": 132407,
+            "initiator": "script",
+            "transferBytes": 132707,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-CGMjGhkw.js"
+          },
+          {
+            "decodedBodyBytes": 125723,
+            "durationMs": 5.7,
+            "encodedBodyBytes": 125723,
+            "initiator": "script",
+            "transferBytes": 126023,
+            "url": "http://127.0.0.1:4173/assets/Environment-ZAPB4ovl.js"
+          },
+          {
+            "decodedBodyBytes": 98582,
+            "durationMs": 2.6,
+            "encodedBodyBytes": 98582,
+            "initiator": "img",
+            "transferBytes": 98882,
+            "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+          },
+          {
+            "decodedBodyBytes": 74619,
+            "durationMs": 4.5,
+            "encodedBodyBytes": 74619,
+            "initiator": "script",
+            "transferBytes": 74919,
+            "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+          },
+          {
+            "decodedBodyBytes": 74528,
+            "durationMs": 26.3,
+            "encodedBodyBytes": 74528,
+            "initiator": "css",
+            "transferBytes": 74828,
+            "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+          },
+          {
+            "decodedBodyBytes": 66874,
+            "durationMs": 6.3,
+            "encodedBodyBytes": 66874,
+            "initiator": "link",
+            "transferBytes": 67174,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+          },
+          {
+            "decodedBodyBytes": 44196,
+            "durationMs": 6.3,
+            "encodedBodyBytes": 44196,
+            "initiator": "script",
+            "transferBytes": 44496,
+            "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+          },
+          {
+            "decodedBodyBytes": 26055,
+            "durationMs": 2.4,
+            "encodedBodyBytes": 26055,
+            "initiator": "img",
+            "transferBytes": 26355,
+            "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+          },
+          {
+            "decodedBodyBytes": 25757,
+            "durationMs": 7,
+            "encodedBodyBytes": 25757,
+            "initiator": "link",
+            "transferBytes": 26057,
+            "url": "http://127.0.0.1:4173/assets/index-vjvCJfJm.css"
+          },
+          {
+            "decodedBodyBytes": 14826,
+            "durationMs": 1.1,
+            "encodedBodyBytes": 814,
+            "initiator": "css",
+            "transferBytes": 0,
+            "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          }
+        ],
+        "reportedTransferBytes": 4734863,
+        "zeroOrUnavailableTransferCount": 2
+      },
+      "schemaVersion": 1,
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      }
+    },
+    "videos": [],
+    "viewport": {
+      "dpr": 1,
+      "height": 844,
+      "width": 390
+    }
+  },
+  "desktop": {
+    "graphics": [
+      {
+        "canvases": [
+          {
+            "height": 1170,
+            "motion": null,
+            "width": 1852
+          }
+        ],
+        "class": "darkveil-canvas",
+        "state": "running"
+      },
+      {
+        "canvases": [
+          {
+            "height": 900,
+            "motion": "settled",
+            "width": 1425
+          }
+        ],
+        "class": "lanyard-wrapper",
+        "state": "running"
+      },
+      {
+        "canvases": [],
+        "class": "wt-hero-role-window",
+        "state": "running"
+      },
+      {
+        "canvases": [],
+        "class": "wt-bubble-ascii-hands",
+        "state": "paused"
+      }
+    ],
+    "images": [
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 497,
+        "naturalWidth": 505,
+        "priority": "auto",
+        "src": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+      }
+    ],
+    "metrics": {
+      "capturedAt": "2026-10-02T00:24:28.333Z",
+      "cls": 0.01391,
+      "currentPath": "/",
+      "elapsedMs": 32092,
+      "environment": {
+        "deviceMemoryGiB": 32,
+        "hardwareConcurrency": 16,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+        "visibility": "visible"
+      },
+      "initialPath": "/",
+      "largestContentfulPaint": {
+        "element": "SPAN",
+        "size": 183680,
+        "timeMs": 436
+      },
+      "longTasks": {
+        "count": 1,
+        "recent8sCount": 0,
+        "totalDurationMs": 60,
+        "worst": [
+          {
+            "durationMs": 60,
+            "startTimeMs": 840.5
+          }
+        ]
+      },
+      "navigation": {
+        "domContentLoadedMs": 89.80000019073486,
+        "loadEventMs": 99.80000019073486,
+        "responseEndMs": 3.1000001430511475,
+        "type": "reload"
+      },
+      "notes": [
+        "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+        "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+        "Zero transfer size can indicate a cache hit or restricted timing information.",
+        "Probe module requests are excluded from the resource totals.",
+        "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+        "The probe adds a rAF callback and publishes this hidden output once per second."
+      ],
+      "recent8sRafCadence": {
+        "gapsOver50Ms": 0,
+        "maxMs": 7.3,
+        "meanMs": 6.95,
+        "medianMs": 6.9,
+        "p95Ms": 7.1,
+        "samples": 1152
+      },
+      "resources": {
+        "count": 40,
+        "largestObserved": [
+          {
+            "decodedBodyBytes": 2280995,
+            "durationMs": 10.7,
+            "encodedBodyBytes": 2280995,
+            "initiator": "script",
+            "transferBytes": 2281295,
+            "url": "http://127.0.0.1:4173/assets/Lanyard-BpOxsunm.js"
+          },
+          {
+            "decodedBodyBytes": 704525,
+            "durationMs": 6.6,
+            "encodedBodyBytes": 704525,
+            "initiator": "script",
+            "transferBytes": 704825,
+            "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+          },
+          {
+            "decodedBodyBytes": 400737,
+            "durationMs": 6.7,
+            "encodedBodyBytes": 400737,
+            "initiator": "img",
+            "transferBytes": 401037,
+            "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+          },
+          {
+            "decodedBodyBytes": 235336,
+            "durationMs": 8.8,
+            "encodedBodyBytes": 235336,
+            "initiator": "script",
+            "transferBytes": 235636,
+            "url": "http://127.0.0.1:4173/assets/index-OAmPOGKA.js"
+          },
+          {
+            "decodedBodyBytes": 212240,
+            "durationMs": 2.7,
+            "encodedBodyBytes": 212240,
+            "initiator": "fetch",
+            "transferBytes": 212540,
+            "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+          },
+          {
+            "decodedBodyBytes": 158362,
+            "durationMs": 3.9,
+            "encodedBodyBytes": 158362,
+            "initiator": "script",
+            "transferBytes": 158662,
+            "url": "http://127.0.0.1:4173/assets/extends-ClXrBBCY.js"
+          },
+          {
+            "decodedBodyBytes": 141545,
+            "durationMs": 2.9,
+            "encodedBodyBytes": 141545,
+            "initiator": "image",
+            "transferBytes": 141845,
+            "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+          },
+          {
+            "decodedBodyBytes": 132407,
+            "durationMs": 6,
+            "encodedBodyBytes": 132407,
+            "initiator": "script",
+            "transferBytes": 132707,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-CGMjGhkw.js"
+          },
+          {
+            "decodedBodyBytes": 125723,
+            "durationMs": 6,
+            "encodedBodyBytes": 125723,
+            "initiator": "script",
+            "transferBytes": 126023,
+            "url": "http://127.0.0.1:4173/assets/Environment-ZAPB4ovl.js"
+          },
+          {
+            "decodedBodyBytes": 115369,
+            "durationMs": 2.5,
+            "encodedBodyBytes": 115369,
+            "initiator": "image",
+            "transferBytes": 115669,
+            "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+          },
+          {
+            "decodedBodyBytes": 98582,
+            "durationMs": 3.1,
+            "encodedBodyBytes": 98582,
+            "initiator": "img",
+            "transferBytes": 98882,
+            "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+          },
+          {
+            "decodedBodyBytes": 74619,
+            "durationMs": 5.2,
+            "encodedBodyBytes": 74619,
+            "initiator": "script",
+            "transferBytes": 74919,
+            "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+          },
+          {
+            "decodedBodyBytes": 74528,
+            "durationMs": 21.4,
+            "encodedBodyBytes": 74528,
+            "initiator": "css",
+            "transferBytes": 74828,
+            "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+          },
+          {
+            "decodedBodyBytes": 66874,
+            "durationMs": 6.4,
+            "encodedBodyBytes": 66874,
+            "initiator": "link",
+            "transferBytes": 67174,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+          },
+          {
+            "decodedBodyBytes": 48256,
+            "durationMs": 0,
+            "encodedBodyBytes": 48256,
+            "initiator": "css",
+            "transferBytes": 0,
+            "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+          },
+          {
+            "decodedBodyBytes": 48256,
+            "durationMs": 0,
+            "encodedBodyBytes": 48256,
+            "initiator": "css",
+            "transferBytes": 0,
+            "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+          }
+        ],
+        "reportedTransferBytes": 4983014,
+        "zeroOrUnavailableTransferCount": 5
+      },
+      "schemaVersion": 1,
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      }
+    },
+    "videos": [
+      {
+        "paused": true,
+        "readyState": 0,
+        "src": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4"
+      },
+      {
+        "paused": true,
+        "readyState": 0,
+        "src": "http://127.0.0.1:4173/assets/szia_10-C3EAr39K.mp4"
+      },
+      {
+        "paused": true,
+        "readyState": 0,
+        "src": "http://127.0.0.1:4173/assets/szia_8-3lpQuEmZ.mp4"
+      },
+      {
+        "paused": true,
+        "readyState": 0,
+        "src": "http://127.0.0.1:4173/assets/szia_9-D7hXO784.mp4"
+      }
+    ],
+    "viewport": {
+      "dpr": 1,
+      "height": 900,
+      "width": 1440
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "phase": 8,
+  "completedDate": "2026-10-05",
+  "checks": [
+    {
+      "name": "lint",
+      "exitCode": 0,
+      "output": "npm warn Unknown project config \"only-built-dependencies\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n\n> portfolio-website@0.0.0 lint\n> eslint .\n\n"
+    },
+    {
+      "name": "unit tests",
+      "exitCode": 0,
+      "output": "Warning: truncated output (original token count: 1715)\nTotal output lines: 89\n\nnpm warn Unknown project config \"only-built-dependencies\". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.\n\n> portfolio-website@0.0.0 test\n> node --test\n\n✔ inactive effects schedule no frames and resume exactly once (2.2995ms)\n✔ hidden tabs cancel work and disposal prevents restarting (0.3004ms)\n✔ 30 FPS retains cadence with fractional display timestamps (0.4647ms)\n✔ 60 FPS retains cadence with fractional display timestamps (0.3469ms)\n✔ a callback can stop its own loop without leaving a queued frame (0.3353ms)\n✔ effects created in a hidden tab do not start until it becomes visible (0.2756ms)\n✔ repeated visibility events leave one frame and disposal removes the listener (0.2462ms)\n✔ disposing during a render leaves no frame or visibility subscription (0.2004ms)\n✔ changing the FPS limit preserves one loop and handles desktop/phone resizing (0.9313ms)\n✔ cached ASCII sampling matches the former loop at 320x568 (2.769ms)\n✔ cached ASCII sampling matches the former loop at 390x844 (0.8972ms)\n✔ cached ASCII sampling matches the former loop at 844x390 (0.54ms)\n✔ cached ASCII sampling matches the former loop at 768x1024 (0.4415ms)\n✔ cached ASCII sampling matches the former loop at 1440x900 (0.464ms)\n✔ cached ASCII sampling matches the former loop at 3840x2160 (2.112ms)\n✔ asset queue bounds concurrency and keeps the original artwork order (66.0772ms)\n✔ empty and invalid-concurrency queues complete without hanging (0.5841ms)\n✔ WASM extraction retains binary bytes and rejects ambiguous dependency changes (0.4016ms)\n✔ the physics asset uses the configured public base without a CommonJS import.meta.url (0.3464ms)\n✔ frame summaries exclude invalid values and do not manufacture samples (1.2371ms)\n✔ resource summaries retain zero/unknown transfer sizes and actual download order independence (0.1979ms)\n✔ browser scroll contract detects a clipped game action without a scrolling ancestor (0.3286ms)\n✔ race geometry contract distinguishes moving a car width from reaching the track finish (0.2081ms)\n✔ roulette contract checks orbit distance against actual wheel size (0.1197ms)\n✔ browser contracts distinguish real links and valid media from visual placeholders (0.1321ms)\n✔ the menu clock uses Budapest summer time with padded fields (0.9538ms)\n✔ the menu clock uses Budapest winter time instead of a fixed GMT+2 label (0.1844ms)\n✔ roulette contains every number once with the correct colour totals (1.7293ms)\n✔ random choices reject the biased crypto remainder and ret…415 tokens truncated…l lanyard smoothing is unchanged while long/non-finite deltas cannot overshoot (4.9867ms)\n✔ rope updates reuse arrays and preserve duplicated vertices and open endpoints (0.9926ms)\n✔ closed ropes wrap endpoints and invalid/overflowing samples never reach Three buffers (0.2043ms)\n✔ a changed sample count delegates initial allocation to MeshLine (0.1542ms)\n✔ endpoint closure uses the numeric buffer precision (0.1331ms)\n✔ sequential playback wraps in both directions and handles one track (0.6653ms)\n✔ shuffle can select every other track without ever repeating the current song (0.2626ms)\n✔ unknown or invalid media durations cannot create an infinite progress value (0.1138ms)\n✔ route transitions coalesce rapid navigation and commit the latest destination (1.6394ms)\n✔ navigation after a commit is accepted before the previous curtain finishes (0.9388ms)\n✔ cancel and disposal remove only owned curtains and cancel pending actions (0.3639ms)\n✔ reduced motion commits immediately without a curtain or a timer (0.2663ms)\n✔ switching to reduced motion cancels the older pending destination (0.408ms)\n✔ completed transitions allow subsequent navigation (0.2674ms)\n✔ removed transition overlays must not leave a navigation callback behind (0.1599ms)\n✔ an aborted transition cannot fire during a subsequent navigation (0.1344ms)\n✔ phone scrolling is native with modestly shorter pins and quicker animation follow-through (0.5737ms)\n✔ reduced motion uses native scrolling without animation catch-up smoothing (0.0813ms)\n✔ scroll restoration clamps invalid and out-of-range positions (0.6113ms)\n✔ desktop restoration uses the single smooth-scroll owner and cancels inertia (0.6242ms)\n✔ home scrolling is smooth unless reduced motion asks for an immediate move (0.1132ms)\n✔ a responsive scroll-owner rebuild preserves an unfinished Home destination (0.0901ms)\n✔ a new user gesture cancels navigation intent before restoring the reading position (0.0565ms)\n✔ scroll intent rejects non-finite destinations and tolerates fractional completion (0.0537ms)\n✔ a crossfade starts once and owns only one frame callback (1.7266ms)\n✔ completion fires once and cancels monitoring (0.376ms)\n✔ hidden crossfades pause both videos and resume without restarting the fade (0.3217ms)\n✔ disposal pauses playback and cannot schedule orphan callbacks (0.3027ms)\n✔ a hidden initial mount waits, resets the next video, and ignores missing metadata (0.28ms)\nℹ tests 76\nℹ suites 0\nℹ pass 76\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 208.1298\n"
+    },
+    {
+      "name": "diff whitespace",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "name": "QA harness syntax",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "name": "QA markers in emitted output",
+      "exitCode": 1,
+      "output": ""
+    }
+  ],
+  "unitTests": {
+    "passed": 76,
+    "failed": 0
+  },
+  "build": {
+    "exitCode": 0,
+    "modules": 1255
+  },
+  "notes": [
+    "rg exit code 1 with no output means no QA marker matches in dist.",
+    "The command outputs retain their original truncation notices.",
+    "No commit, push, or deployment was performed."
+  ]
+}

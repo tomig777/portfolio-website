@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "commit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "07679f9dfe0a8eb310fedd3bb56c6a9ed66735b92a8f1d286a03044bf7487784",
+  "knownIssueIds": [],
+  "snapshots": [
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": 894.6400146484375,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -50.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -50.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 801.796875,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -42.203125,
+              "width": 390,
+              "x": 0,
+              "y": -42.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 16897,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview lenis",
+        "scrollTop": 0,
+        "scrollViewportRatio": 20.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T12:43:27.346Z",
+        "cls": 0,
+        "currentPath": "/",
+        "elapsedMs": 64042,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": {
+          "element": "SPAN",
+          "size": 12672,
+          "timeMs": 520
+        },
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 121,
+          "worst": [
+            {
+              "durationMs": 68,
+              "startTimeMs": 861.1000001430511
+            },
+            {
+              "durationMs": 53,
+              "startTimeMs": 359.30000019073486
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 53.90000009536743,
+          "loadEventMs": 67.40000009536743,
+          "responseEndMs": 9.400000095367432,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.4,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 28,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 6.3,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CbLGQ5zU.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 7,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 5.4,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 11.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-CEuD97PQ.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.2,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 5.4,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-DJqr3_ma.js"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 5.2,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-990OHF9Y.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 6,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-CoSVNByE.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 51.9,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 5.6,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-B3pR-f_5.js"
+            },
+            {
+              "decodedBodyBytes": 66766,
+              "durationMs": 7.1,
+              "encodedBodyBytes": 66766,
+              "initiator": "link",
+              "transferBytes": 67066,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-C6tA36Pq.css"
+            },
+            {
+              "decodedBodyBytes": 44196,
+              "durationMs": 6.4,
+              "encodedBodyBytes": 44196,
+              "initiator": "script",
+              "transferBytes": 44496,
+              "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+            },
+            {
+              "decodedBodyBytes": 26055,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 26055,
+              "initiator": "img",
+              "transferBytes": 26355,
+              "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+            },
+            {
+              "decodedBodyBytes": 25717,
+              "durationMs": 11.4,
+              "encodedBodyBytes": 25717,
+              "initiator": "link",
+              "transferBytes": 26017,
+              "url": "http://127.0.0.1:4173/assets/index-qFTrGGVe.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 1.4,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            }
+          ],
+          "reportedTransferBytes": 4706808,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 194.9921875,
+              "right": 197.7734375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 194.9921875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 197.7734375,
+              "right": 200.5546875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 197.7734375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 200.5546875,
+              "right": 203.3359375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 200.5546875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 203.3359375,
+              "right": 206.1171875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 203.3359375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 148.9921875,
+              "right": 192.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 148.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 196.9921875,
+              "right": 240.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 196.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 85.59375,
+              "height": 44,
+              "left": 337.90625,
+              "right": 381.90625,
+              "top": 41.59375,
+              "width": 44,
+              "x": 337.90625,
+              "y": 41.59375
+            }
+          }
+        ],
+        "documentScrollWidth": 390,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": null,
+          "tag": "BODY",
+          "text": "WorkWorkAboutAboutContactContactGalleryGallery1TAMASGALA Budapest-based HungarianMedia DesignerSpecializing in 3D visualization, vector illustration, social media content, web and interface design.01/ 04Signal BloomView case studyA focused identity test built around glossy forms, quiet motion, and a restrained digital mood shaped for clean presentation.02/ 04Glass IndexView case studyA clean interface study with layered depth, editorial pacing, soft reflections, and a calm system built around visual clarity.03/ 04Soft CircuitView case studyA compact digital system shaped for smooth product storytelling, subtle movement, and flexible layouts across content moments.04/ 04Midnight AtlasView case studyA moody visual direction exploring contrast, texture, scale, and atmospheric details for a cinematic project identity.tamasgaldesign@gmail.comWorkWorkAboutAboutClick to openTamas Gal.tamasgaldesign@gmail.comcontactEach project is a chanceto learn, experiment andpush my limits.\n\n\n\n{\"schemaVersion\":1,\"capturedAt\":\"2026-10-01T12:43:27.346Z\",\"initialPath\":\"/\",\"currentPath\":\"/\",\"elapsedMs\":64042,\"viewport\":{\"width\":390,\"height\":844,\"dpr\":1},\"environment\":{\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36\",\"hardwareConcurrency\":16,\"deviceMemoryGiB\":32,\"visibility\":\"visible\"},\"navigation\":{\"type\":\"navigate\",\"domContentLoadedMs\":53.90000009536743,\"loadEventMs\":67.40000009536743,\"responseEndMs\":9.400000095367432},\"largestContentfulPaint\":{\"timeMs\":520,\"size\":12672,\"element\":\"SPAN\"},\"cls\":0,\"longTasks\":{\"count\":2,\"totalDurationMs\":121,\"recent8sCount\":0,\"worst\":[{\"startTimeMs\":861.1000001430511,\"durationMs\":68},{\"startTimeMs\":359.30000019073486,\"durationMs\":53}]},\"recent8sRafCadence\":{\"samples\":1152,\"meanMs\":6.95,\"medianMs\":6.9,\"p95Ms\":7.1,\"maxMs\":7.4,\"gapsOver50Ms\":0},\"resources\":{\"count\":28,\"reportedTransferBytes\":4706808,\"zeroOrUnavailableTransferCount\":2,\"largestObserved\":[{\"url\":\"http://127.0.0.1:4173/assets/Lanyard-CbLGQ5zU.js\",\"initiator\":\"script\",\"durationMs\":6.3,\"transferBytes\":2280127,\"encodedBodyBytes\":2279827,\"decodedBodyBytes\":2279827},{\"url\":\"http://127.0.0.1:4173/assets/three.module-zDgAY601.js\",\"initiator\":\"script\",\"durationMs\":7,\"transferBytes\":704825,\"encodedBodyBytes\":704525,\"decodedBodyBytes\":704525},{\"url\":\"http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png\",\"initiator\":\"img\",\"durationMs\":5.4,\"transferBytes\":401037,\"encodedBodyBytes\":400737,\"decodedBodyBytes\":400737},{\"url\":\"http://127.0.0.1:4173/assets/index-CEuD97PQ.js\",\"initiator\":\"script\",\"durationMs\":11.7,\"transferBytes\":235588,\"encodedBodyBytes\":235288,\"decodedBodyBytes\":235288},{\"url\":\"http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb\",\"initiator\":\"fetch\",\"durationMs\":2.2,\"transferBytes\":212540,\"encodedBodyBytes\":212240,\"decodedBodyBytes\":212240},{\"url\":\"http://127.0.0.1:4173/assets/extends-DJqr3_ma.js\",\"initiator\":\"script\",\"durationMs\":5.4,\"transferBytes\":158662,\"encodedBodyBytes\":158362,\"decodedBodyBytes\":158362},{\"url\":\"http://127.0.0.1:4173/assets/WebsiteTest-990OHF9Y.js\",\"initiator\":\"script\",\"durationMs\":5.2,\"transferBytes\":131573,\"encodedBodyBytes\":131273,\"decodedBodyBytes\":131273},{\"url\":\"http://127.0.0.1:4173/assets/Environment-CoSVNByE.js\",\"initiator\":\"script\",\"durationMs\":6,\"transferBytes\":126023,\"encodedBodyBytes\":125723,\"decodedBodyBytes\":125723},{\"url\":\"http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg\",\"initiator\":\"img\",\"durationMs\":2.5,\"transferBytes\":98882,\"encodedBodyBytes\":98582,\"decodedBodyBytes\":98582},{\"url\":\"http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf\",\"initiator\":\"css\",\"durationMs\":51.9,\"transferBytes\":74828,\"encodedBodyBytes\":74528,\"decodedBodyBytes\":74528},{\"url\":\"http://127.0.0.1:4173/assets/pageTransition-B3pR-f_5.js\",\"initiator\":\"script\",\"durationMs\":5.6,\"transferBytes\":73907,\"encodedBodyBytes\":73607,\"decodedBodyBytes\":73607},{\"url\":\"http://127.0.0.1:4173/assets/WebsiteTest-C6tA36Pq.css\",\"initiator\":\"link\",\"durationMs\":7.1,\"transferBytes\":67066,\"encodedBodyBytes\":66766,\"decodedBodyBytes\":66766},{\"url\":\"http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js\",\"initiator\":\"script\",\"durationMs\":6.4,\"transferBytes\":44496,\"encodedBodyBytes\":44196,\"decodedBodyBytes\":44196},{\"url\":\"http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg\",\"initiator\":\"img\",\"durationMs\":2.7,\"transferBytes\":26355,\"encodedBodyBytes\":26055,\"decodedBodyBytes\":26055},{\"url\":\"http://127.0.0.1:4173/assets/index-qFTrGGVe.css\",\"initiator\":\"link\",\"durationMs\":11.4,\"transferBytes\":26017,\"encodedBodyBytes\":25717,\"decodedBodyBytes\":25717},{\"url\":\"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap\",\"initiator\":\"css\",\"durationMs\":1.4,\"transferBytes\":0,\"encodedBodyBytes\":814,\"decodedBodyBytes\":14826}]},\"notes\":[\"Loopback production build with a test-only passive probe; no CPU or network throttling.\",\"rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.\",\"Zero transfer size can indicate a cache hit or restricted timing information.\",\"Probe module requests are excluded from the resource totals.\",\"Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.\",\"The probe adds a rAF callback and publishes this hidden output once per second.\"]}",
+          "withinSurface": false
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "name": "hero-phone-390x844",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T12:43:27.626Z",
+      "screenshot": "screenshots/preliminary-hero-phone-390x844.jpg"
+    }
+  ],
+  "manualChecks": [],
+  "notes": [
+    "Desktop Chromium CSS viewport checks, not physical iOS or Android devices."
+  ]
+}

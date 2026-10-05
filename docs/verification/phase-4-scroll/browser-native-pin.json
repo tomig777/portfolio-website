@@ -1,0 +1,3643 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-01T14:23:48.406Z",
+  "commit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "792ee9a7a14f4c0850faf28e392684d425765404ce45304f7792852b3cbe67c3",
+  "knownIssueIds": [],
+  "snapshots": [
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": -1637.3599853515625,
+              "height": 945.2801513671876,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -2582.64013671875,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -2582.64013671875
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": -1730.203125,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -2574.203125,
+              "width": 390,
+              "x": 0,
+              "y": -2574.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 15209,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview",
+        "scrollTop": 2532,
+        "scrollViewportRatio": 18.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:24:52.465Z",
+        "cls": 0,
+        "currentPath": "/",
+        "elapsedMs": 64049,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 1,
+          "recent8sCount": 0,
+          "totalDurationMs": 61,
+          "worst": [
+            {
+              "durationMs": 61,
+              "startTimeMs": 813.0999999046326
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 58.09999990463257,
+          "loadEventMs": 70,
+          "responseEndMs": 3.4000000953674316,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.3,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 34,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-BTa5Eaux.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.3,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-D4kZom6s.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-RCy57k2d.js"
+            },
+            {
+              "decodedBodyBytes": 131596,
+              "durationMs": 3.5,
+              "encodedBodyBytes": 131596,
+              "initiator": "script",
+              "transferBytes": 131896,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CEWdhHvH.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-CGW7Btrb.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74619,
+              "durationMs": 3,
+              "encodedBodyBytes": 74619,
+              "initiator": "script",
+              "transferBytes": 74919,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-BvkEysxB.js"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 26.4,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 66874,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 66874,
+              "initiator": "link",
+              "transferBytes": 67174,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 44196,
+              "durationMs": 5.4,
+              "encodedBodyBytes": 44196,
+              "initiator": "script",
+              "transferBytes": 44496,
+              "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+            },
+            {
+              "decodedBodyBytes": 32292,
+              "durationMs": 0,
+              "encodedBodyBytes": 32292,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2"
+            }
+          ],
+          "reportedTransferBytes": 4727710,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "native-pins-work-phone-390x844",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 844,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 14365,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15209,
+          "scrollTop": 2532
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": null,
+          "tag": "BODY",
+          "text": "\n  WorkWorkAboutAboutContactContactGalleryGallery1TAMASGALA Budapest-based Hunga"
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 5250,
+            "rect": {
+              "bottom": 3562,
+              "height": 5250,
+              "left": 0,
+              "right": 390,
+              "top": -1688,
+              "width": 390,
+              "x": 0,
+              "y": -1688
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 9115,
+            "rect": {
+              "bottom": 12677,
+              "height": 9115,
+              "left": 0,
+              "right": 390,
+              "top": 3562,
+              "width": 390,
+              "x": 0,
+              "y": 3562
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -1688,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -2532,
+              "width": 390,
+              "x": 0,
+              "y": -2532
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 4406,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 3562,
+              "width": 390,
+              "x": 0,
+              "y": 3562
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "0",
+            "present": true,
+            "rect": {
+              "bottom": 4406,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 3562,
+              "width": 390,
+              "x": 0,
+              "y": 3562
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "hidden"
+          }
+        ],
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "capturedAt": "2026-10-01T14:24:52.984Z",
+      "screenshot": "screenshots/native-pins-work-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": -1409.3599853515625,
+              "height": 945.2801513671876,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -2354.64013671875,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -2354.64013671875
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": -1502.203125,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -2346.203125,
+              "width": 390,
+              "x": 0,
+              "y": -2346.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 15209,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview wt-case-open wt-scroll-locked",
+        "scrollTop": 2304,
+        "scrollViewportRatio": 18.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:26:38.465Z",
+        "cls": 0,
+        "currentPath": "/",
+        "elapsedMs": 170048,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 1,
+          "recent8sCount": 0,
+          "totalDurationMs": 61,
+          "worst": [
+            {
+              "durationMs": 61,
+              "startTimeMs": 813.0999999046326
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 58.09999990463257,
+          "loadEventMs": 70,
+          "responseEndMs": 3.4000000953674316,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.6,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 34,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-BTa5Eaux.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.3,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-D4kZom6s.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-RCy57k2d.js"
+            },
+            {
+              "decodedBodyBytes": 131596,
+              "durationMs": 3.5,
+              "encodedBodyBytes": 131596,
+              "initiator": "script",
+              "transferBytes": 131896,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CEWdhHvH.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-CGW7Btrb.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74619,
+              "durationMs": 3,
+              "encodedBodyBytes": 74619,
+              "initiator": "script",
+              "transferBytes": 74919,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-BvkEysxB.js"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 26.4,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 66874,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 66874,
+              "initiator": "link",
+              "transferBytes": 67174,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 44196,
+              "durationMs": 5.4,
+              "encodedBodyBytes": 44196,
+              "initiator": "script",
+              "transferBytes": 44496,
+              "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+            },
+            {
+              "decodedBodyBytes": 32292,
+              "durationMs": 0,
+              "encodedBodyBytes": 32292,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2"
+            }
+          ],
+          "reportedTransferBytes": 4727710,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "native-case-study-phone-390x844",
+      "scrollExperience": {
+        "caseStudy": "Signal Bloom",
+        "container": {
+          "clientHeight": 844,
+          "lenis": false,
+          "locked": "true",
+          "maximum": 14365,
+          "mode": "native",
+          "overflowY": "hidden",
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15209,
+          "scrollTop": 2304
+        },
+        "curtains": [
+          {
+            "className": "wt-case-transition",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)"
+          }
+        ],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": null,
+          "tag": "BUTTON",
+          "text": "← Back"
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 5250,
+            "rect": {
+              "bottom": 3790,
+              "height": 5250,
+              "left": 0,
+              "right": 390,
+              "top": -1460,
+              "width": 390,
+              "x": 0,
+              "y": -1460
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 9115,
+            "rect": {
+              "bottom": 12905,
+              "height": 9115,
+              "left": 0,
+              "right": 390,
+              "top": 3790,
+              "width": 390,
+              "x": 0,
+              "y": 3790
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -1460,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -2304,
+              "width": 390,
+              "x": 0,
+              "y": -2304
+            },
+            "selector": ".hero-section",
+            "visibility": "hidden"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "hidden"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 4634,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 3790,
+              "width": 390,
+              "x": 0,
+              "y": 3790
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "hidden"
+          },
+          {
+            "opacity": "0",
+            "present": true,
+            "rect": {
+              "bottom": 4634,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 3790,
+              "width": 390,
+              "x": 0,
+              "y": 3790
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "hidden"
+          }
+        ],
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "capturedAt": "2026-10-01T14:26:38.585Z",
+      "screenshot": "screenshots/native-case-study-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": -13470.3603515625,
+              "height": 945.279296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -14415.6396484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -14415.6396484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": -13563.203125,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -14407.203125,
+              "width": 390,
+              "x": 0,
+              "y": -14407.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 15209,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview",
+        "scrollTop": 14365,
+        "scrollViewportRatio": 18.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:36:52.462Z",
+        "cls": 0,
+        "currentPath": "/",
+        "elapsedMs": 784045,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 1,
+          "recent8sCount": 0,
+          "totalDurationMs": 61,
+          "worst": [
+            {
+              "durationMs": 61,
+              "startTimeMs": 813.0999999046326
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 58.09999990463257,
+          "loadEventMs": 70,
+          "responseEndMs": 3.4000000953674316,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.4,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 39,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 7.6,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-BTa5Eaux.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.3,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-D4kZom6s.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-RCy57k2d.js"
+            },
+            {
+              "decodedBodyBytes": 131596,
+              "durationMs": 3.5,
+              "encodedBodyBytes": 131596,
+              "initiator": "script",
+              "transferBytes": 131896,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CEWdhHvH.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-CGW7Btrb.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74619,
+              "durationMs": 3,
+              "encodedBodyBytes": 74619,
+              "initiator": "script",
+              "transferBytes": 74919,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-BvkEysxB.js"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 26.4,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 66874,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 66874,
+              "initiator": "link",
+              "transferBytes": 67174,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 44196,
+              "durationMs": 5.4,
+              "encodedBodyBytes": 44196,
+              "initiator": "script",
+              "transferBytes": 44496,
+              "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+            }
+          ],
+          "reportedTransferBytes": 7182345,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "contact-scene-end-phone-390x844",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 844,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 14365,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15209,
+          "scrollTop": 14365
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": "More options",
+          "tag": "BUTTON",
+          "text": ""
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 5250,
+            "rect": {
+              "bottom": -8271,
+              "height": 5250,
+              "left": 0,
+              "right": 390,
+              "top": -13521,
+              "width": 390,
+              "x": 0,
+              "y": -13521
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 9115,
+            "rect": {
+              "bottom": 844,
+              "height": 9115,
+              "left": 0,
+              "right": 390,
+              "top": -8271,
+              "width": 390,
+              "x": 0,
+              "y": -8271
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -13521,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -14365,
+              "width": 390,
+              "x": 0,
+              "y": -14365
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -8271,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -9115,
+              "width": 390,
+              "x": 0,
+              "y": -9115
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "visible"
+          }
+        ],
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "capturedAt": "2026-10-01T14:36:53.097Z",
+      "screenshot": "screenshots/contact-scene-end-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 1170,
+            "backingWidth": 1852,
+            "rect": {
+              "bottom": 954,
+              "height": 1008,
+              "left": -85.5,
+              "right": 1510.5,
+              "top": -54,
+              "width": 1596,
+              "x": -85.5,
+              "y": -54
+            }
+          },
+          {
+            "backingHeight": 900,
+            "backingWidth": 1425,
+            "rect": {
+              "bottom": 855,
+              "height": 900,
+              "left": 0,
+              "right": 1425,
+              "top": -45,
+              "width": 1425,
+              "x": 0,
+              "y": -45
+            }
+          }
+        ],
+        "clientHeight": 900,
+        "documentScrollWidth": 1440,
+        "header": {
+          "bottom": 93.484375,
+          "height": 56,
+          "left": 626.2890625,
+          "right": 813.7109375,
+          "top": 37.484375,
+          "width": 187.421875,
+          "x": 626.2890625,
+          "y": 37.484375
+        },
+        "mobileClass": false,
+        "scrollHeight": 17568,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet lenis",
+        "scrollTop": 0,
+        "scrollViewportRatio": 19.52
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:39:01.465Z",
+        "cls": 0,
+        "currentPath": "/",
+        "elapsedMs": 913049,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 3,
+          "recent8sCount": 0,
+          "totalDurationMs": 182,
+          "worst": [
+            {
+              "durationMs": 66,
+              "startTimeMs": 857873.9000000954
+            },
+            {
+              "durationMs": 61,
+              "startTimeMs": 813.0999999046326
+            },
+            {
+              "durationMs": 55,
+              "startTimeMs": 855839.7000000477
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 58.09999990463257,
+          "loadEventMs": 70,
+          "responseEndMs": 3.4000000953674316,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.1,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 51,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 7.6,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-BTa5Eaux.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.3,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-D4kZom6s.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-RCy57k2d.js"
+            },
+            {
+              "decodedBodyBytes": 149244,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 149244,
+              "initiator": "css",
+              "transferBytes": 149544,
+              "url": "http://127.0.0.1:4173/assets/exhibit-wheat-ug1BVoxg.jpg"
+            },
+            {
+              "decodedBodyBytes": 139455,
+              "durationMs": 4,
+              "encodedBodyBytes": 139455,
+              "initiator": "css",
+              "transferBytes": 139755,
+              "url": "http://127.0.0.1:4173/assets/exhibit-blossom-5lZBG2dU.jpg"
+            },
+            {
+              "decodedBodyBytes": 134443,
+              "durationMs": 4.5,
+              "encodedBodyBytes": 134443,
+              "initiator": "css",
+              "transferBytes": 134743,
+              "url": "http://127.0.0.1:4173/assets/exhibit-autumn-HjoKwBGz.jpg"
+            },
+            {
+              "decodedBodyBytes": 131596,
+              "durationMs": 3.5,
+              "encodedBodyBytes": 131596,
+              "initiator": "script",
+              "transferBytes": 131896,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CEWdhHvH.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-CGW7Btrb.js"
+            },
+            {
+              "decodedBodyBytes": 124806,
+              "durationMs": 3.7,
+              "encodedBodyBytes": 124806,
+              "initiator": "css",
+              "transferBytes": 125106,
+              "url": "http://127.0.0.1:4173/assets/exhibit-forest-UMfUPoW1.jpg"
+            },
+            {
+              "decodedBodyBytes": 122143,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 122143,
+              "initiator": "css",
+              "transferBytes": 122443,
+              "url": "http://127.0.0.1:4173/assets/exhibit-lavender-DP24WG1R.jpg"
+            },
+            {
+              "decodedBodyBytes": 120558,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 120558,
+              "initiator": "css",
+              "transferBytes": 120858,
+              "url": "http://127.0.0.1:4173/assets/exhibit-blueberry-CTPz0_JH.jpg"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            }
+          ],
+          "reportedTransferBytes": 8034177,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      },
+      "name": "desktop-hero-1440x900",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 900,
+          "lenis": true,
+          "locked": "false",
+          "maximum": 16668,
+          "mode": "smooth",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 900,
+            "height": 900,
+            "left": 0,
+            "right": 1440,
+            "top": 0,
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 17568,
+          "scrollTop": 0
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": "Home",
+          "tag": "BUTTON",
+          "text": ""
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 5778,
+            "rect": {
+              "bottom": 6588,
+              "height": 5778,
+              "left": 0,
+              "right": 1425,
+              "top": 810,
+              "width": 1425,
+              "x": 0,
+              "y": 810
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 10980,
+            "rect": {
+              "bottom": 17568,
+              "height": 10980,
+              "left": 0,
+              "right": 1425,
+              "top": 6588,
+              "width": 1425,
+              "x": 0,
+              "y": 6588
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 900,
+              "height": 900,
+              "left": 0,
+              "right": 1425,
+              "top": 0,
+              "width": 1425,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 1710,
+              "height": 900,
+              "left": 0,
+              "right": 1425,
+              "top": 810,
+              "width": 1425,
+              "x": 0,
+              "y": 810
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 7488,
+              "height": 900,
+              "left": 0,
+              "right": 1425,
+              "top": 6588,
+              "width": 1425,
+              "x": 0,
+              "y": 6588
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "0",
+            "present": true,
+            "rect": {
+              "bottom": 7488,
+              "height": 900,
+              "left": -7.5,
+              "right": 1432.5,
+              "top": 6588,
+              "width": 1440,
+              "x": -7.5,
+              "y": 6588
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "hidden"
+          }
+        ],
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "capturedAt": "2026-10-01T14:39:02.138Z",
+      "screenshot": "screenshots/desktop-hero-1440x900.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 593,
+            "backingWidth": 445,
+            "rect": {
+              "bottom": -1344.56005859375,
+              "height": 1146.8798828125,
+              "left": -46.08001708984375,
+              "right": 814.0800170898438,
+              "top": -2491.43994140625,
+              "width": 860.1600341796875,
+              "x": -46.08001708984375,
+              "y": -2491.43994140625
+            }
+          },
+          {
+            "backingHeight": 1024,
+            "backingWidth": 768,
+            "rect": {
+              "bottom": 1024,
+              "height": 1024,
+              "left": 0,
+              "right": 768,
+              "top": 0,
+              "width": 768,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 1024,
+            "backingWidth": 753,
+            "rect": {
+              "bottom": -1457.203125,
+              "height": 1024,
+              "left": 0,
+              "right": 753,
+              "top": -2481.203125,
+              "width": 753,
+              "x": 0,
+              "y": -2481.203125
+            }
+          }
+        ],
+        "clientHeight": 1024,
+        "documentScrollWidth": 768,
+        "header": {
+          "bottom": 60.34375,
+          "height": 40,
+          "left": 7.203125,
+          "right": 760.796875,
+          "top": 20.34375,
+          "width": 753.59375,
+          "x": 7.203125,
+          "y": 20.34375
+        },
+        "mobileClass": true,
+        "scrollHeight": 18452,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview",
+        "scrollTop": 2430,
+        "scrollViewportRatio": 18.01953125
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:41:13.485Z",
+        "cls": 0.00069,
+        "currentPath": "/",
+        "elapsedMs": 1045069,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 7,
+          "recent8sCount": 1,
+          "totalDurationMs": 500,
+          "worst": [
+            {
+              "durationMs": 101,
+              "startTimeMs": 913411
+            },
+            {
+              "durationMs": 95,
+              "startTimeMs": 1044970.5
+            },
+            {
+              "durationMs": 66,
+              "startTimeMs": 857873.9000000954
+            },
+            {
+              "durationMs": 62,
+              "startTimeMs": 913831.5999999046
+            },
+            {
+              "durationMs": 61,
+              "startTimeMs": 813.0999999046326
+            },
+            {
+              "durationMs": 60,
+              "startTimeMs": 913518.5
+            },
+            {
+              "durationMs": 55,
+              "startTimeMs": 855839.7000000477
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 58.09999990463257,
+          "loadEventMs": 70,
+          "responseEndMs": 3.4000000953674316,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 1,
+          "maxMs": 104.1,
+          "meanMs": 7.03,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1137
+        },
+        "resources": {
+          "count": 60,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2596316,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 2596316,
+              "initiator": "video",
+              "transferBytes": 2596616,
+              "url": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4"
+            },
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 7.6,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-BTa5Eaux.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.3,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-D4kZom6s.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-RCy57k2d.js"
+            },
+            {
+              "decodedBodyBytes": 149244,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 149244,
+              "initiator": "css",
+              "transferBytes": 149544,
+              "url": "http://127.0.0.1:4173/assets/exhibit-wheat-ug1BVoxg.jpg"
+            },
+            {
+              "decodedBodyBytes": 141545,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 141545,
+              "initiator": "image",
+              "transferBytes": 141845,
+              "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+            },
+            {
+              "decodedBodyBytes": 139455,
+              "durationMs": 4,
+              "encodedBodyBytes": 139455,
+              "initiator": "css",
+              "transferBytes": 139755,
+              "url": "http://127.0.0.1:4173/assets/exhibit-blossom-5lZBG2dU.jpg"
+            },
+            {
+              "decodedBodyBytes": 134443,
+              "durationMs": 4.5,
+              "encodedBodyBytes": 134443,
+              "initiator": "css",
+              "transferBytes": 134743,
+              "url": "http://127.0.0.1:4173/assets/exhibit-autumn-HjoKwBGz.jpg"
+            },
+            {
+              "decodedBodyBytes": 131596,
+              "durationMs": 3.5,
+              "encodedBodyBytes": 131596,
+              "initiator": "script",
+              "transferBytes": 131896,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CEWdhHvH.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-CGW7Btrb.js"
+            },
+            {
+              "decodedBodyBytes": 124806,
+              "durationMs": 3.7,
+              "encodedBodyBytes": 124806,
+              "initiator": "css",
+              "transferBytes": 125106,
+              "url": "http://127.0.0.1:4173/assets/exhibit-forest-UMfUPoW1.jpg"
+            },
+            {
+              "decodedBodyBytes": 122143,
+              "durationMs": 3.6,
+              "encodedBodyBytes": 122143,
+              "initiator": "css",
+              "transferBytes": 122443,
+              "url": "http://127.0.0.1:4173/assets/exhibit-lavender-DP24WG1R.jpg"
+            }
+          ],
+          "reportedTransferBytes": 10890475,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 1024,
+          "width": 768
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 1024,
+        "width": 768
+      },
+      "name": "tablet-resize-768x1024",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 1024,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 17428,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 1024,
+            "height": 1024,
+            "left": 0,
+            "right": 768,
+            "top": 0,
+            "width": 768,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 18452,
+          "scrollTop": 2430
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": null,
+          "tag": "BODY",
+          "text": "\n  WorkWorkAboutAboutContactContactGalleryGallery1TAMASGALA Budapest-based Hunga"
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 6369,
+            "rect": {
+              "bottom": 4963,
+              "height": 6369,
+              "left": 0,
+              "right": 768,
+              "top": -1406,
+              "width": 768,
+              "x": 0,
+              "y": -1406
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 11059,
+            "rect": {
+              "bottom": 16022,
+              "height": 11059,
+              "left": 0,
+              "right": 768,
+              "top": 4963,
+              "width": 768,
+              "x": 0,
+              "y": 4963
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -1406,
+              "height": 1024,
+              "left": 0,
+              "right": 768,
+              "top": -2430,
+              "width": 768,
+              "x": 0,
+              "y": -2430
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 1024,
+              "height": 1024,
+              "left": 0,
+              "right": 768,
+              "top": 0,
+              "width": 768,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 5987,
+              "height": 1024,
+              "left": 0,
+              "right": 768,
+              "top": 4963,
+              "width": 768,
+              "x": 0,
+              "y": 4963
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "0",
+            "present": true,
+            "rect": {
+              "bottom": 5987,
+              "height": 1024,
+              "left": 0,
+              "right": 768,
+              "top": 4963,
+              "width": 768,
+              "x": 0,
+              "y": 4963
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "hidden"
+          }
+        ],
+        "viewport": {
+          "height": 1024,
+          "width": 768
+        }
+      },
+      "capturedAt": "2026-10-01T14:41:13.564Z",
+      "screenshot": "screenshots/tablet-resize-768x1024.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 329,
+            "backingWidth": 185,
+            "rect": {
+              "bottom": -9064.919921875,
+              "height": 636.16015625,
+              "left": -19.199996948242188,
+              "right": 339.2000274658203,
+              "top": -9701.080078125,
+              "width": 358.4000244140625,
+              "x": -19.199996948242188,
+              "y": -9701.080078125
+            }
+          },
+          {
+            "backingHeight": 568,
+            "backingWidth": 320,
+            "rect": {
+              "bottom": 568,
+              "height": 568,
+              "left": 0,
+              "right": 320,
+              "top": 0,
+              "width": 320,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 568,
+            "backingWidth": 320,
+            "rect": {
+              "bottom": -9127.40625,
+              "height": 568,
+              "left": 0,
+              "right": 320,
+              "top": -9695.40625,
+              "width": 320,
+              "x": 0,
+              "y": -9695.40625
+            }
+          }
+        ],
+        "clientHeight": 568,
+        "documentScrollWidth": 320,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 313.6953125,
+          "top": 40.59375,
+          "width": 307.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 10235,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview",
+        "scrollTop": 9667,
+        "scrollViewportRatio": 18.0193661971831
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:48:01.465Z",
+        "cls": 0.00069,
+        "currentPath": "/",
+        "elapsedMs": 1453049,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 8,
+          "recent8sCount": 1,
+          "totalDurationMs": 907,
+          "worst": [
+            {
+              "durationMs": 407,
+              "startTimeMs": 1451347
+            },
+            {
+              "durationMs": 101,
+              "startTimeMs": 913411
+            },
+            {
+              "durationMs": 95,
+              "startTimeMs": 1044970.5
+            },
+            {
+              "durationMs": 66,
+              "startTimeMs": 857873.9000000954
+            },
+            {
+              "durationMs": 62,
+              "startTimeMs": 913831.5999999046
+            },
+            {
+              "durationMs": 61,
+              "startTimeMs": 813.0999999046326
+            },
+            {
+              "durationMs": 60,
+              "startTimeMs": 913518.5
+            },
+            {
+              "durationMs": 55,
+              "startTimeMs": 855839.7000000477
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 58.09999990463257,
+          "loadEventMs": 70,
+          "responseEndMs": 3.4000000953674316,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 1,
+          "maxMs": 402.8,
+          "meanMs": 7.39,
+          "medianMs": 6.9,
+          "p95Ms": 7,
+          "samples": 1083
+        },
+        "resources": {
+          "count": 88,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2596316,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 2596316,
+              "initiator": "video",
+              "transferBytes": 2596616,
+              "url": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4"
+            },
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 7.6,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-BTa5Eaux.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.3,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 652172,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 652172,
+              "initiator": "img",
+              "transferBytes": 652472,
+              "url": "http://127.0.0.1:4173/assets/beturajz2-BAffnb21.webp"
+            },
+            {
+              "decodedBodyBytes": 493758,
+              "durationMs": 10,
+              "encodedBodyBytes": 493758,
+              "initiator": "img",
+              "transferBytes": 494058,
+              "url": "http://127.0.0.1:4173/assets/galtamas_mds4_plakat2-BO9VLUK5.webp"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 281496,
+              "durationMs": 20.4,
+              "encodedBodyBytes": 281496,
+              "initiator": "img",
+              "transferBytes": 281796,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%203-CaReCdCc.webp"
+            },
+            {
+              "decodedBodyBytes": 278210,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 278210,
+              "initiator": "img",
+              "transferBytes": 278510,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%204-C2mfcqHl.webp"
+            },
+            {
+              "decodedBodyBytes": 250978,
+              "durationMs": 19.6,
+              "encodedBodyBytes": 250978,
+              "initiator": "img",
+              "transferBytes": 251278,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%202-yoAd72a5.webp"
+            },
+            {
+              "decodedBodyBytes": 250118,
+              "durationMs": 8.9,
+              "encodedBodyBytes": 250118,
+              "initiator": "img",
+              "transferBytes": 250418,
+              "url": "http://127.0.0.1:4173/assets/galtamas_mds4_plakat1-DcSbFJpP.webp"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-D4kZom6s.js"
+            },
+            {
+              "decodedBodyBytes": 227934,
+              "durationMs": 19.5,
+              "encodedBodyBytes": 227934,
+              "initiator": "img",
+              "transferBytes": 228234,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%201--wtewp-x.webp"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-RCy57k2d.js"
+            },
+            {
+              "decodedBodyBytes": 149244,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 149244,
+              "initiator": "css",
+              "transferBytes": 149544,
+              "url": "http://127.0.0.1:4173/assets/exhibit-wheat-ug1BVoxg.jpg"
+            }
+          ],
+          "reportedTransferBytes": 14251054,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 568,
+        "width": 320
+      },
+      "name": "small-phone-contact-end-320x568",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 568,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 9667,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 568,
+            "height": 568,
+            "left": 0,
+            "right": 320,
+            "top": 0,
+            "width": 320,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 10235,
+          "scrollTop": 9667
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": "More options",
+          "tag": "BUTTON",
+          "text": ""
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 3533,
+            "rect": {
+              "bottom": -5566,
+              "height": 3533,
+              "left": 0,
+              "right": 320,
+              "top": -9099,
+              "width": 320,
+              "x": 0,
+              "y": -9099
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 6134,
+            "rect": {
+              "bottom": 568,
+              "height": 6134,
+              "left": 0,
+              "right": 320,
+              "top": -5566,
+              "width": 320,
+              "x": 0,
+              "y": -5566
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -9099,
+              "height": 568,
+              "left": 0,
+              "right": 320,
+              "top": -9667,
+              "width": 320,
+              "x": 0,
+              "y": -9667
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -5566,
+              "height": 568,
+              "left": 0,
+              "right": 320,
+              "top": -6134,
+              "width": 320,
+              "x": 0,
+              "y": -6134
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 568,
+              "height": 568,
+              "left": 0,
+              "right": 320,
+              "top": 0,
+              "width": 320,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 568,
+              "height": 568,
+              "left": 0,
+              "right": 320,
+              "top": 0,
+              "width": 320,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "visible"
+          }
+        ],
+        "viewport": {
+          "height": 568,
+          "width": 320
+        }
+      },
+      "capturedAt": "2026-10-01T14:48:01.752Z",
+      "screenshot": "screenshots/small-phone-contact-end-320x568.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 226,
+            "backingWidth": 489,
+            "rect": {
+              "bottom": -6303.60009765625,
+              "height": 436.7998046875,
+              "left": -50.6400146484375,
+              "right": 894.6400146484375,
+              "top": -6740.39990234375,
+              "width": 945.280029296875,
+              "x": -50.6400146484375,
+              "y": -6740.39990234375
+            }
+          },
+          {
+            "backingHeight": 390,
+            "backingWidth": 844,
+            "rect": {
+              "bottom": 390,
+              "height": 390,
+              "left": 0,
+              "right": 844,
+              "top": 0,
+              "width": 844,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 390,
+            "backingWidth": 844,
+            "rect": {
+              "bottom": -6310.859375,
+              "height": 390,
+              "left": 0,
+              "right": 844,
+              "top": -6700.859375,
+              "width": 844,
+              "x": 0,
+              "y": -6700.859375
+            }
+          }
+        ],
+        "clientHeight": 390,
+        "documentScrollWidth": 844,
+        "header": {
+          "bottom": 83.3125,
+          "height": 40,
+          "left": 6.7265625,
+          "right": 837.2734375,
+          "top": 43.3125,
+          "width": 830.546875,
+          "x": 6.7265625,
+          "y": 43.3125
+        },
+        "mobileClass": true,
+        "scrollHeight": 7107,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview",
+        "scrollTop": 6717,
+        "scrollViewportRatio": 18.223076923076924
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:50:22.466Z",
+        "cls": 0.00069,
+        "currentPath": "/",
+        "elapsedMs": 1594049,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 8,
+          "recent8sCount": 0,
+          "totalDurationMs": 907,
+          "worst": [
+            {
+              "durationMs": 407,
+              "startTimeMs": 1451347
+            },
+            {
+              "durationMs": 101,
+              "startTimeMs": 913411
+            },
+            {
+              "durationMs": 95,
+              "startTimeMs": 1044970.5
+            },
+            {
+              "durationMs": 66,
+              "startTimeMs": 857873.9000000954
+            },
+            {
+              "durationMs": 62,
+              "startTimeMs": 913831.5999999046
+            },
+            {
+              "durationMs": 61,
+              "startTimeMs": 813.0999999046326
+            },
+            {
+              "durationMs": 60,
+              "startTimeMs": 913518.5
+            },
+            {
+              "durationMs": 55,
+              "startTimeMs": 855839.7000000477
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 58.09999990463257,
+          "loadEventMs": 70,
+          "responseEndMs": 3.4000000953674316,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 20.9,
+          "meanMs": 6.96,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1150
+        },
+        "resources": {
+          "count": 88,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2596316,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 2596316,
+              "initiator": "video",
+              "transferBytes": 2596616,
+              "url": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4"
+            },
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 7.6,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-BTa5Eaux.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.3,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 652172,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 652172,
+              "initiator": "img",
+              "transferBytes": 652472,
+              "url": "http://127.0.0.1:4173/assets/beturajz2-BAffnb21.webp"
+            },
+            {
+              "decodedBodyBytes": 493758,
+              "durationMs": 10,
+              "encodedBodyBytes": 493758,
+              "initiator": "img",
+              "transferBytes": 494058,
+              "url": "http://127.0.0.1:4173/assets/galtamas_mds4_plakat2-BO9VLUK5.webp"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 281496,
+              "durationMs": 20.4,
+              "encodedBodyBytes": 281496,
+              "initiator": "img",
+              "transferBytes": 281796,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%203-CaReCdCc.webp"
+            },
+            {
+              "decodedBodyBytes": 278210,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 278210,
+              "initiator": "img",
+              "transferBytes": 278510,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%204-C2mfcqHl.webp"
+            },
+            {
+              "decodedBodyBytes": 250978,
+              "durationMs": 19.6,
+              "encodedBodyBytes": 250978,
+              "initiator": "img",
+              "transferBytes": 251278,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%202-yoAd72a5.webp"
+            },
+            {
+              "decodedBodyBytes": 250118,
+              "durationMs": 8.9,
+              "encodedBodyBytes": 250118,
+              "initiator": "img",
+              "transferBytes": 250418,
+              "url": "http://127.0.0.1:4173/assets/galtamas_mds4_plakat1-DcSbFJpP.webp"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-D4kZom6s.js"
+            },
+            {
+              "decodedBodyBytes": 227934,
+              "durationMs": 19.5,
+              "encodedBodyBytes": 227934,
+              "initiator": "img",
+              "transferBytes": 228234,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%201--wtewp-x.webp"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-RCy57k2d.js"
+            },
+            {
+              "decodedBodyBytes": 149244,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 149244,
+              "initiator": "css",
+              "transferBytes": 149544,
+              "url": "http://127.0.0.1:4173/assets/exhibit-wheat-ug1BVoxg.jpg"
+            }
+          ],
+          "reportedTransferBytes": 14251054,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 390,
+          "width": 844
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 390,
+        "width": 844
+      },
+      "name": "landscape-contact-end-844x390",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 390,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 6717,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 390,
+            "height": 390,
+            "left": 0,
+            "right": 844,
+            "top": 0,
+            "width": 844,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 7107,
+          "scrollTop": 6717
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": "More options",
+          "tag": "BUTTON",
+          "text": ""
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 2426,
+            "rect": {
+              "bottom": -3821.796875,
+              "height": 2426,
+              "left": 0,
+              "right": 844,
+              "top": -6247.796875,
+              "width": 844,
+              "x": 0,
+              "y": -6247.796875
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 4212,
+            "rect": {
+              "bottom": 390.203125,
+              "height": 4212,
+              "left": 0,
+              "right": 844,
+              "top": -3821.796875,
+              "width": 844,
+              "x": 0,
+              "y": -3821.796875
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -6247.796875,
+              "height": 469.203125,
+              "left": 0,
+              "right": 844,
+              "top": -6717,
+              "width": 844,
+              "x": 0,
+              "y": -6717
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -3821.796875,
+              "height": 390,
+              "left": 0,
+              "right": 844,
+              "top": -4211.796875,
+              "width": 844,
+              "x": 0,
+              "y": -4211.796875
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 390.203125,
+              "height": 390,
+              "left": 0,
+              "right": 844,
+              "top": 0.203125,
+              "width": 844,
+              "x": 0,
+              "y": 0.203125
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 390.203125,
+              "height": 390,
+              "left": 0,
+              "right": 844,
+              "top": 0.203125,
+              "width": 844,
+              "x": 0,
+              "y": 0.203125
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "visible"
+          }
+        ],
+        "viewport": {
+          "height": 390,
+          "width": 844
+        }
+      },
+      "capturedAt": "2026-10-01T14:50:22.522Z",
+      "screenshot": "screenshots/landscape-contact-end-844x390.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 1040,
+            "backingWidth": 1644,
+            "rect": {
+              "bottom": -5869,
+              "height": 896,
+              "left": -75.9000244140625,
+              "right": 1340.9000244140625,
+              "top": -6765,
+              "width": 1416.800048828125,
+              "x": -75.9000244140625,
+              "y": -6765
+            }
+          },
+          {
+            "backingHeight": 800,
+            "backingWidth": 1280,
+            "rect": {
+              "bottom": 800,
+              "height": 800,
+              "left": 0,
+              "right": 1280,
+              "top": 0,
+              "width": 1280,
+              "x": 0,
+              "y": 0
+            }
+          },
+          {
+            "backingHeight": 800,
+            "backingWidth": 1265,
+            "rect": {
+              "bottom": -5957,
+              "height": 800,
+              "left": 0,
+              "right": 1265,
+              "top": -6757,
+              "width": 1265,
+              "x": 0,
+              "y": -6757
+            }
+          },
+          {
+            "backingHeight": 800,
+            "backingWidth": 1280,
+            "rect": {
+              "bottom": 800,
+              "height": 800,
+              "left": -7.5,
+              "right": 1272.5,
+              "top": 0,
+              "width": 1280,
+              "x": -7.5,
+              "y": 0
+            }
+          }
+        ],
+        "clientHeight": 800,
+        "documentScrollWidth": 1280,
+        "header": {
+          "bottom": 99.140625,
+          "height": 56,
+          "left": 590.3125,
+          "right": 689.6875,
+          "top": 43.140625,
+          "width": 99.375,
+          "x": 590.3125,
+          "y": 43.140625
+        },
+        "mobileClass": false,
+        "scrollHeight": 15616,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet lenis",
+        "scrollTop": 6717,
+        "scrollViewportRatio": 19.52
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T14:50:22.466Z",
+        "cls": 0.00069,
+        "currentPath": "/",
+        "elapsedMs": 1594049,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 8,
+          "recent8sCount": 0,
+          "totalDurationMs": 907,
+          "worst": [
+            {
+              "durationMs": 407,
+              "startTimeMs": 1451347
+            },
+            {
+              "durationMs": 101,
+              "startTimeMs": 913411
+            },
+            {
+              "durationMs": 95,
+              "startTimeMs": 1044970.5
+            },
+            {
+              "durationMs": 66,
+              "startTimeMs": 857873.9000000954
+            },
+            {
+              "durationMs": 62,
+              "startTimeMs": 913831.5999999046
+            },
+            {
+              "durationMs": 61,
+              "startTimeMs": 813.0999999046326
+            },
+            {
+              "durationMs": 60,
+              "startTimeMs": 913518.5
+            },
+            {
+              "durationMs": 55,
+              "startTimeMs": 855839.7000000477
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 58.09999990463257,
+          "loadEventMs": 70,
+          "responseEndMs": 3.4000000953674316,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 20.9,
+          "meanMs": 6.96,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1150
+        },
+        "resources": {
+          "count": 88,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2596316,
+              "durationMs": 7.5,
+              "encodedBodyBytes": 2596316,
+              "initiator": "video",
+              "transferBytes": 2596616,
+              "url": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4"
+            },
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 7.6,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 8.8,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-BTa5Eaux.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 4.3,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 652172,
+              "durationMs": 8.6,
+              "encodedBodyBytes": 652172,
+              "initiator": "img",
+              "transferBytes": 652472,
+              "url": "http://127.0.0.1:4173/assets/beturajz2-BAffnb21.webp"
+            },
+            {
+              "decodedBodyBytes": 493758,
+              "durationMs": 10,
+              "encodedBodyBytes": 493758,
+              "initiator": "img",
+              "transferBytes": 494058,
+              "url": "http://127.0.0.1:4173/assets/galtamas_mds4_plakat2-BO9VLUK5.webp"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 281496,
+              "durationMs": 20.4,
+              "encodedBodyBytes": 281496,
+              "initiator": "img",
+              "transferBytes": 281796,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%203-CaReCdCc.webp"
+            },
+            {
+              "decodedBodyBytes": 278210,
+              "durationMs": 20.3,
+              "encodedBodyBytes": 278210,
+              "initiator": "img",
+              "transferBytes": 278510,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%204-C2mfcqHl.webp"
+            },
+            {
+              "decodedBodyBytes": 250978,
+              "durationMs": 19.6,
+              "encodedBodyBytes": 250978,
+              "initiator": "img",
+              "transferBytes": 251278,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%202-yoAd72a5.webp"
+            },
+            {
+              "decodedBodyBytes": 250118,
+              "durationMs": 8.9,
+              "encodedBodyBytes": 250118,
+              "initiator": "img",
+              "transferBytes": 250418,
+              "url": "http://127.0.0.1:4173/assets/galtamas_mds4_plakat1-DcSbFJpP.webp"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-D4kZom6s.js"
+            },
+            {
+              "decodedBodyBytes": 227934,
+              "durationMs": 19.5,
+              "encodedBodyBytes": 227934,
+              "initiator": "img",
+              "transferBytes": 228234,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%201--wtewp-x.webp"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-RCy57k2d.js"
+            },
+            {
+              "decodedBodyBytes": 149244,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 149244,
+              "initiator": "css",
+              "transferBytes": 149544,
+              "url": "http://127.0.0.1:4173/assets/exhibit-wheat-ug1BVoxg.jpg"
+            }
+          ],
+          "reportedTransferBytes": 14251054,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 390,
+          "width": 844
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 800,
+        "width": 1280
+      },
+      "name": "laptop-resize-1280x800",
+      "scrollExperience": {
+        "caseStudy": null,
+        "container": {
+          "clientHeight": 800,
+          "lenis": true,
+          "locked": "false",
+          "maximum": 14816,
+          "mode": "smooth",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 800,
+            "height": 800,
+            "left": 0,
+            "right": 1280,
+            "top": 0,
+            "width": 1280,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15616,
+          "scrollTop": 6717
+        },
+        "curtains": [],
+        "documentScroll": {
+          "maximum": 0,
+          "top": 0
+        },
+        "focus": {
+          "label": "More options",
+          "tag": "BUTTON",
+          "text": ""
+        },
+        "gallery": false,
+        "menu": false,
+        "page": null,
+        "pinSpacers": [
+          {
+            "child": "wt-projects-section",
+            "height": 5136,
+            "rect": {
+              "bottom": -861,
+              "height": 5136,
+              "left": 0,
+              "right": 1265,
+              "top": -5997,
+              "width": 1265,
+              "x": 0,
+              "y": -5997
+            }
+          },
+          {
+            "child": "wt-blur-section wt-skill-transition-section",
+            "height": 9760,
+            "rect": {
+              "bottom": 8899,
+              "height": 9760,
+              "left": 0,
+              "right": 1265,
+              "top": -861,
+              "width": 1265,
+              "x": 0,
+              "y": -861
+            }
+          }
+        ],
+        "sections": [
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -5917,
+              "height": 800,
+              "left": 0,
+              "right": 1265,
+              "top": -6717,
+              "width": 1265,
+              "x": 0,
+              "y": -6717
+            },
+            "selector": ".hero-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": -861,
+              "height": 800,
+              "left": 0,
+              "right": 1265,
+              "top": -1661,
+              "width": 1265,
+              "x": 0,
+              "y": -1661
+            },
+            "selector": ".wt-projects-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "1",
+            "present": true,
+            "rect": {
+              "bottom": 800,
+              "height": 800,
+              "left": 0,
+              "right": 1265,
+              "top": 0,
+              "width": 1265,
+              "x": 0,
+              "y": 0
+            },
+            "selector": ".wt-blur-section",
+            "visibility": "visible"
+          },
+          {
+            "opacity": "0",
+            "present": true,
+            "rect": {
+              "bottom": 800,
+              "height": 800,
+              "left": -7.5,
+              "right": 1272.5,
+              "top": 0,
+              "width": 1280,
+              "x": -7.5,
+              "y": 0
+            },
+            "selector": ".wt-bubble-final-scene",
+            "visibility": "hidden"
+          }
+        ],
+        "viewport": {
+          "height": 800,
+          "width": 1280
+        }
+      },
+      "capturedAt": "2026-10-01T14:50:22.810Z",
+      "screenshot": "screenshots/laptop-resize-1280x800.jpg"
+    }
+  ],
+  "manualChecks": [
+    {
+      "name": "native-transform-pins-allow-scrolling-past-work-entry",
+      "passed": true,
+      "evidence": {
+        "scrollTop": 2532,
+        "pinPosition": "relative"
+      },
+      "capturedAt": "2026-10-01T14:24:53.030Z"
+    },
+    {
+      "name": "case-study-preserves-main-position-and-pin-spacers",
+      "passed": false,
+      "evidence": {
+        "before": {
+          "clientHeight": 844,
+          "lenis": false,
+          "locked": "false",
+          "maximum": 14365,
+          "mode": "native",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15209,
+          "scrollTop": 2196
+        },
+        "opened": {
+          "clientHeight": 844,
+          "lenis": false,
+          "locked": "true",
+          "maximum": 14365,
+          "mode": "native",
+          "overflowY": "hidden",
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 15209,
+          "scrollTop": 2304
+        },
+        "pinsBefore": 2,
+        "pinsAfter": 2
+      },
+      "capturedAt": "2026-10-01T14:26:38.601Z"
+    },
+    {
+      "name": "case-study-return-keeps-position-focus-and-unlocks-scroll",
+      "passed": false,
+      "evidence": {
+        "before": 2196,
+        "returned": 2304,
+        "focus": {
+          "label": null,
+          "tag": "BUTTON",
+          "text": "View case study"
+        },
+        "locked": "false"
+      },
+      "capturedAt": "2026-10-01T14:26:39.394Z"
+    },
+    {
+      "name": "scrolling-after-case-return-is-not-overwritten",
+      "passed": true,
+      "evidence": {
+        "returned": 2304,
+        "afterGesture": 2726
+      },
+      "capturedAt": "2026-10-01T14:26:39.611Z"
+    },
+    {
+      "name": "case-return-preserves-the-position-at-open",
+      "passed": true,
+      "evidence": {
+        "openedAt": 2304,
+        "returnedAt": 2304,
+        "maximum": 14365,
+        "pins": 2,
+        "note": "The earlier comparison was before locator click auto-scrolling. The modal and return retained the actual opening position."
+      },
+      "capturedAt": "2026-10-01T14:29:58.129Z"
+    },
+    {
+      "name": "no-delayed-restoration-rewinds-a-later-scroll",
+      "passed": true,
+      "evidence": {
+        "afterInput": 2726,
+        "later": 2726
+      },
+      "capturedAt": "2026-10-01T14:30:04.568Z"
+    },
+    {
+      "name": "menu-locks-native-background-without-removing-pins",
+      "passed": true,
+      "evidence": {
+        "before": 2726,
+        "after": 2726,
+        "pins": 2,
+        "locked": "true"
+      },
+      "capturedAt": "2026-10-01T14:30:05.114Z"
+    },
+    {
+      "name": "N01-rapid-keyboard-about-after-contact-close-is-not-dropped",
+      "passed": true,
+      "evidence": {
+        "curtainsAfterContactClose": 2,
+        "curtainsAtAboutRequest": 3,
+        "resultingPage": "About Tamas Gal",
+        "pins": 2
+      },
+      "capturedAt": "2026-10-01T14:34:34.540Z"
+    },
+    {
+      "name": "page-home-return-resets-once-and-unlocks-background",
+      "passed": true,
+      "evidence": {
+        "scrollTop": 0,
+        "locked": "false",
+        "pins": 2
+      },
+      "capturedAt": "2026-10-01T14:34:36.329Z"
+    },
+    {
+      "name": "native-phone-scroll-reaches-the-final-contact-scene",
+      "passed": true,
+      "evidence": {
+        "top": 14365,
+        "maximum": 14365,
+        "contact": {
+          "opacity": "1",
+          "present": true,
+          "rect": {
+            "bottom": 844,
+            "height": 844,
+            "left": 0,
+            "right": 390,
+            "top": 0,
+            "width": 390,
+            "x": 0,
+            "y": 0
+          },
+          "selector": ".wt-bubble-final-scene",
+          "visibility": "visible"
+        },
+        "outerScroll": {
+          "maximum": 0,
+          "top": 0
+        }
+      },
+      "capturedAt": "2026-10-01T14:36:53.118Z"
+    },
+    {
+      "name": "extras-route-return-restores-scroll-after-pin-measurement",
+      "passed": true,
+      "evidence": {
+        "saved": 14365,
+        "restored": 14365,
+        "pins": 2,
+        "menu": true
+      },
+      "capturedAt": "2026-10-01T14:38:04.442Z"
+    },
+    {
+      "name": "home-on-the-home-page-does-not-create-another-curtain",
+      "passed": true,
+      "evidence": {
+        "curtains": [],
+        "mode": "native"
+      },
+      "capturedAt": "2026-10-01T14:38:05.540Z"
+    },
+    {
+      "name": "native-home-scroll-finishes-at-the-top",
+      "passed": true,
+      "evidence": {
+        "scrollTop": 0
+      },
+      "capturedAt": "2026-10-01T14:39:01.803Z"
+    },
+    {
+      "name": "desktop-resize-enables-one-smooth-scroller-and-two-pins",
+      "passed": true,
+      "evidence": {
+        "container": {
+          "clientHeight": 900,
+          "lenis": true,
+          "locked": "false",
+          "maximum": 16668,
+          "mode": "smooth",
+          "overflowY": "auto",
+          "rect": {
+            "bottom": 900,
+            "height": 900,
+            "left": 0,
+            "right": 1440,
+            "top": 0,
+            "width": 1440,
+            "x": 0,
+            "y": 0
+          },
+          "scrollHeight": 17568,
+          "scrollTop": 0
+        },
+        "pins": 2
+      },
+      "capturedAt": "2026-10-01T14:39:02.170Z"
+    },
+    {
+      "name": "desktop-scroll-continues-through-featured-work",
+      "passed": false,
+      "evidence": {
+        "scrollTop": 1631,
+        "mode": "smooth",
+        "pins": 2
+      },
+      "capturedAt": "2026-10-01T14:39:02.427Z"
+    },
+    {
+      "name": "desktop-smooth-scroll-finishes-past-work-entry",
+      "passed": true,
+      "evidence": {
+        "scrollTop": 2430,
+        "mode": "smooth"
+      },
+      "capturedAt": "2026-10-01T14:41:10.701Z"
+    },
+    {
+      "name": "desktop-case-return-preserves-pins-and-opening-position",
+      "passed": true,
+      "evidence": {
+        "opened": 2430,
+        "returned": 2430,
+        "pins": 2,
+        "mode": "smooth"
+      },
+      "capturedAt": "2026-10-01T14:41:12.371Z"
+    },
+    {
+      "name": "tablet-resize-replaces-smoothing-with-native-scroll-without-duplicate-pins",
+      "passed": true,
+      "evidence": {
+        "mode": "native",
+        "lenis": false,
+        "pins": 2,
+        "scrollTop": 2430
+      },
+      "capturedAt": "2026-10-01T14:41:13.595Z"
+    },
+    {
+      "name": "gallery-lock-and-close-survive-tablet-to-phone-resize",
+      "passed": false,
+      "evidence": {
+        "openedMode": "native",
+        "openedLocked": "true",
+        "closedMode": "native",
+        "closedLocked": "false",
+        "pins": 2,
+        "viewport": {
+          "height": 568,
+          "width": 320
+        }
+      },
+      "capturedAt": "2026-10-01T14:48:01.501Z"
+    },
+    {
+      "name": "small-phone-can-scroll-to-the-final-scene",
+      "passed": true,
+      "evidence": {
+        "top": 9667,
+        "maximum": 9667,
+        "pins": 2
+      },
+      "capturedAt": "2026-10-01T14:48:01.773Z"
+    },
+    {
+      "name": "phone-landscape-stays-native-with-two-pins-and-reachable-end",
+      "passed": true,
+      "evidence": {
+        "mode": "native",
+        "pins": 2,
+        "top": 6717,
+        "maximum": 6717
+      },
+      "capturedAt": "2026-10-01T14:50:22.544Z"
+    },
+    {
+      "name": "laptop-restores-desktop-smoothing-without-duplicate-pins",
+      "passed": true,
+      "evidence": {
+        "mode": "smooth",
+        "lenis": true,
+        "pins": 2
+      },
+      "capturedAt": "2026-10-01T14:50:22.841Z"
+    }
+  ],
+  "notes": [
+    "Windows Chromium, DPR 1, viewport overrides only; browser scroll controls and keyboard, not physical touch hardware."
+  ]
+}

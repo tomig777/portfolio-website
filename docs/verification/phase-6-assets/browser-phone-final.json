@@ -1,0 +1,378 @@
+{
+  "sourceHash": "7e59324f10e26c1b4010a4a7e9782998632dd4f7fc379e70910a85ab0536f6c9",
+  "phone": {
+    "graphics": [
+      {
+        "canvases": [
+          {
+            "height": 489,
+            "motion": null,
+            "width": 226
+          }
+        ],
+        "class": "darkveil-canvas",
+        "state": "running"
+      },
+      {
+        "canvases": [
+          {
+            "height": 844,
+            "motion": "settled",
+            "width": 390
+          }
+        ],
+        "class": "lanyard-wrapper",
+        "state": "running"
+      },
+      {
+        "canvases": [],
+        "class": "wt-hero-role-window",
+        "state": "running"
+      }
+    ],
+    "images": [
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 497,
+        "naturalWidth": 505,
+        "priority": "auto",
+        "src": "http://127.0.0.1:4173/assets/logo-dark-CwVoIOUT.webp"
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      }
+    ],
+    "metrics": {
+      "capturedAt": "2026-10-02T00:55:57.691Z",
+      "cls": 0,
+      "currentPath": "/",
+      "elapsedMs": 27053,
+      "environment": {
+        "deviceMemoryGiB": 32,
+        "hardwareConcurrency": 16,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+        "visibility": "visible"
+      },
+      "initialPath": "/",
+      "largestContentfulPaint": {
+        "element": "SPAN",
+        "size": 12672,
+        "timeMs": 420
+      },
+      "longTasks": {
+        "count": 1,
+        "recent8sCount": 0,
+        "totalDurationMs": 59,
+        "worst": [
+          {
+            "durationMs": 59,
+            "startTimeMs": 785.2999999523163
+          }
+        ]
+      },
+      "navigation": {
+        "domContentLoadedMs": 63.79999995231629,
+        "loadEventMs": 80.90000009536743,
+        "responseEndMs": 3.299999952316284,
+        "type": "reload"
+      },
+      "notes": [
+        "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+        "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+        "Zero transfer size can indicate a cache hit or restricted timing information.",
+        "Probe module requests are excluded from the resource totals.",
+        "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+        "The probe adds a rAF callback and publishes this hidden output once per second."
+      ],
+      "recent8sRafCadence": {
+        "gapsOver50Ms": 0,
+        "maxMs": 7.2,
+        "meanMs": 6.95,
+        "medianMs": 6.9,
+        "p95Ms": 7,
+        "samples": 1152
+      },
+      "resources": {
+        "count": 27,
+        "largestObserved": [
+          {
+            "decodedBodyBytes": 1569397,
+            "durationMs": 16.5,
+            "encodedBodyBytes": 1569397,
+            "initiator": "fetch",
+            "transferBytes": 1569697,
+            "url": "http://127.0.0.1:4173/assets/rapier-physics-Dl0GQskJ.wasm"
+          },
+          {
+            "decodedBodyBytes": 704525,
+            "durationMs": 4.2,
+            "encodedBodyBytes": 704525,
+            "initiator": "script",
+            "transferBytes": 704825,
+            "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+          },
+          {
+            "decodedBodyBytes": 235336,
+            "durationMs": 6.6,
+            "encodedBodyBytes": 235336,
+            "initiator": "script",
+            "transferBytes": 235636,
+            "url": "http://127.0.0.1:4173/assets/index-DVqoXpkI.js"
+          },
+          {
+            "decodedBodyBytes": 212240,
+            "durationMs": 2.3,
+            "encodedBodyBytes": 212240,
+            "initiator": "fetch",
+            "transferBytes": 212540,
+            "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+          },
+          {
+            "decodedBodyBytes": 187339,
+            "durationMs": 3,
+            "encodedBodyBytes": 187339,
+            "initiator": "script",
+            "transferBytes": 187639,
+            "url": "http://127.0.0.1:4173/assets/Lanyard-B36P9ro1.js"
+          },
+          {
+            "decodedBodyBytes": 158362,
+            "durationMs": 3.3,
+            "encodedBodyBytes": 158362,
+            "initiator": "script",
+            "transferBytes": 158662,
+            "url": "http://127.0.0.1:4173/assets/extends-CtHePiDv.js"
+          },
+          {
+            "decodedBodyBytes": 132244,
+            "durationMs": 4.3,
+            "encodedBodyBytes": 132244,
+            "initiator": "script",
+            "transferBytes": 132544,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-a-3KCb2D.js"
+          },
+          {
+            "decodedBodyBytes": 125723,
+            "durationMs": 3.5,
+            "encodedBodyBytes": 125723,
+            "initiator": "script",
+            "transferBytes": 126023,
+            "url": "http://127.0.0.1:4173/assets/Environment-CpJ77-gq.js"
+          },
+          {
+            "decodedBodyBytes": 74619,
+            "durationMs": 4.1,
+            "encodedBodyBytes": 74619,
+            "initiator": "script",
+            "transferBytes": 74919,
+            "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+          },
+          {
+            "decodedBodyBytes": 66874,
+            "durationMs": 7.6,
+            "encodedBodyBytes": 66874,
+            "initiator": "link",
+            "transferBytes": 67174,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+          },
+          {
+            "decodedBodyBytes": 51530,
+            "durationMs": 6.1,
+            "encodedBodyBytes": 51530,
+            "initiator": "link",
+            "transferBytes": 51830,
+            "url": "http://127.0.0.1:4173/assets/index-CXxrnaEn.css"
+          },
+          {
+            "decodedBodyBytes": 48256,
+            "durationMs": 26.6,
+            "encodedBodyBytes": 48256,
+            "initiator": "css",
+            "transferBytes": 48556,
+            "url": "http://127.0.0.1:4173/assets/inter-v20-UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7-Dx4kXJAl.woff2"
+          },
+          {
+            "decodedBodyBytes": 44196,
+            "durationMs": 6,
+            "encodedBodyBytes": 44196,
+            "initiator": "script",
+            "transferBytes": 44496,
+            "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+          },
+          {
+            "decodedBodyBytes": 36508,
+            "durationMs": 6.3,
+            "encodedBodyBytes": 36508,
+            "initiator": "link",
+            "transferBytes": 36808,
+            "url": "http://127.0.0.1:4173/assets/Yink-CEkPJqof.woff2"
+          },
+          {
+            "decodedBodyBytes": 32292,
+            "durationMs": 26.8,
+            "encodedBodyBytes": 32292,
+            "initiator": "css",
+            "transferBytes": 32592,
+            "url": "http://127.0.0.1:4173/assets/outfit-v15-QGYvz_MVcBeNP4NJtEtq-Bc-8i84L.woff2"
+          },
+          {
+            "decodedBodyBytes": 13126,
+            "durationMs": 4.7,
+            "encodedBodyBytes": 13126,
+            "initiator": "script",
+            "transferBytes": 13426,
+            "url": "http://127.0.0.1:4173/assets/substance_logo-BBfbBa09.js"
+          }
+        ],
+        "reportedTransferBytes": 3730219,
+        "zeroOrUnavailableTransferCount": 0
+      },
+      "schemaVersion": 1,
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      }
+    },
+    "videos": [],
+    "viewport": {
+      "dpr": 1,
+      "height": 844,
+      "width": 390
+    }
+  },
+  "gallery": {
+    "canvases": [
+      {
+        "height": 844,
+        "width": 390
+      }
+    ],
+    "cells": 60,
+    "dialog": "Interactive gallery with 25 images",
+    "headerLayer": 2147483100,
+    "layer": 2147483200,
+    "loaderCount": 0,
+    "opacity": "1",
+    "pageLayer": 2147483000
+  },
+  "archiveVideoFirst": [
+    {
+      "duration": 94.25,
+      "error": null,
+      "paused": false,
+      "readyState": 4,
+      "src": "http://127.0.0.1:4173/assets/background-faststart-BHKXiF0y.mp4",
+      "time": 24.340027,
+      "videoHeight": 1080,
+      "videoWidth": 1920
+    },
+    {
+      "duration": 94.25,
+      "error": null,
+      "paused": true,
+      "readyState": 4,
+      "src": "http://127.0.0.1:4173/assets/background-faststart-BHKXiF0y.mp4",
+      "time": 0,
+      "videoHeight": 1080,
+      "videoWidth": 1920
+    }
+  ],
+  "archiveVideoFinal": [
+    {
+      "error": null,
+      "paused": false,
+      "readyState": 4,
+      "src": "http://127.0.0.1:4173/assets/background-faststart-BHKXiF0y.mp4",
+      "time": 53.538044
+    },
+    {
+      "error": null,
+      "paused": true,
+      "readyState": 4,
+      "src": "http://127.0.0.1:4173/assets/background-faststart-BHKXiF0y.mp4",
+      "time": 0
+    }
+  ],
+  "console": [
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:50:23.646Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CEU0_q4f.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:50:23.647Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CEU0_q4f.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:50:23.648Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CEU0_q4f.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:50:23.648Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CEU0_q4f.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:55:31.032Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:55:31.033Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:55:31.033Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:55:31.034Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    }
+  ],
+  "note": "Hero, Contact-to-Gallery layering, password choices and archive playback checked on final build. Work/About checks are in browser-asset-candidate.json before the isolated gallery-layer change."
+}

@@ -1,0 +1,1675 @@
+{
+  "runtimeSourceSha256": "10fab5a9a8175ec4dc583c06dec7781e52a6b9ca3d51bb1730110cd17097d3b3",
+  "observations": [
+    {
+      "name": "desktop-hero-settled",
+      "data": {
+        "graphics": [
+          {
+            "canvases": [
+              {
+                "height": 1170,
+                "motion": null,
+                "touchAction": "auto",
+                "width": 1852
+              }
+            ],
+            "class": "darkveil-canvas",
+            "state": "running"
+          },
+          {
+            "canvases": [
+              {
+                "height": 900,
+                "motion": "settled",
+                "touchAction": "pan-y",
+                "width": 1425
+              }
+            ],
+            "class": "lanyard-wrapper",
+            "state": "running"
+          },
+          {
+            "canvases": [],
+            "class": "wt-hero-role-window",
+            "state": "running"
+          },
+          {
+            "canvases": [],
+            "class": "wt-bubble-ascii-hands",
+            "state": "paused"
+          }
+        ],
+        "metrics": {
+          "capturedAt": "2026-10-01T19:45:27.781Z",
+          "cls": 0,
+          "currentPath": "/",
+          "elapsedMs": 75040,
+          "environment": {
+            "deviceMemoryGiB": 32,
+            "hardwareConcurrency": 16,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+            "visibility": "visible"
+          },
+          "initialPath": "/",
+          "largestContentfulPaint": {
+            "element": "SPAN",
+            "size": 170343,
+            "timeMs": 428
+          },
+          "longTasks": {
+            "count": 2,
+            "recent8sCount": 0,
+            "totalDurationMs": 127,
+            "worst": [
+              {
+                "durationMs": 66,
+                "startTimeMs": 854.9000000953674
+              },
+              {
+                "durationMs": 61,
+                "startTimeMs": 452.7999999523163
+              }
+            ]
+          },
+          "navigation": {
+            "domContentLoadedMs": 45.70000004768371,
+            "loadEventMs": 60.29999995231629,
+            "responseEndMs": 4.299999952316284,
+            "type": "reload"
+          },
+          "notes": [
+            "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+            "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+            "Zero transfer size can indicate a cache hit or restricted timing information.",
+            "Probe module requests are excluded from the resource totals.",
+            "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+            "The probe adds a rAF callback and publishes this hidden output once per second."
+          ],
+          "recent8sRafCadence": {
+            "gapsOver50Ms": 0,
+            "maxMs": 7.2,
+            "meanMs": 6.95,
+            "medianMs": 6.9,
+            "p95Ms": 7,
+            "samples": 1152
+          },
+          "resources": {
+            "count": 37,
+            "largestObserved": [
+              {
+                "decodedBodyBytes": 2280917,
+                "durationMs": 9,
+                "encodedBodyBytes": 2280917,
+                "initiator": "script",
+                "transferBytes": 2281217,
+                "url": "http://127.0.0.1:4173/assets/Lanyard-BjdDNfVw.js"
+              },
+              {
+                "decodedBodyBytes": 704525,
+                "durationMs": 4.5,
+                "encodedBodyBytes": 704525,
+                "initiator": "script",
+                "transferBytes": 704825,
+                "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+              },
+              {
+                "decodedBodyBytes": 400737,
+                "durationMs": 6.8,
+                "encodedBodyBytes": 400737,
+                "initiator": "img",
+                "transferBytes": 401037,
+                "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+              },
+              {
+                "decodedBodyBytes": 235336,
+                "durationMs": 10,
+                "encodedBodyBytes": 235336,
+                "initiator": "script",
+                "transferBytes": 235636,
+                "url": "http://127.0.0.1:4173/assets/index-BHe3ztiJ.js"
+              },
+              {
+                "decodedBodyBytes": 212240,
+                "durationMs": 2.4,
+                "encodedBodyBytes": 212240,
+                "initiator": "fetch",
+                "transferBytes": 212540,
+                "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+              },
+              {
+                "decodedBodyBytes": 158362,
+                "durationMs": 3.3,
+                "encodedBodyBytes": 158362,
+                "initiator": "script",
+                "transferBytes": 158662,
+                "url": "http://127.0.0.1:4173/assets/extends-DNMd-r-T.js"
+              },
+              {
+                "decodedBodyBytes": 141545,
+                "durationMs": 3.5,
+                "encodedBodyBytes": 141545,
+                "initiator": "image",
+                "transferBytes": 141845,
+                "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+              },
+              {
+                "decodedBodyBytes": 132407,
+                "durationMs": 3.7,
+                "encodedBodyBytes": 132407,
+                "initiator": "script",
+                "transferBytes": 132707,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-DK5frgyW.js"
+              },
+              {
+                "decodedBodyBytes": 125723,
+                "durationMs": 7.1,
+                "encodedBodyBytes": 125723,
+                "initiator": "script",
+                "transferBytes": 126023,
+                "url": "http://127.0.0.1:4173/assets/Environment-CkK_YPge.js"
+              },
+              {
+                "decodedBodyBytes": 115369,
+                "durationMs": 3.2,
+                "encodedBodyBytes": 115369,
+                "initiator": "image",
+                "transferBytes": 115669,
+                "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+              },
+              {
+                "decodedBodyBytes": 98582,
+                "durationMs": 2.2,
+                "encodedBodyBytes": 98582,
+                "initiator": "img",
+                "transferBytes": 98882,
+                "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+              },
+              {
+                "decodedBodyBytes": 74619,
+                "durationMs": 4.2,
+                "encodedBodyBytes": 74619,
+                "initiator": "script",
+                "transferBytes": 74919,
+                "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+              },
+              {
+                "decodedBodyBytes": 74528,
+                "durationMs": 34,
+                "encodedBodyBytes": 74528,
+                "initiator": "css",
+                "transferBytes": 74828,
+                "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+              },
+              {
+                "decodedBodyBytes": 66874,
+                "durationMs": 7.6,
+                "encodedBodyBytes": 66874,
+                "initiator": "link",
+                "transferBytes": 67174,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+              },
+              {
+                "decodedBodyBytes": 44196,
+                "durationMs": 6.1,
+                "encodedBodyBytes": 44196,
+                "initiator": "script",
+                "transferBytes": 44496,
+                "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+              },
+              {
+                "decodedBodyBytes": 26055,
+                "durationMs": 2,
+                "encodedBodyBytes": 26055,
+                "initiator": "img",
+                "transferBytes": 26355,
+                "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+              }
+            ],
+            "reportedTransferBytes": 4982936,
+            "zeroOrUnavailableTransferCount": 2
+          },
+          "schemaVersion": 1,
+          "viewport": {
+            "dpr": 1,
+            "height": 900,
+            "width": 1440
+          }
+        },
+        "scrollY": 0
+      }
+    },
+    {
+      "name": "desktop-after-card-drag",
+      "data": {
+        "graphics": [
+          {
+            "canvases": [
+              {
+                "height": 1170,
+                "motion": null,
+                "touchAction": "auto",
+                "width": 1852
+              }
+            ],
+            "class": "darkveil-canvas",
+            "state": "running"
+          },
+          {
+            "canvases": [
+              {
+                "height": 900,
+                "motion": "moving",
+                "touchAction": "pan-y",
+                "width": 1425
+              }
+            ],
+            "class": "lanyard-wrapper",
+            "state": "running"
+          },
+          {
+            "canvases": [],
+            "class": "wt-hero-role-window",
+            "state": "running"
+          },
+          {
+            "canvases": [],
+            "class": "wt-bubble-ascii-hands",
+            "state": "paused"
+          }
+        ],
+        "metrics": {
+          "capturedAt": "2026-10-01T19:45:28.782Z",
+          "cls": 0,
+          "currentPath": "/",
+          "elapsedMs": 76040,
+          "environment": {
+            "deviceMemoryGiB": 32,
+            "hardwareConcurrency": 16,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+            "visibility": "visible"
+          },
+          "initialPath": "/",
+          "largestContentfulPaint": {
+            "element": "SPAN",
+            "size": 170343,
+            "timeMs": 428
+          },
+          "longTasks": {
+            "count": 2,
+            "recent8sCount": 0,
+            "totalDurationMs": 127,
+            "worst": [
+              {
+                "durationMs": 66,
+                "startTimeMs": 854.9000000953674
+              },
+              {
+                "durationMs": 61,
+                "startTimeMs": 452.7999999523163
+              }
+            ]
+          },
+          "navigation": {
+            "domContentLoadedMs": 45.70000004768371,
+            "loadEventMs": 60.29999995231629,
+            "responseEndMs": 4.299999952316284,
+            "type": "reload"
+          },
+          "notes": [
+            "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+            "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+            "Zero transfer size can indicate a cache hit or restricted timing information.",
+            "Probe module requests are excluded from the resource totals.",
+            "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+            "The probe adds a rAF callback and publishes this hidden output once per second."
+          ],
+          "recent8sRafCadence": {
+            "gapsOver50Ms": 0,
+            "maxMs": 7.2,
+            "meanMs": 6.95,
+            "medianMs": 6.9,
+            "p95Ms": 7,
+            "samples": 1152
+          },
+          "resources": {
+            "count": 37,
+            "largestObserved": [
+              {
+                "decodedBodyBytes": 2280917,
+                "durationMs": 9,
+                "encodedBodyBytes": 2280917,
+                "initiator": "script",
+                "transferBytes": 2281217,
+                "url": "http://127.0.0.1:4173/assets/Lanyard-BjdDNfVw.js"
+              },
+              {
+                "decodedBodyBytes": 704525,
+                "durationMs": 4.5,
+                "encodedBodyBytes": 704525,
+                "initiator": "script",
+                "transferBytes": 704825,
+                "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+              },
+              {
+                "decodedBodyBytes": 400737,
+                "durationMs": 6.8,
+                "encodedBodyBytes": 400737,
+                "initiator": "img",
+                "transferBytes": 401037,
+                "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+              },
+              {
+                "decodedBodyBytes": 235336,
+                "durationMs": 10,
+                "encodedBodyBytes": 235336,
+                "initiator": "script",
+                "transferBytes": 235636,
+                "url": "http://127.0.0.1:4173/assets/index-BHe3ztiJ.js"
+              },
+              {
+                "decodedBodyBytes": 212240,
+                "durationMs": 2.4,
+                "encodedBodyBytes": 212240,
+                "initiator": "fetch",
+                "transferBytes": 212540,
+                "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+              },
+              {
+                "decodedBodyBytes": 158362,
+                "durationMs": 3.3,
+                "encodedBodyBytes": 158362,
+                "initiator": "script",
+                "transferBytes": 158662,
+                "url": "http://127.0.0.1:4173/assets/extends-DNMd-r-T.js"
+              },
+              {
+                "decodedBodyBytes": 141545,
+                "durationMs": 3.5,
+                "encodedBodyBytes": 141545,
+                "initiator": "image",
+                "transferBytes": 141845,
+                "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+              },
+              {
+                "decodedBodyBytes": 132407,
+                "durationMs": 3.7,
+                "encodedBodyBytes": 132407,
+                "initiator": "script",
+                "transferBytes": 132707,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-DK5frgyW.js"
+              },
+              {
+                "decodedBodyBytes": 125723,
+                "durationMs": 7.1,
+                "encodedBodyBytes": 125723,
+                "initiator": "script",
+                "transferBytes": 126023,
+                "url": "http://127.0.0.1:4173/assets/Environment-CkK_YPge.js"
+              },
+              {
+                "decodedBodyBytes": 115369,
+                "durationMs": 3.2,
+                "encodedBodyBytes": 115369,
+                "initiator": "image",
+                "transferBytes": 115669,
+                "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+              },
+              {
+                "decodedBodyBytes": 98582,
+                "durationMs": 2.2,
+                "encodedBodyBytes": 98582,
+                "initiator": "img",
+                "transferBytes": 98882,
+                "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+              },
+              {
+                "decodedBodyBytes": 74619,
+                "durationMs": 4.2,
+                "encodedBodyBytes": 74619,
+                "initiator": "script",
+                "transferBytes": 74919,
+                "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+              },
+              {
+                "decodedBodyBytes": 74528,
+                "durationMs": 34,
+                "encodedBodyBytes": 74528,
+                "initiator": "css",
+                "transferBytes": 74828,
+                "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+              },
+              {
+                "decodedBodyBytes": 66874,
+                "durationMs": 7.6,
+                "encodedBodyBytes": 66874,
+                "initiator": "link",
+                "transferBytes": 67174,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+              },
+              {
+                "decodedBodyBytes": 44196,
+                "durationMs": 6.1,
+                "encodedBodyBytes": 44196,
+                "initiator": "script",
+                "transferBytes": 44496,
+                "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+              },
+              {
+                "decodedBodyBytes": 26055,
+                "durationMs": 2,
+                "encodedBodyBytes": 26055,
+                "initiator": "img",
+                "transferBytes": 26355,
+                "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+              }
+            ],
+            "reportedTransferBytes": 4982936,
+            "zeroOrUnavailableTransferCount": 2
+          },
+          "schemaVersion": 1,
+          "viewport": {
+            "dpr": 1,
+            "height": 900,
+            "width": 1440
+          }
+        },
+        "scrollY": 0
+      }
+    },
+    {
+      "name": "desktop-menu-pauses-hero",
+      "data": {
+        "graphics": [
+          {
+            "canvases": [
+              {
+                "height": 1170,
+                "motion": null,
+                "touchAction": "auto",
+                "width": 1852
+              }
+            ],
+            "class": "darkveil-canvas",
+            "state": "paused"
+          },
+          {
+            "canvases": [
+              {
+                "height": 900,
+                "motion": "moving",
+                "touchAction": "pan-y",
+                "width": 1425
+              }
+            ],
+            "class": "lanyard-wrapper",
+            "state": "paused"
+          },
+          {
+            "canvases": [],
+            "class": "wt-hero-role-window",
+            "state": "paused"
+          },
+          {
+            "canvases": [],
+            "class": "wt-bubble-ascii-hands",
+            "state": "paused"
+          }
+        ],
+        "metrics": {
+          "capturedAt": "2026-10-01T19:45:28.782Z",
+          "cls": 0,
+          "currentPath": "/",
+          "elapsedMs": 76040,
+          "environment": {
+            "deviceMemoryGiB": 32,
+            "hardwareConcurrency": 16,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+            "visibility": "visible"
+          },
+          "initialPath": "/",
+          "largestContentfulPaint": {
+            "element": "SPAN",
+            "size": 170343,
+            "timeMs": 428
+          },
+          "longTasks": {
+            "count": 2,
+            "recent8sCount": 0,
+            "totalDurationMs": 127,
+            "worst": [
+              {
+                "durationMs": 66,
+                "startTimeMs": 854.9000000953674
+              },
+              {
+                "durationMs": 61,
+                "startTimeMs": 452.7999999523163
+              }
+            ]
+          },
+          "navigation": {
+            "domContentLoadedMs": 45.70000004768371,
+            "loadEventMs": 60.29999995231629,
+            "responseEndMs": 4.299999952316284,
+            "type": "reload"
+          },
+          "notes": [
+            "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+            "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+            "Zero transfer size can indicate a cache hit or restricted timing information.",
+            "Probe module requests are excluded from the resource totals.",
+            "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+            "The probe adds a rAF callback and publishes this hidden output once per second."
+          ],
+          "recent8sRafCadence": {
+            "gapsOver50Ms": 0,
+            "maxMs": 7.2,
+            "meanMs": 6.95,
+            "medianMs": 6.9,
+            "p95Ms": 7,
+            "samples": 1152
+          },
+          "resources": {
+            "count": 37,
+            "largestObserved": [
+              {
+                "decodedBodyBytes": 2280917,
+                "durationMs": 9,
+                "encodedBodyBytes": 2280917,
+                "initiator": "script",
+                "transferBytes": 2281217,
+                "url": "http://127.0.0.1:4173/assets/Lanyard-BjdDNfVw.js"
+              },
+              {
+                "decodedBodyBytes": 704525,
+                "durationMs": 4.5,
+                "encodedBodyBytes": 704525,
+                "initiator": "script",
+                "transferBytes": 704825,
+                "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+              },
+              {
+                "decodedBodyBytes": 400737,
+                "durationMs": 6.8,
+                "encodedBodyBytes": 400737,
+                "initiator": "img",
+                "transferBytes": 401037,
+                "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+              },
+              {
+                "decodedBodyBytes": 235336,
+                "durationMs": 10,
+                "encodedBodyBytes": 235336,
+                "initiator": "script",
+                "transferBytes": 235636,
+                "url": "http://127.0.0.1:4173/assets/index-BHe3ztiJ.js"
+              },
+              {
+                "decodedBodyBytes": 212240,
+                "durationMs": 2.4,
+                "encodedBodyBytes": 212240,
+                "initiator": "fetch",
+                "transferBytes": 212540,
+                "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+              },
+              {
+                "decodedBodyBytes": 158362,
+                "durationMs": 3.3,
+                "encodedBodyBytes": 158362,
+                "initiator": "script",
+                "transferBytes": 158662,
+                "url": "http://127.0.0.1:4173/assets/extends-DNMd-r-T.js"
+              },
+              {
+                "decodedBodyBytes": 141545,
+                "durationMs": 3.5,
+                "encodedBodyBytes": 141545,
+                "initiator": "image",
+                "transferBytes": 141845,
+                "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+              },
+              {
+                "decodedBodyBytes": 132407,
+                "durationMs": 3.7,
+                "encodedBodyBytes": 132407,
+                "initiator": "script",
+                "transferBytes": 132707,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-DK5frgyW.js"
+              },
+              {
+                "decodedBodyBytes": 125723,
+                "durationMs": 7.1,
+                "encodedBodyBytes": 125723,
+                "initiator": "script",
+                "transferBytes": 126023,
+                "url": "http://127.0.0.1:4173/assets/Environment-CkK_YPge.js"
+              },
+              {
+                "decodedBodyBytes": 115369,
+                "durationMs": 3.2,
+                "encodedBodyBytes": 115369,
+                "initiator": "image",
+                "transferBytes": 115669,
+                "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+              },
+              {
+                "decodedBodyBytes": 98582,
+                "durationMs": 2.2,
+                "encodedBodyBytes": 98582,
+                "initiator": "img",
+                "transferBytes": 98882,
+                "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+              },
+              {
+                "decodedBodyBytes": 74619,
+                "durationMs": 4.2,
+                "encodedBodyBytes": 74619,
+                "initiator": "script",
+                "transferBytes": 74919,
+                "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+              },
+              {
+                "decodedBodyBytes": 74528,
+                "durationMs": 34,
+                "encodedBodyBytes": 74528,
+                "initiator": "css",
+                "transferBytes": 74828,
+                "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+              },
+              {
+                "decodedBodyBytes": 66874,
+                "durationMs": 7.6,
+                "encodedBodyBytes": 66874,
+                "initiator": "link",
+                "transferBytes": 67174,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+              },
+              {
+                "decodedBodyBytes": 44196,
+                "durationMs": 6.1,
+                "encodedBodyBytes": 44196,
+                "initiator": "script",
+                "transferBytes": 44496,
+                "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+              },
+              {
+                "decodedBodyBytes": 26055,
+                "durationMs": 2,
+                "encodedBodyBytes": 26055,
+                "initiator": "img",
+                "transferBytes": 26355,
+                "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+              }
+            ],
+            "reportedTransferBytes": 4982936,
+            "zeroOrUnavailableTransferCount": 2
+          },
+          "schemaVersion": 1,
+          "viewport": {
+            "dpr": 1,
+            "height": 900,
+            "width": 1440
+          }
+        },
+        "scrollY": 0
+      }
+    },
+    {
+      "name": "phone-resize-during-menu-exit",
+      "data": {
+        "graphics": [
+          {
+            "canvases": [
+              {
+                "height": 489,
+                "motion": null,
+                "touchAction": "auto",
+                "width": 226
+              }
+            ],
+            "class": "darkveil-canvas",
+            "state": "paused"
+          },
+          {
+            "canvases": [
+              {
+                "height": 844,
+                "motion": "moving",
+                "touchAction": "pan-y",
+                "width": 375
+              }
+            ],
+            "class": "lanyard-wrapper",
+            "state": "paused"
+          },
+          {
+            "canvases": [],
+            "class": "wt-hero-role-window",
+            "state": "paused"
+          }
+        ],
+        "metrics": {
+          "capturedAt": "2026-10-01T19:46:12.780Z",
+          "cls": 0,
+          "currentPath": "/",
+          "elapsedMs": 120038,
+          "environment": {
+            "deviceMemoryGiB": 32,
+            "hardwareConcurrency": 16,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+            "visibility": "visible"
+          },
+          "initialPath": "/",
+          "largestContentfulPaint": {
+            "element": "SPAN",
+            "size": 170343,
+            "timeMs": 428
+          },
+          "longTasks": {
+            "count": 2,
+            "recent8sCount": 0,
+            "totalDurationMs": 127,
+            "worst": [
+              {
+                "durationMs": 66,
+                "startTimeMs": 854.9000000953674
+              },
+              {
+                "durationMs": 61,
+                "startTimeMs": 452.7999999523163
+              }
+            ]
+          },
+          "navigation": {
+            "domContentLoadedMs": 45.70000004768371,
+            "loadEventMs": 60.29999995231629,
+            "responseEndMs": 4.299999952316284,
+            "type": "reload"
+          },
+          "notes": [
+            "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+            "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+            "Zero transfer size can indicate a cache hit or restricted timing information.",
+            "Probe module requests are excluded from the resource totals.",
+            "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+            "The probe adds a rAF callback and publishes this hidden output once per second."
+          ],
+          "recent8sRafCadence": {
+            "gapsOver50Ms": 0,
+            "maxMs": 7.3,
+            "meanMs": 6.95,
+            "medianMs": 6.9,
+            "p95Ms": 7.1,
+            "samples": 1152
+          },
+          "resources": {
+            "count": 37,
+            "largestObserved": [
+              {
+                "decodedBodyBytes": 2280917,
+                "durationMs": 9,
+                "encodedBodyBytes": 2280917,
+                "initiator": "script",
+                "transferBytes": 2281217,
+                "url": "http://127.0.0.1:4173/assets/Lanyard-BjdDNfVw.js"
+              },
+              {
+                "decodedBodyBytes": 704525,
+                "durationMs": 4.5,
+                "encodedBodyBytes": 704525,
+                "initiator": "script",
+                "transferBytes": 704825,
+                "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+              },
+              {
+                "decodedBodyBytes": 400737,
+                "durationMs": 6.8,
+                "encodedBodyBytes": 400737,
+                "initiator": "img",
+                "transferBytes": 401037,
+                "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+              },
+              {
+                "decodedBodyBytes": 235336,
+                "durationMs": 10,
+                "encodedBodyBytes": 235336,
+                "initiator": "script",
+                "transferBytes": 235636,
+                "url": "http://127.0.0.1:4173/assets/index-BHe3ztiJ.js"
+              },
+              {
+                "decodedBodyBytes": 212240,
+                "durationMs": 2.4,
+                "encodedBodyBytes": 212240,
+                "initiator": "fetch",
+                "transferBytes": 212540,
+                "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+              },
+              {
+                "decodedBodyBytes": 158362,
+                "durationMs": 3.3,
+                "encodedBodyBytes": 158362,
+                "initiator": "script",
+                "transferBytes": 158662,
+                "url": "http://127.0.0.1:4173/assets/extends-DNMd-r-T.js"
+              },
+              {
+                "decodedBodyBytes": 141545,
+                "durationMs": 3.5,
+                "encodedBodyBytes": 141545,
+                "initiator": "image",
+                "transferBytes": 141845,
+                "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+              },
+              {
+                "decodedBodyBytes": 132407,
+                "durationMs": 3.7,
+                "encodedBodyBytes": 132407,
+                "initiator": "script",
+                "transferBytes": 132707,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-DK5frgyW.js"
+              },
+              {
+                "decodedBodyBytes": 125723,
+                "durationMs": 7.1,
+                "encodedBodyBytes": 125723,
+                "initiator": "script",
+                "transferBytes": 126023,
+                "url": "http://127.0.0.1:4173/assets/Environment-CkK_YPge.js"
+              },
+              {
+                "decodedBodyBytes": 115369,
+                "durationMs": 3.2,
+                "encodedBodyBytes": 115369,
+                "initiator": "image",
+                "transferBytes": 115669,
+                "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+              },
+              {
+                "decodedBodyBytes": 98582,
+                "durationMs": 2.2,
+                "encodedBodyBytes": 98582,
+                "initiator": "img",
+                "transferBytes": 98882,
+                "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+              },
+              {
+                "decodedBodyBytes": 74619,
+                "durationMs": 4.2,
+                "encodedBodyBytes": 74619,
+                "initiator": "script",
+                "transferBytes": 74919,
+                "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+              },
+              {
+                "decodedBodyBytes": 74528,
+                "durationMs": 34,
+                "encodedBodyBytes": 74528,
+                "initiator": "css",
+                "transferBytes": 74828,
+                "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+              },
+              {
+                "decodedBodyBytes": 66874,
+                "durationMs": 7.6,
+                "encodedBodyBytes": 66874,
+                "initiator": "link",
+                "transferBytes": 67174,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+              },
+              {
+                "decodedBodyBytes": 44196,
+                "durationMs": 6.1,
+                "encodedBodyBytes": 44196,
+                "initiator": "script",
+                "transferBytes": 44496,
+                "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+              },
+              {
+                "decodedBodyBytes": 26055,
+                "durationMs": 2,
+                "encodedBodyBytes": 26055,
+                "initiator": "img",
+                "transferBytes": 26355,
+                "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+              }
+            ],
+            "reportedTransferBytes": 4982936,
+            "zeroOrUnavailableTransferCount": 2
+          },
+          "schemaVersion": 1,
+          "viewport": {
+            "dpr": 1,
+            "height": 900,
+            "width": 1440
+          }
+        },
+        "scrollY": 0
+      }
+    },
+    {
+      "name": "phone-hero-resumed-and-settled",
+      "data": {
+        "graphics": [
+          {
+            "canvases": [
+              {
+                "height": 489,
+                "motion": null,
+                "touchAction": "auto",
+                "width": 226
+              }
+            ],
+            "class": "darkveil-canvas",
+            "state": "running"
+          },
+          {
+            "canvases": [
+              {
+                "height": 844,
+                "motion": "settled",
+                "touchAction": "pan-y",
+                "width": 390
+              }
+            ],
+            "class": "lanyard-wrapper",
+            "state": "running"
+          },
+          {
+            "canvases": [],
+            "class": "wt-hero-role-window",
+            "state": "running"
+          }
+        ],
+        "metrics": {
+          "capturedAt": "2026-10-01T19:46:52.778Z",
+          "cls": 0,
+          "currentPath": "/",
+          "elapsedMs": 160037,
+          "environment": {
+            "deviceMemoryGiB": 32,
+            "hardwareConcurrency": 16,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+            "visibility": "visible"
+          },
+          "initialPath": "/",
+          "largestContentfulPaint": {
+            "element": "SPAN",
+            "size": 170343,
+            "timeMs": 428
+          },
+          "longTasks": {
+            "count": 3,
+            "recent8sCount": 0,
+            "totalDurationMs": 204,
+            "worst": [
+              {
+                "durationMs": 77,
+                "startTimeMs": 120457.29999995232
+              },
+              {
+                "durationMs": 66,
+                "startTimeMs": 854.9000000953674
+              },
+              {
+                "durationMs": 61,
+                "startTimeMs": 452.7999999523163
+              }
+            ]
+          },
+          "navigation": {
+            "domContentLoadedMs": 45.70000004768371,
+            "loadEventMs": 60.29999995231629,
+            "responseEndMs": 4.299999952316284,
+            "type": "reload"
+          },
+          "notes": [
+            "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+            "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+            "Zero transfer size can indicate a cache hit or restricted timing information.",
+            "Probe module requests are excluded from the resource totals.",
+            "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+            "The probe adds a rAF callback and publishes this hidden output once per second."
+          ],
+          "recent8sRafCadence": {
+            "gapsOver50Ms": 0,
+            "maxMs": 7.1,
+            "meanMs": 6.95,
+            "medianMs": 6.9,
+            "p95Ms": 7,
+            "samples": 1152
+          },
+          "resources": {
+            "count": 37,
+            "largestObserved": [
+              {
+                "decodedBodyBytes": 2280917,
+                "durationMs": 9,
+                "encodedBodyBytes": 2280917,
+                "initiator": "script",
+                "transferBytes": 2281217,
+                "url": "http://127.0.0.1:4173/assets/Lanyard-BjdDNfVw.js"
+              },
+              {
+                "decodedBodyBytes": 704525,
+                "durationMs": 4.5,
+                "encodedBodyBytes": 704525,
+                "initiator": "script",
+                "transferBytes": 704825,
+                "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+              },
+              {
+                "decodedBodyBytes": 400737,
+                "durationMs": 6.8,
+                "encodedBodyBytes": 400737,
+                "initiator": "img",
+                "transferBytes": 401037,
+                "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+              },
+              {
+                "decodedBodyBytes": 235336,
+                "durationMs": 10,
+                "encodedBodyBytes": 235336,
+                "initiator": "script",
+                "transferBytes": 235636,
+                "url": "http://127.0.0.1:4173/assets/index-BHe3ztiJ.js"
+              },
+              {
+                "decodedBodyBytes": 212240,
+                "durationMs": 2.4,
+                "encodedBodyBytes": 212240,
+                "initiator": "fetch",
+                "transferBytes": 212540,
+                "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+              },
+              {
+                "decodedBodyBytes": 158362,
+                "durationMs": 3.3,
+                "encodedBodyBytes": 158362,
+                "initiator": "script",
+                "transferBytes": 158662,
+                "url": "http://127.0.0.1:4173/assets/extends-DNMd-r-T.js"
+              },
+              {
+                "decodedBodyBytes": 141545,
+                "durationMs": 3.5,
+                "encodedBodyBytes": 141545,
+                "initiator": "image",
+                "transferBytes": 141845,
+                "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+              },
+              {
+                "decodedBodyBytes": 132407,
+                "durationMs": 3.7,
+                "encodedBodyBytes": 132407,
+                "initiator": "script",
+                "transferBytes": 132707,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-DK5frgyW.js"
+              },
+              {
+                "decodedBodyBytes": 125723,
+                "durationMs": 7.1,
+                "encodedBodyBytes": 125723,
+                "initiator": "script",
+                "transferBytes": 126023,
+                "url": "http://127.0.0.1:4173/assets/Environment-CkK_YPge.js"
+              },
+              {
+                "decodedBodyBytes": 115369,
+                "durationMs": 3.2,
+                "encodedBodyBytes": 115369,
+                "initiator": "image",
+                "transferBytes": 115669,
+                "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+              },
+              {
+                "decodedBodyBytes": 98582,
+                "durationMs": 2.2,
+                "encodedBodyBytes": 98582,
+                "initiator": "img",
+                "transferBytes": 98882,
+                "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+              },
+              {
+                "decodedBodyBytes": 74619,
+                "durationMs": 4.2,
+                "encodedBodyBytes": 74619,
+                "initiator": "script",
+                "transferBytes": 74919,
+                "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+              },
+              {
+                "decodedBodyBytes": 74528,
+                "durationMs": 34,
+                "encodedBodyBytes": 74528,
+                "initiator": "css",
+                "transferBytes": 74828,
+                "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+              },
+              {
+                "decodedBodyBytes": 66874,
+                "durationMs": 7.6,
+                "encodedBodyBytes": 66874,
+                "initiator": "link",
+                "transferBytes": 67174,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+              },
+              {
+                "decodedBodyBytes": 44196,
+                "durationMs": 6.1,
+                "encodedBodyBytes": 44196,
+                "initiator": "script",
+                "transferBytes": 44496,
+                "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+              },
+              {
+                "decodedBodyBytes": 26055,
+                "durationMs": 2,
+                "encodedBodyBytes": 26055,
+                "initiator": "img",
+                "transferBytes": 26355,
+                "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+              }
+            ],
+            "reportedTransferBytes": 4982936,
+            "zeroOrUnavailableTransferCount": 2
+          },
+          "schemaVersion": 1,
+          "viewport": {
+            "dpr": 1,
+            "height": 844,
+            "width": 390
+          }
+        },
+        "scrollY": 0
+      }
+    },
+    {
+      "name": "phone-theme-changed",
+      "data": {
+        "graphics": [
+          {
+            "canvases": [
+              {
+                "height": 489,
+                "motion": null,
+                "touchAction": "auto",
+                "width": 226
+              }
+            ],
+            "class": "darkveil-canvas",
+            "state": "running"
+          },
+          {
+            "canvases": [
+              {
+                "height": 844,
+                "motion": "settled",
+                "touchAction": "pan-y",
+                "width": 390
+              }
+            ],
+            "class": "lanyard-wrapper",
+            "state": "running"
+          },
+          {
+            "canvases": [],
+            "class": "wt-hero-role-window",
+            "state": "running"
+          }
+        ],
+        "metrics": {
+          "capturedAt": "2026-10-01T19:46:52.778Z",
+          "cls": 0,
+          "currentPath": "/",
+          "elapsedMs": 160037,
+          "environment": {
+            "deviceMemoryGiB": 32,
+            "hardwareConcurrency": 16,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+            "visibility": "visible"
+          },
+          "initialPath": "/",
+          "largestContentfulPaint": {
+            "element": "SPAN",
+            "size": 170343,
+            "timeMs": 428
+          },
+          "longTasks": {
+            "count": 3,
+            "recent8sCount": 0,
+            "totalDurationMs": 204,
+            "worst": [
+              {
+                "durationMs": 77,
+                "startTimeMs": 120457.29999995232
+              },
+              {
+                "durationMs": 66,
+                "startTimeMs": 854.9000000953674
+              },
+              {
+                "durationMs": 61,
+                "startTimeMs": 452.7999999523163
+              }
+            ]
+          },
+          "navigation": {
+            "domContentLoadedMs": 45.70000004768371,
+            "loadEventMs": 60.29999995231629,
+            "responseEndMs": 4.299999952316284,
+            "type": "reload"
+          },
+          "notes": [
+            "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+            "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+            "Zero transfer size can indicate a cache hit or restricted timing information.",
+            "Probe module requests are excluded from the resource totals.",
+            "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+            "The probe adds a rAF callback and publishes this hidden output once per second."
+          ],
+          "recent8sRafCadence": {
+            "gapsOver50Ms": 0,
+            "maxMs": 7.1,
+            "meanMs": 6.95,
+            "medianMs": 6.9,
+            "p95Ms": 7,
+            "samples": 1152
+          },
+          "resources": {
+            "count": 37,
+            "largestObserved": [
+              {
+                "decodedBodyBytes": 2280917,
+                "durationMs": 9,
+                "encodedBodyBytes": 2280917,
+                "initiator": "script",
+                "transferBytes": 2281217,
+                "url": "http://127.0.0.1:4173/assets/Lanyard-BjdDNfVw.js"
+              },
+              {
+                "decodedBodyBytes": 704525,
+                "durationMs": 4.5,
+                "encodedBodyBytes": 704525,
+                "initiator": "script",
+                "transferBytes": 704825,
+                "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+              },
+              {
+                "decodedBodyBytes": 400737,
+                "durationMs": 6.8,
+                "encodedBodyBytes": 400737,
+                "initiator": "img",
+                "transferBytes": 401037,
+                "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+              },
+              {
+                "decodedBodyBytes": 235336,
+                "durationMs": 10,
+                "encodedBodyBytes": 235336,
+                "initiator": "script",
+                "transferBytes": 235636,
+                "url": "http://127.0.0.1:4173/assets/index-BHe3ztiJ.js"
+              },
+              {
+                "decodedBodyBytes": 212240,
+                "durationMs": 2.4,
+                "encodedBodyBytes": 212240,
+                "initiator": "fetch",
+                "transferBytes": 212540,
+                "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+              },
+              {
+                "decodedBodyBytes": 158362,
+                "durationMs": 3.3,
+                "encodedBodyBytes": 158362,
+                "initiator": "script",
+                "transferBytes": 158662,
+                "url": "http://127.0.0.1:4173/assets/extends-DNMd-r-T.js"
+              },
+              {
+                "decodedBodyBytes": 141545,
+                "durationMs": 3.5,
+                "encodedBodyBytes": 141545,
+                "initiator": "image",
+                "transferBytes": 141845,
+                "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+              },
+              {
+                "decodedBodyBytes": 132407,
+                "durationMs": 3.7,
+                "encodedBodyBytes": 132407,
+                "initiator": "script",
+                "transferBytes": 132707,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-DK5frgyW.js"
+              },
+              {
+                "decodedBodyBytes": 125723,
+                "durationMs": 7.1,
+                "encodedBodyBytes": 125723,
+                "initiator": "script",
+                "transferBytes": 126023,
+                "url": "http://127.0.0.1:4173/assets/Environment-CkK_YPge.js"
+              },
+              {
+                "decodedBodyBytes": 115369,
+                "durationMs": 3.2,
+                "encodedBodyBytes": 115369,
+                "initiator": "image",
+                "transferBytes": 115669,
+                "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+              },
+              {
+                "decodedBodyBytes": 98582,
+                "durationMs": 2.2,
+                "encodedBodyBytes": 98582,
+                "initiator": "img",
+                "transferBytes": 98882,
+                "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+              },
+              {
+                "decodedBodyBytes": 74619,
+                "durationMs": 4.2,
+                "encodedBodyBytes": 74619,
+                "initiator": "script",
+                "transferBytes": 74919,
+                "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+              },
+              {
+                "decodedBodyBytes": 74528,
+                "durationMs": 34,
+                "encodedBodyBytes": 74528,
+                "initiator": "css",
+                "transferBytes": 74828,
+                "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+              },
+              {
+                "decodedBodyBytes": 66874,
+                "durationMs": 7.6,
+                "encodedBodyBytes": 66874,
+                "initiator": "link",
+                "transferBytes": 67174,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+              },
+              {
+                "decodedBodyBytes": 44196,
+                "durationMs": 6.1,
+                "encodedBodyBytes": 44196,
+                "initiator": "script",
+                "transferBytes": 44496,
+                "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+              },
+              {
+                "decodedBodyBytes": 26055,
+                "durationMs": 2,
+                "encodedBodyBytes": 26055,
+                "initiator": "img",
+                "transferBytes": 26355,
+                "url": "http://127.0.0.1:4173/assets/szia_3-BI4fnfPc.jpg"
+              }
+            ],
+            "reportedTransferBytes": 4982936,
+            "zeroOrUnavailableTransferCount": 2
+          },
+          "schemaVersion": 1,
+          "viewport": {
+            "dpr": 1,
+            "height": 844,
+            "width": 390
+          }
+        },
+        "scrollY": 0
+      }
+    },
+    {
+      "name": "phone-work-page",
+      "data": {
+        "graphics": [
+          {
+            "canvases": [
+              {
+                "height": 489,
+                "motion": null,
+                "touchAction": "auto",
+                "width": 226
+              }
+            ],
+            "class": "darkveil-canvas",
+            "state": "paused"
+          },
+          {
+            "canvases": [
+              {
+                "height": 844,
+                "motion": "settled",
+                "touchAction": "pan-y",
+                "width": 390
+              }
+            ],
+            "class": "lanyard-wrapper",
+            "state": "paused"
+          },
+          {
+            "canvases": [],
+            "class": "wt-hero-role-window",
+            "state": "paused"
+          },
+          {
+            "canvases": [
+              {
+                "height": 844,
+                "motion": null,
+                "touchAction": "auto",
+                "width": 390
+              }
+            ],
+            "class": "light-rays-container",
+            "state": "running"
+          }
+        ],
+        "metrics": {
+          "capturedAt": "2026-10-01T19:47:56.780Z",
+          "cls": 0,
+          "currentPath": "/",
+          "elapsedMs": 224038,
+          "environment": {
+            "deviceMemoryGiB": 32,
+            "hardwareConcurrency": 16,
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+            "visibility": "visible"
+          },
+          "initialPath": "/",
+          "largestContentfulPaint": {
+            "element": "SPAN",
+            "size": 170343,
+            "timeMs": 428
+          },
+          "longTasks": {
+            "count": 3,
+            "recent8sCount": 0,
+            "totalDurationMs": 204,
+            "worst": [
+              {
+                "durationMs": 77,
+                "startTimeMs": 120457.29999995232
+              },
+              {
+                "durationMs": 66,
+                "startTimeMs": 854.9000000953674
+              },
+              {
+                "durationMs": 61,
+                "startTimeMs": 452.7999999523163
+              }
+            ]
+          },
+          "navigation": {
+            "domContentLoadedMs": 45.70000004768371,
+            "loadEventMs": 60.29999995231629,
+            "responseEndMs": 4.299999952316284,
+            "type": "reload"
+          },
+          "notes": [
+            "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+            "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+            "Zero transfer size can indicate a cache hit or restricted timing information.",
+            "Probe module requests are excluded from the resource totals.",
+            "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+            "The probe adds a rAF callback and publishes this hidden output once per second."
+          ],
+          "recent8sRafCadence": {
+            "gapsOver50Ms": 0,
+            "maxMs": 7.1,
+            "meanMs": 6.95,
+            "medianMs": 6.9,
+            "p95Ms": 7,
+            "samples": 1152
+          },
+          "resources": {
+            "count": 43,
+            "largestObserved": [
+              {
+                "decodedBodyBytes": 2280917,
+                "durationMs": 9,
+                "encodedBodyBytes": 2280917,
+                "initiator": "script",
+                "transferBytes": 2281217,
+                "url": "http://127.0.0.1:4173/assets/Lanyard-BjdDNfVw.js"
+              },
+              {
+                "decodedBodyBytes": 704525,
+                "durationMs": 4.5,
+                "encodedBodyBytes": 704525,
+                "initiator": "script",
+                "transferBytes": 704825,
+                "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+              },
+              {
+                "decodedBodyBytes": 400737,
+                "durationMs": 6.8,
+                "encodedBodyBytes": 400737,
+                "initiator": "img",
+                "transferBytes": 401037,
+                "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+              },
+              {
+                "decodedBodyBytes": 235336,
+                "durationMs": 10,
+                "encodedBodyBytes": 235336,
+                "initiator": "script",
+                "transferBytes": 235636,
+                "url": "http://127.0.0.1:4173/assets/index-BHe3ztiJ.js"
+              },
+              {
+                "decodedBodyBytes": 212240,
+                "durationMs": 2.4,
+                "encodedBodyBytes": 212240,
+                "initiator": "fetch",
+                "transferBytes": 212540,
+                "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+              },
+              {
+                "decodedBodyBytes": 158362,
+                "durationMs": 3.3,
+                "encodedBodyBytes": 158362,
+                "initiator": "script",
+                "transferBytes": 158662,
+                "url": "http://127.0.0.1:4173/assets/extends-DNMd-r-T.js"
+              },
+              {
+                "decodedBodyBytes": 141545,
+                "durationMs": 3.5,
+                "encodedBodyBytes": 141545,
+                "initiator": "image",
+                "transferBytes": 141845,
+                "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+              },
+              {
+                "decodedBodyBytes": 132407,
+                "durationMs": 3.7,
+                "encodedBodyBytes": 132407,
+                "initiator": "script",
+                "transferBytes": 132707,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-DK5frgyW.js"
+              },
+              {
+                "decodedBodyBytes": 125723,
+                "durationMs": 7.1,
+                "encodedBodyBytes": 125723,
+                "initiator": "script",
+                "transferBytes": 126023,
+                "url": "http://127.0.0.1:4173/assets/Environment-CkK_YPge.js"
+              },
+              {
+                "decodedBodyBytes": 115369,
+                "durationMs": 3.2,
+                "encodedBodyBytes": 115369,
+                "initiator": "image",
+                "transferBytes": 115669,
+                "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+              },
+              {
+                "decodedBodyBytes": 98582,
+                "durationMs": 2.2,
+                "encodedBodyBytes": 98582,
+                "initiator": "img",
+                "transferBytes": 98882,
+                "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+              },
+              {
+                "decodedBodyBytes": 74619,
+                "durationMs": 4.2,
+                "encodedBodyBytes": 74619,
+                "initiator": "script",
+                "transferBytes": 74919,
+                "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+              },
+              {
+                "decodedBodyBytes": 74528,
+                "durationMs": 34,
+                "encodedBodyBytes": 74528,
+                "initiator": "css",
+                "transferBytes": 74828,
+                "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+              },
+              {
+                "decodedBodyBytes": 66874,
+                "durationMs": 7.6,
+                "encodedBodyBytes": 66874,
+                "initiator": "link",
+                "transferBytes": 67174,
+                "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+              },
+              {
+                "decodedBodyBytes": 44196,
+                "durationMs": 6.1,
+                "encodedBodyBytes": 44196,
+                "initiator": "script",
+                "transferBytes": 44496,
+                "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+              },
+              {
+                "decodedBodyBytes": 39820,
+                "durationMs": 2.1,
+                "encodedBodyBytes": 39820,
+                "initiator": "img",
+                "transferBytes": 40120,
+                "url": "http://127.0.0.1:4173/assets/szia_4-DprtTeG4.jpg"
+              }
+            ],
+            "reportedTransferBytes": 5076603,
+            "zeroOrUnavailableTransferCount": 2
+          },
+          "schemaVersion": 1,
+          "viewport": {
+            "dpr": 1,
+            "height": 844,
+            "width": 390
+          }
+        },
+        "scrollY": 0
+      }
+    }
+  ]
+}

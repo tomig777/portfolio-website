@@ -2,7 +2,8 @@
   position: fixed;
   inset: 0;
   background-color: #080808;
-  z-index: 20000;
+  /* Cover navigation subpages and their chrome, but stay below the route curtain. */
+  z-index: 2147483200;
   display: flex;
   flex-direction: column;
   color: #f0ede8;

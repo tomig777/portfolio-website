@@ -1,0 +1,23 @@
+{
+  "source": "src/assets/background.mp4",
+  "output": "src/assets/web-optimized/background-faststart.mp4",
+  "sourceBytes": 8772165,
+  "outputBytes": 8772173,
+  "sourceAtoms": [
+    "ftyp",
+    "free",
+    "mdat",
+    "moov"
+  ],
+  "outputAtoms": [
+    "ftyp",
+    "moov",
+    "free",
+    "mdat"
+  ],
+  "encodedStreamsUnchanged": true,
+  "streamHashes": "0,v,SHA256=adc8ddfbde6151c932e3c43bcb2369fb363c49ca073ba919f0f0fccbf44fdac8\n1,a,SHA256=34302c4ecf781e12abc9cc66f2e8251aaa51cf409f6b9083048c1f55c9f02a7a",
+  "outputSha256": "33f50480de6c2938e7617e51334a616c43599f6f0875e3ad2541800de5424b5c",
+  "ffmpeg": "7.1-essentials_build-www.gyan.dev",
+  "note": "Remux only, no re-encoding; this improves progressive startup, not video byte size."
+}

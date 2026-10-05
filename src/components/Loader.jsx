@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Loader.css';
-import logoDark from '../assets/logo-dark.png';
+import logoDark from '../assets/web-optimized/logo-dark.webp';
 
 const Loader = ({ onLoadingComplete }) => {
   const [isFading, setIsFading] = useState(false);

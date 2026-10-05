@@ -1,0 +1,2180 @@
+{
+  "schemaVersion": 1,
+  "commit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "d4db9d1f100361cbcd61cd8a1c8b7656cdc209e5ff0b0d762aa74bbaed3d6cf8",
+  "capturedAt": "2026-10-01T01:15:58.211Z",
+  "knownIssueIds": [],
+  "snapshots": [
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 203.25,
+          "height": 118.859375,
+          "left": 15.59375,
+          "right": 359.40625,
+          "top": 84.390625,
+          "width": 343.8125,
+          "x": 15.59375,
+          "y": 84.390625
+        },
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:15:58.198Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 111035,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": {
+          "element": "A",
+          "size": 12874,
+          "timeMs": 9016
+        },
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 45.90000009536743,
+          "loadEventMs": 56,
+          "responseEndMs": 7.5,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 14,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 11.2,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-1OmfV6M7.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-tbLWKEZU.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 10.6,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 8.1,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DszD19Mj.js"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5155,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 5155,
+              "initiator": "link",
+              "transferBytes": 5455,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BS_9aXi6.css"
+            },
+            {
+              "decodedBodyBytes": 4320,
+              "durationMs": 4,
+              "encodedBodyBytes": 4320,
+              "initiator": "script",
+              "transferBytes": 4620,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Bc1K-JUP.js"
+            },
+            {
+              "decodedBodyBytes": 2945,
+              "durationMs": 4.2,
+              "encodedBodyBytes": 2945,
+              "initiator": "link",
+              "transferBytes": 3245,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Gtndcd0v.css"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BI3B2e5x.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 395232,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "racing-controls",
+              "clientHeight": 351,
+              "overflowY": "visible",
+              "scrollHeight": 351,
+              "tag": "DIV"
+            },
+            {
+              "className": "racing-layout",
+              "clientHeight": 709,
+              "overflowY": "visible",
+              "scrollHeight": 709,
+              "tag": "SECTION"
+            },
+            {
+              "className": "racing-game",
+              "clientHeight": 972,
+              "overflowY": "auto",
+              "scrollHeight": 972,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 972,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "visible",
+              "scrollHeight": 844,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": false,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 887.671875,
+            "height": 48,
+            "left": 15.59375,
+            "right": 103.828125,
+            "top": 839.671875,
+            "width": 88.234375,
+            "x": 15.59375,
+            "y": 839.671875
+          },
+          "text": "Start the race"
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "race-phone-scrollable-390x844",
+      "kind": "racing",
+      "capturedAt": "2026-10-01T01:15:58.292Z",
+      "screenshot": "screenshots/race-phone-scrollable-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 75.25,
+          "height": 118.859375,
+          "left": 15.59375,
+          "right": 359.40625,
+          "top": -43.609375,
+          "width": 343.8125,
+          "x": 15.59375,
+          "y": -43.609375
+        },
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:16:49.198Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 162035,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": {
+          "element": "A",
+          "size": 12874,
+          "timeMs": 9016
+        },
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 45.90000009536743,
+          "loadEventMs": 56,
+          "responseEndMs": 7.5,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.3,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 14,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 11.2,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-1OmfV6M7.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-tbLWKEZU.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 10.6,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 8.1,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DszD19Mj.js"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5155,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 5155,
+              "initiator": "link",
+              "transferBytes": 5455,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BS_9aXi6.css"
+            },
+            {
+              "decodedBodyBytes": 4320,
+              "durationMs": 4,
+              "encodedBodyBytes": 4320,
+              "initiator": "script",
+              "transferBytes": 4620,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Bc1K-JUP.js"
+            },
+            {
+              "decodedBodyBytes": 2945,
+              "durationMs": 4.2,
+              "encodedBodyBytes": 2945,
+              "initiator": "link",
+              "transferBytes": 3245,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Gtndcd0v.css"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BI3B2e5x.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 395232,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "finishedRace": {
+          "carFrontsX": [
+            300.62384033203125,
+            311.0062561035156,
+            280.72186279296875,
+            286.79473876953125,
+            302.86505126953125
+          ],
+          "carTransforms": [
+            "matrix(1, 0, 0, 1, 178.639, -14)",
+            "matrix(1, 0, 0, 1, 189.022, -14)",
+            "matrix(1, 0, 0, 1, 158.737, -14)",
+            "matrix(1, 0, 0, 1, 164.81, -14)",
+            "matrix(1, 0, 0, 1, 180.881, -14)"
+          ],
+          "finishLineX": 311.015625,
+          "result": "Volt takes the flag. Your car was pipped at the post.",
+          "winner": "Volt",
+          "winnerFrontX": 311.0062561035156
+        },
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "racing-controls",
+              "clientHeight": 351,
+              "overflowY": "visible",
+              "scrollHeight": 351,
+              "tag": "DIV"
+            },
+            {
+              "className": "racing-layout",
+              "clientHeight": 709,
+              "overflowY": "visible",
+              "scrollHeight": 709,
+              "tag": "SECTION"
+            },
+            {
+              "className": "racing-game",
+              "clientHeight": 972,
+              "overflowY": "auto",
+              "scrollHeight": 972,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 972,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "visible",
+              "scrollHeight": 844,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": true,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 757.671875,
+            "height": 48,
+            "left": 15.59375,
+            "right": 103.828125,
+            "top": 709.671875,
+            "width": 88.234375,
+            "x": 15.59375,
+            "y": 709.671875
+          },
+          "text": "Start the race"
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "race-phone-finished-390x844",
+      "kind": "race-finished",
+      "capturedAt": "2026-10-01T01:16:49.828Z",
+      "screenshot": "screenshots/race-phone-finished-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 568,
+        "documentScrollWidth": 320,
+        "header": {
+          "bottom": 75.046875,
+          "height": 118.859375,
+          "left": 14,
+          "right": 291,
+          "top": -43.8125,
+          "width": 277,
+          "x": 14,
+          "y": -43.8125
+        },
+        "mobileClass": false,
+        "scrollHeight": 568,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:18:22.197Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 255035,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": {
+          "element": "A",
+          "size": 12874,
+          "timeMs": 9016
+        },
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 45.90000009536743,
+          "loadEventMs": 56,
+          "responseEndMs": 7.5,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 14,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 11.2,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-1OmfV6M7.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-tbLWKEZU.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 10.6,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 8.1,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DszD19Mj.js"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5155,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 5155,
+              "initiator": "link",
+              "transferBytes": 5455,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BS_9aXi6.css"
+            },
+            {
+              "decodedBodyBytes": 4320,
+              "durationMs": 4,
+              "encodedBodyBytes": 4320,
+              "initiator": "script",
+              "transferBytes": 4620,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Bc1K-JUP.js"
+            },
+            {
+              "decodedBodyBytes": 2945,
+              "durationMs": 4.2,
+              "encodedBodyBytes": 2945,
+              "initiator": "link",
+              "transferBytes": 3245,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Gtndcd0v.css"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BI3B2e5x.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 395232,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        }
+      },
+      "observation": {
+        "finishedRace": {
+          "carFrontsX": [
+            216.6470642089844,
+            219.02542114257812,
+            242.6000061035156,
+            222.4088134765625,
+            216.5932159423828
+          ],
+          "carTransforms": [
+            "matrix(1, 0, 0, 1, 96.2564, -14)",
+            "matrix(1, 0, 0, 1, 98.6348, -14)",
+            "matrix(1, 0, 0, 1, 122.209, -14)",
+            "matrix(1, 0, 0, 1, 102.018, -14)",
+            "matrix(1, 0, 0, 1, 96.2026, -14)"
+          ],
+          "finishLineX": 242.609375,
+          "result": "Nova takes the flag. Your car was pipped at the post.",
+          "winner": "Nova",
+          "winnerFrontX": 242.6000061035156
+        },
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "racing-controls",
+              "clientHeight": 358,
+              "overflowY": "visible",
+              "scrollHeight": 358,
+              "tag": "DIV"
+            },
+            {
+              "className": "racing-layout",
+              "clientHeight": 716,
+              "overflowY": "visible",
+              "scrollHeight": 716,
+              "tag": "SECTION"
+            },
+            {
+              "className": "racing-game",
+              "clientHeight": 975,
+              "overflowY": "auto",
+              "scrollHeight": 975,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 975,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "visible",
+              "scrollHeight": 568,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 568,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 568,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": false,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 759.46875,
+            "height": 48,
+            "left": 14,
+            "right": 102.234375,
+            "top": 711.46875,
+            "width": 88.234375,
+            "x": 14,
+            "y": 711.46875
+          },
+          "text": "Start the race"
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 568,
+        "width": 320
+      },
+      "name": "race-small-phone-finished-320x568",
+      "kind": "race-finished",
+      "capturedAt": "2026-10-01T01:18:22.776Z",
+      "screenshot": "screenshots/race-small-phone-finished-320x568.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 203.25,
+          "height": 118.859375,
+          "left": 15.59375,
+          "right": 359.40625,
+          "top": 84.390625,
+          "width": 343.8125,
+          "x": 15.59375,
+          "y": 84.390625
+        },
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:18:57.198Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 290035,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": {
+          "element": "A",
+          "size": 12874,
+          "timeMs": 9016
+        },
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 45.90000009536743,
+          "loadEventMs": 56,
+          "responseEndMs": 7.5,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 16,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 11.2,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-1OmfV6M7.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-tbLWKEZU.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 10.6,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 8.1,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DszD19Mj.js"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5155,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 5155,
+              "initiator": "link",
+              "transferBytes": 5455,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BS_9aXi6.css"
+            },
+            {
+              "decodedBodyBytes": 4320,
+              "durationMs": 4,
+              "encodedBodyBytes": 4320,
+              "initiator": "script",
+              "transferBytes": 4620,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Bc1K-JUP.js"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-DmbH_wi4.js"
+            },
+            {
+              "decodedBodyBytes": 2945,
+              "durationMs": 4.2,
+              "encodedBodyBytes": 2945,
+              "initiator": "link",
+              "transferBytes": 3245,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Gtndcd0v.css"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BI3B2e5x.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 410988,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "roulette-controls",
+              "clientHeight": 347,
+              "overflowY": "visible",
+              "scrollHeight": 347,
+              "tag": "DIV"
+            },
+            {
+              "className": "roulette-layout",
+              "clientHeight": 707,
+              "overflowY": "visible",
+              "scrollHeight": 707,
+              "tag": "SECTION"
+            },
+            {
+              "className": "roulette-game",
+              "clientHeight": 970,
+              "overflowY": "auto",
+              "scrollHeight": 970,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 970,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "visible",
+              "scrollHeight": 844,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": false,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 853.28125,
+            "height": 48,
+            "left": 15.59375,
+            "right": 359.40625,
+            "top": 805.28125,
+            "width": 343.8125,
+            "x": 15.59375,
+            "y": 805.28125
+          },
+          "text": "Spin the wheel"
+        },
+        "roulette": {
+          "ball": {
+            "bottom": 262.1706237792969,
+            "height": 15,
+            "left": 179.984375,
+            "right": 194.984375,
+            "top": 247.17062377929688,
+            "width": 15,
+            "x": 179.984375,
+            "y": 247.17062377929688
+          },
+          "ballRadiusPx": 135.72781394554707,
+          "wheel": {
+            "bottom": 543.09375,
+            "height": 305.390625,
+            "left": 34.796875,
+            "right": 340.1875,
+            "top": 237.703125,
+            "width": 305.390625,
+            "x": 34.796875,
+            "y": 237.703125
+          },
+          "wheelRadiusPx": 152.6953125
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "roulette-phone-orbit-390x844",
+      "kind": "roulette",
+      "capturedAt": "2026-10-01T01:18:57.327Z",
+      "screenshot": "screenshots/roulette-phone-orbit-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 77.25,
+          "height": 118.859375,
+          "left": 15.59375,
+          "right": 359.40625,
+          "top": -41.609375,
+          "width": 343.8125,
+          "x": 15.59375,
+          "y": -41.609375
+        },
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:19:27.197Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 320035,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": {
+          "element": "A",
+          "size": 12874,
+          "timeMs": 9016
+        },
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 45.90000009536743,
+          "loadEventMs": 56,
+          "responseEndMs": 7.5,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.3,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 16,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 11.2,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-1OmfV6M7.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-tbLWKEZU.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 10.6,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 8.1,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DszD19Mj.js"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5155,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 5155,
+              "initiator": "link",
+              "transferBytes": 5455,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BS_9aXi6.css"
+            },
+            {
+              "decodedBodyBytes": 4320,
+              "durationMs": 4,
+              "encodedBodyBytes": 4320,
+              "initiator": "script",
+              "transferBytes": 4620,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Bc1K-JUP.js"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-DmbH_wi4.js"
+            },
+            {
+              "decodedBodyBytes": 2945,
+              "durationMs": 4.2,
+              "encodedBodyBytes": 2945,
+              "initiator": "link",
+              "transferBytes": 3245,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Gtndcd0v.css"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BI3B2e5x.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 410988,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "roulette-controls",
+              "clientHeight": 347,
+              "overflowY": "visible",
+              "scrollHeight": 347,
+              "tag": "DIV"
+            },
+            {
+              "className": "roulette-layout",
+              "clientHeight": 707,
+              "overflowY": "visible",
+              "scrollHeight": 707,
+              "tag": "SECTION"
+            },
+            {
+              "className": "roulette-game",
+              "clientHeight": 970,
+              "overflowY": "auto",
+              "scrollHeight": 970,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 970,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "visible",
+              "scrollHeight": 844,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": true,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 725.28125,
+            "height": 48,
+            "left": 15.59375,
+            "right": 359.40625,
+            "top": 677.28125,
+            "width": 343.8125,
+            "x": 15.59375,
+            "y": 677.28125
+          },
+          "text": "Spin the wheel"
+        },
+        "roulette": {
+          "ball": {
+            "bottom": 136.17062377929688,
+            "height": 15,
+            "left": 179.984375,
+            "right": 194.984375,
+            "top": 121.17062377929688,
+            "width": 15,
+            "x": 179.984375,
+            "y": 121.17062377929688
+          },
+          "ballRadiusPx": 135.72781394532754,
+          "wheel": {
+            "bottom": 445.8362731933594,
+            "height": 362.8756713867187,
+            "left": 6.054347991943359,
+            "right": 368.9300193786621,
+            "top": 82.96060180664062,
+            "width": 362.8756713867187,
+            "x": 6.054347991943359,
+            "y": 82.96060180664062
+          },
+          "wheelRadiusPx": 181.43783569335935
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "roulette-phone-finished-390x844",
+      "kind": "roulette",
+      "capturedAt": "2026-10-01T01:19:27.280Z",
+      "screenshot": "screenshots/roulette-phone-finished-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 77.25,
+          "height": 118.859375,
+          "left": 15.59375,
+          "right": 359.40625,
+          "top": -41.609375,
+          "width": 343.8125,
+          "x": 15.59375,
+          "y": -41.609375
+        },
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:21:07.197Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 420034,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": {
+          "element": "A",
+          "size": 12874,
+          "timeMs": 9016
+        },
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 45.90000009536743,
+          "loadEventMs": 56,
+          "responseEndMs": 7.5,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.3,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 16,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 11.2,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-1OmfV6M7.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-tbLWKEZU.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 10.6,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 8.1,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DszD19Mj.js"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5155,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 5155,
+              "initiator": "link",
+              "transferBytes": 5455,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BS_9aXi6.css"
+            },
+            {
+              "decodedBodyBytes": 4320,
+              "durationMs": 4,
+              "encodedBodyBytes": 4320,
+              "initiator": "script",
+              "transferBytes": 4620,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Bc1K-JUP.js"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-DmbH_wi4.js"
+            },
+            {
+              "decodedBodyBytes": 2945,
+              "durationMs": 4.2,
+              "encodedBodyBytes": 2945,
+              "initiator": "link",
+              "transferBytes": 3245,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Gtndcd0v.css"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BI3B2e5x.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 410988,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "roulette-controls",
+              "clientHeight": 347,
+              "overflowY": "visible",
+              "scrollHeight": 347,
+              "tag": "DIV"
+            },
+            {
+              "className": "roulette-layout",
+              "clientHeight": 707,
+              "overflowY": "visible",
+              "scrollHeight": 707,
+              "tag": "SECTION"
+            },
+            {
+              "className": "roulette-game",
+              "clientHeight": 970,
+              "overflowY": "auto",
+              "scrollHeight": 970,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 970,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "visible",
+              "scrollHeight": 844,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 844,
+              "overflowY": "auto",
+              "scrollHeight": 844,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": true,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 725.28125,
+            "height": 48,
+            "left": 15.59375,
+            "right": 359.40625,
+            "top": 677.28125,
+            "width": 343.8125,
+            "x": 15.59375,
+            "y": 677.28125
+          },
+          "text": "Spin the wheel"
+        },
+        "roulette": {
+          "ball": {
+            "bottom": 136.17062377929688,
+            "height": 15,
+            "left": 179.984375,
+            "right": 194.984375,
+            "top": 121.17062377929688,
+            "width": 15,
+            "x": 179.984375,
+            "y": 121.17062377929688
+          },
+          "ballRadiusPx": 135.72782157516124,
+          "wheel": {
+            "bottom": 435.2520217895508,
+            "height": 341.7071533203125,
+            "left": 16.638614654541016,
+            "right": 358.3457679748535,
+            "top": 93.54486846923828,
+            "width": 341.7071533203125,
+            "x": 16.638614654541016,
+            "y": 93.54486846923828
+          },
+          "wheelRadiusPx": 170.85357666015625
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "name": "roulette-phone-repeat-390x844",
+      "kind": "roulette",
+      "capturedAt": "2026-10-01T01:21:07.567Z",
+      "screenshot": "screenshots/roulette-phone-repeat-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 568,
+        "documentScrollWidth": 320,
+        "header": {
+          "bottom": 74.046875,
+          "height": 118.859375,
+          "left": 14,
+          "right": 291,
+          "top": -44.8125,
+          "width": 277,
+          "x": 14,
+          "y": -44.8125
+        },
+        "mobileClass": false,
+        "scrollHeight": 568,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T01:21:07.197Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 420034,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": {
+          "element": "A",
+          "size": 12874,
+          "timeMs": 9016
+        },
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 45.90000009536743,
+          "loadEventMs": 56,
+          "responseEndMs": 7.5,
+          "type": "navigate"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.3,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 16,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 11.2,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-1OmfV6M7.js"
+            },
+            {
+              "decodedBodyBytes": 71094,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 71094,
+              "initiator": "script",
+              "transferBytes": 71394,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-tbLWKEZU.js"
+            },
+            {
+              "decodedBodyBytes": 24827,
+              "durationMs": 10.6,
+              "encodedBodyBytes": 24827,
+              "initiator": "link",
+              "transferBytes": 25127,
+              "url": "http://127.0.0.1:4173/assets/index-C3yOPriE.css"
+            },
+            {
+              "decodedBodyBytes": 16344,
+              "durationMs": 3,
+              "encodedBodyBytes": 16344,
+              "initiator": "link",
+              "transferBytes": 16644,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-ClBYV1Nv.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0.9,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 8.1,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11689,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 11689,
+              "initiator": "script",
+              "transferBytes": 11989,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DszD19Mj.js"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 5155,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 5155,
+              "initiator": "link",
+              "transferBytes": 5455,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BS_9aXi6.css"
+            },
+            {
+              "decodedBodyBytes": 4320,
+              "durationMs": 4,
+              "encodedBodyBytes": 4320,
+              "initiator": "script",
+              "transferBytes": 4620,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Bc1K-JUP.js"
+            },
+            {
+              "decodedBodyBytes": 4011,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 4011,
+              "initiator": "script",
+              "transferBytes": 4311,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-DmbH_wi4.js"
+            },
+            {
+              "decodedBodyBytes": 2945,
+              "durationMs": 4.2,
+              "encodedBodyBytes": 2945,
+              "initiator": "link",
+              "transferBytes": 3245,
+              "url": "http://127.0.0.1:4173/assets/RacingGame-Gtndcd0v.css"
+            },
+            {
+              "decodedBodyBytes": 1002,
+              "durationMs": 4.6,
+              "encodedBodyBytes": 1002,
+              "initiator": "script",
+              "transferBytes": 1302,
+              "url": "http://127.0.0.1:4173/assets/RouletteGame-BI3B2e5x.js"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 410988,
+          "zeroOrUnavailableTransferCount": 2
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "gameAction": {
+          "ancestors": [
+            {
+              "className": "roulette-controls",
+              "clientHeight": 465,
+              "overflowY": "visible",
+              "scrollHeight": 465,
+              "tag": "DIV"
+            },
+            {
+              "className": "roulette-layout",
+              "clientHeight": 765,
+              "overflowY": "visible",
+              "scrollHeight": 765,
+              "tag": "SECTION"
+            },
+            {
+              "className": "roulette-game",
+              "clientHeight": 1024,
+              "overflowY": "auto",
+              "scrollHeight": 1024,
+              "tag": "MAIN"
+            },
+            {
+              "className": "pp-active pp-active--scrollable ",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 1039,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "visible",
+              "scrollHeight": 568,
+              "tag": "DIV"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 568,
+              "tag": "BODY"
+            },
+            {
+              "className": "",
+              "clientHeight": 568,
+              "overflowY": "auto",
+              "scrollHeight": 568,
+              "tag": "HTML"
+            }
+          ],
+          "fullyInViewport": false,
+          "hasScrollableAncestor": true,
+          "rect": {
+            "bottom": 782.0625,
+            "height": 48,
+            "left": -83.25,
+            "right": 388.25,
+            "top": 734.0625,
+            "width": 471.5,
+            "x": -83.25,
+            "y": 734.0625
+          },
+          "text": "Spin the wheel"
+        },
+        "roulette": {
+          "ball": {
+            "bottom": 102.73709106445312,
+            "height": 15,
+            "left": 144.984375,
+            "right": 159.984375,
+            "top": 87.73709106445312,
+            "width": 15,
+            "x": 144.984375,
+            "y": 87.73709106445312
+          },
+          "ballRadiusPx": 135.50511192031985,
+          "wheel": {
+            "bottom": 370.93043518066406,
+            "height": 280.37646484375,
+            "left": 12.30396842956543,
+            "right": 292.68043327331543,
+            "top": 90.55397033691406,
+            "width": 280.37646484375,
+            "x": 12.30396842956543,
+            "y": 90.55397033691406
+          },
+          "wheelRadiusPx": 140.188232421875
+        }
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 568,
+        "width": 320
+      },
+      "name": "roulette-small-phone-number-bets-320x568",
+      "kind": "roulette",
+      "capturedAt": "2026-10-01T01:21:07.924Z",
+      "screenshot": "screenshots/roulette-small-phone-number-bets-320x568.jpg"
+    }
+  ],
+  "notes": [
+    "Production build, desktop Chromium, viewport-only tests at DPR 1. Not physical mobile hardware.",
+    "Source changes are uncommitted; compare runtime hash as well as commit.",
+    "Timing probe limitations are documented in the original baseline."
+  ],
+  "manualChecks": [
+    {
+      "name": "Race locks the captured bet while running",
+      "passed": true,
+      "actual": {
+        "action": "Race in progress…",
+        "allBetsDisabled": true,
+        "balance": "975",
+        "resetDisabled": true
+      }
+    },
+    {
+      "name": "Second race starts back at the start line",
+      "passed": true,
+      "actual": {
+        "carFronts": [
+          165.91390991210938,
+          166.99932861328125,
+          177.75830078125,
+          168.54344177246094,
+          165.88931274414062
+        ],
+        "finish": 311.015625
+      }
+    },
+    {
+      "name": "Roulette locks the captured bet while spinning",
+      "passed": true,
+      "actual": {
+        "allBetsDisabled": true,
+        "balance": "975",
+        "ballAngle": "-1800deg",
+        "resetDisabled": true
+      }
+    },
+    {
+      "name": "First roulette result aligns with the settled ball",
+      "passed": true,
+      "actual": {
+        "alignmentErrorDegrees": 0.0021621621617669007,
+        "balance": "975",
+        "ballAngle": -1800,
+        "buttonEnabled": true,
+        "result": "6",
+        "rotation": 1697.84,
+        "sector": 102.16216216216216
+      }
+    },
+    {
+      "name": "Repeat spin stays aligned without unwinding the ball",
+      "passed": true,
+      "actual": {
+        "alignmentErrorDegrees": 0.002702702702663373,
+        "balance": "950",
+        "ballAngle": -3600,
+        "buttonEnabled": true,
+        "result": "22",
+        "rotation": 3322.7,
+        "sector": 277.2972972972973
+      }
+    }
+  ]
+}

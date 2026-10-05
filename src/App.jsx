@@ -1,12 +1,13 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
+import './components/NavigationAccessibility.css';
 import ClickSpark from './components/ClickSpark';
-import { ThemeProvider } from './contexts/ThemeContext';
 const RecordBackground = lazy(() => import('./pages/RecordBackground'));
 const Secret = lazy(() => import('./pages/Secret'));
 const ProjectPicker = lazy(() => import('./components/ProjectPicker'));
 const WebsiteTest = lazy(() => import('./components/WebsiteTest'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 function AppContent() {
   const location = useLocation();
@@ -37,6 +38,7 @@ function AppContent() {
           >
             <Routes>
               <Route path="/record" element={<RecordBackground />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </ClickSpark>
         </Suspense>
@@ -48,9 +50,7 @@ function AppContent() {
 function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider>
-        <AppContent />
-      </ThemeProvider>
+      <AppContent />
     </BrowserRouter>
   );
 }

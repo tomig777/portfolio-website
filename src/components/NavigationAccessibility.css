@@ -1,0 +1,47 @@
+:root {
+  --portfolio-safe-top: env(safe-area-inset-top, 0px);
+  --portfolio-safe-right: env(safe-area-inset-right, 0px);
+  --portfolio-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --portfolio-safe-left: env(safe-area-inset-left, 0px);
+}
+
+/* Keyboard-only feedback; pointer/touch interaction retains the design. */
+:is(.wt-scroll-container, .pp-page, .pp-active, .resume-modal, .bubble-password) :is(button, a, input, textarea, select):focus-visible {
+  outline: 2px solid #b6a5ef !important;
+  outline-offset: 4px;
+}
+[data-page-heading]:focus,
+.menu-drop:focus,
+.pp-page:focus,
+.pp-choice-overlay:focus,
+.pp-active:focus,
+.playground-overlay:focus {
+  outline: none;
+}
+
+/* Compact layouts include phone landscape and touch tablets, not just
+   viewports narrower than 768px. */
+.wt-mobile-preview :is(.wt-site-header__logo, .header__more-btn, .wt-header-theme-trigger) {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* The visible phone pills stay 28–30px tall. The invisible pseudo-element is
+   part of the button's hit-test area and extends it to at least 44px. */
+@media (pointer: coarse), (max-width: 768px), (max-width: 900px) and (max-height: 500px) {
+  :is(.pp-back-btn, .pp-home-btn, .wt-case-back)::after {
+    content: '';
+    position: absolute;
+    inset: -8px 0;
+    border-radius: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-drop,
+  .menu-drop *,
+  .pp-page,
+  .pp-active {
+    animation-duration: 1ms;
+  }
+}

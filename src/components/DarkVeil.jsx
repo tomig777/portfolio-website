@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
 import './DarkVeil.css';
 import { createAnimationLoop } from '../utils/animationLoop';
+import useGraphicsActivity from '../hooks/useGraphicsActivity';
 
 const vertex = `
 attribute vec2 position;
@@ -90,13 +91,15 @@ export default function DarkVeil({
   const canvasRef = useRef(null);
   const activeRef = useRef(active);
   const loopRef = useRef(null);
+  const resizeRef = useRef(null);
+  const { ready, running } = useGraphicsActivity(canvasRef, active);
   const settingsRef = useRef({
     hueShift,
     noiseIntensity,
     scanlineIntensity,
     speed,
     scanlineFrequency,
-    warpAmount
+    warpAmount, resolutionScale, dpr, maxFps
   });
 
   useEffect(() => {
@@ -106,22 +109,24 @@ export default function DarkVeil({
       scanlineIntensity,
       speed,
       scanlineFrequency,
-      warpAmount
+      warpAmount, resolutionScale, dpr, maxFps
     };
-  }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount]);
+    loopRef.current?.setMaxFps(maxFps);
+    resizeRef.current?.();
+  }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale, dpr, maxFps]);
 
   useEffect(() => {
-    activeRef.current = active;
-    loopRef.current?.setActive(active);
-  }, [active]);
+    activeRef.current = running;
+    loopRef.current?.setActive(running);
+  }, [running]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const parent = canvas?.parentElement;
-    if (!canvas || !parent) return undefined;
+    if (!ready || !canvas || !parent) return undefined;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, dpr),
+      dpr: Math.min(window.devicePixelRatio || 1, settingsRef.current.dpr),
       canvas
     });
 
@@ -144,11 +149,19 @@ export default function DarkVeil({
 
     const mesh = new Mesh(gl, { geometry, program });
 
+    let previousWidth = 0;
+    let previousHeight = 0;
     const resize = () => {
       const width = parent.clientWidth;
       const height = parent.clientHeight;
-      const renderWidth = Math.max(1, width * resolutionScale);
-      const renderHeight = Math.max(1, height * resolutionScale);
+      const settings = settingsRef.current;
+      const renderWidth = Math.max(1, width * settings.resolutionScale);
+      const renderHeight = Math.max(1, height * settings.resolutionScale);
+      const density = Math.min(window.devicePixelRatio || 1, settings.dpr);
+      if (renderWidth === previousWidth && renderHeight === previousHeight && density === renderer.dpr) return;
+      previousWidth = renderWidth;
+      previousHeight = renderHeight;
+      renderer.dpr = density;
       renderer.setSize(renderWidth, renderHeight);
       // OGL's setSize also writes pixel dimensions into the canvas's inline
       // style. Keep the reduced mobile render buffer, but stretch that buffer
@@ -157,8 +170,11 @@ export default function DarkVeil({
       canvas.style.height = '100%';
       program.uniforms.uResolution.value.set(renderWidth, renderHeight);
     };
+    resizeRef.current = resize;
 
     window.addEventListener('resize', resize);
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(parent);
     resize();
 
     const start = performance.now();
@@ -173,17 +189,19 @@ export default function DarkVeil({
       renderer.render({ scene: mesh });
     };
 
-    const animation = createAnimationLoop(loop, { maxFps, active: activeRef.current });
+    const animation = createAnimationLoop(loop, { maxFps: settingsRef.current.maxFps, active: activeRef.current });
     loopRef.current = animation;
 
     return () => {
       animation.dispose();
       loopRef.current = null;
+      resizeRef.current = null;
       window.removeEventListener('resize', resize);
+      resizeObserver.disconnect();
       geometry.remove();
       program.remove();
     };
-  }, [dpr, maxFps, resolutionScale]);
+  }, [ready]);
 
   return <canvas ref={canvasRef} className="darkveil-canvas" />;
 }

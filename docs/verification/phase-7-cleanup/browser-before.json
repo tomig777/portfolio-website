@@ -1,0 +1,44 @@
+{
+  "buildReport": "../phase-6-assets/build-release.json",
+  "phone": {
+    "arms": 0,
+    "scroll": [
+      {
+        "height": 844,
+        "top": 0,
+        "total": 15209
+      }
+    ],
+    "theme": "dark",
+    "viewport": {
+      "height": 844,
+      "width": 390
+    }
+  },
+  "console": [
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-05T15:05:26.891Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-05T15:05:26.892Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-05T15:05:26.892Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-05T15:05:26.892Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+    }
+  ]
+}

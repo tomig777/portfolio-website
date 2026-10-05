@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "timezone": "Europe/Budapest",
+  "phase": 4,
+  "status": "complete",
+  "startingCommit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "792ee9a7a14f4c0850faf28e392684d425765404ce45304f7792852b3cbe67c3",
+  "runtimeSourceFileCount": 128,
+  "checks": {
+    "productionBuild": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "modules": 1253,
+      "viteReportedSeconds": 5.01,
+      "artifact": "build-release.json",
+      "existingLargeChunkWarning": true
+    },
+    "unitTests": {
+      "command": "npm test",
+      "exitCode": 0,
+      "total": 46,
+      "passed": 46,
+      "failed": 0,
+      "skipped": 0,
+      "todos": 0
+    },
+    "lint": {
+      "command": "npm run lint",
+      "exitCode": 1,
+      "errors": 28,
+      "warnings": 2,
+      "newFindings": 0
+    },
+    "verifiedBrowserAssertions": {
+      "artifact": "browser-final.json",
+      "sourceSha256": "792ee9a7a14f4c0850faf28e392684d425765404ce45304f7792852b3cbe67c3",
+      "selectedCorrectedAssertions": true,
+      "total": 24,
+      "passed": 24,
+      "failed": 0,
+      "snapshots": 12,
+      "screenshots": 12,
+      "retainedDiagnosticHistory": "browser-native-pin.json"
+    },
+    "strictCapturedBrowserContracts": {
+      "command": "npm run baseline:check -- docs/verification/phase-4-scroll/browser-final.json --strict",
+      "exitCode": 0,
+      "passingObservations": 3,
+      "failingObservations": 0,
+      "recordedKnownFailures": 0
+    },
+    "whitespace": {
+      "command": "git diff --check",
+      "exitCode": 0
+    },
+    "consoleSamples": [
+      {
+        "artifact": "browser-console-final.json",
+        "session": "long-running, interrupted session",
+        "errorsCaptured": 250,
+        "sampleLimitReached": true,
+        "completeAllRouteAudit": false,
+        "deferredIssue": "G01"
+      },
+      {
+        "artifact": "browser-console-fresh.json",
+        "session": "fresh desktop document resized to phone, gallery opened/resized/closed",
+        "errorsCaptured": 0,
+        "warningsCaptured": 13,
+        "completeAllRouteAudit": false
+      }
+    ],
+    "sourceHashMatchesTestedBuild": true,
+    "rebuiltAssetNamesAndSizesMatchTestedBuild": true
+  },
+  "cleanup": {
+    "successfullyLoadedVerificationTabsClosed": 2,
+    "viewportOverrideReset": true,
+    "failedLoadTabClosed": false,
+    "failedLoadTabCleanupLimitation": "Browser URL safety check rejected the browser-generated data: error page, including the close call; no restriction was bypassed.",
+    "temporaryPreviewPort": 4173,
+    "temporaryPreviewStopped": true,
+    "portListenerCountAfterStop": 0
+  },
+  "resolvedIssues": [
+    {
+      "id": "N01",
+      "description": "Rapid navigation during the transition lifetime was ignored. Latest pending destination now wins, and requests after commit are accepted."
+    }
+  ],
+  "deferredIssues": [
+    {
+      "id": "G01",
+      "phase": 5,
+      "description": "Repeated non-finite Three.js geometry bounds errors were captured in a long-running interrupted session. Fresh-load path did not reproduce them; cause remains unconfirmed."
+    }
+  ],
+  "notes": [
+    "Windows Chromium at DPR 1 with CSS viewport overrides, not physical touch or low-end hardware throttling.",
+    "Reduced-motion scroll/transition policy is unit tested; OS preference changes and all graphics behavior were not browser exercised.",
+    "Final browser report selects verified corrected assertions and preserves failed probes separately.",
+    "Strict browser contracts validate saved DOM observations, not a separately driven run.",
+    "No form was submitted, no dependencies or media were replaced, and no commit, push, or deployment was made.",
+    "Graphics/asset optimization, existing lint cleanup, and physical-device QA remain subsequent phases."
+  ]
+}

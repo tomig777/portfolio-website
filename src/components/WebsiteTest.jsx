@@ -7,11 +7,17 @@ import 'lenis/dist/lenis.css';
 
 import WebsiteTestHeader from './WebsiteTestHeader';
 import ErrorBoundary from './ErrorBoundary';
+import CaseStudyMedia from './CaseStudyMedia';
+import { useCompactLayout } from '../hooks/useCompactLayout';
+import { useReducedMotionPreference } from '../hooks/useReducedMotionPreference';
+import { useFocusScope } from '../hooks/useFocusScope';
+import useGraphicsActivity from '../hooks/useGraphicsActivity';
+import { isolateElements } from '../utils/focusScope';
+import { createScrollIntent, getScrollExperience, setScrollPosition } from '../utils/scrollExperience';
 
 // Background & Playground Components
 import DarkVeil from './DarkVeil';
 import Folder from './Folder';
-import SideRays from './SideRays';
 
 // Keep interaction-only pages and modals out of the first mobile bundle. They
 // are fetched when the corresponding control is opened.
@@ -19,15 +25,15 @@ const ResumeModal = lazy(() => import('./ResumeModal'));
 const PlaygroundDome = lazy(() => import('./PlaygroundDome'));
 const ColorBends = lazy(() => import('./ColorBends'));
 const LightRays = lazy(() => import('./LightRays'));
-const WorkArchivePage = lazy(() => import('./WebsiteTestPages').then(({ WorkArchivePage: Page }) => ({ default: Page })));
-const AboutProfilePage = lazy(() => import('./WebsiteTestPages').then(({ AboutProfilePage: Page }) => ({ default: Page })));
-const ContactFormPage = lazy(() => import('./WebsiteTestPages').then(({ ContactFormPage: Page }) => ({ default: Page })));
+const WorkArchivePage = lazy(() => import('./WorkArchivePage'));
+const AboutProfilePage = lazy(() => import('./AboutProfilePage'));
+const ContactFormPage = lazy(() => import('./ContactFormPage'));
 
 import { SiFigma, SiBlender, SiDavinciresolve, SiInstagram, SiAutodesk, SiCinema4D, SiUnrealengine } from 'react-icons/si';
 import { FaLinkedin } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 
-import card1Image from '../assets/szia.png';
+import card1Image from '../assets/web-optimized/szia.webp';
 import card2Image from '../assets/szia_2.jpg';
 import card3Image from '../assets/szia_3.jpg';
 import exhibitWheat from '../assets/exhibit-wheat.jpg';
@@ -36,24 +42,24 @@ import exhibitLavender from '../assets/exhibit-lavender.jpg';
 import exhibitBlueberry from '../assets/exhibit-blueberry.jpg';
 import exhibitAutumn from '../assets/exhibit-autumn.jpg';
 import exhibitBlossom from '../assets/exhibit-blossom.jpg';
-import nukeLogo from '../assets/nuke_logo2.png';
-import substanceLogo from '../assets/substance_logo.png';
+import nukeLogo from '../assets/web-optimized/nuke_logo2.webp';
+import substanceLogo from '../assets/web-optimized/substance_logo.webp';
 import illustratorLogo from '../assets/illustrator_logo.svg';
 import photoshopLogo from '../assets/photoshop_logo.svg';
 import premiereLogo from '../assets/premiere_logo.svg';
 import afterEffectsLogo from '../assets/aftereffects_logo.svg';
 import auditionLogo from '../assets/audition_logo.svg';
 import lightroomLogo from '../assets/lightroom_logo.svg';
-import touchDesignerLogo from '../assets/touchdesigner_logo.png';
-import { runRouteTransition } from '../utils/pageTransition';
+import touchDesignerLogo from '../assets/web-optimized/touchdesigner_logo.webp';
+import { createPageTransition, runRouteTransition } from '../utils/pageTransition';
 
 import './WebsiteTest.css';
 
 gsap.registerPlugin(ScrollTrigger);
-
-// Keep the previous gradient contact scene in the file while this reference-driven
-// version is evaluated. Switching this to false restores the prior implementation.
-const USE_BUBBLE_CONTACT_EXPERIMENT = true;
+// A phone browser's address bar can resize the viewport during a gesture.
+// Preserve pin measurements for those small touch-only height changes; real
+// orientation/width changes still refresh the scene normally.
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const CONTACT_BEND_PALETTES = {
   violet: ['#4f62d8', '#8d82ee', '#c7c9fa'],
@@ -97,13 +103,17 @@ const createAsciiHandRows = (mirrorDensity = false) => Array.from({ length: ASCI
   }).join('')
 ));
 
-const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg }) => {
+const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg, active = true }) => {
   const svgRef = useRef(null);
+  const { running } = useGraphicsActivity(svgRef, active);
+  const runningRef = useRef(false);
   const leftPointerMotionRef = useRef(null);
   const rightPointerMotionRef = useRef(null);
   const cursorTargetRef = useRef({ x: 0, y: 0 });
-  const leftRows = useMemo(() => createAsciiHandRows(), []);
-  const rightRows = useMemo(() => createAsciiHandRows(true), []);
+  // Keep GSAP's group targets mounted, but wait to build the text field until
+  // its mask artwork is requested. Loading the masks must not rebuild pins.
+  const leftRows = useMemo(() => handLeftSvg ? createAsciiHandRows() : [], [handLeftSvg]);
+  const rightRows = useMemo(() => handRightSvg ? createAsciiHandRows(true) : [], [handRightSvg]);
   const handMotionRef = useRef({
     x: 0,
     y: 0,
@@ -117,7 +127,7 @@ const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg }) => {
     const target = cursorTargetRef.current;
     const finalScene = svgRef.current?.closest('.wt-bubble-final-scene');
 
-    if (!finalScene || finalScene.style.visibility === 'hidden') {
+    if (!runningRef.current || !finalScene || finalScene.style.visibility === 'hidden') {
       motion.animationFrame = null;
       motion.lastTime = 0;
       return;
@@ -180,6 +190,14 @@ const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg }) => {
   useEffect(() => {
     const finalScene = svgRef.current?.closest('.wt-bubble-final-scene');
     const motion = handMotionRef.current;
+    runningRef.current = running;
+    if (!running) {
+      if (motion.animationFrame !== null) window.cancelAnimationFrame(motion.animationFrame);
+      motion.animationFrame = null;
+      motion.lastTime = 0;
+      return undefined;
+    }
+    ensureHandAnimation();
 
     const updateTarget = (event) => {
       if (finalScene?.style.visibility === 'hidden') return;
@@ -207,7 +225,7 @@ const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg }) => {
         window.cancelAnimationFrame(motion.animationFrame);
       }
     };
-  }, [ensureHandAnimation]);
+  }, [ensureHandAnimation, running]);
 
   return (
     <svg
@@ -295,183 +313,13 @@ const AsciiHandsArtWithTrail = ({ handLeftSvg, handRightSvg }) => {
   );
 };
 
-const AsciiHandsArt = ({ handLeftSvg, handRightSvg }) => {
-  const leftRows = useMemo(() => createAsciiHandRows(), []);
-  const rightRows = useMemo(() => createAsciiHandRows(true), []);
-  const leftPointerMotionRef = useRef(null);
-  const rightPointerMotionRef = useRef(null);
-  const cursorTargetRef = useRef({ x: 0, y: 0 });
-  const handMotionRef = useRef({
-    x: 0,
-    y: 0,
-    rotation: 0,
-    lastTime: 0,
-    animationFrame: null
-  });
-
-  const animateHands = useCallback((time) => {
-    const motion = handMotionRef.current;
-    const target = cursorTargetRef.current;
-    const elapsed = motion.lastTime ? Math.min(34, time - motion.lastTime) : 16.67;
-    const smoothing = 1 - Math.exp(-elapsed * 0.0125);
-    const targetRotation = target.x * 0.038;
-
-    motion.x += (target.x - motion.x) * smoothing;
-    motion.y += (target.y - motion.y) * smoothing;
-    motion.rotation += (targetRotation - motion.rotation) * smoothing;
-    motion.lastTime = time;
-
-    const isSettled = (
-      Math.abs(target.x - motion.x) < 0.008
-      && Math.abs(target.y - motion.y) < 0.008
-      && Math.abs(targetRotation - motion.rotation) < 0.001
-    );
-
-    if (isSettled) {
-      motion.x = target.x;
-      motion.y = target.y;
-      motion.rotation = targetRotation;
-    }
-
-    leftPointerMotionRef.current?.setAttribute(
-      'transform',
-      `translate(${motion.x.toFixed(3)} ${motion.y.toFixed(3)}) rotate(${motion.rotation.toFixed(3)} 340 350)`
-    );
-    rightPointerMotionRef.current?.setAttribute(
-      'transform',
-      `translate(${motion.x.toFixed(3)} ${motion.y.toFixed(3)}) rotate(${(-motion.rotation).toFixed(3)} 1260 350)`
-    );
-
-    if (isSettled) {
-      motion.animationFrame = null;
-      motion.lastTime = 0;
-      return;
-    }
-
-    motion.animationFrame = window.requestAnimationFrame(animateHands);
-  }, []);
-
-  const ensureHandAnimation = useCallback(() => {
-    const motion = handMotionRef.current;
-    if (motion.animationFrame === null) {
-      motion.lastTime = 0;
-      motion.animationFrame = window.requestAnimationFrame(animateHands);
-    }
-  }, [animateHands]);
-
-  useEffect(() => {
-    const finalScene = leftPointerMotionRef.current?.closest('.wt-bubble-final-scene');
-    const motion = handMotionRef.current;
-
-    const updateTarget = (event) => {
-      if (finalScene?.style.visibility === 'hidden') return;
-      cursorTargetRef.current = {
-        x: (event.clientX / window.innerWidth - 0.5) * -10,
-        y: (event.clientY / window.innerHeight - 0.5) * -8
-      };
-      ensureHandAnimation();
-    };
-
-    const resetTarget = () => {
-      cursorTargetRef.current = { x: 0, y: 0 };
-      ensureHandAnimation();
-    };
-
-    window.addEventListener('pointermove', updateTarget, { passive: true });
-    window.addEventListener('blur', resetTarget);
-    document.documentElement.addEventListener('pointerleave', resetTarget);
-
-    return () => {
-      window.removeEventListener('pointermove', updateTarget);
-      window.removeEventListener('blur', resetTarget);
-      document.documentElement.removeEventListener('pointerleave', resetTarget);
-      if (motion.animationFrame !== null) {
-        window.cancelAnimationFrame(motion.animationFrame);
-      }
-    };
-  }, [ensureHandAnimation]);
-
-  return (
-    <svg
-      className="wt-bubble-ascii-hands wt-bubble-ascii-hands--static"
-      viewBox="0 0 1600 700"
-      preserveAspectRatio="xMidYMid slice"
-      aria-hidden="true"
-    >
-      <defs>
-        <mask
-          id="wt-bubble-left-hand-mask-static"
-          x="-100"
-          y="110"
-          width="930"
-          height="540"
-          maskUnits="userSpaceOnUse"
-          maskContentUnits="userSpaceOnUse"
-          style={{ maskType: 'alpha' }}
-        >
-          <image
-            href={handLeftSvg}
-            x="-72"
-            y="145"
-            width="850"
-            height="470"
-            preserveAspectRatio="xMidYMid meet"
-          />
-        </mask>
-        <mask
-          id="wt-bubble-right-hand-mask-static"
-          x="770"
-          y="110"
-          width="930"
-          height="540"
-          maskUnits="userSpaceOnUse"
-          maskContentUnits="userSpaceOnUse"
-          style={{ maskType: 'alpha' }}
-        >
-          <image
-            href={handRightSvg}
-            x="822"
-            y="145"
-            width="850"
-            height="470"
-            preserveAspectRatio="xMidYMid meet"
-          />
-        </mask>
-      </defs>
-
-      <g className="wt-bubble-ascii-hand wt-bubble-ascii-hand--left">
-        <g ref={leftPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion">
-          <g mask="url(#wt-bubble-left-hand-mask-static)">
-            <text className="wt-bubble-ascii-pattern" x="-24" y="94" xmlSpace="preserve">
-              {leftRows.map((row, index) => (
-                <tspan x="-24" dy={index === 0 ? 0 : 10} key={`left-static-${index}`}>{row}</tspan>
-              ))}
-            </text>
-          </g>
-        </g>
-      </g>
-
-      <g className="wt-bubble-ascii-hand wt-bubble-ascii-hand--right">
-        <g ref={rightPointerMotionRef} className="wt-bubble-ascii-hand-pointer-motion">
-          <g mask="url(#wt-bubble-right-hand-mask-static)">
-            <text className="wt-bubble-ascii-pattern" x="-24" y="94" xmlSpace="preserve">
-              {rightRows.map((row, index) => (
-                <tspan x="-24" dy={index === 0 ? 0 : 10} key={`right-static-${index}`}>{row}</tspan>
-              ))}
-            </text>
-          </g>
-        </g>
-      </g>
-    </svg>
-  );
-};
-
 const SkillLogoImage = ({ src, invert = false }) => (
   <img
     className={`skill-brand-logo${invert ? ' skill-brand-logo--invert' : ''}`}
     src={src}
     alt=""
     aria-hidden="true"
+    decoding="async"
   />
 );
 
@@ -612,19 +460,22 @@ const headerThemeHueShifts = {
   forest: 105
 };
 
-const HeroRoleReel = () => {
+const HeroRoleReel = ({ active = true }) => {
   const [activeRole, setActiveRole] = useState(0);
+  const containerRef = useRef(null);
+  const { running } = useGraphicsActivity(containerRef, active);
 
   useEffect(() => {
+    if (!running) return undefined;
     const timer = window.setInterval(() => {
       setActiveRole((current) => (current + 1) % heroRoles.length);
     }, 3000);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [running]);
 
   return (
-    <span className="wt-hero-role-window" aria-label={heroRoles[activeRole]}>
+    <span ref={containerRef} className="wt-hero-role-window" aria-label={heroRoles[activeRole]}>
       <span className="wt-hero-role" key={heroRoles[activeRole]} aria-hidden="true">
         {heroRoles[activeRole]}
       </span>
@@ -636,12 +487,19 @@ const WebsiteTest = ({ onBack }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isMobilePreview = new URLSearchParams(location.search).get('mobilePreview') === '1';
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const isMobile = useCompactLayout();
   // The mobile preview is the production phone layout. Keep the query flag for
   // the framed preview project, and activate the same UI automatically on real
   // phone-sized viewports.
   const useMobileLayout = isMobilePreview || isMobile;
+  const prefersReducedMotion = useReducedMotionPreference();
+  const scrollExperience = useMemo(() => getScrollExperience({
+    compact: useMobileLayout,
+    reducedMotion: prefersReducedMotion,
+    projectCount: featuredProjectData.length
+  }), [useMobileLayout, prefersReducedMotion]);
   const [desktopVideos, setDesktopVideos] = useState([]);
+  const [featuredMediaReady, setFeaturedMediaReady] = useState(false);
   const [exhibitImagesReady, setExhibitImagesReady] = useState(false);
   const [handAssets, setHandAssets] = useState(null);
   const [shouldRenderLightRays, setShouldRenderLightRays] = useState(false);
@@ -657,11 +515,13 @@ const WebsiteTest = ({ onBack }) => {
     }
   });
   const containerRef = useRef(null);
+  const caseStudyRef = useRef(null);
+  const caseStudyOpenerRef = useRef(null);
   const contentRef = useRef(null);
   const lenisRef = useRef(null);
-  const caseStudyScrollRef = useRef(0);
-  const caseTransitionTimers = useRef([]);
-  const caseTransitionInProgress = useRef(false);
+  const layoutScrollTopRef = useRef(null);
+  const [scrollIntent] = useState(createScrollIntent);
+  const screenTransitionRef = useRef(null);
   const pendingMenuReturnRef = useRef(
     location.state?.reopenMenu
       ? { scrollTop: location.state.scrollTop || 0 }
@@ -671,6 +531,11 @@ const WebsiteTest = ({ onBack }) => {
     ...project,
     video: useMobileLayout ? null : desktopVideos[index] || null
   })), [desktopVideos, useMobileLayout]);
+  // An open case study must pick up a lazy-loaded video (or switch to its
+  // phone poster), rather than retaining the object captured before loading.
+  const caseStudyProject = activeCaseStudy
+    ? featuredProjects.find(project => project.title === activeCaseStudy.title) || activeCaseStudy
+    : null;
 
   useEffect(() => {
     document.documentElement.dataset.portfolioTheme = headerTheme;
@@ -684,12 +549,37 @@ const WebsiteTest = ({ onBack }) => {
   // Playground Overlay visibility state
   const [isPlaygroundOpen, setIsPlaygroundOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const homeEffectsActive = !activeCaseStudy && !activeNavPage && !isPlaygroundOpen && !isMenuOpen && !showResumeModal;
+  const isScrollLocked = Boolean(activeCaseStudy || activeNavPage || isPlaygroundOpen || isMenuOpen || showResumeModal);
+  const homeEffectsActive = !isScrollLocked;
+
+  useEffect(() => {
+    const wrapper = containerRef.current;
+    if (!wrapper) return undefined;
+    const cancel = () => scrollIntent.cancel();
+    const observe = () => scrollIntent.observe(wrapper.scrollTop);
+    const onKeyDown = event => {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)
+        && !event.target.closest('input,textarea,select,[contenteditable="true"]')) cancel();
+    };
+    wrapper.addEventListener('wheel', cancel, { passive: true });
+    wrapper.addEventListener('touchstart', cancel, { passive: true });
+    wrapper.addEventListener('pointerdown', cancel, { passive: true });
+    wrapper.addEventListener('scroll', observe, { passive: true });
+    wrapper.addEventListener('keydown', onKeyDown);
+    return () => {
+      wrapper.removeEventListener('wheel', cancel);
+      wrapper.removeEventListener('touchstart', cancel);
+      wrapper.removeEventListener('pointerdown', cancel);
+      wrapper.removeEventListener('scroll', observe);
+      wrapper.removeEventListener('keydown', onKeyDown);
+      scrollIntent.cancel();
+    };
+  }, [scrollIntent]);
 
   useLayoutEffect(() => {
     const wrapper = containerRef.current;
     const content = contentRef.current;
-    if (!wrapper || !content) return undefined;
+    if (!wrapper || !content || scrollExperience.nativeScroll) return undefined;
 
     const lenis = new Lenis({
       wrapper,
@@ -700,8 +590,7 @@ const WebsiteTest = ({ onBack }) => {
       smoothWheel: true,
       syncTouch: false,
       lerp: 0.085,
-      wheelMultiplier: useMobileLayout ? 0.84 : 0.9,
-      touchMultiplier: useMobileLayout ? 0.92 : 1,
+      wheelMultiplier: 0.9,
       overscroll: false,
       autoResize: true,
       autoRaf: false
@@ -717,13 +606,7 @@ const WebsiteTest = ({ onBack }) => {
     gsap.ticker.lagSmoothing(0);
     ScrollTrigger.addEventListener('refresh', resizeLenis);
 
-    const refreshFrame = window.requestAnimationFrame(() => {
-      lenis.resize();
-      ScrollTrigger.refresh();
-    });
-
     return () => {
-      window.cancelAnimationFrame(refreshFrame);
       ScrollTrigger.removeEventListener('refresh', resizeLenis);
       gsap.ticker.remove(updateLenis);
       lenis.off('scroll', updateScrollTrigger);
@@ -732,33 +615,13 @@ const WebsiteTest = ({ onBack }) => {
         lenisRef.current = null;
       }
     };
-  }, [useMobileLayout]);
+  }, [scrollExperience.nativeScroll]);
 
   const triggerScreenTransition = useCallback((actionCallback) => {
-    if (caseTransitionInProgress.current) return;
-
-    caseTransitionTimers.current.forEach((timer) => window.clearTimeout(timer));
-    caseTransitionTimers.current = [];
-    document.querySelectorAll('.wt-case-transition').forEach((overlay) => overlay.remove());
-
-    const overlay = document.createElement('div');
-    overlay.className = 'wt-case-transition';
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(overlay);
-    caseTransitionInProgress.current = true;
-
-    const revealTimer = window.setTimeout(() => {
-      if (actionCallback) {
-        actionCallback();
-      }
-    }, 760);
-
-    const doneTimer = window.setTimeout(() => {
-      overlay.remove();
-      caseTransitionInProgress.current = false;
-    }, 1680);
-
-    caseTransitionTimers.current.push(revealTimer, doneTimer);
+    if (!screenTransitionRef.current) {
+      screenTransitionRef.current = createPageTransition({ className: 'wt-case-transition' });
+    }
+    return screenTransitionRef.current.run(actionCallback);
   }, []);
 
   const handleClosePlayground = useCallback(() => {
@@ -767,9 +630,10 @@ const WebsiteTest = ({ onBack }) => {
     });
   }, [triggerScreenTransition]);
 
-  const prepareGallery = useCallback(async () => {
-    const { preparePlaygroundGallery } = await import('../utils/galleryAssets');
-    return preparePlaygroundGallery();
+  // Hover/focus may warm the component code, but must not fetch all 25 images.
+  // Image loading starts only after the gallery is actually opened.
+  const prepareGallery = useCallback(() => {
+    import('./PlaygroundDome').catch(() => {}); // Opening can retry a failed warm-up.
   }, []);
 
   const handleOpenPlayground = useCallback(() => {
@@ -779,6 +643,7 @@ const WebsiteTest = ({ onBack }) => {
 
   const handleProjectPicker = useCallback(() => {
     const scrollTop = containerRef.current?.scrollTop || 0;
+    screenTransitionRef.current?.cancel();
     runRouteTransition(() => {
       if (onBack) {
         onBack();
@@ -796,55 +661,19 @@ const WebsiteTest = ({ onBack }) => {
 
   const handleMenuScrollLock = useCallback((isLocked) => {
     setIsMenuOpen(isLocked);
+  }, []);
+
+  useLayoutEffect(() => {
     const lenis = lenisRef.current;
     if (!lenis) return;
-
-    if (isLocked) {
-      lenis.stop();
-      return;
-    }
-
-    if (!activeCaseStudy && !activeNavPage && !isPlaygroundOpen && !showResumeModal) {
-      lenis.start();
-    }
-  }, [activeCaseStudy, activeNavPage, isPlaygroundOpen, showResumeModal]);
-
-  useEffect(() => {
-    const lenis = lenisRef.current;
-    if (!lenis) return;
-
-    const isOverlayOpen = Boolean(
-      activeCaseStudy
-      || activeNavPage
-      || isPlaygroundOpen
-      || showResumeModal
-    );
-
-    if (isOverlayOpen) {
+    if (isScrollLocked) {
       lenis.stop();
       return;
     }
 
     lenis.start();
     lenis.resize();
-  }, [activeCaseStudy, activeNavPage, isPlaygroundOpen, showResumeModal]);
-
-  useLayoutEffect(() => {
-    const pendingReturn = pendingMenuReturnRef.current;
-    if (!pendingReturn || !containerRef.current) return;
-
-    if (lenisRef.current) {
-      lenisRef.current.scrollTo(pendingReturn.scrollTop, { immediate: true, force: true });
-    } else {
-      containerRef.current.scrollTop = pendingReturn.scrollTop;
-    }
-    containerRef.current.dispatchEvent(new Event('scroll', { bubbles: true }));
-    pendingMenuReturnRef.current = null;
-    setMenuReturnToken((current) => current + 1);
-    navigate('/', { replace: true, state: null });
-
-    window.requestAnimationFrame(() => ScrollTrigger.refresh());
-  }, [navigate]);
+  }, [isScrollLocked, scrollExperience.nativeScroll]);
 
   const openNavPage = useCallback((page) => {
     triggerScreenTransition(() => {
@@ -852,11 +681,28 @@ const WebsiteTest = ({ onBack }) => {
     });
   }, [triggerScreenTransition]);
 
+  const handleHomeNavigation = useCallback(() => {
+    if (!activeNavPage && !activeCaseStudy && !isPlaygroundOpen) {
+      // Home is a scroll action when we are already on the home page.
+      screenTransitionRef.current?.cancel();
+      scrollIntent.begin(0);
+      setScrollPosition(containerRef.current, lenisRef.current, 0, { immediate: false, reducedMotion: prefersReducedMotion });
+      scrollIntent.observe(containerRef.current?.scrollTop);
+      return;
+    }
+    triggerScreenTransition(() => {
+      setActiveNavPage(null);
+      setActiveCaseStudy(null);
+      setIsPlaygroundOpen(false);
+      scrollIntent.cancel();
+      setScrollPosition(containerRef.current, lenisRef.current, 0);
+    });
+  }, [activeNavPage, activeCaseStudy, isPlaygroundOpen, prefersReducedMotion, triggerScreenTransition, scrollIntent]);
+
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    if (!activeNavPage || !contentRef.current) return undefined;
+    return isolateElements([contentRef.current]);
+  }, [activeNavPage]);
 
   useEffect(() => {
     let cancelled = false;
@@ -866,9 +712,21 @@ const WebsiteTest = ({ onBack }) => {
       return undefined;
     }
 
+    if (!featuredMediaReady) return undefined;
     loadCaseStudyVideos().then((videos) => {
       if (!cancelled) setDesktopVideos(videos);
     });
+    return () => {
+      cancelled = true;
+    };
+  }, [useMobileLayout, featuredMediaReady]);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (useMobileLayout || !exhibitImagesReady) {
+      setHandAssets(null);
+      return undefined;
+    }
     Promise.all([
       import('../assets/hand-left.svg'),
       import('../assets/right-hand.svg')
@@ -879,7 +737,7 @@ const WebsiteTest = ({ onBack }) => {
     return () => {
       cancelled = true;
     };
-  }, [useMobileLayout]);
+  }, [useMobileLayout, exhibitImagesReady]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -890,6 +748,9 @@ const WebsiteTest = ({ onBack }) => {
       frame = 0;
       const shouldRender = container.scrollTop > window.innerHeight * 0.42;
       setShouldRenderLightRays((current) => current === shouldRender ? current : shouldRender);
+      // The work section follows immediately after the hero. Start its media
+      // on the first scroll instead of competing with first-load fonts/physics.
+      if (container.scrollTop > 1) setFeaturedMediaReady(true);
     };
     const handleScroll = () => {
       if (!frame) frame = window.requestAnimationFrame(update);
@@ -905,10 +766,8 @@ const WebsiteTest = ({ onBack }) => {
 
   useEffect(() => {
     return () => {
-      caseTransitionTimers.current.forEach((timer) => window.clearTimeout(timer));
-      caseTransitionTimers.current = [];
-      document.querySelectorAll('.wt-case-transition').forEach((overlay) => overlay.remove());
-      caseTransitionInProgress.current = false;
+      screenTransitionRef.current?.dispose();
+      screenTransitionRef.current = null;
     };
   }, []);
 
@@ -959,8 +818,13 @@ const WebsiteTest = ({ onBack }) => {
   // GSAP Animations
   useLayoutEffect(() => {
     const scrollContainer = containerRef.current;
-    if (activeCaseStudy || activeNavPage) return undefined;
     if (!scrollContainer) return undefined;
+    // Keep pins mounted behind subpages. Removing their spacers clamps the
+    // underlying scroll position and rebuilding them produces visible jumps.
+    const savedScrollTop = scrollIntent.resolve(layoutScrollTopRef.current ?? scrollContainer.scrollTop);
+    layoutScrollTopRef.current = null;
+    let disposed = false;
+    let fontRefreshFrame = 0;
 
     const ctx = gsap.context(() => {
     // 1. Featured work image handoff
@@ -970,7 +834,7 @@ const WebsiteTest = ({ onBack }) => {
     const copyLayers = gsap.utils.toArray('.wt-featured-copy');
     const progressDots = gsap.utils.toArray('.wt-image-progress-dot');
     const projectCount = imageLayers.length;
-    const finalImageX = isMobile ? '0vw' : '-21vw';
+    const finalImageX = useMobileLayout ? '0vw' : '-21vw';
     if (!imageFrame || !imageTrack || projectCount === 0) return;
 
     gsap.set(imageFrame, {
@@ -989,7 +853,7 @@ const WebsiteTest = ({ onBack }) => {
     });
 
     gsap.set(copyLayers, {
-      xPercent: isMobile ? -50 : 0,
+      xPercent: useMobileLayout ? -50 : 0,
       yPercent: 0,
       x: 0,
       y: 48,
@@ -1006,22 +870,19 @@ const WebsiteTest = ({ onBack }) => {
       backgroundColor: 'rgba(255, 255, 255, 0.95)'
     });
 
-    const projectScrollPercent = Math.max(
-      360,
-      projectCount * 165 - (isMobile ? 78 : 118)
-    );
     const workTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.wt-projects-section',
         scroller: scrollContainer,
         start: 'top top',
-        end: `+=${projectScrollPercent}%`,
+        end: `+=${scrollExperience.workScrollPercent}%`,
         // Pin the complete section rather than only the stage. Pinning the
         // child leaves one viewport of its parent exposed after the last card
         // exits, which reads as a blank/grey gap before the text transition.
         pin: true,
-        pinType: 'fixed',
-        scrub: 1.08,
+        pinType: scrollExperience.nativeScroll ? 'transform' : 'fixed',
+        scrub: scrollExperience.workScrub,
+        invalidateOnRefresh: true,
         anticipatePin: 0
       }
     });
@@ -1104,22 +965,8 @@ const WebsiteTest = ({ onBack }) => {
     const exhibitCopy = document.querySelector('.wt-exhibit-copy');
     const textGroups = gsap.utils.toArray('.wt-exhibit-group');
     const transitionStage = document.querySelector('.wt-skill-transition-stage');
-    const contactWash = document.querySelector('.wt-contact-wash');
-    const contactTransitionTitle = document.querySelector('.wt-contact-transition-title');
-    const contactTransitionTitleInner = document.querySelector('.wt-contact-transition-title__inner');
-    const contactScene = document.querySelector('.wt-contact-scene');
-    const contactContainer = document.querySelector('.wt-contact-scene .wt-contact-container');
-    const contactFooter = document.querySelector('.wt-contact-scene .wt-new-footer');
-    const contactFolder = document.querySelector('.wt-contact-scene .wt-contact-folder');
-    const contactSideRays = document.querySelector('.wt-contact-scene .wt-contact-side-rays');
-    const contactItems = [
-      '.wt-contact-scene .wt-contact-desc',
-      '.wt-contact-scene .folder-container',
-      '.wt-contact-scene .wt-contact-profile'
-    ];
     const bubbleExperience = document.querySelector('.wt-bubble-contact-experience');
     const bubbleBlackout = document.querySelector('.wt-bubble-blackout');
-    const bubbleDisc = document.querySelector('.wt-bubble-disc');
     const bubbleWhitePanel = document.querySelector('.wt-bubble-white-panel');
     const bubbleContactWord = document.querySelector('.wt-bubble-contact-word');
     const bubbleFinalScene = document.querySelector('.wt-bubble-final-scene');
@@ -1128,7 +975,6 @@ const WebsiteTest = ({ onBack }) => {
     const bubbleAsciiLeft = document.querySelector('.wt-bubble-ascii-hand--left');
     const bubbleAsciiRight = document.querySelector('.wt-bubble-ascii-hand--right');
     const bubbleContactFolder = document.querySelector('.wt-bubble-contact-folder');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const rotScale = isMobile ? 0.8 : 1; // soften extreme rotations on small screens
 
     // One shared ring around the sentence. Each card's journey p: 0 → 1:
@@ -1312,15 +1158,9 @@ const WebsiteTest = ({ onBack }) => {
       gsap.set(textGroups, { opacity: 0, y: 8, filter: 'blur(8px)' });
       renderCardFlow();
     }
-    if (USE_BUBBLE_CONTACT_EXPERIMENT) {
+    {
       gsap.set(bubbleExperience, { autoAlpha: 0 });
       gsap.set(bubbleBlackout, { autoAlpha: 0 });
-      gsap.set(bubbleDisc, {
-        autoAlpha: 0,
-        xPercent: -50,
-        scale: 0.008,
-        transformOrigin: '50% 50%'
-      });
       gsap.set(bubbleWhitePanel, {
         autoAlpha: 0,
         clipPath: 'circle(0.68vmax at 50% 100%)',
@@ -1340,37 +1180,24 @@ const WebsiteTest = ({ onBack }) => {
       gsap.set(bubbleFinalScene, { autoAlpha: 0 });
       gsap.set(bubbleFinalMeta, { autoAlpha: 0, y: -16, filter: 'blur(6px)' });
       gsap.set(bubbleFinalName, { yPercent: 118, filter: 'blur(10px)' });
-      gsap.set(bubbleAsciiLeft, { autoAlpha: 0, x: -430, y: 28 });
-      gsap.set(bubbleAsciiRight, { autoAlpha: 0, x: 430, y: 28 });
+      if (bubbleAsciiLeft) gsap.set(bubbleAsciiLeft, { autoAlpha: 0, x: -430, y: 28 });
+      if (bubbleAsciiRight) gsap.set(bubbleAsciiRight, { autoAlpha: 0, x: 430, y: 28 });
       gsap.set(bubbleContactFolder, {
         autoAlpha: 0,
         y: 20,
         scale: 0.86,
         transformOrigin: '50% 50%'
       });
-    } else {
-      gsap.set(contactWash, {
-        autoAlpha: 0
-      });
-      gsap.set('.wt-contact-gradient-curtain', { y: 0 });
-      gsap.set(contactTransitionTitle, { autoAlpha: 0, yPercent: 0, filter: 'blur(0px)' });
-      gsap.set(contactTransitionTitleInner, { yPercent: 112 });
-      gsap.set(contactScene, { autoAlpha: 0 });
-      gsap.set(contactContainer, { scale: 0.85, transformOrigin: '50% 50%' });
-      gsap.set(contactItems, { autoAlpha: 0, scale: 0.5, filter: 'blur(14px)', transformOrigin: '50% 50%' });
-      gsap.set(contactFooter, { autoAlpha: 0 });
-      gsap.set(contactFolder, { pointerEvents: 'none' });
-      gsap.set(contactSideRays, { autoAlpha: 0 });
     }
     const textTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.wt-blur-section',
         scroller: scrollContainer,
         start: 'top top',
-        end: USE_BUBBLE_CONTACT_EXPERIMENT ? '+=1120%' : '+=820%',
+        end: `+=${scrollExperience.contactScrollPercent}%`,
         pin: true,
-        pinType: 'fixed',
-        scrub: 0.4,
+        pinType: scrollExperience.nativeScroll ? 'transform' : 'fixed',
+        scrub: scrollExperience.contactScrub,
         anticipatePin: 0,
         invalidateOnRefresh: true,
         onRefresh: renderCardFlow
@@ -1408,7 +1235,7 @@ const WebsiteTest = ({ onBack }) => {
         }, 4.76);
     }
 
-    if (USE_BUBBLE_CONTACT_EXPERIMENT) {
+    {
       const bubbleStart = prefersReducedMotion ? 1.5 : 7.75;
       const whiteSettleOffset = prefersReducedMotion ? 0.42 : 1.55;
       const bubbleRevealOffset = prefersReducedMotion ? 0.05 : 0.22;
@@ -1476,22 +1303,26 @@ const WebsiteTest = ({ onBack }) => {
           filter: 'blur(0px)',
           duration: prefersReducedMotion ? 0.35 : 1.08,
           ease: 'power3.out'
-        }, `bubbleStart+=${finalRevealOffset + 0.08}`)
-        .to(bubbleAsciiLeft, {
+        }, `bubbleStart+=${finalRevealOffset + 0.08}`);
+
+      // Keep the same timeline length on phones, where the arms are deliberately
+      // absent. An explicit hold avoids null-target tweens without speeding up
+      // the rest of the final scene.
+      const handRevealPosition = `bubbleStart+=${handsRevealOffset}`;
+      const handRevealDuration = prefersReducedMotion ? 0.45 : 1.92;
+      textTl.to({}, { duration: handRevealDuration }, handRevealPosition);
+      [bubbleAsciiLeft, bubbleAsciiRight].forEach((hand, index) => {
+        if (!hand) return;
+        textTl.to(hand, {
           autoAlpha: 1,
-          x: -82,
+          x: index === 0 ? -82 : 82,
           y: 0,
-          duration: prefersReducedMotion ? 0.45 : 1.92,
+          duration: handRevealDuration,
           ease: 'power2.out'
-        }, `bubbleStart+=${handsRevealOffset}`)
-        .to(bubbleAsciiRight, {
-          autoAlpha: 1,
-          x: 82,
-          y: 0,
-          duration: prefersReducedMotion ? 0.45 : 1.92,
-          ease: 'power2.out'
-        }, '<')
-        .to(bubbleContactFolder, {
+        }, handRevealPosition);
+      });
+
+      textTl.to(bubbleContactFolder, {
           autoAlpha: 1,
           y: 0,
           scale: 1,
@@ -1499,104 +1330,46 @@ const WebsiteTest = ({ onBack }) => {
           ease: 'power3.out'
         }, `bubbleStart+=${handsRevealOffset + 0.28}`)
         .to({}, { duration: prefersReducedMotion ? 0.25 : 0.95 });
-    } else {
-    const gradientRevealDuration = prefersReducedMotion ? 0.5 : 3.75;
-    const titleRevealOffset = prefersReducedMotion ? 0.12 : 1.48;
-    const titleRevealDuration = prefersReducedMotion ? 0.3 : 1.18;
-    const contactRevealOffset = prefersReducedMotion ? 0.95 : 4.86;
-    const contactItemsOffset = prefersReducedMotion ? 1.02 : 5.04;
-    const contactReadyOffset = prefersReducedMotion ? 1.52 : 5.84;
-    const contactFooterOffset = prefersReducedMotion ? 1.35 : 5.58;
-
-    // Slow background colour journey for the contact scene: the wash starts from a
-    // deep cool blue, and the final indigo layer crossfades in on top via opacity
-    // only — no gradient-string interpolation, so it can never flicker or jump.
-    const contactWashDrift = document.querySelector('.wt-contact-wash-drift');
-    gsap.set(contactWashDrift, { autoAlpha: 0 });
-
-    textTl
-      .addLabel('gradientRise', prefersReducedMotion ? 1.5 : 7.75)
-      .to(contactWash, {
-        autoAlpha: 1,
-        duration: prefersReducedMotion ? 0.2 : 2.35,
-        ease: 'none'
-      }, 'gradientRise')
-      .to('.wt-contact-gradient-curtain', {
-        y: '-140vh',
-        duration: gradientRevealDuration,
-        ease: 'none'
-      }, 'gradientRise')
-      // The background keeps slowly changing long after the reveal — the indigo
-      // layer crossfades over the cool blue start, settling just before the
-      // pin releases at the bottom of the page
-      .to(contactWashDrift, {
-        autoAlpha: 1,
-        duration: prefersReducedMotion ? 0.8 : 5.1,
-        ease: 'sine.inOut'
-      }, `gradientRise+=${prefersReducedMotion ? 0.1 : 0.9}`)
-      .to(contactTransitionTitle, {
-        autoAlpha: 1,
-        duration: 0.08
-      }, `gradientRise+=${titleRevealOffset}`)
-      .to(contactTransitionTitleInner, {
-        yPercent: 0,
-        duration: titleRevealDuration,
-        ease: 'power3.out'
-      }, '<')
-      .to(contactScene, {
-        autoAlpha: 1,
-        duration: 0.18
-      }, `gradientRise+=${contactRevealOffset}`)
-      .to(contactSideRays, {
-        autoAlpha: 1,
-        duration: 1.2,
-        ease: 'power2.out'
-      }, `gradientRise+=${contactRevealOffset + 0.02}`)
-      .to(contactContainer, {
-        scale: 1,
-        duration: 1.1,
-        ease: 'power2.out'
-      }, `gradientRise+=${contactRevealOffset + 0.04}`)
-      .to(contactItems, {
-        autoAlpha: 1,
-        scale: 1,
-        filter: 'blur(0px)',
-        stagger: 0.09,
-        duration: 0.82,
-        ease: 'power3.out'
-      }, `gradientRise+=${contactItemsOffset}`)
-      .set(contactFolder, {
-        pointerEvents: 'auto'
-      }, `gradientRise+=${contactReadyOffset}`)
-      .to(contactFooter, {
-        autoAlpha: 1,
-        duration: 0.4,
-        ease: 'power1.out'
-      }, `gradientRise+=${contactFooterOffset}`)
-      // rest so the finished scene holds before the pin releases at page bottom
-      .to({}, { duration: 0.45 });
-    }
-
-    // Recalculate measurements once webfonts are ready
-    if (document.fonts?.ready) {
-      document.fonts.ready.then(() => ScrollTrigger.refresh());
     }
 
     }, scrollContainer);
 
+    // Measure pins first, then restore once. No delayed writes can override a
+    // gesture or a later navigation after the page has become visible.
+    ScrollTrigger.refresh();
+    lenisRef.current?.resize();
+    const pendingReturn = pendingMenuReturnRef.current;
+    setScrollPosition(scrollContainer, lenisRef.current, pendingReturn?.scrollTop ?? savedScrollTop);
+    scrollIntent.observe(scrollContainer.scrollTop);
+    ScrollTrigger.update();
+    if (pendingReturn) {
+      pendingMenuReturnRef.current = null;
+      setMenuReturnToken((current) => current + 1);
+      navigate('/', { replace: true, state: null });
+    }
+    if (document.fonts?.status !== 'loaded' && document.fonts?.ready) {
+      document.fonts.ready.then(() => {
+        if (disposed) return;
+        fontRefreshFrame = window.requestAnimationFrame(() => {
+          if (!disposed) ScrollTrigger.refresh(true);
+        });
+      });
+    }
+
     return () => {
-      try {
-        ctx.revert();
-      } catch {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill(true));
-      }
+      disposed = true;
+      window.cancelAnimationFrame(fontRefreshFrame);
+      layoutScrollTopRef.current = scrollIntent.resolve(scrollContainer.scrollTop);
+      ctx.revert();
     };
-  }, [isMobile, useMobileLayout, activeCaseStudy, activeNavPage, handAssets]);
+  }, [isMobile, useMobileLayout, scrollExperience, prefersReducedMotion, navigate, scrollIntent]);
 
   // triggerScreenTransition definition moved to top of component to support memoized callbacks
 
-  const openCaseStudy = (project) => {
-    caseStudyScrollRef.current = containerRef.current?.scrollTop || 0;
+  const openCaseStudy = (project, opener) => {
+    // Opening the overlay hides the whole scroller before effects run, which
+    // can blur its button. Retain the actual pointer/keyboard opener first.
+    caseStudyOpenerRef.current = opener || document.activeElement;
     triggerScreenTransition(() => {
       setActiveCaseStudy(project);
     });
@@ -1605,40 +1378,16 @@ const WebsiteTest = ({ onBack }) => {
   const closeCaseStudy = () => {
     triggerScreenTransition(() => {
       setActiveCaseStudy(null);
-      window.requestAnimationFrame(() => {
-        if (containerRef.current) {
-          if (lenisRef.current) {
-            lenisRef.current.scrollTo(caseStudyScrollRef.current, { immediate: true, force: true });
-          } else {
-            containerRef.current.scrollTop = caseStudyScrollRef.current;
-          }
-        }
-        ScrollTrigger.refresh();
-        window.requestAnimationFrame(() => {
-          if (containerRef.current) {
-            if (lenisRef.current) {
-              lenisRef.current.scrollTo(caseStudyScrollRef.current, { immediate: true, force: true });
-            } else {
-              containerRef.current.scrollTop = caseStudyScrollRef.current;
-            }
-          }
-        });
-        window.setTimeout(() => {
-          if (containerRef.current) {
-            if (lenisRef.current) {
-              lenisRef.current.scrollTo(caseStudyScrollRef.current, { immediate: true, force: true });
-            } else {
-              containerRef.current.scrollTop = caseStudyScrollRef.current;
-            }
-          }
-        }, 120);
-      });
     });
   };
 
+  useFocusScope(caseStudyRef, { active: Boolean(activeCaseStudy), initialFocus: '.wt-case-back', fallbackFocus: caseStudyOpenerRef.current, onEscape: closeCaseStudy });
+
   return (
     <div
-      className={`App wt-scroll-container wt-header-theme-${headerTheme}${useMobileLayout ? ' wt-mobile-preview' : ''}${activeCaseStudy || activeNavPage ? ' wt-case-open' : ''}${activeNavPage ? ' wt-nav-chrome-visible' : ''}`}
+      className={`App wt-scroll-container wt-header-theme-${headerTheme}${useMobileLayout ? ' wt-mobile-preview' : ''}${activeCaseStudy || activeNavPage ? ' wt-case-open' : ''}${activeNavPage ? ' wt-nav-chrome-visible' : ''}${isScrollLocked ? ' wt-scroll-locked' : ''}`}
+      data-scroll-mode={scrollExperience.nativeScroll ? 'native' : 'smooth'}
+      data-scroll-locked={isScrollLocked}
       ref={containerRef}
       style={{ overflowY: 'auto', overflowX: 'hidden' }}
     >
@@ -1695,19 +1444,7 @@ const WebsiteTest = ({ onBack }) => {
         onMenuScrollLock={handleMenuScrollLock}
         mobilePreview={useMobileLayout}
         showThemeControls={!activeCaseStudy && !activeNavPage}
-        onLogoClick={() => triggerScreenTransition(() => {
-          if (activeNavPage) {
-            setActiveNavPage(null);
-          }
-          if (containerRef.current) {
-            if (lenisRef.current) {
-              lenisRef.current.scrollTo(0, { immediate: true, force: true });
-            } else {
-              containerRef.current.scrollTop = 0;
-            }
-          }
-          window.requestAnimationFrame(() => ScrollTrigger.refresh());
-        })}
+        onLogoClick={handleHomeNavigation}
       />
 
       <div ref={contentRef} className="wt-scroll-content">
@@ -1734,7 +1471,7 @@ const WebsiteTest = ({ onBack }) => {
           <p className="hero-text__subtitle">
             <span className="wt-hero-role-line">
               <span>A Budapest-based Hungarian</span>
-              <HeroRoleReel />
+              <HeroRoleReel active={homeEffectsActive} />
             </span>
             <span className="wt-hero-specialties">
               Specializing in 3D visualization, vector illustration, social media content, web and interface design.
@@ -1750,30 +1487,31 @@ const WebsiteTest = ({ onBack }) => {
           <div className="wt-featured-visual-stack">
             <div className="wt-featured-image-wrap">
               <div className="wt-featured-image-track">
-                {featuredProjects.map((project, projectIndex) => (
+                {featuredProjects.map((project) => (
+                  <div className="wt-featured-image-layer" key={project.title}>
+                  {
                   project.video && !useMobileLayout ? (
                     <video
-                      key={project.title}
-                      className="wt-featured-image wt-featured-image-layer"
+                      className="wt-featured-image"
                       muted
                       loop
                       playsInline
                       preload="none"
-                      poster={project.image || card1Image}
+                      poster={featuredMediaReady ? project.image || card1Image : undefined}
                       aria-label={`${project.title} project preview`}
                     >
-                      <source src={project.video} type="video/mp4" />
+                      <source src={featuredMediaReady ? project.video : undefined} type="video/mp4" />
                     </video>
                   ) : (
                     <img
-                      key={project.title}
-                      src={project.image || card1Image}
+                      src={featuredMediaReady ? project.image || card1Image : undefined}
                       alt={`${project.title} project preview`}
-                      className="wt-featured-image wt-featured-image-layer"
-                      loading={projectIndex === 0 ? 'eager' : 'lazy'}
-                      fetchPriority={projectIndex === 0 ? 'high' : 'low'}
+                      className="wt-featured-image"
+                      decoding="async"
+                      fetchPriority="low"
                     />
-                  )
+                  )}
+                  </div>
                 ))}
               </div>
               <div className="wt-image-progress" aria-hidden="true">
@@ -1799,7 +1537,7 @@ const WebsiteTest = ({ onBack }) => {
                   <button
                     type="button"
                     className="wt-featured-button"
-                    onClick={() => openCaseStudy(project)}
+                    onClick={(event) => openCaseStudy(project, event.currentTarget)}
                   >
                     View case study
                   </button>
@@ -1812,11 +1550,10 @@ const WebsiteTest = ({ onBack }) => {
 
       </section>
 
-      {/* ─── 2. Text Reveal → Gradient Title Transition → Contact Scene ─── */}
+      {/* ─── 2. Text Reveal → Contact Transition → Final Scene ─── */}
       <section id="contact" className="wt-blur-section wt-skill-transition-section">
         <div className="wt-skill-transition-stage">
-          {USE_BUBBLE_CONTACT_EXPERIMENT && (
-            <div className="wt-bubble-contact-experience">
+          <div className="wt-bubble-contact-experience">
               <div className="wt-bubble-blackout" aria-hidden="true" />
 
               <div className="wt-bubble-final-scene">
@@ -1848,10 +1585,11 @@ const WebsiteTest = ({ onBack }) => {
                   </div>
                 </div>
 
-                {!useMobileLayout && handAssets && (
+                {!useMobileLayout && (
                   <AsciiHandsArtWithTrail
-                    handLeftSvg={handAssets.left}
-                    handRightSvg={handAssets.right}
+                    active={homeEffectsActive && Boolean(handAssets)}
+                    handLeftSvg={handAssets?.left}
+                    handRightSvg={handAssets?.right}
                   />
                 )}
 
@@ -1862,7 +1600,7 @@ const WebsiteTest = ({ onBack }) => {
                     className="custom-folder"
                     items={socialItems}
                   />
-                  <span className="wt-bubble-contact-folder-hint">Click to open</span>
+                  <span className="wt-bubble-contact-folder-hint">{useMobileLayout ? 'Tap to open' : 'Click to open'}</span>
                 </div>
 
                 <div className="wt-bubble-final-name-mask">
@@ -1873,7 +1611,6 @@ const WebsiteTest = ({ onBack }) => {
                 <p className="wt-bubble-final-email">tamasgaldesign@gmail.com</p>
               </div>
 
-              <div className="wt-bubble-disc" aria-hidden="true" />
               <div className="wt-bubble-white-panel">
                 <DeferredColorBends
                   active={homeEffectsActive}
@@ -1895,24 +1632,7 @@ const WebsiteTest = ({ onBack }) => {
                 />
                 <h2 className="wt-bubble-contact-word">contact</h2>
               </div>
-            </div>
-          )}
-
-          {!USE_BUBBLE_CONTACT_EXPERIMENT && (
-            <>
-              <div className="wt-contact-wash" aria-hidden="true">
-                <div className="wt-contact-gradient-curtain" />
-              </div>
-              <div className="wt-contact-wash-drift" aria-hidden="true" />
-              <div className="wt-contact-transition-title" aria-hidden="true">
-                <div className="wt-contact-transition-title__mask">
-                  <h2 className="wt-contact-transition-title__inner">
-                    <span>Let's work</span> <em>together.</em>
-                  </h2>
-                </div>
-              </div>
-            </>
-          )}
+          </div>
 
           {/* 3D exhibition stage: nine choreographed cards + the central sentence */}
           <div className="wt-exhibit-stage">
@@ -1962,46 +1682,6 @@ const WebsiteTest = ({ onBack }) => {
             </h2>
           </div>
 
-          {/* Final scene: contact content lives inside the pin and is revealed by the same timeline */}
-          {!USE_BUBBLE_CONTACT_EXPERIMENT && (
-          <div className="wt-contact-scene">
-            <div className="wt-contact-side-rays" aria-hidden="true">
-              <SideRays
-                speed={1.4}
-                rayColor1="#f4f1ff"
-                rayColor2="#9fd8ff"
-                intensity={2.4}
-                spread={2.15}
-                origin="top-right"
-                tilt={0}
-                saturation={1.25}
-                blend={0.65}
-                falloff={1.45}
-                opacity={1}
-              />
-            </div>
-            <div className="wt-contact-container">
-              <p className="wt-contact-desc">
-                I'm always looking for new projects and collaborations. If you have a project in mind, or just want to say hello, please get in touch.
-              </p>
-
-              <div className="folder-container wt-contact-folder">
-                <Folder size={isMobile ? 1.3 : 1.65} color="#b8b8c0" className="custom-folder" items={socialItems} />
-                <div className="folder-base-line" style={{ marginTop: '55px' }} />
-              </div>
-
-              <div className="wt-contact-profile">
-                <p className="wt-profile-name">Tamas Gal</p>
-                <span className="wt-profile-email">tamasgaldesign@gmail.com</span>
-              </div>
-
-            </div>
-
-            <footer className="wt-new-footer">
-              <p className="wt-footer-copyright">© 2026 Tamas Gal - All rights reserved</p>
-            </footer>
-          </div>
-          )}
         </div>
       </section>
       </div>
@@ -2014,7 +1694,7 @@ const WebsiteTest = ({ onBack }) => {
       )}
 
       {activeCaseStudy && (
-        <main className="wt-case-study-page" data-lenis-prevent>
+        <main ref={caseStudyRef} className="wt-case-study-page" role="dialog" aria-modal="true" aria-label={`${activeCaseStudy.title} case study`} data-lenis-prevent>
           <button type="button" className="wt-case-back" onClick={closeCaseStudy}>
             <span aria-hidden="true">←</span> Back
           </button>
@@ -2023,17 +1703,7 @@ const WebsiteTest = ({ onBack }) => {
             <h1>{activeCaseStudy.title}</h1>
             <p className="wt-case-subtitle">{activeCaseStudy.description}</p>
             <div className="wt-case-media">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                poster={activeCaseStudy.image}
-                aria-label={`${activeCaseStudy.title} case study video`}
-              >
-                <source src={activeCaseStudy.video} type="video/mp4" />
-              </video>
+              <CaseStudyMedia key={caseStudyProject.video || caseStudyProject.image} project={caseStudyProject} />
             </div>
           </section>
         </main>
@@ -2041,19 +1711,19 @@ const WebsiteTest = ({ onBack }) => {
 
       {activeNavPage === 'work' && (
         <Suspense fallback={null}>
-          <WorkArchivePage themePreset={headerTheme} />
+          <WorkArchivePage themePreset={headerTheme} onBack={handleHomeNavigation} />
         </Suspense>
       )}
 
       {activeNavPage === 'about' && (
         <Suspense fallback={null}>
-          <AboutProfilePage skills={skillLogos} themePreset={headerTheme} />
+          <AboutProfilePage skills={skillLogos} themePreset={headerTheme} onBack={handleHomeNavigation} />
         </Suspense>
       )}
 
       {activeNavPage === 'contact' && (
         <Suspense fallback={null}>
-          <ContactFormPage themePreset={headerTheme} />
+          <ContactFormPage themePreset={headerTheme} onBack={handleHomeNavigation} />
         </Suspense>
       )}
 

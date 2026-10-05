@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './WebsiteTestHeader.css';
-import logoDark from '../assets/logo-dark.png';
+import logoDark from '../assets/web-optimized/logo-dark.webp';
+import { useFocusScope } from '../hooks/useFocusScope';
+import { prefersReducedMotion } from '../utils/pageTransition';
+import { formatBudapestClock } from '../utils/clock';
 
 const headerThemeOptions = [
   { id: 'violet', number: '1', name: 'Violet' },
@@ -25,11 +28,17 @@ const WebsiteTestHeader = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMenuClosing, setIsMenuClosing] = useState(false);
   const [isMenuRestored, setIsMenuRestored] = useState(false);
+  const [themePickerOpen, setThemePickerOpen] = useState(false);
+  const menuRef = useRef(null);
+  const themeGroupRef = useRef(null);
+  const themeTriggerRef = useRef(null);
+  const focusThemeOptionsRef = useRef(false);
   const closeTimerRef = useRef(null);
   const scrollLockRef = useRef(null);
   const onMenuScrollLockRef = useRef(onMenuScrollLock);
   const [timeStr, setTimeStr] = useState('');
   const activeTheme = headerThemeOptions.find((theme) => theme.id === themePreset) || headerThemeOptions[0];
+  const isCollapsed = isScrolled || forceCollapsed;
   const togglePreviewTheme = () => {
     if (!mobilePreview) return;
     onThemePresetChange?.(themePreset === 'red' ? 'violet' : 'red');
@@ -41,19 +50,8 @@ const WebsiteTestHeader = ({
 
   useEffect(() => {
     if (!isMenuOpen) return undefined;
-    const formatter = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Europe/Budapest',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    });
     const updateClock = () => {
-      const parts = formatter.formatToParts(new Date());
-      const h = parts.find(p => p.type === 'hour').value;
-      const m = parts.find(p => p.type === 'minute').value;
-      const s = parts.find(p => p.type === 'second').value;
-      setTimeStr(`${h}:${m}:${s} (GMT+2)`);
+      setTimeStr(formatBudapestClock(new Date()));
     };
 
     updateClock();
@@ -83,7 +81,6 @@ const WebsiteTestHeader = ({
       }
       const scrollLock = scrollLockRef.current;
       if (scrollLock) {
-        window.removeEventListener('keydown', scrollLock.preventScrollKeys);
         scrollLockRef.current = null;
       }
       onMenuScrollLockRef.current?.(false);
@@ -160,27 +157,21 @@ const WebsiteTestHeader = ({
 
     const scrollContainer = document.querySelector('.wt-scroll-container');
     if (scrollContainer && !scrollLockRef.current) {
-      const preventScrollKeys = (event) => {
-        if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) {
-          event.preventDefault();
-        }
-      };
-
       scrollLockRef.current = {
         container: scrollContainer,
         scrollTop: scrollContainer.scrollTop,
-        preventScrollKeys
       };
-      window.addEventListener('keydown', preventScrollKeys, { passive: false });
       onMenuScrollLockRef.current?.(true);
     }
 
     setIsMenuClosing(false);
     setIsMenuRestored(restoreInstantly);
+    setThemePickerOpen(false);
     setIsMenuOpen(true);
   };
 
   const closeMenu = () => {
+    if (closeTimerRef.current) return;
     setIsMenuClosing(true);
 
     closeTimerRef.current = window.setTimeout(() => {
@@ -189,12 +180,11 @@ const WebsiteTestHeader = ({
       setIsMenuRestored(false);
       const scrollLock = scrollLockRef.current;
       if (scrollLock) {
-        window.removeEventListener('keydown', scrollLock.preventScrollKeys);
         scrollLockRef.current = null;
       }
       onMenuScrollLockRef.current?.(false);
       closeTimerRef.current = null;
-    }, 760);
+    }, prefersReducedMotion() ? 0 : 760);
   };
 
   useEffect(() => {
@@ -208,6 +198,7 @@ const WebsiteTestHeader = ({
   };
 
   const handleMenuNavigation = (page) => {
+    if (isMenuClosing) return;
     closeMenu();
     if (page === 'home') {
       if (onLogoClick) onLogoClick();
@@ -220,6 +211,21 @@ const WebsiteTestHeader = ({
     }
     navigateToPage(page, 'menu');
   };
+
+  useFocusScope(menuRef, { active: isMenuOpen, initialFocus: '.menu-drop__action--center', fallbackFocus: '.header__more-btn', onEscape: closeMenu });
+
+  useEffect(() => {
+    if (!themePickerOpen) return undefined;
+    if (focusThemeOptionsRef.current) {
+      themeGroupRef.current?.querySelector('[aria-pressed="true"]')?.focus({ preventScroll: true });
+      focusThemeOptionsRef.current = false;
+    }
+    const closeOutside = event => {
+      if (!themeGroupRef.current?.contains(event.target)) setThemePickerOpen(false);
+    };
+    document.addEventListener('pointerdown', closeOutside);
+    return () => document.removeEventListener('pointerdown', closeOutside);
+  }, [themePickerOpen]);
 
   // Pointer Proximity & Angle tracker for laser border glow effect
   const handlePointerMove = (e) => {
@@ -253,7 +259,7 @@ const WebsiteTestHeader = ({
 
   return (
     <>
-    <header className={`wt-site-header ${isScrolled || forceCollapsed ? 'wt-site-header--scrolled' : ''} ${isMenuOpen ? 'wt-site-header--menu-open' : ''}`}>
+    <header className={`wt-site-header ${isCollapsed ? 'wt-site-header--scrolled' : ''} ${isMenuOpen ? 'wt-site-header--menu-open' : ''}`} aria-label="Main navigation">
       <div className="wt-site-header__container">
         <div className="header__three-sections">
           
@@ -263,7 +269,7 @@ const WebsiteTestHeader = ({
             onPointerMove={handlePointerMove}
             onPointerLeave={handlePointerLeave}
           >
-            <button className="wt-site-header__logo" onClick={scrollToTop} aria-label="Scroll to top">
+            <button type="button" className="wt-site-header__logo" onClick={scrollToTop} aria-label="Home">
               <img 
                 src={logoDark} 
                 alt="Logo" 
@@ -276,29 +282,33 @@ const WebsiteTestHeader = ({
           {/* Section 2: Menu Links Box (disappears on scroll) */}
           <div 
             className="header__glass-box header__menu-box"
+            inert={isCollapsed ? true : undefined}
+            aria-hidden={isCollapsed ? true : undefined}
             onPointerMove={handlePointerMove}
             onPointerLeave={handlePointerLeave}
           >
             <div className="header__menu-links">
-              <button onClick={() => navigateToPage('work')} className="nav-link-btn">
+              <button type="button" tabIndex={isCollapsed ? -1 : undefined} onClick={() => navigateToPage('work')} className="nav-link-btn">
                 <span className="roll-text">
                   <span className="roll-text__original">Work</span>
-                  <span className="roll-text__copy">Work</span>
+                  <span className="roll-text__copy" aria-hidden="true">Work</span>
                 </span>
               </button>
-              <button onClick={() => navigateToPage('about')} className="nav-link-btn">
+              <button type="button" tabIndex={isCollapsed ? -1 : undefined} onClick={() => navigateToPage('about')} className="nav-link-btn">
                 <span className="roll-text">
                   <span className="roll-text__original">About</span>
-                  <span className="roll-text__copy">About</span>
+                  <span className="roll-text__copy" aria-hidden="true">About</span>
                 </span>
               </button>
-              <button onClick={() => navigateToPage('contact')} className="nav-link-btn">
+              <button type="button" tabIndex={isCollapsed ? -1 : undefined} onClick={() => navigateToPage('contact')} className="nav-link-btn">
                 <span className="roll-text">
                   <span className="roll-text__original">Contact</span>
-                  <span className="roll-text__copy">Contact</span>
+                  <span className="roll-text__copy" aria-hidden="true">Contact</span>
                 </span>
               </button>
               <button
+                type="button"
+                tabIndex={isCollapsed ? -1 : undefined}
                 onClick={handleGalleryClick}
                 onPointerEnter={handleGalleryPrepare}
                 onPointerDown={handleGalleryPrepare}
@@ -307,7 +317,7 @@ const WebsiteTestHeader = ({
               >
                 <span className="roll-text">
                   <span className="roll-text__original">Gallery</span>
-                  <span className="roll-text__copy">Gallery</span>
+                  <span className="roll-text__copy" aria-hidden="true">Gallery</span>
                 </span>
               </button>
             </div>
@@ -325,6 +335,7 @@ const WebsiteTestHeader = ({
               type="button"
               aria-label={isMenuOpen ? 'Close menu' : 'More options'}
               aria-expanded={isMenuOpen}
+              aria-controls="portfolio-menu"
               onClick={isMenuOpen ? closeMenu : () => openMenu(false)}
             >
               <div className="dots-icon">
@@ -344,21 +355,41 @@ const WebsiteTestHeader = ({
     {showThemeControls && (
     <div className={`wt-header-theme-controls${mobilePreview ? ' wt-header-theme-controls--mobile-preview' : ''}`} aria-label="Header appearance">
       <div
-        className="header__glass-box wt-header-theme-controls__group"
+        ref={themeGroupRef}
+        className={`header__glass-box wt-header-theme-controls__group${themePickerOpen ? ' is-open' : ''}`}
+        onPointerEnter={event => { if (!mobilePreview && event.pointerType === 'mouse') setThemePickerOpen(true); }}
         onPointerMove={handlePointerMove}
-        onPointerLeave={handlePointerLeave}
+        onPointerLeave={event => {
+          handlePointerLeave(event);
+          if (!event.currentTarget.contains(document.activeElement)) setThemePickerOpen(false);
+        }}
+        onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setThemePickerOpen(false); }}
+        onKeyDown={event => {
+          if (event.key === 'Escape' && themePickerOpen) {
+            event.preventDefault();
+            event.stopPropagation();
+            setThemePickerOpen(false);
+            themeTriggerRef.current?.focus({ preventScroll: true });
+          }
+        }}
       >
         <button
+          ref={themeTriggerRef}
           type="button"
           className="wt-header-theme-trigger"
           aria-label={mobilePreview ? `Toggle theme. Current theme: ${activeTheme.name}` : `Open theme picker. Current theme: ${activeTheme.name}`}
-          aria-haspopup={mobilePreview ? undefined : 'true'}
-          onClick={mobilePreview ? togglePreviewTheme : undefined}
+          aria-expanded={mobilePreview ? undefined : themePickerOpen}
+          aria-controls={mobilePreview ? undefined : 'portfolio-theme-options'}
+          tabIndex={!mobilePreview && themePickerOpen ? -1 : undefined}
+          onClick={mobilePreview ? togglePreviewTheme : () => {
+            focusThemeOptionsRef.current = true;
+            setThemePickerOpen(open => !open);
+          }}
         >
           <span className="wt-header-theme-trigger__number">{activeTheme.number}</span>
         </button>
         {!mobilePreview && (
-          <div className="wt-header-theme-options">
+          <div id="portfolio-theme-options" className="wt-header-theme-options" inert={!themePickerOpen ? true : undefined} aria-hidden={!themePickerOpen ? true : undefined}>
             {headerThemeOptions.map((theme, index) => (
               <button
                 key={theme.id}
@@ -367,9 +398,11 @@ const WebsiteTestHeader = ({
                 style={{ '--theme-option-index': index }}
                 aria-label={`Use ${theme.name.toLowerCase()} header theme`}
                 aria-pressed={themePreset === theme.id}
-                onClick={(event) => {
+                tabIndex={themePickerOpen ? undefined : -1}
+                onClick={() => {
                   onThemePresetChange?.(theme.id);
-                  event.currentTarget.blur();
+                  setThemePickerOpen(false);
+                  themeTriggerRef.current?.focus({ preventScroll: true });
                 }}
               >
                 {theme.number}
@@ -383,8 +416,14 @@ const WebsiteTestHeader = ({
     )}
     {isMenuOpen && (
       <div
+        ref={menuRef}
+        id="portfolio-menu"
         className={`menu-drop${isMenuClosing ? ' menu-drop--closing' : ''}${isMenuRestored ? ' menu-drop--restored' : ''}`}
-        aria-hidden={isMenuClosing ? 'true' : 'false'}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Portfolio menu"
+        aria-busy={isMenuClosing}
+        data-lenis-prevent
       >
         <div className="menu-drop__top">
           <button 
@@ -430,42 +469,30 @@ const WebsiteTestHeader = ({
           <div className="menu-drop__layout">
             {/* Left Column: Huge Links */}
             <div className="menu-drop__nav-column">
-              <button onClick={() => handleMenuNavigation('home')} className="menu-drop__nav-link">
+              <button type="button" onClick={() => handleMenuNavigation('home')} className="menu-drop__nav-link">
                 Home
               </button>
-              {mobilePreview && (
-                <button onClick={() => handleMenuNavigation('gallery')} className="menu-drop__nav-link">
-                  Gallery
-                </button>
-              )}
-              <button onClick={() => handleMenuNavigation('work')} className="menu-drop__nav-link">
+              <button type="button" onClick={() => handleMenuNavigation('gallery')} className="menu-drop__nav-link">
+                Gallery
+              </button>
+              <button type="button" onClick={() => handleMenuNavigation('work')} className="menu-drop__nav-link">
                 Work
               </button>
-              <button onClick={() => handleMenuNavigation('about')} className="menu-drop__nav-link">
+              <button type="button" onClick={() => handleMenuNavigation('about')} className="menu-drop__nav-link">
                 About
               </button>
-              <button onClick={() => handleMenuNavigation('contact')} className="menu-drop__nav-link">
+              <button type="button" onClick={() => handleMenuNavigation('contact')} className="menu-drop__nav-link">
                 Contact
               </button>
             </div>
 
-            {/* Right Column: Contact & Socials */}
+            {/* Right Column: Socials */}
             <div className="menu-drop__info-column">
-              {!mobilePreview && (
-              <div className="menu-drop__contact-block">
-                <ul className="menu-drop__contact-list">
-                  <li>+36 20 000 00 00</li>
-                  <li><span>Contact Me</span></li>
-                  <li><span>Available for select collaborations</span></li>
-                </ul>
-              </div>
-              )}
-
               <div className="menu-drop__socials-block">
                 <span className="menu-drop__socials-title">Social</span>
                 <div className="menu-drop__socials-list">
-                  <span>Instagram</span>
-                  <span>LinkedIn</span>
+                  <a href="https://www.instagram.com/arhivetkg/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                  <a href="https://www.linkedin.com/in/tamasgal77/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </div>
               </div>
             </div>

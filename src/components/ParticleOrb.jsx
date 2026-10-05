@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
-import logoDark from '../assets/logo-dark.png';
+import logoDark from '../assets/web-optimized/logo-dark.webp';
 import './ParticleOrb.css';
 
 const ParticleOrb = ({ onBack }) => {
@@ -233,8 +233,6 @@ const ParticleOrb = ({ onBack }) => {
     const currentOrbPosB = new THREE.Vector3(0, 0, 0);     // Sub-orb B current position
     const targetOrbPosB = new THREE.Vector3(0, 0, 0);      // Sub-orb B target position
     
-    const restOffset = new THREE.Vector3(0, 0, 0);
-
     let isMouseOver = false;
     let hoverStrength = 0;
     let isDragging = false;
@@ -242,7 +240,6 @@ const ParticleOrb = ({ onBack }) => {
     let shakeScore = 0;
     let isSplit = false;
     let splitProgress = 0;
-    let splitTimer = 0;
     let shakeAmount = 0;
 
     // Helper: Project 2D coordinates to 3D world space on the Z=0 plane
@@ -510,7 +507,6 @@ const ParticleOrb = ({ onBack }) => {
       if (shakeScore > 9.0 && !isSplit) { // Increased threshold to 9.0 (was 6.5)
         isSplit = true;
         shakeScore = 0; // Reset shake score on split
-        splitTimer = elapsedTime;
         
         // Initialize sub-orb coordinates with left/right spawn offset
         targetOrbPosA.copy(currentOrbPos).add(new THREE.Vector3(-0.9, 0, 0));

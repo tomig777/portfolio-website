@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { GALLERY_IMAGE_URLS, preparePlaygroundGallery } from '../utils/galleryAssets';
 import './PlaygroundDome.css';
 import { createAnimationLoop } from '../utils/animationLoop';
+import { useFocusScope } from '../hooks/useFocusScope';
 
 const MOSAIC_PATTERN = [
   { x: 0, y: 0, width: 17, height: 22, category: 'portrait' },
@@ -162,6 +163,8 @@ const postVertexShader = `
 `;
 
 export default function PlaygroundDome({ onClose }) {
+  const dialogRef = useRef(null);
+  useFocusScope(dialogRef, { initialFocus: '.pg-gallery-back', fallbackFocus: '.header__more-btn' });
   const containerRef = useRef(null);
   const mountRef = useRef(null);
   
@@ -730,7 +733,8 @@ export default function PlaygroundDome({ onClose }) {
       gridGroup.position.y = -wrappedY;
 
       // Raycast Hover updates
-      if (!isDragging && !isExpanded && hoverRaycastElapsed >= 1 / 30) {
+      if (!isDragging && !isExpanded && mouse.x >= -1 && mouse.x <= 1
+        && mouse.y >= -1 && mouse.y <= 1 && hoverRaycastElapsed >= 1 / 30) {
         hoverRaycastElapsed = 0;
         raycaster.setFromCamera(mouse, camera);
         const intersects = raycaster.intersectObjects(raycastMeshes, false);
@@ -781,11 +785,12 @@ export default function PlaygroundDome({ onClose }) {
 
     // 6. Resize listener
     const handleResize = () => {
-      const w = container.offsetWidth;
-      const h = container.offsetHeight;
+      const w = Math.max(1, container.offsetWidth);
+      const h = Math.max(1, container.offsetHeight);
       
       camera.aspect = w / h;
       camera.position.z = h / (2 * Math.tan((fov * Math.PI) / 360));
+      camera.far = camera.position.z * 2.5;
       camera.updateProjectionMatrix();
       
       renderer.setSize(w, h);
@@ -849,13 +854,16 @@ export default function PlaygroundDome({ onClose }) {
         container.removeChild(renderer.domElement);
       }
       renderer.dispose();
+      renderer.forceContextLoss();
     };
   }, [galleryImages]);
 
   return (
     <div
+      ref={dialogRef}
       className="playground-overlay"
-      role="region"
+      role="dialog"
+      aria-modal="true"
       aria-label={`Interactive gallery with ${GALLERY_IMAGE_URLS.length} images`}
       data-gallery-cells={cellsCount}
       data-gallery-switches={switchesCount}

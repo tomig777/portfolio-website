@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Color, Mesh, Program, Renderer, Triangle } from 'ogl';
 import './AuroraBackground.css';
+import { createAnimationLoop } from '../utils/animationLoop';
+import useGraphicsActivity from '../hooks/useGraphicsActivity';
 
 const VERTEX_SHADER = `#version 300 es
   in vec2 position;
@@ -103,14 +105,36 @@ const AuroraBackground = ({
   amplitude = 1,
   blend = 0.5,
   speed = 1,
+  active = true,
 }) => {
   const containerRef = useRef(null);
   const propsRef = useRef({ colorStops, amplitude, blend, speed });
-  propsRef.current = { colorStops, amplitude, blend, speed };
+  const uniformsRef = useRef(null);
+  const loopRef = useRef(null);
+  const runningRef = useRef(false);
+  const { ready, running } = useGraphicsActivity(containerRef, active);
+
+  useEffect(() => {
+    propsRef.current = { colorStops, amplitude, blend, speed };
+    const uniforms = uniformsRef.current;
+    if (!uniforms) return;
+    uniforms.uAmplitude.value = amplitude;
+    uniforms.uBlend.value = blend;
+    uniforms.uColorStops.value = colorStops.map(hex => {
+      const color = new Color(hex);
+      return [color.r, color.g, color.b];
+    });
+  }, [colorStops, amplitude, blend, speed]);
+
+  useEffect(() => {
+    runningRef.current = running;
+    loopRef.current?.setActive(running);
+  }, [running]);
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return undefined;
+    if (!ready || !container) return undefined;
+    const { amplitude, blend, colorStops } = propsRef.current;
 
     const renderer = new Renderer({
       alpha: true,
@@ -143,37 +167,46 @@ const AuroraBackground = ({
       },
     });
     const mesh = new Mesh(gl, { geometry, program });
+    uniformsRef.current = program.uniforms;
     container.appendChild(gl.canvas);
 
+    let previousWidth = 0;
+    let previousHeight = 0;
     const resize = () => {
-      const width = container.offsetWidth;
-      const height = container.offsetHeight;
+      const width = Math.max(1, container.offsetWidth);
+      const height = Math.max(1, container.offsetHeight);
+      if (width === previousWidth && height === previousHeight) return;
+      previousWidth = width;
+      previousHeight = height;
       renderer.setSize(width, height);
       program.uniforms.uResolution.value = [width, height];
     };
 
-    let animationFrame = 0;
     const render = (time) => {
       const current = propsRef.current;
       program.uniforms.uTime.value = time * 0.0001 * current.speed;
-      program.uniforms.uAmplitude.value = current.amplitude;
-      program.uniforms.uBlend.value = current.blend;
-      program.uniforms.uColorStops.value = toColorArray(current.colorStops);
       renderer.render({ scene: mesh });
-      animationFrame = requestAnimationFrame(render);
     };
 
     window.addEventListener('resize', resize);
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(container);
     resize();
-    animationFrame = requestAnimationFrame(render);
+    const animation = createAnimationLoop(render, { maxFps: 60, active: runningRef.current });
+    loopRef.current = animation;
 
     return () => {
-      cancelAnimationFrame(animationFrame);
+      animation.dispose();
+      loopRef.current = null;
+      uniformsRef.current = null;
       window.removeEventListener('resize', resize);
+      resizeObserver.disconnect();
+      geometry.remove();
+      program.remove();
       if (gl.canvas.parentNode === container) container.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [amplitude, blend, colorStops]);
+  }, [ready]);
 
   return <div ref={containerRef} className="aurora-background" />;
 };

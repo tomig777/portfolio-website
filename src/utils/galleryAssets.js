@@ -1,3 +1,5 @@
+import { mapAssetsWithConcurrency } from './assetLoading';
+
 const galleryOptimizedModules = import.meta.glob(
   '../assets/gallery-optimized/*.webp',
   { eager: true, import: 'default' }
@@ -20,7 +22,9 @@ function loadGalleryImageMetadata(imageUrl) {
   return new Promise((resolve) => {
     const image = new Image();
     image.decoding = 'async';
-    image.onload = () => {
+    image.onload = async () => {
+      // Avoid starting all texture decodes together on a low-memory phone.
+      await image.decode?.().catch(() => {});
       const aspectRatio = image.naturalWidth / image.naturalHeight;
       resolve({ imageUrl, image, aspectRatio, category: getImageCategory(aspectRatio) });
     };
@@ -33,7 +37,7 @@ let galleryMetadataPromise = null;
 
 export function preparePlaygroundGallery() {
   if (!galleryMetadataPromise) {
-    galleryMetadataPromise = Promise.all(GALLERY_IMAGE_URLS.map(loadGalleryImageMetadata));
+    galleryMetadataPromise = mapAssetsWithConcurrency(GALLERY_IMAGE_URLS, loadGalleryImageMetadata, 4);
   }
 
   return galleryMetadataPromise;

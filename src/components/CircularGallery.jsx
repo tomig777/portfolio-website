@@ -1,6 +1,6 @@
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 
 import './CircularGallery.css';
 
@@ -381,7 +381,7 @@ class App {
     this.scroll.position = this.scroll.current;
     this.start = e.touches ? e.touches[0].clientX : e.clientX;
   }
-  onTouchMove(e) {
+  onTouchMove() {
     // Manual swiping disabled per user request
   }
   onTouchUp(e) {
@@ -406,7 +406,7 @@ class App {
       }
     }
   }
-  onWheel(e) {
+  onWheel() {
     // Manual wheel scrolling disabled per user request
   }
   onCheck() {
@@ -520,7 +520,7 @@ export default function CircularGallery({
       <div ref={containerRef} style={{ width: '100%', height: '100%' }} />
       <AnimatePresence>
         {activeItem && (
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -549,7 +549,7 @@ export default function CircularGallery({
                 boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
               }}
             />
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </div>

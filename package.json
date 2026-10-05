@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test",
+    "baseline:build": "node scripts/baseline/build-report.mjs",
+    "baseline:preview": "node scripts/baseline/preview.mjs",
+    "baseline:check": "node scripts/baseline/check-report.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

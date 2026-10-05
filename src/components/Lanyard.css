@@ -8,3 +8,7 @@
   align-items: center;
   transform-origin: center;
 }
+
+.lanyard-wrapper canvas {
+  touch-action: pan-y;
+}

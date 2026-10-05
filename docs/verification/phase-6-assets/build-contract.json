@@ -1,0 +1,11 @@
+{
+  "physicsVersion": "0.19.2",
+  "physicsBytes": 1569397,
+  "physicsSha256": "18157113bd106b5c9644f4a293fea7ba8513e9d44a8b2ec47d11225439c381ca",
+  "binaryUnchanged": true,
+  "wasmCompiles": true,
+  "embeddedBase64Removed": true,
+  "lanyardJsBytes": 187339,
+  "separateNavEntries": true,
+  "localFontsAndHeroPreload": true
+}

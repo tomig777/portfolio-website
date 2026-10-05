@@ -12,7 +12,6 @@ const CreativeScrollBio = ({ scrollContainerRef }) => {
   // SVG and DOM element references for animations
   const sparkCircle1 = useRef(null);
   const sparkCircle2 = useRef(null);
-  const gridLines = useRef([]);
   const cubeWireframe = useRef(null);
   const vertexPoints = useRef([]);
 

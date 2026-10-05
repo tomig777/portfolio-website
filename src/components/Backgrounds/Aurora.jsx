@@ -60,12 +60,6 @@ const Aurora = ({
     }
   }, [colorTheme]);
 
-  const animationStyle = {
-    animationDuration: `${20 / speed}s`,
-    opacity: opacity,
-    transform: `scale(${scale})`
-  };
-
   return (
     <div className="aurora-container" style={{ opacity }}>
       <div className="aurora-blob aurora-blob--1" style={{ 

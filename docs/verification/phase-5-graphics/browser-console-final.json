@@ -1,0 +1,398 @@
+{
+  "generatedAt": "2026-10-01T20:13:27.109Z",
+  "runtimeSourceSha256": "3fdb9a25ae8a345d05ba433eafea266eee593bd8dec6a13b273e44aa496961b0",
+  "note": "Main tab log covers this turn across candidate rebuilds and final verification; requested log limit is 250, not an all-route/lifetime error audit.",
+  "main": [
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:40:57.791Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Cagxw0_t.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:40:57.791Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Cagxw0_t.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:40:57.792Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Cagxw0_t.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:40:57.792Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Cagxw0_t.js"
+    },
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-01T19:40:57.957Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-D-fw6q9P.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:44:13.123Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:44:13.124Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:44:13.124Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:44:13.125Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-01T19:44:13.294Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-BjdDNfVw.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:46:13.261Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:46:13.262Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:46:13.262Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:46:13.263Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:46:13.298Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:46:13.298Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:46:13.299Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:46:13.300Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-DBGj_XAg.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:50:11.183Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:50:11.183Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:50:11.183Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:50:11.184Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-01T19:50:11.337Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-CoTS5I55.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:51:22.944Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:51:22.945Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:51:22.945Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:51:22.945Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:51:22.970Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:51:22.971Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:51:22.971Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:51:22.971Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-CdZkJxVh.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:54:03.492Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:54:03.493Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:54:03.493Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:54:03.494Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-01T19:54:03.582Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-BpOxsunm.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:54:58.334Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:54:58.334Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:54:58.335Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:54:58.335Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:56:43.367Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:56:43.368Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:56:43.368Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:56:43.368Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:56:43.396Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:56:43.397Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:56:43.397Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:56:43.397Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:58:53.359Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:58:53.359Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:58:53.360Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:58:53.360Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "using deprecated parameters for the initialization function; pass a single object instead",
+      "timestamp": "2026-10-01T19:58:53.718Z",
+      "url": "http://127.0.0.1:4173/assets/Lanyard-BpOxsunm.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:59:51.295Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:59:51.295Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:59:51.296Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T19:59:51.296Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T20:04:06.715Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T20:04:06.716Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T20:04:06.716Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T20:04:06.716Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T20:04:06.744Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T20:04:06.745Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T20:04:06.745Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-01T20:04:06.745Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-BX2M7IwW.js"
+    }
+  ],
+  "recordRoute": []
+}

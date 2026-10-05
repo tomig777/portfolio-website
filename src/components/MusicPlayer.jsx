@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { finiteMediaTime, getNextTrackIndex } from '../utils/musicPlayback';
 
 import devilInANewDress from '../assets/devilinanewdress.mp3';
 import mbdtfCover from '../assets/mbdtf_cover.jpg';
@@ -183,6 +184,8 @@ const MusicPlayer = () => {
   const [finishId, setFinishId] = useState('silver');
   const [backgroundId, setBackgroundId] = useState('midnight');
   const volumeTimeoutRef = useRef(null);
+  const playNextRef = useRef(false);
+  const playbackRequestRef = useRef(0);
 
   const track = tracks[trackIndex];
   const selectedFinish = IPOD_FINISHES.find((finish) => finish.id === finishId) || IPOD_FINISHES[0];
@@ -194,14 +197,43 @@ const MusicPlayer = () => {
     [trackIndex]
   );
 
+  const selectTrack = useCallback((direction, keepPlaying) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const resume = keepPlaying ?? (!audio.paused || playNextRef.current);
+    const request = ++playbackRequestRef.current;
+    audio.pause();
+
+    if (tracks.length === 1) {
+      audio.currentTime = 0;
+      setCurrentTime(0);
+      setScreenVersion((version) => version + 1);
+      setNotice(direction > 0 ? 'Next track' : 'Previous track');
+      if (resume) audio.play().catch(() => {
+        if (audioRef.current === audio && playbackRequestRef.current === request) setIsPlaying(false);
+      });
+      return;
+    }
+
+    playNextRef.current = resume;
+    setTrackIndex(getNextTrackIndex(trackIndex, tracks.length, direction, isShuffle));
+    setCurrentTime(0);
+    setDuration(0);
+    setScreenVersion((version) => version + 1);
+  }, [isShuffle, trackIndex]);
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return undefined;
 
-    const handleLoadedMetadata = () => setDuration(audio.duration || 0);
-    const handleTimeUpdate = () => setCurrentTime(audio.currentTime || 0);
+    const handleLoadedMetadata = () => setDuration(finiteMediaTime(audio.duration));
+    const handleTimeUpdate = () => setCurrentTime(finiteMediaTime(audio.currentTime));
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
+    const handleError = () => {
+      setIsPlaying(false);
+      setNotice('Audio unavailable');
+    };
     const handleEnded = () => {
       if (tracks.length === 1) {
         audio.currentTime = 0;
@@ -218,6 +250,7 @@ const MusicPlayer = () => {
     audio.addEventListener('play', handlePlay);
     audio.addEventListener('pause', handlePause);
     audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('error', handleError);
 
     if (audio.readyState >= 1) {
       handleLoadedMetadata();
@@ -231,7 +264,21 @@ const MusicPlayer = () => {
       audio.removeEventListener('play', handlePlay);
       audio.removeEventListener('pause', handlePause);
       audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('error', handleError);
     };
+  }, [selectTrack]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || !playNextRef.current) return;
+    playNextRef.current = false;
+    const request = playbackRequestRef.current;
+    // The new src has now been committed; do not race React with an untracked rAF.
+    audio.play().catch(() => {
+      if (audioRef.current !== audio || playbackRequestRef.current !== request) return;
+      setIsPlaying(false);
+      setNotice('Press play again');
+    });
   }, [trackIndex]);
 
   useEffect(() => {
@@ -247,8 +294,14 @@ const MusicPlayer = () => {
     audio.muted = isMuted;
   }, [volume, isMuted]);
 
-  useEffect(() => () => {
-    window.clearTimeout(volumeTimeoutRef.current);
+  useEffect(() => {
+    const audio = audioRef.current;
+    return () => {
+      window.clearTimeout(volumeTimeoutRef.current);
+      playbackRequestRef.current += 1;
+      playNextRef.current = false;
+      audio?.pause();
+    };
   }, []);
 
   const revealVolume = () => {
@@ -286,56 +339,23 @@ const MusicPlayer = () => {
   const togglePlayback = async () => {
     const audio = audioRef.current;
     if (!audio) return;
+    const request = ++playbackRequestRef.current;
+    playNextRef.current = false;
 
     if (audio.paused) {
       try {
         await audio.play();
       } catch {
-        setNotice('Press play again');
+        if (audioRef.current === audio && playbackRequestRef.current === request) setNotice('Press play again');
       }
     } else {
       audio.pause();
     }
   };
 
-  const selectTrack = (direction, keepPlaying = isPlaying) => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (tracks.length === 1) {
-      audio.currentTime = 0;
-      setCurrentTime(0);
-      setScreenVersion((version) => version + 1);
-      setNotice(direction > 0 ? 'Next track' : 'Previous track');
-      if (keepPlaying) audio.play().catch(() => setIsPlaying(false));
-      return;
-    }
-
-    let nextIndex;
-    if (isShuffle) {
-      do {
-        nextIndex = Math.floor(Math.random() * tracks.length);
-      } while (nextIndex === trackIndex && tracks.length > 1);
-    } else {
-      nextIndex = (trackIndex + direction + tracks.length) % tracks.length;
-    }
-
-    setTrackIndex(nextIndex);
-    setCurrentTime(0);
-    setDuration(0);
-    setScreenVersion((version) => version + 1);
-
-    window.requestAnimationFrame(() => {
-      const nextAudio = audioRef.current;
-      if (keepPlaying && nextAudio) nextAudio.play().catch(() => setIsPlaying(false));
-    });
-  };
-
   const toggleShuffle = () => {
-    setIsShuffle((value) => {
-      setNotice(`Shuffle ${value ? 'Off' : 'On'}`);
-      return !value;
-    });
+    setNotice(`Shuffle ${isShuffle ? 'Off' : 'On'}`);
+    setIsShuffle((value) => !value);
   };
 
   const seek = (event) => {

@@ -4,18 +4,16 @@ import Header from '../components/Header';
 import VideoBackground from '../components/VideoBackground';
 import WorkModal from '../components/WorkModal';
 import ResumeModal from '../components/ResumeModal';
-import PerformanceOptimized from '../components/PerformanceOptimized';
 import StarConstellation from '../components/StarConstellation';
 import ShinyText from '../components/ShinyText';
 import { Suspense, lazy } from 'react';
-import { SiFigma, SiBlender, SiDavinciresolve, SiInstagram, SiAutodesk, SiCinema4D, SiThreedotjs } from 'react-icons/si';
+import { SiFigma, SiBlender, SiDavinciresolve, SiInstagram, SiAutodesk, SiCinema4D } from 'react-icons/si';
 import { FaLinkedin } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
-import cardImage from '../assets/port1.jpg';
-import card1Image from '../assets/szia.png';
+import card1Image from '../assets/web-optimized/szia.webp';
 import portraitImage from '../assets/portrait_3.png';
-import nukeLogo from '../assets/nuke_logo2.png';
-import substanceLogo from '../assets/substance_logo.png';
+import nukeLogo from '../assets/web-optimized/nuke_logo2.webp';
+import substanceLogo from '../assets/web-optimized/substance_logo.webp';
 import kep9 from '../assets/kep9.png';
 
 const SkillBadge = ({ children }) => (
@@ -29,7 +27,6 @@ const BorderGlow = lazy(() => import('../components/BorderGlow'));
 const ProfileCard = lazy(() => import('../components/ProfileCard'));
 const Folder = lazy(() => import('../components/Folder'));
 const ZenPond = lazy(() => import('../components/ZenPond'));
-const TiltedCard = lazy(() => import('../components/TiltedCard'));
 import ScrollIndicator from '../components/ScrollIndicator';
 import ErrorBoundary from '../components/ErrorBoundary';
 
@@ -81,7 +78,6 @@ const Home = () => {
     img.src = kep9;
   }, []);
 
-  const [activeTab, setActiveTab] = useState('ALL');
   const [showResumeModal, setShowResumeModal] = useState(false);
 
   const aboutTitleRef = useRef(null);
@@ -108,9 +104,7 @@ const Home = () => {
   return (
     <div className="App">
       <div className="plasma-background">
-        <VideoBackground
-          opacity={0.8}
-        />
+        <VideoBackground />
       </div>
       <Header onResumeClick={() => setShowResumeModal(true)} />
 
@@ -218,13 +212,9 @@ const Home = () => {
               <ProfileCard
                 name="Tamas Gal"
                 title="Media Designer"
-                handle="tamasgal"
-                status="Available"
                 avatarUrl={portraitImage}
-                showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}
-                hideContact={true}
                 monoColor={true}
               />
             </Suspense>

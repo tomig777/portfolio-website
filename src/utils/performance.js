@@ -10,6 +10,8 @@ export const detectDevicePerformance = () => {
   const canvas = document.createElement('canvas');
   const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
   const isWebGLSupported = !!gl;
+  // This is a temporary capability probe, not a renderer. Release its context.
+  gl?.getExtension('WEBGL_lose_context')?.loseContext();
   
   // Check for dedicated GPU (rough estimation)
   const hasDedicatedGPU = !isMobile && !isTouch && navigator.hardwareConcurrency > 4;

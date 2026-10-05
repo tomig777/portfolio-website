@@ -1,0 +1,54 @@
+{
+  "phone": [
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T01:08:06.652Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T01:08:06.652Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T01:08:06.652Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T01:08:06.653Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-D5lbEVPy.js"
+    }
+  ],
+  "desktop": [
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:57:54.683Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:57:54.683Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:57:54.684Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    },
+    {
+      "level": "warn",
+      "message": "GSAP target null not found. https://gsap.com",
+      "timestamp": "2026-10-02T00:57:54.685Z",
+      "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+    }
+  ]
+}

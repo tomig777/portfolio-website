@@ -1,0 +1,618 @@
+{
+  "sourceHash": "7e59324f10e26c1b4010a4a7e9782998632dd4f7fc379e70910a85ab0536f6c9",
+  "desktop": {
+    "graphics": [
+      {
+        "canvases": [
+          {
+            "height": 1170,
+            "motion": null,
+            "width": 1852
+          }
+        ],
+        "class": "darkveil-canvas",
+        "state": "running"
+      },
+      {
+        "canvases": [
+          {
+            "height": 900,
+            "motion": "settled",
+            "width": 1425
+          }
+        ],
+        "class": "lanyard-wrapper",
+        "state": "running"
+      },
+      {
+        "canvases": [],
+        "class": "wt-hero-role-window",
+        "state": "running"
+      }
+    ],
+    "images": [
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 497,
+        "naturalWidth": 505,
+        "priority": "auto",
+        "src": "http://127.0.0.1:4173/assets/logo-dark-CwVoIOUT.webp"
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      },
+      {
+        "complete": true,
+        "loading": "auto",
+        "naturalHeight": 0,
+        "naturalWidth": 0,
+        "priority": "low",
+        "src": ""
+      }
+    ],
+    "metrics": {
+      "capturedAt": "2026-10-02T00:58:33.322Z",
+      "cls": 0,
+      "currentPath": "/",
+      "elapsedMs": 39030,
+      "environment": {
+        "deviceMemoryGiB": 32,
+        "hardwareConcurrency": 16,
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+        "visibility": "visible"
+      },
+      "initialPath": "/",
+      "largestContentfulPaint": {
+        "element": "SPAN",
+        "size": 170343,
+        "timeMs": 428
+      },
+      "longTasks": {
+        "count": 2,
+        "recent8sCount": 0,
+        "totalDurationMs": 122,
+        "worst": [
+          {
+            "durationMs": 70,
+            "startTimeMs": 803.1000001430511
+          },
+          {
+            "durationMs": 52,
+            "startTimeMs": 348.2999999523163
+          }
+        ]
+      },
+      "navigation": {
+        "domContentLoadedMs": 42.40000009536743,
+        "loadEventMs": 56.10000014305115,
+        "responseEndMs": 3.799999952316284,
+        "type": "navigate"
+      },
+      "notes": [
+        "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+        "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+        "Zero transfer size can indicate a cache hit or restricted timing information.",
+        "Probe module requests are excluded from the resource totals.",
+        "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+        "The probe adds a rAF callback and publishes this hidden output once per second."
+      ],
+      "recent8sRafCadence": {
+        "gapsOver50Ms": 0,
+        "maxMs": 7.2,
+        "meanMs": 6.95,
+        "medianMs": 6.9,
+        "p95Ms": 7.1,
+        "samples": 1152
+      },
+      "resources": {
+        "count": 26,
+        "largestObserved": [
+          {
+            "decodedBodyBytes": 1569397,
+            "durationMs": 3.4,
+            "encodedBodyBytes": 1569397,
+            "initiator": "fetch",
+            "transferBytes": 1569697,
+            "url": "http://127.0.0.1:4173/assets/rapier-physics-Dl0GQskJ.wasm"
+          },
+          {
+            "decodedBodyBytes": 704525,
+            "durationMs": 5.6,
+            "encodedBodyBytes": 704525,
+            "initiator": "script",
+            "transferBytes": 704825,
+            "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+          },
+          {
+            "decodedBodyBytes": 235336,
+            "durationMs": 7.6,
+            "encodedBodyBytes": 235336,
+            "initiator": "script",
+            "transferBytes": 235636,
+            "url": "http://127.0.0.1:4173/assets/index-DVqoXpkI.js"
+          },
+          {
+            "decodedBodyBytes": 212240,
+            "durationMs": 2.1,
+            "encodedBodyBytes": 212240,
+            "initiator": "fetch",
+            "transferBytes": 212540,
+            "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+          },
+          {
+            "decodedBodyBytes": 187339,
+            "durationMs": 5,
+            "encodedBodyBytes": 187339,
+            "initiator": "script",
+            "transferBytes": 187639,
+            "url": "http://127.0.0.1:4173/assets/Lanyard-B36P9ro1.js"
+          },
+          {
+            "decodedBodyBytes": 158362,
+            "durationMs": 2.7,
+            "encodedBodyBytes": 158362,
+            "initiator": "script",
+            "transferBytes": 158662,
+            "url": "http://127.0.0.1:4173/assets/extends-CtHePiDv.js"
+          },
+          {
+            "decodedBodyBytes": 132244,
+            "durationMs": 3.5,
+            "encodedBodyBytes": 132244,
+            "initiator": "script",
+            "transferBytes": 132544,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-a-3KCb2D.js"
+          },
+          {
+            "decodedBodyBytes": 125723,
+            "durationMs": 5.3,
+            "encodedBodyBytes": 125723,
+            "initiator": "script",
+            "transferBytes": 126023,
+            "url": "http://127.0.0.1:4173/assets/Environment-CpJ77-gq.js"
+          },
+          {
+            "decodedBodyBytes": 74619,
+            "durationMs": 3.5,
+            "encodedBodyBytes": 74619,
+            "initiator": "script",
+            "transferBytes": 74919,
+            "url": "http://127.0.0.1:4173/assets/pageTransition-Dmh652fn.js"
+          },
+          {
+            "decodedBodyBytes": 66874,
+            "durationMs": 5.4,
+            "encodedBodyBytes": 66874,
+            "initiator": "link",
+            "transferBytes": 67174,
+            "url": "http://127.0.0.1:4173/assets/WebsiteTest-Uz6YAaAZ.css"
+          },
+          {
+            "decodedBodyBytes": 51530,
+            "durationMs": 7.4,
+            "encodedBodyBytes": 51530,
+            "initiator": "link",
+            "transferBytes": 51830,
+            "url": "http://127.0.0.1:4173/assets/index-CXxrnaEn.css"
+          },
+          {
+            "decodedBodyBytes": 48256,
+            "durationMs": 49.5,
+            "encodedBodyBytes": 48256,
+            "initiator": "css",
+            "transferBytes": 48556,
+            "url": "http://127.0.0.1:4173/assets/inter-v20-UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7-Dx4kXJAl.woff2"
+          },
+          {
+            "decodedBodyBytes": 44196,
+            "durationMs": 5.5,
+            "encodedBodyBytes": 44196,
+            "initiator": "script",
+            "transferBytes": 44496,
+            "url": "http://127.0.0.1:4173/assets/Mesh-uU8OXhrh.js"
+          },
+          {
+            "decodedBodyBytes": 36508,
+            "durationMs": 7.2,
+            "encodedBodyBytes": 36508,
+            "initiator": "link",
+            "transferBytes": 36808,
+            "url": "http://127.0.0.1:4173/assets/Yink-CEkPJqof.woff2"
+          },
+          {
+            "decodedBodyBytes": 32292,
+            "durationMs": 49.1,
+            "encodedBodyBytes": 32292,
+            "initiator": "css",
+            "transferBytes": 32592,
+            "url": "http://127.0.0.1:4173/assets/outfit-v15-QGYvz_MVcBeNP4NJtEtq-Bc-8i84L.woff2"
+          },
+          {
+            "decodedBodyBytes": 13126,
+            "durationMs": 3.4,
+            "encodedBodyBytes": 13126,
+            "initiator": "script",
+            "transferBytes": 13426,
+            "url": "http://127.0.0.1:4173/assets/substance_logo-BBfbBa09.js"
+          }
+        ],
+        "reportedTransferBytes": 3718688,
+        "zeroOrUnavailableTransferCount": 0
+      },
+      "schemaVersion": 1,
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      }
+    },
+    "videos": [],
+    "viewport": {
+      "dpr": 1,
+      "height": 900,
+      "width": 1440
+    }
+  },
+  "workFirst": {
+    "media": [
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": false,
+        "readyState": 4,
+        "rect": {
+          "height": 452.5709838867187,
+          "width": 421.60003662109375,
+          "x": 501.7000122070313,
+          "y": 259.71453857421875
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4",
+        "tag": "DIV",
+        "time": 3.936174,
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 0,
+        "rect": {
+          "height": 452.5709228515625,
+          "width": 421.60003662109375,
+          "x": 501.7000122070313,
+          "y": 712.2855224609375
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_10-C3EAr39K.mp4",
+        "tag": "DIV",
+        "time": 0,
+        "transform": "matrix(1, 0, 0, 1, 0, 729.953)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 0,
+        "rect": {
+          "height": 452.57080078125,
+          "width": 421.60003662109375,
+          "x": 501.7000122070313,
+          "y": 1164.8564453125
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_8-3lpQuEmZ.mp4",
+        "tag": "DIV",
+        "time": 0,
+        "transform": "matrix(1, 0, 0, 1, 0, 1459.91)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 0,
+        "rect": {
+          "height": 452.571044921875,
+          "width": 421.60003662109375,
+          "x": 501.7000122070313,
+          "y": 1617.42724609375
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_9-D7hXO784.mp4",
+        "tag": "DIV",
+        "time": 0,
+        "transform": "matrix(1, 0, 0, 1, 0, 2189.86)"
+      }
+    ],
+    "scrollTop": 810,
+    "windowScrollY": 0
+  },
+  "workSecond": {
+    "media": [
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": false,
+        "readyState": 4,
+        "src": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4",
+        "tag": "DIV",
+        "time": 4.851943,
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 0,
+        "src": "http://127.0.0.1:4173/assets/szia_10-C3EAr39K.mp4",
+        "tag": "DIV",
+        "time": 0,
+        "transform": "matrix(1, 0, 0, 1, 0, 729.953)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 0,
+        "src": "http://127.0.0.1:4173/assets/szia_8-3lpQuEmZ.mp4",
+        "tag": "DIV",
+        "time": 0,
+        "transform": "matrix(1, 0, 0, 1, 0, 1459.91)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 0,
+        "src": "http://127.0.0.1:4173/assets/szia_9-D7hXO784.mp4",
+        "tag": "DIV",
+        "time": 0,
+        "transform": "matrix(1, 0, 0, 1, 0, 2189.86)"
+      }
+    ],
+    "scrollTop": 1620
+  },
+  "workThird": {
+    "media": [
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 4,
+        "rect": {
+          "height": 729.953125,
+          "width": 680,
+          "x": 70.0999755859375,
+          "y": -1290.8994140625
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4",
+        "tag": "DIV",
+        "time": 5.173252,
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": false,
+        "readyState": 4,
+        "rect": {
+          "height": 729.953125,
+          "width": 680,
+          "x": 70.0999755859375,
+          "y": -560.9462890625
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_10-C3EAr39K.mp4",
+        "tag": "DIV",
+        "time": 4.540461,
+        "transform": "matrix(1, 0, 0, 1, 0, 729.953)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": false,
+        "readyState": 4,
+        "rect": {
+          "height": 729.953125,
+          "width": 680,
+          "x": 70.0999755859375,
+          "y": 169.0068359375
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_8-3lpQuEmZ.mp4",
+        "tag": "DIV",
+        "time": 4.264425,
+        "transform": "matrix(1, 0, 0, 1, 0, 1459.91)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 0,
+        "rect": {
+          "height": 729.953125,
+          "width": 680,
+          "x": 70.0999755859375,
+          "y": 898.9599609375
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_9-D7hXO784.mp4",
+        "tag": "DIV",
+        "time": 0,
+        "transform": "matrix(1, 0, 0, 1, 0, 2189.86)"
+      }
+    ],
+    "scrollTop": 4050
+  },
+  "workFourth": {
+    "media": [
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 4,
+        "rect": {
+          "height": 729.953125,
+          "width": 680,
+          "x": 70.0999755859375,
+          "y": -1428.201416015625
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_5-sD6es9Ca.mp4",
+        "tag": "DIV",
+        "time": 5.173252,
+        "transform": "matrix(1, 0, 0, 1, 0, 0)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": true,
+        "readyState": 4,
+        "rect": {
+          "height": 729.953125,
+          "width": 680,
+          "x": 70.0999755859375,
+          "y": -698.248291015625
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_10-C3EAr39K.mp4",
+        "tag": "DIV",
+        "time": 2.918567,
+        "transform": "matrix(1, 0, 0, 1, 0, 729.953)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": false,
+        "readyState": 4,
+        "rect": {
+          "height": 729.953125,
+          "width": 680,
+          "x": 70.0999755859375,
+          "y": 31.704833984375
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_8-3lpQuEmZ.mp4",
+        "tag": "DIV",
+        "time": 6.156681,
+        "transform": "matrix(1, 0, 0, 1, 0, 1459.91)"
+      },
+      {
+        "error": null,
+        "mediaTag": "VIDEO",
+        "paused": false,
+        "readyState": 4,
+        "rect": {
+          "height": 729.953125,
+          "width": 680,
+          "x": 70.0999755859375,
+          "y": 761.657958984375
+        },
+        "src": "http://127.0.0.1:4173/assets/szia_9-D7hXO784.mp4",
+        "tag": "DIV",
+        "time": 3.076687,
+        "transform": "matrix(1, 0, 0, 1, 0, 2189.86)"
+      }
+    ],
+    "scrollTop": 4860
+  },
+  "caseStudy": {
+    "heading": "Midnight Atlas",
+    "images": [],
+    "videos": [
+      {
+        "error": null,
+        "paused": false,
+        "readyState": 4,
+        "src": "http://127.0.0.1:4173/assets/szia_9-D7hXO784.mp4",
+        "time": 6.73702
+      }
+    ]
+  },
+  "lateArmsScroll": {
+    "arms": [
+      {
+        "height": 612,
+        "state": "paused",
+        "visible": "hidden",
+        "width": 1440
+      }
+    ],
+    "clientHeight": 900,
+    "exhibitImages": [
+      {
+        "background": "none"
+      },
+      {
+        "background": "none"
+      },
+      {
+        "background": "none"
+      },
+      {
+        "background": "none"
+      },
+      {
+        "background": "none"
+      },
+      {
+        "background": "none"
+      }
+    ],
+    "graphics": [
+      {
+        "class": "darkveil-canvas",
+        "state": "paused"
+      },
+      {
+        "class": "light-rays-container",
+        "state": "running"
+      },
+      {
+        "class": "lanyard-wrapper",
+        "state": "paused"
+      },
+      {
+        "class": "wt-hero-role-window",
+        "state": "paused"
+      },
+      {
+        "class": "wt-bubble-ascii-hands",
+        "state": "paused"
+      }
+    ],
+    "scrollHeight": 17568,
+    "scrollTop": 6423,
+    "videos": [
+      {
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "paused": true,
+        "readyState": 4
+      },
+      {
+        "paused": false,
+        "readyState": 4
+      }
+    ]
+  },
+  "note": "Gallery layer fixed; checks precede removal of the handAssets-triggered timeline rebuild."
+}

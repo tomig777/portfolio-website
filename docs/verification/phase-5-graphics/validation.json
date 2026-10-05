@@ -1,0 +1,21 @@
+{
+  "phase": 5,
+  "completedOn": "2026-10-01",
+  "runtimeSourceSha256": "3fdb9a25ae8a345d05ba433eafea266eee593bd8dec6a13b273e44aa496961b0",
+  "runtimeSourceFileCount": 132,
+  "build": { "passed": true, "modules": 1257, "seconds": 4.19, "largeChunkWarningRemains": true },
+  "tests": { "passed": 62, "failed": 0, "skipped": 0, "todo": 0 },
+  "browserObservationAssertions": { "passed": 24, "failed": 0, "independentBrowserDriver": false },
+  "ropeReferenceFrames": 500,
+  "lint": { "errors": 28, "warnings": 0, "newFindings": 0, "baselineErrors": 28, "baselineWarnings": 2 },
+  "diffCheckPassed": true,
+  "console": { "mainErrors": 0, "mainWarnings": 65, "recordRouteErrors": 0, "recordRouteWarnings": 0, "requestedLimitPerTab": 250, "allRouteAudit": false },
+  "physicalTouchTested": false,
+  "lowEndDeviceBenchmarked": false,
+  "networkLoadImprovementMeasured": false,
+  "remainingFindings": ["G01 long-session browser regression", "S02 breakpoint change during Home scroll"],
+  "remainingPhases": ["6 assets/loading", "7 cleanup and consistency", "8 final QA"],
+  "cleanup": { "successfulVerificationTabsClosed": true, "viewportReset": true, "temporaryPreviewStopped": true, "port4173Listeners": 0 },
+  "committed": false,
+  "pushed": false
+}

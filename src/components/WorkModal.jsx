@@ -3,7 +3,7 @@ import './WorkModal.css';
 import kep9 from '../assets/kep9.png';
 import kapuvideo from '../assets/kapuvideo.mp4';
 import starModelUrl from '../assets/star.glb';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import CircularGallery from './CircularGallery';
 import ShinyText from './ShinyText';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -52,7 +52,7 @@ const WorkModal = ({ workId, onClose }) => {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <Motion.div
         className="modal-fullscreen"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -165,7 +165,7 @@ const WorkModal = ({ workId, onClose }) => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </Motion.div>
     </AnimatePresence>
   );
 };

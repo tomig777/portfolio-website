@@ -2,7 +2,7 @@ import React from 'react';
 import './StarBorder.css';
 
 const StarBorder = ({
-  as: Component = 'button',
+  as: element = 'button',
   className = '',
   color = 'white',
   speed = '6s',
@@ -10,6 +10,7 @@ const StarBorder = ({
   children,
   ...rest
 }) => {
+  const Component = element;
   return (
     <Component
       className={`star-border-container ${className}`}

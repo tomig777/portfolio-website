@@ -1,0 +1,6037 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-01T13:07:14.533Z",
+  "commit": "a803ff824399769a59e9ec1e2cb761997b1e4e03",
+  "runtimeSourceSha256": "1acf1183a6133569a11f58f630095ef6827a7fea2e1de025a56f4d5433d0f879",
+  "knownIssueIds": [],
+  "snapshots": [
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 280,
+        "documentScrollWidth": 390,
+        "header": null,
+        "mobileClass": false,
+        "scrollHeight": 280,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:08:04.623Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 47045,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.5,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 14,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 32292,
+              "durationMs": 0,
+              "encodedBodyBytes": 32292,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2"
+            },
+            {
+              "decodedBodyBytes": 25757,
+              "durationMs": 8.7,
+              "encodedBodyBytes": 25757,
+              "initiator": "link",
+              "transferBytes": 26057,
+              "url": "http://127.0.0.1:4173/assets/index-vjvCJfJm.css"
+            },
+            {
+              "decodedBodyBytes": 18428,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 18428,
+              "initiator": "link",
+              "transferBytes": 18728,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DHgvDnqi.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12591,
+              "durationMs": 1.9,
+              "encodedBodyBytes": 12591,
+              "initiator": "script",
+              "transferBytes": 12891,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-B6X0KfgI.js"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 0,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 1.6,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 1.7,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 398570,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 280,
+        "width": 390
+      },
+      "navigation": {
+        "collapsedLinks": [],
+        "compact": false,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "-8px",
+            "label": "Back to the portfolio",
+            "minHeight": "30px",
+            "rect": {
+              "bottom": 79,
+              "height": 30,
+              "left": 16,
+              "right": 84,
+              "top": 49,
+              "width": 68,
+              "x": 16,
+              "y": 49
+            }
+          }
+        ],
+        "documentScrollWidth": 390,
+        "extras": {
+          "back": {
+            "bottom": 79,
+            "height": 30,
+            "left": 16,
+            "right": 84,
+            "top": 49,
+            "width": 68,
+            "x": 16,
+            "y": 49
+          },
+          "logo": {
+            "bottom": 76,
+            "height": 24,
+            "left": 182.8125,
+            "right": 207.1875,
+            "top": 52,
+            "width": 24.375,
+            "x": 182.8125,
+            "y": 52
+          },
+          "menuHeight": 184,
+          "menuScrollHeight": 448
+        },
+        "focus": {
+          "id": "",
+          "label": null,
+          "tag": "BUTTON",
+          "text": "Cancel",
+          "withinSurface": true
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": {
+          "clientHeight": 280,
+          "fontSize": "16px",
+          "scrollHeight": 308
+        },
+        "viewport": {
+          "height": 280,
+          "width": 390
+        }
+      },
+      "name": "password-short-phone-390x280",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:08:05.477Z",
+      "screenshot": "screenshots/verified-password-short-phone-390x280.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": null,
+        "mobileClass": false,
+        "scrollHeight": 844,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:08:34.626Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 77049,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 14,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 32292,
+              "durationMs": 0,
+              "encodedBodyBytes": 32292,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2"
+            },
+            {
+              "decodedBodyBytes": 25757,
+              "durationMs": 8.7,
+              "encodedBodyBytes": 25757,
+              "initiator": "link",
+              "transferBytes": 26057,
+              "url": "http://127.0.0.1:4173/assets/index-vjvCJfJm.css"
+            },
+            {
+              "decodedBodyBytes": 18428,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 18428,
+              "initiator": "link",
+              "transferBytes": 18728,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DHgvDnqi.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12591,
+              "durationMs": 1.9,
+              "encodedBodyBytes": 12591,
+              "initiator": "script",
+              "transferBytes": 12891,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-B6X0KfgI.js"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 0,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 1.6,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 1.7,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            },
+            {
+              "decodedBodyBytes": 7768,
+              "durationMs": 2,
+              "encodedBodyBytes": 7768,
+              "initiator": "css",
+              "transferBytes": 8068,
+              "url": "http://127.0.0.1:4173/assets/lanyard-CsWgAU5X.png"
+            },
+            {
+              "decodedBodyBytes": 55,
+              "durationMs": 2.3,
+              "encodedBodyBytes": 55,
+              "initiator": "script",
+              "transferBytes": 355,
+              "url": "http://127.0.0.1:4173/assets/lanyard-DwIidv7_.js"
+            }
+          ],
+          "reportedTransferBytes": 398570,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "navigation": {
+        "collapsedLinks": [],
+        "compact": false,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "-8px",
+            "label": "Back to the portfolio",
+            "minHeight": "30px",
+            "rect": {
+              "bottom": 79,
+              "height": 30,
+              "left": 16,
+              "right": 84,
+              "top": 49,
+              "width": 68,
+              "x": 16,
+              "y": 49
+            }
+          }
+        ],
+        "documentScrollWidth": 390,
+        "extras": {
+          "back": {
+            "bottom": 79,
+            "height": 30,
+            "left": 16,
+            "right": 84,
+            "top": 49,
+            "width": 68,
+            "x": 16,
+            "y": 49
+          },
+          "logo": {
+            "bottom": 76,
+            "height": 24,
+            "left": 182.8125,
+            "right": 207.1875,
+            "top": 52,
+            "width": 24.375,
+            "x": 182.8125,
+            "y": 52
+          },
+          "menuHeight": 748,
+          "menuScrollHeight": 748
+        },
+        "focus": {
+          "id": "",
+          "label": null,
+          "tag": "BUTTON",
+          "text": "1Mobile preview",
+          "withinSurface": true
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "name": "archive-choices-phone-390x844",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:08:35.407Z",
+      "screenshot": "screenshots/verified-archive-choices-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 390,
+        "documentScrollWidth": 844,
+        "header": null,
+        "mobileClass": false,
+        "scrollHeight": 390,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:09:08.624Z",
+        "cls": 0,
+        "currentPath": "/projects",
+        "elapsedMs": 111046,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 0,
+          "recent8sCount": 0,
+          "totalDurationMs": 0,
+          "worst": []
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 21,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 32292,
+              "durationMs": 0,
+              "encodedBodyBytes": 32292,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtq.woff2"
+            },
+            {
+              "decodedBodyBytes": 25757,
+              "durationMs": 8.7,
+              "encodedBodyBytes": 25757,
+              "initiator": "link",
+              "transferBytes": 26057,
+              "url": "http://127.0.0.1:4173/assets/index-vjvCJfJm.css"
+            },
+            {
+              "decodedBodyBytes": 22032,
+              "durationMs": 4.1,
+              "encodedBodyBytes": 22032,
+              "initiator": "script",
+              "transferBytes": 22332,
+              "url": "http://127.0.0.1:4173/assets/MusicPlayer-BEmcNQ_f.js"
+            },
+            {
+              "decodedBodyBytes": 18428,
+              "durationMs": 2.6,
+              "encodedBodyBytes": 18428,
+              "initiator": "link",
+              "transferBytes": 18728,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-DHgvDnqi.css"
+            },
+            {
+              "decodedBodyBytes": 16125,
+              "durationMs": 5.5,
+              "encodedBodyBytes": 16125,
+              "initiator": "link",
+              "transferBytes": 16425,
+              "url": "http://127.0.0.1:4173/assets/MusicPlayer-CDCxhfht.css"
+            },
+            {
+              "decodedBodyBytes": 14826,
+              "durationMs": 0,
+              "encodedBodyBytes": 814,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            },
+            {
+              "decodedBodyBytes": 12591,
+              "durationMs": 1.9,
+              "encodedBodyBytes": 12591,
+              "initiator": "script",
+              "transferBytes": 12891,
+              "url": "http://127.0.0.1:4173/assets/ProjectPicker-B6X0KfgI.js"
+            },
+            {
+              "decodedBodyBytes": 12424,
+              "durationMs": 0,
+              "encodedBodyBytes": 884,
+              "initiator": "link",
+              "transferBytes": 0,
+              "url": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap"
+            },
+            {
+              "decodedBodyBytes": 11231,
+              "durationMs": 1.6,
+              "encodedBodyBytes": 11231,
+              "initiator": "other",
+              "transferBytes": 11531,
+              "url": "http://127.0.0.1:4173/assets/logo-dark-CrQvFhvW.png"
+            },
+            {
+              "decodedBodyBytes": 11145,
+              "durationMs": 1.7,
+              "encodedBodyBytes": 11145,
+              "initiator": "img",
+              "transferBytes": 11445,
+              "url": "http://127.0.0.1:4173/assets/logo-light-yWUzohzP.png"
+            }
+          ],
+          "reportedTransferBytes": 639514,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 390,
+          "width": 844
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 390,
+        "width": 844
+      },
+      "navigation": {
+        "collapsedLinks": [],
+        "compact": false,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "-8px",
+            "label": "Back to the portfolio",
+            "minHeight": "auto",
+            "rect": {
+              "bottom": 58,
+              "height": 38,
+              "left": 24,
+              "right": 107.359375,
+              "top": 20,
+              "width": 83.359375,
+              "x": 24,
+              "y": 20
+            }
+          }
+        ],
+        "documentScrollWidth": 844,
+        "extras": {
+          "back": {
+            "bottom": 58,
+            "height": 38,
+            "left": 24,
+            "right": 107.359375,
+            "top": 20,
+            "width": 83.359375,
+            "x": 24,
+            "y": 20
+          },
+          "logo": {
+            "bottom": 53,
+            "height": 28,
+            "left": 407.78125,
+            "right": 436.21875,
+            "top": 25,
+            "width": 28.4375,
+            "x": 407.78125,
+            "y": 25
+          },
+          "menuHeight": 311,
+          "menuScrollHeight": 448
+        },
+        "focus": {
+          "id": "",
+          "label": null,
+          "tag": "BUTTON",
+          "text": "One Lap",
+          "withinSurface": false
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 390,
+          "width": 844
+        }
+      },
+      "name": "extras-landscape-844x390",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:09:08.757Z",
+      "screenshot": "screenshots/verified-extras-landscape-844x390.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": 894.6400146484375,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -50.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -50.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 801.796875,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -42.203125,
+              "width": 390,
+              "x": 0,
+              "y": -42.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 16897,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview lenis",
+        "scrollTop": 0,
+        "scrollViewportRatio": 20.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:11:32.650Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 255073,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 1,
+          "totalDurationMs": 147,
+          "worst": [
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 1,
+          "maxMs": 62.5,
+          "meanMs": 7.16,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1115
+        },
+        "resources": {
+          "count": 42,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 66836,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 66836,
+              "initiator": "link",
+              "transferBytes": 67136,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CuxW2IpM.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            }
+          ],
+          "reportedTransferBytes": 5007774,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 194.9921875,
+              "right": 197.7734375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 194.9921875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 197.7734375,
+              "right": 200.5546875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 197.7734375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 200.5546875,
+              "right": 203.3359375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 200.5546875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 203.3359375,
+              "right": 206.1171875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 203.3359375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 148.9921875,
+              "right": 192.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 148.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 196.9921875,
+              "right": 240.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 196.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 336.90625,
+              "right": 380.90625,
+              "top": 38.59375,
+              "width": 44,
+              "x": 336.90625,
+              "y": 38.59375
+            }
+          }
+        ],
+        "documentScrollWidth": 390,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": null,
+          "tag": "BODY",
+          "text": "WorkWorkAboutAboutContactContactGalleryGallery1TAMASGALA Budapest-based HungarianDigital ArtistSpecializing in 3D visual",
+          "withinSurface": false
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "name": "hero-phone-390x844",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:11:32.877Z",
+      "screenshot": "screenshots/verified-hero-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": 894.6400146484375,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -50.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -50.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 801.796875,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -42.203125,
+              "width": 390,
+              "x": 0,
+              "y": -42.203125
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 16897,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview lenis lenis-stopped",
+        "scrollTop": 0,
+        "scrollViewportRatio": 20.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:12:42.624Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 325046,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 147,
+          "worst": [
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 14,
+          "meanMs": 7.14,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1120
+        },
+        "resources": {
+          "count": 42,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 66836,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 66836,
+              "initiator": "link",
+              "transferBytes": 67136,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CuxW2IpM.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            }
+          ],
+          "reportedTransferBytes": 5007774,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "socialLinks": [
+          {
+            "anchor": true,
+            "href": "https://www.instagram.com/arhivetkg/",
+            "text": "Instagram"
+          },
+          {
+            "anchor": true,
+            "href": "https://www.linkedin.com/in/tamasgal77/",
+            "text": "LinkedIn"
+          }
+        ]
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 194.9921875,
+              "right": 197.7734375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 194.9921875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 197.7734375,
+              "right": 200.5546875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 197.7734375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 200.5546875,
+              "right": 203.3359375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 200.5546875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 203.3359375,
+              "right": 206.1171875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 203.3359375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 148.9921875,
+              "right": 192.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 148.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Close menu",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 196.9921875,
+              "right": 240.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 196.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 336.90625,
+              "right": 380.90625,
+              "top": 38.59375,
+              "width": 44,
+              "x": 336.90625,
+              "y": 38.59375
+            }
+          }
+        ],
+        "documentScrollWidth": 390,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": null,
+          "tag": "A",
+          "text": "LinkedIn",
+          "withinSurface": true
+        },
+        "mainContentInert": true,
+        "menu": {
+          "clientHeight": 844,
+          "headerInert": true,
+          "overflowY": "auto",
+          "scrollHeight": 844,
+          "scrollTop": 0
+        },
+        "password": null,
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "name": "menu-phone-390x844",
+      "kind": "menu",
+      "capturedAt": "2026-10-01T13:12:43.047Z",
+      "screenshot": "screenshots/verified-menu-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": 894.6400146484375,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -50.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -50.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 801.796875,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -42.203125,
+              "width": 390,
+              "x": 0,
+              "y": -42.203125
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 2532,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview wt-case-open wt-nav-chrome-visible lenis lenis-stopped",
+        "scrollTop": 0,
+        "scrollViewportRatio": 3
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:13:45.626Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 388048,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 147,
+          "worst": [
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 13.9,
+          "meanMs": 7.04,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1136
+        },
+        "resources": {
+          "count": 47,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 66836,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 66836,
+              "initiator": "link",
+              "transferBytes": 67136,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CuxW2IpM.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            }
+          ],
+          "reportedTransferBytes": 5060195,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "contactInputFontPx": [
+          16,
+          16,
+          16
+        ]
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 194.9921875,
+              "right": 197.7734375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 194.9921875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 197.7734375,
+              "right": 200.5546875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 197.7734375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 200.5546875,
+              "right": 203.3359375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 200.5546875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 203.3359375,
+              "right": 206.1171875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 203.3359375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [
+          16,
+          16,
+          16
+        ],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 148.9921875,
+              "right": 192.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 148.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 196.9921875,
+              "right": 240.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 196.9921875,
+              "y": 38.59375
+            }
+          }
+        ],
+        "documentScrollWidth": 390,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": null,
+          "tag": "H1",
+          "text": "Let’s makesomething felt.",
+          "withinSurface": true
+        },
+        "mainContentInert": true,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "name": "contact-phone-390x844",
+      "kind": "contact",
+      "capturedAt": "2026-10-01T13:13:45.649Z",
+      "screenshot": "screenshots/verified-contact-phone-390x844.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 243,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": 445.2000274658203,
+              "height": 470.4000244140625,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -25.199996948242188,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -25.199996948242188
+            }
+          },
+          {
+            "backingHeight": 420,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 399,
+              "height": 420,
+              "left": 0,
+              "right": 390,
+              "top": -21,
+              "width": 390,
+              "x": 0,
+              "y": -21
+            }
+          },
+          {
+            "backingHeight": 420,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 420,
+              "height": 420,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "clientHeight": 420,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 1260,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview wt-case-open wt-nav-chrome-visible lenis lenis-stopped",
+        "scrollTop": 0,
+        "scrollViewportRatio": 3
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:13:45.626Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 388048,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 147,
+          "worst": [
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 13.9,
+          "meanMs": 7.04,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1136
+        },
+        "resources": {
+          "count": 47,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 66836,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 66836,
+              "initiator": "link",
+              "transferBytes": 67136,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CuxW2IpM.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            }
+          ],
+          "reportedTransferBytes": 5060195,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {
+        "contactInputFontPx": [
+          16,
+          16,
+          16
+        ]
+      },
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 420,
+        "width": 390
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 194.9921875,
+              "right": 197.7734375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 194.9921875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 197.7734375,
+              "right": 200.5546875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 197.7734375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 200.5546875,
+              "right": 203.3359375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 200.5546875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 203.3359375,
+              "right": 206.1171875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 203.3359375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [
+          16,
+          16,
+          16
+        ],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 148.9921875,
+              "right": 192.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 148.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 196.9921875,
+              "right": 240.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 196.9921875,
+              "y": 38.59375
+            }
+          }
+        ],
+        "documentScrollWidth": 390,
+        "extras": null,
+        "focus": {
+          "id": "contact-message",
+          "label": null,
+          "tag": "TEXTAREA",
+          "text": "",
+          "withinSurface": true
+        },
+        "mainContentInert": true,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 420,
+          "width": 390
+        }
+      },
+      "name": "contact-reduced-height-390x420",
+      "kind": "contact",
+      "capturedAt": "2026-10-01T13:13:45.769Z",
+      "screenshot": "screenshots/verified-contact-reduced-height-390x420.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 593,
+            "backingWidth": 445,
+            "rect": {
+              "bottom": 1085.4398803710938,
+              "height": 1146.8798828125,
+              "left": -46.08001708984375,
+              "right": 814.0800170898438,
+              "top": -61.44000244140625,
+              "width": 860.1600341796875,
+              "x": -46.08001708984375,
+              "y": -61.44000244140625
+            }
+          },
+          {
+            "backingHeight": 1024,
+            "backingWidth": 768,
+            "rect": {
+              "bottom": 972.796875,
+              "height": 1024,
+              "left": 0,
+              "right": 768,
+              "top": -51.203125,
+              "width": 768,
+              "x": 0,
+              "y": -51.203125
+            }
+          },
+          {
+            "backingHeight": 1024,
+            "backingWidth": 768,
+            "rect": {
+              "bottom": 1024,
+              "height": 1024,
+              "left": 0,
+              "right": 768,
+              "top": 0,
+              "width": 768,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "clientHeight": 1024,
+        "documentScrollWidth": 768,
+        "header": {
+          "bottom": 86.390625,
+          "height": 40,
+          "left": 7.203125,
+          "right": 760.796875,
+          "top": 46.390625,
+          "width": 753.59375,
+          "x": 7.203125,
+          "y": 46.390625
+        },
+        "mobileClass": true,
+        "scrollHeight": 3072,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview wt-case-open wt-nav-chrome-visible lenis lenis-stopped",
+        "scrollTop": 0,
+        "scrollViewportRatio": 3
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:16:17.625Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 540047,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 147,
+          "worst": [
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.1,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 49,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 66836,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 66836,
+              "initiator": "link",
+              "transferBytes": 67136,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CuxW2IpM.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            }
+          ],
+          "reportedTransferBytes": 7470195,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 1024,
+          "width": 768
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 1024,
+        "width": 768
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 136.79061889648438,
+              "height": 43.99999237060547,
+              "left": 384,
+              "right": 387.1875,
+              "top": 92.7906265258789,
+              "width": 3.1875,
+              "x": 384,
+              "y": 92.7906265258789
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 136.79061889648438,
+              "height": 43.99999237060547,
+              "left": 387.1875,
+              "right": 390.375,
+              "top": 92.7906265258789,
+              "width": 3.1875,
+              "x": 387.1875,
+              "y": 92.7906265258789
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 136.79061889648438,
+              "height": 43.99999237060547,
+              "left": 390.375,
+              "right": 393.5625,
+              "top": 92.7906265258789,
+              "width": 3.1875,
+              "x": 390.375,
+              "y": 92.7906265258789
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 136.79061889648438,
+              "height": 43.99999237060547,
+              "left": 393.5625,
+              "right": 396.75,
+              "top": 92.7906265258789,
+              "width": 3.1875,
+              "x": 393.5625,
+              "y": 92.7906265258789
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 88.390625,
+              "height": 44,
+              "left": 338,
+              "right": 382,
+              "top": 44.390625,
+              "width": 44,
+              "x": 338,
+              "y": 44.390625
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 88.390625,
+              "height": 44,
+              "left": 386,
+              "right": 430,
+              "top": 44.390625,
+              "width": 44,
+              "x": 386,
+              "y": 44.390625
+            }
+          }
+        ],
+        "documentScrollWidth": 768,
+        "extras": null,
+        "focus": {
+          "id": "about-profile-title",
+          "label": null,
+          "tag": "H1",
+          "text": "Hi, this is Tomi.",
+          "withinSurface": true
+        },
+        "mainContentInert": true,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 1024,
+          "width": 768
+        }
+      },
+      "name": "about-tablet-768x1024",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:16:18.424Z",
+      "screenshot": "screenshots/verified-about-tablet-768x1024.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 329,
+            "backingWidth": 185,
+            "rect": {
+              "bottom": 602.0799255371094,
+              "height": 636.159912109375,
+              "left": -19.199996948242188,
+              "right": 339.2000274658203,
+              "top": -34.079986572265625,
+              "width": 358.4000244140625,
+              "x": -19.199996948242188,
+              "y": -34.079986572265625
+            }
+          },
+          {
+            "backingHeight": 568,
+            "backingWidth": 320,
+            "rect": {
+              "bottom": 539.59375,
+              "height": 568,
+              "left": 0,
+              "right": 320,
+              "top": -28.40625,
+              "width": 320,
+              "x": 0,
+              "y": -28.40625
+            }
+          },
+          {
+            "backingHeight": 568,
+            "backingWidth": 320,
+            "rect": {
+              "bottom": 568,
+              "height": 568,
+              "left": 0,
+              "right": 320,
+              "top": 0,
+              "width": 320,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "clientHeight": 568,
+        "documentScrollWidth": 320,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 313.6953125,
+          "top": 40.59375,
+          "width": 307.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 1704,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview wt-case-open wt-nav-chrome-visible lenis lenis-stopped",
+        "scrollTop": 0,
+        "scrollViewportRatio": 3
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:16:21.638Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 544060,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 2,
+          "recent8sCount": 0,
+          "totalDurationMs": 147,
+          "worst": [
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 27.9,
+          "meanMs": 6.99,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1137
+        },
+        "resources": {
+          "count": 50,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            },
+            {
+              "decodedBodyBytes": 66836,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 66836,
+              "initiator": "link",
+              "transferBytes": 67136,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-CuxW2IpM.css"
+            },
+            {
+              "decodedBodyBytes": 48256,
+              "durationMs": 0,
+              "encodedBodyBytes": 48256,
+              "initiator": "css",
+              "transferBytes": 0,
+              "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2"
+            }
+          ],
+          "reportedTransferBytes": 7510315,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 568,
+          "width": 320
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 568,
+        "width": 320
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 159.9921875,
+              "right": 162.7734375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 159.9921875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 162.7734375,
+              "right": 165.5546875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 162.7734375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 165.5546875,
+              "right": 168.3359375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 165.5546875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 168.3359375,
+              "right": 171.1171875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 168.3359375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 113.9921875,
+              "right": 157.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 113.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 161.9921875,
+              "right": 205.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 161.9921875,
+              "y": 38.59375
+            }
+          }
+        ],
+        "documentScrollWidth": 320,
+        "extras": null,
+        "focus": {
+          "id": "work-swap-title",
+          "label": null,
+          "tag": "H1",
+          "text": "Ideasin motion.",
+          "withinSurface": true
+        },
+        "mainContentInert": true,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 568,
+          "width": 320
+        }
+      },
+      "name": "work-small-phone-320x568",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:16:22.372Z",
+      "screenshot": "screenshots/verified-work-small-phone-320x568.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 1170,
+            "backingWidth": 1852,
+            "rect": {
+              "bottom": 954,
+              "height": 1008,
+              "left": -85.5,
+              "right": 1510.5,
+              "top": -54,
+              "width": 1596,
+              "x": -85.5,
+              "y": -54
+            }
+          },
+          {
+            "backingHeight": 900,
+            "backingWidth": 1425,
+            "rect": {
+              "bottom": 855,
+              "height": 900,
+              "left": 0,
+              "right": 1425,
+              "top": -45,
+              "width": 1425,
+              "x": 0,
+              "y": -45
+            }
+          }
+        ],
+        "clientHeight": 900,
+        "documentScrollWidth": 1440,
+        "header": {
+          "bottom": 76,
+          "height": 56,
+          "left": 427.09375,
+          "right": 1012.90625,
+          "top": 20,
+          "width": 585.8125,
+          "x": 427.09375,
+          "y": 20
+        },
+        "mobileClass": false,
+        "scrollHeight": 17568,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet",
+        "scrollTop": 0,
+        "scrollViewportRatio": 19.52
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:19:49.622Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 752045,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 3,
+          "recent8sCount": 0,
+          "totalDurationMs": 234,
+          "worst": [
+            {
+              "durationMs": 87,
+              "startTimeMs": 652687.9000000954
+            },
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 58,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 141545,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 141545,
+              "initiator": "image",
+              "transferBytes": 141845,
+              "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 115369,
+              "durationMs": 2.9,
+              "encodedBodyBytes": 115369,
+              "initiator": "image",
+              "transferBytes": 115669,
+              "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            }
+          ],
+          "reportedTransferBytes": 7769997,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 900,
+        "width": 1440
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": false,
+            "rect": {
+              "bottom": 68,
+              "height": 40,
+              "left": 590.09375,
+              "right": 630.953125,
+              "top": 28,
+              "width": 40.859375,
+              "x": 590.09375,
+              "y": 28
+            },
+            "tabIndex": 0,
+            "text": "WorkWork"
+          },
+          {
+            "inert": false,
+            "rect": {
+              "bottom": 68,
+              "height": 40,
+              "left": 658.953125,
+              "right": 708.4375,
+              "top": 28,
+              "width": 49.484375,
+              "x": 658.953125,
+              "y": 28
+            },
+            "tabIndex": 0,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": false,
+            "rect": {
+              "bottom": 68,
+              "height": 40,
+              "left": 736.4375,
+              "right": 803.171875,
+              "top": 28,
+              "width": 66.734375,
+              "x": 736.4375,
+              "y": 28
+            },
+            "tabIndex": 0,
+            "text": "ContactContact"
+          },
+          {
+            "inert": false,
+            "rect": {
+              "bottom": 68,
+              "height": 40,
+              "left": 831.171875,
+              "right": 897.90625,
+              "top": 28,
+              "width": 66.734375,
+              "x": 831.171875,
+              "y": 28
+            },
+            "tabIndex": 0,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": false,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "auto",
+            "rect": {
+              "bottom": 62,
+              "height": 28,
+              "left": 472.875,
+              "right": 501.3125,
+              "top": 34,
+              "width": 28.4375,
+              "x": 472.875,
+              "y": 34
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "auto",
+            "rect": {
+              "bottom": 75,
+              "height": 54,
+              "left": 941.90625,
+              "right": 1011.90625,
+              "top": 21,
+              "width": 70,
+              "x": 941.90625,
+              "y": 21
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Open theme picker. Current theme: Violet",
+            "minHeight": "0px",
+            "rect": {
+              "bottom": 74.38127136230469,
+              "height": 52.762542724609375,
+              "left": 1346.6187744140625,
+              "right": 1399.3812255859375,
+              "top": 21.618728637695312,
+              "width": 52.762451171875,
+              "x": 1346.6187744140625,
+              "y": 21.618728637695312
+            }
+          }
+        ],
+        "documentScrollWidth": 1440,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": "Open theme picker. Current theme: Violet",
+          "tag": "BUTTON",
+          "text": "1",
+          "withinSurface": false
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 900,
+          "width": 1440
+        }
+      },
+      "name": "hero-desktop-1440x900",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:19:50.560Z",
+      "screenshot": "screenshots/verified-hero-desktop-1440x900.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 1040,
+            "backingWidth": 1644,
+            "rect": {
+              "bottom": 848,
+              "height": 896,
+              "left": -75.9000244140625,
+              "right": 1340.9000244140625,
+              "top": -48,
+              "width": 1416.800048828125,
+              "x": -75.9000244140625,
+              "y": -48
+            }
+          },
+          {
+            "backingHeight": 800,
+            "backingWidth": 1265,
+            "rect": {
+              "bottom": 760,
+              "height": 800,
+              "left": 0,
+              "right": 1265,
+              "top": -40,
+              "width": 1265,
+              "x": 0,
+              "y": -40
+            }
+          }
+        ],
+        "clientHeight": 800,
+        "documentScrollWidth": 1280,
+        "header": {
+          "bottom": 76,
+          "height": 56,
+          "left": 347.09375,
+          "right": 932.90625,
+          "top": 20,
+          "width": 585.8125,
+          "x": 347.09375,
+          "y": 20
+        },
+        "mobileClass": false,
+        "scrollHeight": 17468,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet",
+        "scrollTop": 0,
+        "scrollViewportRatio": 21.835
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:19:50.628Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 753050,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 3,
+          "recent8sCount": 0,
+          "totalDurationMs": 234,
+          "worst": [
+            {
+              "durationMs": 87,
+              "startTimeMs": 652687.9000000954
+            },
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 21,
+          "meanMs": 6.96,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1149
+        },
+        "resources": {
+          "count": 58,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 141545,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 141545,
+              "initiator": "image",
+              "transferBytes": 141845,
+              "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 115369,
+              "durationMs": 2.9,
+              "encodedBodyBytes": 115369,
+              "initiator": "image",
+              "transferBytes": 115669,
+              "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            }
+          ],
+          "reportedTransferBytes": 7769997,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 800,
+          "width": 1280
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 800,
+        "width": 1280
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": false,
+            "rect": {
+              "bottom": 68,
+              "height": 40,
+              "left": 510.09375,
+              "right": 550.953125,
+              "top": 28,
+              "width": 40.859375,
+              "x": 510.09375,
+              "y": 28
+            },
+            "tabIndex": 0,
+            "text": "WorkWork"
+          },
+          {
+            "inert": false,
+            "rect": {
+              "bottom": 68,
+              "height": 40,
+              "left": 578.953125,
+              "right": 628.4375,
+              "top": 28,
+              "width": 49.484375,
+              "x": 578.953125,
+              "y": 28
+            },
+            "tabIndex": 0,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": false,
+            "rect": {
+              "bottom": 68,
+              "height": 40,
+              "left": 656.4375,
+              "right": 723.171875,
+              "top": 28,
+              "width": 66.734375,
+              "x": 656.4375,
+              "y": 28
+            },
+            "tabIndex": 0,
+            "text": "ContactContact"
+          },
+          {
+            "inert": false,
+            "rect": {
+              "bottom": 68,
+              "height": 40,
+              "left": 751.171875,
+              "right": 817.90625,
+              "top": 28,
+              "width": 66.734375,
+              "x": 751.171875,
+              "y": 28
+            },
+            "tabIndex": 0,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": false,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "auto",
+            "rect": {
+              "bottom": 62,
+              "height": 28,
+              "left": 392.875,
+              "right": 421.3125,
+              "top": 34,
+              "width": 28.4375,
+              "x": 392.875,
+              "y": 34
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "auto",
+            "rect": {
+              "bottom": 75,
+              "height": 54,
+              "left": 861.90625,
+              "right": 931.90625,
+              "top": 21,
+              "width": 70,
+              "x": 861.90625,
+              "y": 21
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Open theme picker. Current theme: Violet",
+            "minHeight": "0px",
+            "rect": {
+              "bottom": 74.99085426330566,
+              "height": 53.98170471191406,
+              "left": 1186.0091552734375,
+              "right": 1239.9908447265625,
+              "top": 21.0091495513916,
+              "width": 53.981689453125,
+              "x": 1186.0091552734375,
+              "y": 21.0091495513916
+            }
+          }
+        ],
+        "documentScrollWidth": 1280,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": "Open theme picker. Current theme: Violet",
+          "tag": "BUTTON",
+          "text": "1",
+          "withinSurface": false
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 800,
+          "width": 1280
+        }
+      },
+      "name": "hero-laptop-1280x800",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:19:50.690Z",
+      "screenshot": "screenshots/verified-hero-laptop-1280x800.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 226,
+            "backingWidth": 489,
+            "rect": {
+              "bottom": 413.3999938964844,
+              "height": 436.7999877929687,
+              "left": -50.6400146484375,
+              "right": 894.6400146484375,
+              "top": -23.399993896484375,
+              "width": 945.280029296875,
+              "x": -50.6400146484375,
+              "y": -23.399993896484375
+            }
+          },
+          {
+            "backingHeight": 390,
+            "backingWidth": 844,
+            "rect": {
+              "bottom": 406.140625,
+              "height": 390,
+              "left": 0,
+              "right": 844,
+              "top": 16.140625,
+              "width": 844,
+              "x": 0,
+              "y": 16.140625
+            }
+          }
+        ],
+        "clientHeight": 390,
+        "documentScrollWidth": 844,
+        "header": {
+          "bottom": 60.171875,
+          "height": 40,
+          "left": 7.203125,
+          "right": 836.796875,
+          "top": 20.171875,
+          "width": 829.59375,
+          "x": 7.203125,
+          "y": 20.171875
+        },
+        "mobileClass": true,
+        "scrollHeight": 7887,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview lenis",
+        "scrollTop": 0,
+        "scrollViewportRatio": 20.223076923076924
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:19:50.628Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 753050,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 3,
+          "recent8sCount": 0,
+          "totalDurationMs": 234,
+          "worst": [
+            {
+              "durationMs": 87,
+              "startTimeMs": 652687.9000000954
+            },
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 21,
+          "meanMs": 6.96,
+          "medianMs": 6.9,
+          "p95Ms": 7.1,
+          "samples": 1149
+        },
+        "resources": {
+          "count": 58,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 141545,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 141545,
+              "initiator": "image",
+              "transferBytes": 141845,
+              "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 115369,
+              "durationMs": 2.9,
+              "encodedBodyBytes": 115369,
+              "initiator": "image",
+              "transferBytes": 115669,
+              "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            }
+          ],
+          "reportedTransferBytes": 7769997,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 800,
+          "width": 1280
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 390,
+        "width": 844
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 61.083011627197266,
+              "height": 30.375,
+              "left": 422,
+              "right": 425.1875,
+              "top": 30.708011627197266,
+              "width": 3.1875,
+              "x": 422,
+              "y": 30.708011627197266
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 61.083011627197266,
+              "height": 30.375,
+              "left": 425.1875,
+              "right": 428.375,
+              "top": 30.708011627197266,
+              "width": 3.1875,
+              "x": 425.1875,
+              "y": 30.708011627197266
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 61.083011627197266,
+              "height": 30.375,
+              "left": 428.375,
+              "right": 431.5625,
+              "top": 30.708011627197266,
+              "width": 3.1875,
+              "x": 428.375,
+              "y": 30.708011627197266
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 61.083011627197266,
+              "height": 30.375,
+              "left": 431.5625,
+              "right": 434.75,
+              "top": 30.708011627197266,
+              "width": 3.1875,
+              "x": 431.5625,
+              "y": 30.708011627197266
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 62.28125,
+              "height": 44,
+              "left": 335.453125,
+              "right": 379.453125,
+              "top": 18.28125,
+              "width": 44,
+              "x": 335.453125,
+              "y": 18.28125
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 62.28125,
+              "height": 44,
+              "left": 464.546875,
+              "right": 508.546875,
+              "top": 18.28125,
+              "width": 44,
+              "x": 464.546875,
+              "y": 18.28125
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 94.95877075195312,
+              "height": 43.999759674072266,
+              "left": 792.365234375,
+              "right": 839.661865234375,
+              "top": 50.95901107788086,
+              "width": 47.296630859375,
+              "x": 792.365234375,
+              "y": 50.95901107788086
+            }
+          }
+        ],
+        "documentScrollWidth": 844,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": "Toggle theme. Current theme: Violet",
+          "tag": "BUTTON",
+          "text": "1",
+          "withinSurface": false
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 390,
+          "width": 844
+        }
+      },
+      "name": "hero-landscape-844x390",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:19:50.871Z",
+      "screenshot": "screenshots/verified-hero-landscape-844x390.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 226,
+            "backingWidth": 489,
+            "rect": {
+              "bottom": 413.3999938964844,
+              "height": 436.7999877929687,
+              "left": -50.6400146484375,
+              "right": 894.6400146484375,
+              "top": -23.399993896484375,
+              "width": 945.280029296875,
+              "x": -50.6400146484375,
+              "y": -23.399993896484375
+            }
+          },
+          {
+            "backingHeight": 390,
+            "backingWidth": 844,
+            "rect": {
+              "bottom": 406.140625,
+              "height": 390,
+              "left": 0,
+              "right": 844,
+              "top": 16.140625,
+              "width": 844,
+              "x": 0,
+              "y": 16.140625
+            }
+          }
+        ],
+        "clientHeight": 390,
+        "documentScrollWidth": 844,
+        "header": {
+          "bottom": 86.390625,
+          "height": 40,
+          "left": 7.203125,
+          "right": 836.796875,
+          "top": 46.390625,
+          "width": 829.59375,
+          "x": 7.203125,
+          "y": 46.390625
+        },
+        "mobileClass": true,
+        "scrollHeight": 7887,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview lenis",
+        "scrollTop": 0,
+        "scrollViewportRatio": 20.223076923076924
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:22:27.624Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 910047,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 4,
+          "recent8sCount": 0,
+          "totalDurationMs": 293,
+          "worst": [
+            {
+              "durationMs": 87,
+              "startTimeMs": 652687.9000000954
+            },
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            },
+            {
+              "durationMs": 59,
+              "startTimeMs": 753160.9000000954
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.2,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 58,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 141545,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 141545,
+              "initiator": "image",
+              "transferBytes": 141845,
+              "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 115369,
+              "durationMs": 2.9,
+              "encodedBodyBytes": 115369,
+              "initiator": "image",
+              "transferBytes": 115669,
+              "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            }
+          ],
+          "reportedTransferBytes": 7769997,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 390,
+          "width": 844
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 390,
+        "width": 844
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 114.9906234741211,
+              "height": 30.375,
+              "left": 422,
+              "right": 425.1875,
+              "top": 84.6156234741211,
+              "width": 3.1875,
+              "x": 422,
+              "y": 84.6156234741211
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 114.9906234741211,
+              "height": 30.375,
+              "left": 425.1875,
+              "right": 428.375,
+              "top": 84.6156234741211,
+              "width": 3.1875,
+              "x": 425.1875,
+              "y": 84.6156234741211
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 114.9906234741211,
+              "height": 30.375,
+              "left": 428.375,
+              "right": 431.5625,
+              "top": 84.6156234741211,
+              "width": 3.1875,
+              "x": 428.375,
+              "y": 84.6156234741211
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 114.9906234741211,
+              "height": 30.375,
+              "left": 431.5625,
+              "right": 434.75,
+              "top": 84.6156234741211,
+              "width": 3.1875,
+              "x": 431.5625,
+              "y": 84.6156234741211
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 88.390625,
+              "height": 44,
+              "left": 376,
+              "right": 420,
+              "top": 44.390625,
+              "width": 44,
+              "x": 376,
+              "y": 44.390625
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 88.390625,
+              "height": 44,
+              "left": 424,
+              "right": 468,
+              "top": 44.390625,
+              "width": 44,
+              "x": 424,
+              "y": 44.390625
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 88.390625,
+              "height": 44,
+              "left": 789.609375,
+              "right": 833.609375,
+              "top": 44.390625,
+              "width": 44,
+              "x": 789.609375,
+              "y": 44.390625
+            }
+          }
+        ],
+        "documentScrollWidth": 844,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": "More options",
+          "tag": "BUTTON",
+          "text": "",
+          "withinSurface": false
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 390,
+          "width": 844
+        }
+      },
+      "name": "hero-landscape-settled-844x390",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:22:27.822Z",
+      "screenshot": "screenshots/verified-hero-landscape-settled-844x390.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [],
+        "clientHeight": 390,
+        "documentScrollWidth": 844,
+        "header": null,
+        "mobileClass": false,
+        "scrollHeight": 390,
+        "scrollOwner": "HTML",
+        "scrollTop": 0,
+        "scrollViewportRatio": 1
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:23:02.621Z",
+        "cls": 0.01001,
+        "currentPath": "/projects",
+        "elapsedMs": 945044,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 4,
+          "recent8sCount": 0,
+          "totalDurationMs": 293,
+          "worst": [
+            {
+              "durationMs": 87,
+              "startTimeMs": 652687.9000000954
+            },
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            },
+            {
+              "durationMs": 59,
+              "startTimeMs": 753160.9000000954
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.1,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 60,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 141545,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 141545,
+              "initiator": "image",
+              "transferBytes": 141845,
+              "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            },
+            {
+              "decodedBodyBytes": 125723,
+              "durationMs": 4,
+              "encodedBodyBytes": 125723,
+              "initiator": "script",
+              "transferBytes": 126023,
+              "url": "http://127.0.0.1:4173/assets/Environment-ClkoQFv0.js"
+            },
+            {
+              "decodedBodyBytes": 122914,
+              "durationMs": 25.9,
+              "encodedBodyBytes": 122914,
+              "initiator": "script",
+              "transferBytes": 123214,
+              "url": "http://127.0.0.1:4173/assets/proxy-ChrOnBdI.js"
+            },
+            {
+              "decodedBodyBytes": 115369,
+              "durationMs": 2.9,
+              "encodedBodyBytes": 115369,
+              "initiator": "image",
+              "transferBytes": 115669,
+              "url": "http://127.0.0.1:4173/assets/right-hand-jLymC5RD.svg"
+            },
+            {
+              "decodedBodyBytes": 98582,
+              "durationMs": 3.1,
+              "encodedBodyBytes": 98582,
+              "initiator": "img",
+              "transferBytes": 98882,
+              "url": "http://127.0.0.1:4173/assets/szia_2-Bvc5HE9r.jpg"
+            },
+            {
+              "decodedBodyBytes": 74528,
+              "durationMs": 77.1,
+              "encodedBodyBytes": 74528,
+              "initiator": "css",
+              "transferBytes": 74828,
+              "url": "http://127.0.0.1:4173/assets/Yink-BiZp2aKl.otf"
+            },
+            {
+              "decodedBodyBytes": 74032,
+              "durationMs": 2.5,
+              "encodedBodyBytes": 74032,
+              "initiator": "img",
+              "transferBytes": 74332,
+              "url": "http://127.0.0.1:4173/assets/yandhi_cover-BaFSdvFG.jpg"
+            },
+            {
+              "decodedBodyBytes": 73607,
+              "durationMs": 2.1,
+              "encodedBodyBytes": 73607,
+              "initiator": "script",
+              "transferBytes": 73907,
+              "url": "http://127.0.0.1:4173/assets/pageTransition-Bx3DfRku.js"
+            }
+          ],
+          "reportedTransferBytes": 7789510,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 390,
+          "width": 844
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/projects",
+      "viewport": {
+        "dpr": 1,
+        "height": 390,
+        "width": 844
+      },
+      "navigation": {
+        "collapsedLinks": [],
+        "compact": false,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "-8px",
+            "label": "Back to the portfolio",
+            "minHeight": "auto",
+            "rect": {
+              "bottom": 58,
+              "height": 38,
+              "left": 24,
+              "right": 107.359375,
+              "top": 20,
+              "width": 83.359375,
+              "x": 24,
+              "y": 20
+            }
+          }
+        ],
+        "documentScrollWidth": 844,
+        "extras": {
+          "back": {
+            "bottom": 58,
+            "height": 38,
+            "left": 24,
+            "right": 107.359375,
+            "top": 20,
+            "width": 83.359375,
+            "x": 24,
+            "y": 20
+          },
+          "logo": {
+            "bottom": 53,
+            "height": 28,
+            "left": 407.78125,
+            "right": 436.21875,
+            "top": 25,
+            "width": 28.4375,
+            "x": 407.78125,
+            "y": 25
+          },
+          "menuHeight": 311,
+          "menuScrollHeight": 448
+        },
+        "focus": {
+          "id": "",
+          "label": "Back to the portfolio",
+          "tag": "BUTTON",
+          "text": "Back",
+          "withinSurface": false
+        },
+        "mainContentInert": false,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 390,
+          "width": 844
+        }
+      },
+      "name": "extras-landscape-scrolled-844x390",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:23:03.103Z",
+      "screenshot": "screenshots/verified-extras-landscape-scrolled-844x390.jpg"
+    },
+    {
+      "layout": {
+        "canvases": [
+          {
+            "backingHeight": 489,
+            "backingWidth": 226,
+            "rect": {
+              "bottom": 894.6400146484375,
+              "height": 945.280029296875,
+              "left": -23.399993896484375,
+              "right": 413.3999938964844,
+              "top": -50.6400146484375,
+              "width": 436.7999877929687,
+              "x": -23.399993896484375,
+              "y": -50.6400146484375
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 801.796875,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": -42.203125,
+              "width": 390,
+              "x": 0,
+              "y": -42.203125
+            }
+          },
+          {
+            "backingHeight": 844,
+            "backingWidth": 390,
+            "rect": {
+              "bottom": 844,
+              "height": 844,
+              "left": 0,
+              "right": 390,
+              "top": 0,
+              "width": 390,
+              "x": 0,
+              "y": 0
+            }
+          }
+        ],
+        "clientHeight": 844,
+        "documentScrollWidth": 390,
+        "header": {
+          "bottom": 80.59375,
+          "height": 40,
+          "left": 6.3046875,
+          "right": 383.6953125,
+          "top": 40.59375,
+          "width": 377.390625,
+          "x": 6.3046875,
+          "y": 40.59375
+        },
+        "mobileClass": true,
+        "scrollHeight": 16897,
+        "scrollOwner": "App wt-scroll-container wt-header-theme-violet wt-mobile-preview lenis lenis-stopped",
+        "scrollTop": 0,
+        "scrollViewportRatio": 20.020142180094787
+      },
+      "metrics": {
+        "capturedAt": "2026-10-01T13:23:50.621Z",
+        "cls": 0.01001,
+        "currentPath": "/",
+        "elapsedMs": 993044,
+        "environment": {
+          "deviceMemoryGiB": 32,
+          "hardwareConcurrency": 16,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+          "visibility": "visible"
+        },
+        "initialPath": "/projects",
+        "largestContentfulPaint": null,
+        "longTasks": {
+          "count": 6,
+          "recent8sCount": 0,
+          "totalDurationMs": 743,
+          "worst": [
+            {
+              "durationMs": 387,
+              "startTimeMs": 948676.2000000476
+            },
+            {
+              "durationMs": 87,
+              "startTimeMs": 652687.9000000954
+            },
+            {
+              "durationMs": 82,
+              "startTimeMs": 112003
+            },
+            {
+              "durationMs": 65,
+              "startTimeMs": 254995.20000004768
+            },
+            {
+              "durationMs": 63,
+              "startTimeMs": 947121
+            },
+            {
+              "durationMs": 59,
+              "startTimeMs": 753160.9000000954
+            }
+          ]
+        },
+        "navigation": {
+          "domContentLoadedMs": 56.80000019073486,
+          "loadEventMs": 68.30000019073486,
+          "responseEndMs": 3.5,
+          "type": "reload"
+        },
+        "notes": [
+          "Loopback production build with a test-only passive probe; no CPU or network throttling.",
+          "rAF cadence is a main-thread scheduling proxy, not measured GPU/rendered FPS.",
+          "Zero transfer size can indicate a cache hit or restricted timing information.",
+          "Probe module requests are excluded from the resource totals.",
+          "Navigation, LCP and CLS belong to the initial document, not each subsequently opened overlay.",
+          "The probe adds a rAF callback and publishes this hidden output once per second."
+        ],
+        "recent8sRafCadence": {
+          "gapsOver50Ms": 0,
+          "maxMs": 7.3,
+          "meanMs": 6.95,
+          "medianMs": 6.9,
+          "p95Ms": 7,
+          "samples": 1152
+        },
+        "resources": {
+          "count": 92,
+          "largestObserved": [
+            {
+              "decodedBodyBytes": 2365311,
+              "durationMs": 8.2,
+              "encodedBodyBytes": 2365311,
+              "initiator": "img",
+              "transferBytes": 2365611,
+              "url": "http://127.0.0.1:4173/assets/portrait-2-m0g2nDrl.png"
+            },
+            {
+              "decodedBodyBytes": 2279827,
+              "durationMs": 7.7,
+              "encodedBodyBytes": 2279827,
+              "initiator": "script",
+              "transferBytes": 2280127,
+              "url": "http://127.0.0.1:4173/assets/Lanyard-CKZfbpHs.js"
+            },
+            {
+              "decodedBodyBytes": 704525,
+              "durationMs": 5,
+              "encodedBodyBytes": 704525,
+              "initiator": "script",
+              "transferBytes": 704825,
+              "url": "http://127.0.0.1:4173/assets/three.module-zDgAY601.js"
+            },
+            {
+              "decodedBodyBytes": 652172,
+              "durationMs": 6.5,
+              "encodedBodyBytes": 652172,
+              "initiator": "img",
+              "transferBytes": 652472,
+              "url": "http://127.0.0.1:4173/assets/beturajz2-BAffnb21.webp"
+            },
+            {
+              "decodedBodyBytes": 493758,
+              "durationMs": 8,
+              "encodedBodyBytes": 493758,
+              "initiator": "img",
+              "transferBytes": 494058,
+              "url": "http://127.0.0.1:4173/assets/galtamas_mds4_plakat2-BO9VLUK5.webp"
+            },
+            {
+              "decodedBodyBytes": 400737,
+              "durationMs": 2.8,
+              "encodedBodyBytes": 400737,
+              "initiator": "img",
+              "transferBytes": 401037,
+              "url": "http://127.0.0.1:4173/assets/szia-D5JZl8UZ.png"
+            },
+            {
+              "decodedBodyBytes": 281496,
+              "durationMs": 18,
+              "encodedBodyBytes": 281496,
+              "initiator": "img",
+              "transferBytes": 281796,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%203-CaReCdCc.webp"
+            },
+            {
+              "decodedBodyBytes": 278210,
+              "durationMs": 18.6,
+              "encodedBodyBytes": 278210,
+              "initiator": "img",
+              "transferBytes": 278510,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%204-C2mfcqHl.webp"
+            },
+            {
+              "decodedBodyBytes": 250978,
+              "durationMs": 17.3,
+              "encodedBodyBytes": 250978,
+              "initiator": "img",
+              "transferBytes": 251278,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%202-yoAd72a5.webp"
+            },
+            {
+              "decodedBodyBytes": 250118,
+              "durationMs": 7.9,
+              "encodedBodyBytes": 250118,
+              "initiator": "img",
+              "transferBytes": 250418,
+              "url": "http://127.0.0.1:4173/assets/galtamas_mds4_plakat1-DcSbFJpP.webp"
+            },
+            {
+              "decodedBodyBytes": 235288,
+              "durationMs": 9.9,
+              "encodedBodyBytes": 235288,
+              "initiator": "script",
+              "transferBytes": 235588,
+              "url": "http://127.0.0.1:4173/assets/index-4-LOcreA.js"
+            },
+            {
+              "decodedBodyBytes": 227934,
+              "durationMs": 17,
+              "encodedBodyBytes": 227934,
+              "initiator": "img",
+              "transferBytes": 228234,
+              "url": "http://127.0.0.1:4173/assets/tomi%20kep%201--wtewp-x.webp"
+            },
+            {
+              "decodedBodyBytes": 212240,
+              "durationMs": 3,
+              "encodedBodyBytes": 212240,
+              "initiator": "fetch",
+              "transferBytes": 212540,
+              "url": "http://127.0.0.1:4173/assets/newcard-X4-6DBuV.glb"
+            },
+            {
+              "decodedBodyBytes": 158362,
+              "durationMs": 3.2,
+              "encodedBodyBytes": 158362,
+              "initiator": "script",
+              "transferBytes": 158662,
+              "url": "http://127.0.0.1:4173/assets/extends-B0rDsLiT.js"
+            },
+            {
+              "decodedBodyBytes": 141545,
+              "durationMs": 2.7,
+              "encodedBodyBytes": 141545,
+              "initiator": "image",
+              "transferBytes": 141845,
+              "url": "http://127.0.0.1:4173/assets/hand-left-db1vllgp.svg"
+            },
+            {
+              "decodedBodyBytes": 131273,
+              "durationMs": 6.1,
+              "encodedBodyBytes": 131273,
+              "initiator": "script",
+              "transferBytes": 131573,
+              "url": "http://127.0.0.1:4173/assets/WebsiteTest-xzkNZnwr.js"
+            }
+          ],
+          "reportedTransferBytes": 11165032,
+          "zeroOrUnavailableTransferCount": 5
+        },
+        "schemaVersion": 1,
+        "viewport": {
+          "dpr": 1,
+          "height": 844,
+          "width": 390
+        }
+      },
+      "observation": {},
+      "title": "Tamas Gal",
+      "url": "http://127.0.0.1:4173/",
+      "viewport": {
+        "dpr": 1,
+        "height": 844,
+        "width": 390
+      },
+      "navigation": {
+        "collapsedLinks": [
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 194.9921875,
+              "right": 197.7734375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 194.9921875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "WorkWork"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 197.7734375,
+              "right": 200.5546875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 197.7734375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "AboutAbout"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 200.5546875,
+              "right": 203.3359375,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 200.5546875,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "ContactContact"
+          },
+          {
+            "inert": true,
+            "rect": {
+              "bottom": 130.99374389648438,
+              "height": 43.99999237060547,
+              "left": 203.3359375,
+              "right": 206.1171875,
+              "top": 86.9937515258789,
+              "width": 2.78125,
+              "x": 203.3359375,
+              "y": 86.9937515258789
+            },
+            "tabIndex": -1,
+            "text": "GalleryGallery"
+          }
+        ],
+        "compact": true,
+        "contactFonts": [],
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 148.9921875,
+              "right": 192.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 148.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 196.9921875,
+              "right": 240.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 196.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 336.90625,
+              "right": 380.90625,
+              "top": 38.59375,
+              "width": 44,
+              "x": 336.90625,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "-8px",
+            "label": "Back to the portfolio",
+            "minHeight": "28px",
+            "rect": {
+              "bottom": 98,
+              "height": 28,
+              "left": 14,
+              "right": 82,
+              "top": 70,
+              "width": 68,
+              "x": 14,
+              "y": 70
+            }
+          }
+        ],
+        "documentScrollWidth": 390,
+        "extras": null,
+        "focus": {
+          "id": "",
+          "label": "Back to the portfolio",
+          "tag": "BUTTON",
+          "text": "← Back",
+          "withinSurface": true
+        },
+        "mainContentInert": true,
+        "menu": null,
+        "password": null,
+        "viewport": {
+          "height": 844,
+          "width": 390
+        }
+      },
+      "name": "gallery-phone-390x844",
+      "kind": "layout",
+      "capturedAt": "2026-10-01T13:23:50.854Z",
+      "screenshot": "screenshots/verified-gallery-phone-390x844.jpg"
+    }
+  ],
+  "manualChecks": [
+    {
+      "name": "extras-entry-focus-alignment-touch-area",
+      "passed": true,
+      "evidence": {
+        "back": {
+          "bottom": 79,
+          "height": 30,
+          "left": 16,
+          "right": 84,
+          "top": 49,
+          "width": 68,
+          "x": 16,
+          "y": 49
+        },
+        "focus": "Back to the portfolio",
+        "hitAbove": true,
+        "hitBelow": true,
+        "logo": {
+          "bottom": 76,
+          "height": 24,
+          "left": 182.8125,
+          "right": 207.1875,
+          "top": 52,
+          "width": 24.375,
+          "x": 182.8125,
+          "y": 52
+        }
+      },
+      "capturedAt": "2026-10-01T13:07:18.088Z"
+    },
+    {
+      "name": "password-ready-does-not-steal-focus-from-cancel",
+      "passed": true,
+      "evidence": {
+        "focused": "Cancel",
+        "font": "16px",
+        "isolated": true,
+        "phase": "bubble-password bubble-password--ready bubble-password--dark-popup"
+      },
+      "capturedAt": "2026-10-01T13:08:05.375Z"
+    },
+    {
+      "name": "short-password-cancel-is-reachable",
+      "passed": true,
+      "evidence": {
+        "focus": "Cancel",
+        "overflow": "auto",
+        "rect": {
+          "bottom": 238,
+          "height": 44,
+          "left": 153.0703125,
+          "right": 221.9296875,
+          "top": 194,
+          "width": 68.859375,
+          "x": 153.0703125,
+          "y": 194
+        },
+        "scrollTop": 14
+      },
+      "capturedAt": "2026-10-01T13:08:05.450Z"
+    },
+    {
+      "name": "password-escape-restores-tile-and-background",
+      "passed": true,
+      "evidence": {
+        "inert": 0,
+        "tile": "archive-preview"
+      },
+      "capturedAt": "2026-10-01T13:08:06.034Z"
+    },
+    {
+      "name": "archive-choice-entry-focus-and-isolation",
+      "passed": true,
+      "evidence": {
+        "isolated": true,
+        "label": "1Mobile preview"
+      },
+      "capturedAt": "2026-10-01T13:08:35.274Z"
+    },
+    {
+      "name": "archive-choice-reverse-tab-wrap",
+      "passed": true,
+      "evidence": {
+        "focused": "Close archive choices"
+      },
+      "capturedAt": "2026-10-01T13:08:35.337Z"
+    },
+    {
+      "name": "archive-choice-escape-restores-tile",
+      "passed": true,
+      "evidence": {
+        "inert": 0,
+        "tile": "archive-preview"
+      },
+      "capturedAt": "2026-10-01T13:08:35.642Z"
+    },
+    {
+      "name": "project-space-activation-focuses-back",
+      "passed": true,
+      "evidence": {
+        "focused": "Back to extras"
+      },
+      "capturedAt": "2026-10-01T13:08:35.700Z"
+    },
+    {
+      "name": "project-escape-restores-selected-tile",
+      "passed": true,
+      "evidence": {
+        "focused": "music-player"
+      },
+      "capturedAt": "2026-10-01T13:08:36.266Z"
+    },
+    {
+      "name": "landscape-extras-last-row-reachable",
+      "passed": true,
+      "evidence": {
+        "height": 311,
+        "hit": true,
+        "lastRow": {
+          "bottom": 390,
+          "height": 63.140625,
+          "left": 0,
+          "right": 829,
+          "top": 326.859375,
+          "width": 829,
+          "x": 0,
+          "y": 326.859375
+        },
+        "scrollHeight": 448,
+        "scrollTop": 137,
+        "opened": {
+          "back": "Back to extras",
+          "race": false
+        }
+      },
+      "capturedAt": "2026-10-01T13:09:08.730Z",
+      "intermediateScrollObservation": {
+        "focused": "racing",
+        "height": 311,
+        "lastRow": {
+          "bottom": 396,
+          "height": 63.140625,
+          "left": 0,
+          "right": 829,
+          "top": 332.859375,
+          "width": 829,
+          "x": 0,
+          "y": 332.859375
+        },
+        "scrollHeight": 448,
+        "scrollTop": 131
+      }
+    },
+    {
+      "name": "phone-header-aligned-touch-sized-and-hidden-links-not-tabbable",
+      "passed": true,
+      "evidence": {
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 148.9921875,
+              "right": 192.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 148.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 196.9921875,
+              "right": 240.9921875,
+              "top": 38.59375,
+              "width": 44,
+              "x": 196.9921875,
+              "y": 38.59375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 82.59375,
+              "height": 44,
+              "left": 336.90625,
+              "right": 380.90625,
+              "top": 38.59375,
+              "width": 44,
+              "x": 336.90625,
+              "y": 38.59375
+            }
+          }
+        ],
+        "hiddenLinks": [
+          {
+            "text": "WorkWork",
+            "tabIndex": -1,
+            "inert": true
+          },
+          {
+            "text": "AboutAbout",
+            "tabIndex": -1,
+            "inert": true
+          },
+          {
+            "text": "ContactContact",
+            "tabIndex": -1,
+            "inert": true
+          },
+          {
+            "text": "GalleryGallery",
+            "tabIndex": -1,
+            "inert": true
+          }
+        ]
+      },
+      "capturedAt": "2026-10-01T13:11:32.848Z"
+    },
+    {
+      "name": "menu-space-activation-initial-focus-and-isolation",
+      "passed": true,
+      "evidence": {
+        "focus": {
+          "id": "",
+          "label": "Close menu",
+          "tag": "BUTTON",
+          "text": "...",
+          "withinSurface": true
+        },
+        "menu": {
+          "clientHeight": 844,
+          "headerInert": true,
+          "overflowY": "auto",
+          "scrollHeight": 844,
+          "scrollTop": 0
+        },
+        "mainContentInert": true
+      },
+      "capturedAt": "2026-10-01T13:11:32.972Z"
+    },
+    {
+      "name": "menu-reverse-tab-wrap-visible-keyboard-ring",
+      "passed": true,
+      "evidence": {
+        "focus": "LinkedIn",
+        "href": "https://www.linkedin.com/in/tamasgal77/",
+        "outline": "rgb(182, 165, 239) solid 2px"
+      },
+      "capturedAt": "2026-10-01T13:11:33.044Z",
+      "initialAriaLabelOnlyObservation": {
+        "focus": null,
+        "outline": "rgb(182, 165, 239) solid 2px"
+      }
+    },
+    {
+      "name": "menu-forward-tab-wrap",
+      "passed": true,
+      "evidence": {
+        "focused": "Extra"
+      },
+      "capturedAt": "2026-10-01T13:11:33.107Z"
+    },
+    {
+      "name": "menu-escape-restores-opener-and-unlocks-content",
+      "passed": true,
+      "evidence": {
+        "contentInert": false,
+        "focus": "More options"
+      },
+      "capturedAt": "2026-10-01T13:12:44.059Z"
+    },
+    {
+      "name": "contact-entry-heading-focus-and-16px-fields",
+      "passed": true,
+      "evidence": {
+        "focus": {
+          "id": "",
+          "label": null,
+          "tag": "H1",
+          "text": "Let’s makesomething felt.",
+          "withinSurface": true
+        },
+        "fonts": [
+          16,
+          16,
+          16
+        ]
+      },
+      "capturedAt": "2026-10-01T13:12:45.279Z"
+    },
+    {
+      "name": "reduced-height-contact-field-scrolls-into-view",
+      "passed": true,
+      "evidence": {
+        "field": {
+          "bottom": 358.90625,
+          "height": 168,
+          "left": 32.5,
+          "right": 357.5,
+          "top": 190.90625,
+          "width": 325,
+          "x": 32.5,
+          "y": 190.90625
+        },
+        "id": "contact-message",
+        "pageHeight": 420,
+        "pageScroll": 1094,
+        "pageTop": 480,
+        "width": 390
+      },
+      "capturedAt": "2026-10-01T13:13:45.742Z"
+    },
+    {
+      "name": "nested-menu-escape-keeps-contact-page",
+      "passed": true,
+      "evidence": {
+        "contact": true,
+        "focus": "More options"
+      },
+      "capturedAt": "2026-10-01T13:13:46.826Z"
+    },
+    {
+      "name": "tablet-about-heading-focus-and-contained-layout",
+      "passed": true,
+      "evidence": {
+        "compact": true,
+        "heading": "Hi, this is Tomi.",
+        "page": {
+          "bottom": 1024,
+          "height": 1024,
+          "left": 0,
+          "right": 768,
+          "top": 0,
+          "width": 768,
+          "x": 0,
+          "y": 0
+        },
+        "portrait": {
+          "bottom": 924.390625,
+          "height": 800.390625,
+          "left": 16,
+          "right": 752,
+          "top": 124,
+          "width": 736,
+          "x": 16,
+          "y": 124
+        },
+        "tag": "H1",
+        "width": 768
+      },
+      "capturedAt": "2026-10-01T13:16:18.394Z"
+    },
+    {
+      "name": "small-phone-work-focus-and-scrollable-layout",
+      "passed": true,
+      "evidence": {
+        "copy": {
+          "bottom": 321.734375,
+          "height": 209.734375,
+          "left": 14,
+          "right": 306,
+          "top": 112,
+          "width": 292,
+          "x": 14,
+          "y": 112
+        },
+        "documentWidth": 320,
+        "focusTag": "H1",
+        "footer": {
+          "bottom": 806.046875,
+          "height": 64.3125,
+          "left": 14,
+          "right": 306,
+          "top": 741.734375,
+          "width": 292,
+          "x": 14,
+          "y": 741.734375
+        },
+        "overflowX": "hidden"
+      },
+      "capturedAt": "2026-10-01T13:16:22.345Z",
+      "initialDecorativeOverflowObservation": {
+        "heading": "Ideasin motion.",
+        "overflow": "auto",
+        "pageHeight": 568,
+        "pageScrollHeight": 821,
+        "pageScrollWidth": 340,
+        "pageWidth": 320,
+        "tag": "H1"
+      },
+      "note": "The animated decorative rear cards may extend beyond their clipped stage; primary copy/footer remain contained and the page has no horizontal scroll."
+    },
+    {
+      "name": "desktop-theme-space-opens-and-focuses-active-choice",
+      "passed": true,
+      "evidence": {
+        "expanded": "true",
+        "focus": "Use violet header theme",
+        "pressed": "true"
+      },
+      "capturedAt": "2026-10-01T13:18:10.565Z"
+    },
+    {
+      "name": "desktop-theme-selection-closes-and-restores-trigger",
+      "passed": true,
+      "evidence": {
+        "expanded": "false",
+        "focus": "Open theme picker. Current theme: Red",
+        "options": [
+          {
+            "inert": true,
+            "tabIndex": -1
+          },
+          {
+            "inert": true,
+            "tabIndex": -1
+          }
+        ]
+      },
+      "capturedAt": "2026-10-01T13:18:10.640Z"
+    },
+    {
+      "name": "desktop-theme-escape-keeps-page-and-restores-trigger",
+      "passed": true,
+      "evidence": {
+        "expanded": "false",
+        "focus": "Open theme picker. Current theme: Red"
+      },
+      "capturedAt": "2026-10-01T13:18:10.903Z"
+    },
+    {
+      "name": "laptop-keeps-expanded-desktop-navigation",
+      "passed": true,
+      "evidence": {
+        "compact": false,
+        "labels": [
+          {
+            "inert": false,
+            "tabIndex": 0
+          },
+          {
+            "inert": false,
+            "tabIndex": 0
+          },
+          {
+            "inert": false,
+            "tabIndex": 0
+          },
+          {
+            "inert": false,
+            "tabIndex": 0
+          }
+        ],
+        "width": 1280
+      },
+      "capturedAt": "2026-10-01T13:19:50.666Z"
+    },
+    {
+      "name": "phone-landscape-uses-aligned-compact-controls",
+      "passed": true,
+      "evidence": {
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 88.390625,
+              "height": 44,
+              "left": 376,
+              "right": 420,
+              "top": 44.390625,
+              "width": 44,
+              "x": 376,
+              "y": 44.390625
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 88.390625,
+              "height": 44,
+              "left": 424,
+              "right": 468,
+              "top": 44.390625,
+              "width": 44,
+              "x": 424,
+              "y": 44.390625
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 88.390625,
+              "height": 44,
+              "left": 789.609375,
+              "right": 833.609375,
+              "top": 44.390625,
+              "width": 44,
+              "x": 789.609375,
+              "y": 44.390625
+            }
+          }
+        ],
+        "compact": true
+      },
+      "capturedAt": "2026-10-01T13:19:50.847Z",
+      "duringResizeObservation": {
+        "controls": [
+          {
+            "extraTouchTop": "auto",
+            "label": "Home",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 62.09375,
+              "height": 44,
+              "left": 335.15625,
+              "right": 379.15625,
+              "top": 18.09375,
+              "width": 44,
+              "x": 335.15625,
+              "y": 18.09375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "More options",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 62.09375,
+              "height": 44,
+              "left": 464.84375,
+              "right": 508.84375,
+              "top": 18.09375,
+              "width": 44,
+              "x": 464.84375,
+              "y": 18.09375
+            }
+          },
+          {
+            "extraTouchTop": "auto",
+            "label": "Toggle theme. Current theme: Violet",
+            "minHeight": "44px",
+            "rect": {
+              "bottom": 99.18165588378906,
+              "height": 43.99959945678711,
+              "left": 795.2772827148438,
+              "right": 844.72998046875,
+              "top": 55.18205642700195,
+              "width": 49.45269775390625,
+              "x": 795.2772827148438,
+              "y": 55.18205642700195
+            }
+          }
+        ],
+        "compact": true
+      }
+    },
+    {
+      "name": "landscape-menu-can-scroll-to-lower-content",
+      "passed": true,
+      "evidence": {
+        "focused": "Instagram",
+        "height": 390,
+        "overflow": "auto",
+        "scroll": 766,
+        "top": 376
+      },
+      "capturedAt": "2026-10-01T13:19:50.998Z"
+    },
+    {
+      "name": "gallery-focuses-visible-back-above-images",
+      "passed": true,
+      "evidence": {
+        "dialog": "dialog",
+        "hit": true,
+        "label": "Back to the portfolio",
+        "modal": "true",
+        "rect": {
+          "bottom": 98,
+          "height": 28,
+          "left": 14,
+          "right": 82,
+          "top": 70,
+          "width": 68,
+          "x": 14,
+          "y": 70
+        }
+      },
+      "capturedAt": "2026-10-01T13:23:50.825Z"
+    },
+    {
+      "name": "gallery-tab-does-not-reach-hidden-background",
+      "passed": true,
+      "evidence": {
+        "focus": "Back to the portfolio",
+        "inside": true
+      },
+      "capturedAt": "2026-10-01T13:23:51.077Z"
+    },
+    {
+      "name": "gallery-escape-closes-and-restores-background",
+      "passed": true,
+      "evidence": {
+        "gallery": false,
+        "mainInert": false
+      },
+      "capturedAt": "2026-10-01T13:23:53.033Z"
+    }
+  ],
+  "notes": [
+    "Windows desktop Chromium, DPR 1, CSS viewport overrides only—not physical iOS/Android or coarse-pointer emulation.",
+    "Contact test values were never submitted; password tests use the existing local project code.",
+    "Preliminary and earlier candidate artifacts are preserved separately; only this file matches build-verified.json."
+  ],
+  "deferredIssues": [
+    {
+      "id": "N01",
+      "phase": 4,
+      "title": "Rapid navigation during the existing screen transition can be ignored",
+      "evidence": "Contact Escape removes the page after 760ms, but triggerScreenTransition retains its lock until 1680ms. Opening the menu and immediately choosing About during that remaining interval closed the menu without changing pages. Later checks wait for .wt-case-transition to detach."
+    }
+  ]
+}

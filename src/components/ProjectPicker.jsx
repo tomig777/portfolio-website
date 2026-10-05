@@ -4,12 +4,15 @@ import FlowingMenu from './FlowingMenu';
 import ErrorBoundary from './ErrorBoundary';
 import ClickSpark from './ClickSpark';
 import BubblePasswordGate from './BubblePasswordGate';
+import ProjectChoiceDialog from './ProjectChoiceDialog';
+import { PROJECT_ENTRIES, PROJECT_CHOICE_GROUPS, getProjectSelection, getAvailableProjectChoice } from '../utils/projectCatalog';
 import { runRouteTransition } from '../utils/pageTransition';
+import { useFocusScope } from '../hooks/useFocusScope';
 import './ProjectPicker.css';
 
 /* Assets */
-import imgLanyard from '../assets/lanyard.png';
-import logo from '../assets/logo-light.png';
+import imgLanyard from '../assets/web-optimized/lanyard.webp';
+import logo from '../assets/web-optimized/logo-light.webp';
 
 /* ────────────────────────────────────────────
    Lazy-loaded project components
@@ -25,25 +28,17 @@ const RacingGame = lazy(() => import('./RacingGame'));
 
 // Placeholder for future projects
 const ComingSoon = ({ name }) => (
-  <div className="pp-coming-soon">
+  <main className="pp-coming-soon" aria-label={`${name} coming soon`}>
     <span className="pp-coming-soon-label">Coming Soon</span>
     <h2 className="pp-coming-soon-name">{name}</h2>
     <div className="pp-coming-soon-line" />
-  </div>
+  </main>
 );
 
 /* ────────────────────────────────────────────
    Project definitions
    ──────────────────────────────────────────── */
-const PROJECTS = [
-  { id: 'ascii-vortex',   text: 'ASCII Vortex',   image: imgLanyard },
-  { id: 'music-player',   text: 'Music Player',   image: imgLanyard },
-  { id: 'sketch-relay',   text: 'Sketch Relay',   image: imgLanyard },
-  { id: 'gradient-drift', text: 'Gradient Drift', image: imgLanyard },
-  { id: 'archive-preview', text: 'Archive Preview', image: imgLanyard },
-  { id: 'roulette',      text: 'Roulette',        image: imgLanyard },
-  { id: 'racing',        text: 'One Lap',         image: imgLanyard },
-];
+const PROJECTS = PROJECT_ENTRIES.map(project => ({ ...project, image: imgLanyard }));
 
 /* ────────────────────────────────────────────
    Render the correct lazy component
@@ -54,8 +49,10 @@ const renderProject = (projectId, onBack) => {
       return <AsciiFluidVortex onBack={onBack} />;
     case 'sketch-relay':
       return <SketchRelay />;
-    case 'minigame':
+    case 'mobile-preview':
       return <MobilePreview />;
+    case 'fun-project':
+      return <ComingSoon name="Fun Project" />;
     case 'music-player':
       return <MusicPlayer />;
     case 'gradient-drift':
@@ -84,8 +81,12 @@ const ProjectPicker = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [isClosingProject, setIsClosingProject] = useState(false);
   const [passwordPrompt, setPasswordPrompt] = useState(null);
-  const [archiveChoiceOpen, setArchiveChoiceOpen] = useState(false);
+  const [choiceGroup, setChoiceGroup] = useState(null);
   const activePageRef = useRef(null);
+  const homeButtonRef = useRef(null);
+  const closeTimerRef = useRef(null);
+  const lastProjectRef = useRef(null);
+  const restoreGridFocusRef = useRef(false);
 
   const handleGoHome = useCallback(() => {
     const returnToMenu = location.state?.returnToMenu === true;
@@ -101,20 +102,29 @@ const ProjectPicker = () => {
   }, [location.state, navigate]);
 
   const handleBackToGrid = useCallback(() => {
+    if (closeTimerRef.current) return;
     setIsClosingProject(true);
-    setTimeout(() => {
+    closeTimerRef.current = window.setTimeout(() => {
+      closeTimerRef.current = null;
+      restoreGridFocusRef.current = true;
       setActiveProject(null);
       setIsClosingProject(false);
     }, 280);
   }, []);
 
   const handleSelectProject = useCallback((projectId) => {
-    if (projectId === 'archive-preview') {
+    const selection = getProjectSelection(projectId);
+    if (!selection) return;
+    lastProjectRef.current = projectId;
+    if (selection.kind === 'password') {
       setPasswordPrompt(projectId);
       return;
     }
-
-    setActiveProject(projectId);
+    if (selection.kind === 'selector') {
+      setChoiceGroup(selection.group);
+      return;
+    }
+    setActiveProject(selection.projectId);
   }, []);
 
   const handlePasswordClose = useCallback(() => {
@@ -127,44 +137,49 @@ const ProjectPicker = () => {
 
   const openPasswordProject = useCallback(() => {
     setPasswordPrompt(null);
-    setArchiveChoiceOpen(true);
+    setChoiceGroup('archive');
   }, []);
 
-  const chooseArchivePreview = useCallback((choice) => {
-    setArchiveChoiceOpen(false);
-    setActiveProject(choice === '1' ? 'minigame' : 'website-archive');
-  }, []);
+  const chooseProject = useCallback((choiceId) => {
+    const projectId = getAvailableProjectChoice(choiceGroup, choiceId);
+    if (!projectId) return;
+    setChoiceGroup(null);
+    setActiveProject(projectId);
+  }, [choiceGroup]);
 
-  // ESC key handler
+  useFocusScope(activePageRef, { active: Boolean(activeProject), scopeKey: activeProject, initialFocus: 'root', onEscape: handleBackToGrid, trap: false, isolate: false, restoreFocus: false });
+
+  useEffect(() => () => window.clearTimeout(closeTimerRef.current), []);
+  useEffect(() => { homeButtonRef.current?.closest('.pp-page')?.focus({ preventScroll: true }); }, []);
+
+  // Fullscreen projects and password/choice dialogs own their own Escape key.
   useEffect(() => {
+    if (activeProject || choiceGroup || passwordPrompt) return undefined;
     const onKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        if (passwordPrompt) return;
-        if (archiveChoiceOpen) {
-          setArchiveChoiceOpen(false);
-          return;
-        }
-        else if (activeProject) handleBackToGrid();
-        else handleGoHome();
-      }
+      if (e.key === 'Escape') handleGoHome();
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [activeProject, archiveChoiceOpen, passwordPrompt, handleBackToGrid, handleGoHome]);
+  }, [activeProject, choiceGroup, passwordPrompt, handleGoHome]);
 
   useEffect(() => {
     if (activeProject) activePageRef.current?.scrollTo({ top: 0, left: 0 });
+    else if (restoreGridFocusRef.current) {
+      document.querySelector(`[data-project-id="${lastProjectRef.current}"]`)?.focus({ preventScroll: true });
+      restoreGridFocusRef.current = false;
+    }
   }, [activeProject]);
 
   /* ── Active project fullscreen view ── */
   if (activeProject) {
+    const isScrollableProject = ['website-archive', 'roulette', 'racing'].includes(activeProject);
     return (
       <div
         ref={activePageRef}
-        className={`pp-active ${activeProject === 'website-archive' ? 'pp-active--scrollable ' : ''}${isClosingProject ? 'pp-closing' : ''}`}
-        style={activeProject === 'website-archive' ? { overflowX: 'hidden', overflowY: 'auto' } : undefined}
+        className={`pp-active ${isScrollableProject ? 'pp-active--scrollable ' : ''}${isClosingProject ? 'pp-closing' : ''}`}
+        data-lenis-prevent={isScrollableProject ? '' : undefined}
       >
-        <button className="pp-back-btn" onClick={handleBackToGrid}>
+        <button type="button" className="pp-back-btn" onClick={handleBackToGrid} disabled={isClosingProject} aria-label="Back to extras">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M10 3L5 8L10 13" />
           </svg>
@@ -185,6 +200,7 @@ const ProjectPicker = () => {
 
   /* ── Full-page flowing menu ── */
   const menuItems = PROJECTS.map((p) => ({
+    id: p.id,
     link: '#',
     text: p.text,
     image: p.image,
@@ -192,9 +208,9 @@ const ProjectPicker = () => {
   }));
 
   return (
-    <div className="pp-page">
+    <div className="pp-page" tabIndex={-1}>
       <div className="pp-top-bar">
-        <button className="pp-home-btn" onClick={handleGoHome} aria-label="Back to the portfolio">
+        <button ref={homeButtonRef} type="button" className="pp-home-btn" onClick={handleGoHome} aria-label="Back to the portfolio">
           <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M10 3L5 8L10 13" />
           </svg>
@@ -228,19 +244,12 @@ const ProjectPicker = () => {
         />
       )}
 
-      {archiveChoiceOpen && (
-        <div className="pp-password-overlay pp-archive-choice-overlay" role="dialog" aria-modal="true" aria-labelledby="pp-archive-choice-title">
-          <div className="pp-password-card pp-archive-choice-card">
-            <p className="pp-password-label">Access granted</p>
-            <h2 className="pp-password-title" id="pp-archive-choice-title">Choose an archive preview</h2>
-            <p className="pp-archive-choice-copy">Select the version you want to explore.</p>
-            <div className="pp-archive-choice-buttons">
-              <button type="button" onClick={() => chooseArchivePreview('1')}><span>1</span><small>Mobile preview</small></button>
-              <button type="button" onClick={() => chooseArchivePreview('2')}><span>2</span><small>Website archive</small></button>
-            </div>
-            <button type="button" className="pp-password-close pp-archive-choice-cancel" aria-label="Close archive choices" onClick={() => setArchiveChoiceOpen(false)}>×</button>
-          </div>
-        </div>
+      {PROJECT_CHOICE_GROUPS[choiceGroup] && (
+        <ProjectChoiceDialog
+          {...PROJECT_CHOICE_GROUPS[choiceGroup]}
+          onChoose={chooseProject}
+          onClose={() => setChoiceGroup(null)}
+        />
       )}
     </div>
   );

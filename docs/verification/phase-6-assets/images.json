@@ -1,0 +1,102 @@
+{
+  "tool": "Sharp 0.35.4",
+  "mode": "lossless; original dimensions and ICC profile retained; no visible pixel differences",
+  "assets": [
+    {
+      "source": "src/assets/portrait-2.png",
+      "output": "src/assets/web-optimized/portrait-2.webp",
+      "width": 1114,
+      "height": 1412,
+      "sourceBytes": 2365311,
+      "outputBytes": 1412780,
+      "savedBytes": 952531,
+      "changedVisiblePixels": 0,
+      "sourceSha256": "2ba43f6423a4d221ed964b6b8738522b4411ef032fda190d4e6fdf29bc294b8c",
+      "outputSha256": "cb2ff29e7d7d9f628e701b747b38fa4c9e0133b787faf18b66e802c2cea501d1"
+    },
+    {
+      "source": "src/assets/szia.png",
+      "output": "src/assets/web-optimized/szia.webp",
+      "width": 735,
+      "height": 789,
+      "sourceBytes": 400737,
+      "outputBytes": 165112,
+      "savedBytes": 235625,
+      "changedVisiblePixels": 0,
+      "sourceSha256": "dc08c593f0a89ae70f3d609ac57c671d921ea98825700e8256f33a86af928cf5",
+      "outputSha256": "28f116f73c7c140aa14df02f5edc0993356573acd0637a9d4e061e8abef2fe6b"
+    },
+    {
+      "source": "src/assets/logo-dark.png",
+      "output": "src/assets/web-optimized/logo-dark.webp",
+      "width": 505,
+      "height": 497,
+      "sourceBytes": 11231,
+      "outputBytes": 4138,
+      "savedBytes": 7093,
+      "changedVisiblePixels": 0,
+      "sourceSha256": "b0b27a5f8a388111677f81d4e09f8950debda80e75cf984583026bfd14ff0111",
+      "outputSha256": "2fd137970a859195c8628d96c198e6992bdd2138953bfcc2abc4bc737c5d6867"
+    },
+    {
+      "source": "src/assets/logo-light.png",
+      "output": "src/assets/web-optimized/logo-light.webp",
+      "width": 505,
+      "height": 497,
+      "sourceBytes": 11145,
+      "outputBytes": 4138,
+      "savedBytes": 7007,
+      "changedVisiblePixels": 0,
+      "sourceSha256": "44c06aeea993e43ce0c721f2f6cc66330ff554144faf3863fb223b373cb0b009",
+      "outputSha256": "71334c59c65493a186de8f53e6967fff645ac615ee17f6eccdd53f649da808d6"
+    },
+    {
+      "source": "src/assets/lanyard.png",
+      "output": "src/assets/web-optimized/lanyard.webp",
+      "width": 1025,
+      "height": 250,
+      "sourceBytes": 7768,
+      "outputBytes": 4518,
+      "savedBytes": 3250,
+      "changedVisiblePixels": 0,
+      "sourceSha256": "683275cc6a4a5dbe303ea2fb55f83dce304caa92ae64281872aba48c73909f76",
+      "outputSha256": "c8f182b9d243a097464850708362868c41c32f9f8412edc0a371370b6ea889ec"
+    },
+    {
+      "source": "src/assets/nuke_logo2.png",
+      "output": "src/assets/web-optimized/nuke_logo2.webp",
+      "width": 50,
+      "height": 50,
+      "sourceBytes": 1284,
+      "outputBytes": 824,
+      "savedBytes": 460,
+      "changedVisiblePixels": 0,
+      "sourceSha256": "fb97c7409875db9d5610b0114bab40076b9ae8c161bfef4bfe38564ad791d7f2",
+      "outputSha256": "237a3b114d9b2cad171f980eada4bfc519a485224023518742a0a666f68150dd"
+    },
+    {
+      "source": "src/assets/substance_logo.png",
+      "output": "src/assets/web-optimized/substance_logo.webp",
+      "width": 64,
+      "height": 64,
+      "sourceBytes": 2431,
+      "outputBytes": 1932,
+      "savedBytes": 499,
+      "changedVisiblePixels": 0,
+      "sourceSha256": "def7cdc6dc7986ed0f91d38721ee17f011cf297ca5b67bbeed72a929c8e0851f",
+      "outputSha256": "c8d3df6fdfb0282969ecee1123c554b92490bd83cf771d92524116551237c392"
+    },
+    {
+      "source": "src/assets/touchdesigner_logo.png",
+      "output": "src/assets/web-optimized/touchdesigner_logo.webp",
+      "width": 1024,
+      "height": 1024,
+      "sourceBytes": 44089,
+      "outputBytes": 23186,
+      "savedBytes": 20903,
+      "changedVisiblePixels": 0,
+      "sourceSha256": "3c02ad359f5c9a38241ab190de25f0f23963817545a550c4c87f10fc9fee1c7e",
+      "outputSha256": "64f103a1509a7b4c78dae8f3d598dee93f857b6aed5430f3b01c5991169ea677"
+    }
+  ]
+}

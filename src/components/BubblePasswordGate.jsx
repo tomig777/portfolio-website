@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './BubblePasswordGate.css';
+import { useFocusScope } from '../hooks/useFocusScope';
 
 const BubblePasswordGate = ({
   accessibleTitle = 'Enter password',
@@ -14,6 +15,7 @@ const BubblePasswordGate = ({
   onSuccess,
 }) => {
   const inputRef = useRef(null);
+  const dialogRef = useRef(null);
   const timerRef = useRef(null);
   const [password, setPassword] = useState('');
   const [phase, setPhase] = useState('opening');
@@ -22,7 +24,8 @@ const BubblePasswordGate = ({
   useEffect(() => {
     timerRef.current = setTimeout(() => {
       setPhase('ready');
-      inputRef.current?.focus();
+      // The focus scope owns entry focus. A delayed focus call would steal it
+      // from Cancel if the user tabs there during the opening animation.
     }, 520);
 
     return () => {
@@ -51,7 +54,6 @@ const BubblePasswordGate = ({
       timerRef.current = setTimeout(() => {
         setPassword('');
         setPhase('ready');
-        inputRef.current?.focus();
       }, 720);
     }
   }, [onSubmit, onSuccess]);
@@ -68,16 +70,21 @@ const BubblePasswordGate = ({
     }
   };
 
+  useFocusScope(dialogRef, { initialFocus: '.bubble-password__input', onEscape: closeGate });
+
   return (
     <div
+      ref={dialogRef}
       className={`bubble-password bubble-password--${phase} bubble-password--${variant}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby="bubble-password-title"
+      data-lenis-prevent
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) closeGate();
       }}
     >
+      <div className="bubble-password__layout">
       <p className="bubble-password__brand">{brand}</p>
 
       <form
@@ -95,11 +102,9 @@ const BubblePasswordGate = ({
           maxLength={4}
           value={password}
           onChange={handlePasswordChange}
-          onKeyDown={(event) => {
-            if (event.key === 'Escape') closeGate();
-          }}
           aria-label={accessibleTitle}
-          autoFocus
+          aria-invalid={phase === 'error'}
+          readOnly={!['opening', 'ready'].includes(phase)}
         />
         <div className="bubble-password__sequence" aria-hidden="true">
           {[0, 1, 2, 3].map((index) => (
@@ -128,6 +133,7 @@ const BubblePasswordGate = ({
         {cancelLabel}
       </button>
       <p className="bubble-password__note">{footerNote}</p>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Mesh, Program, Renderer, Triangle } from 'ogl';
 import './SideRays.css';
 import { createAnimationLoop } from '../utils/animationLoop';
+import useGraphicsActivity from '../hooks/useGraphicsActivity';
 
 const hexToRgb = (hex) => {
   const match = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -39,29 +40,43 @@ const SideRays = ({
   blend = 0.75,
   falloff = 1.6,
   opacity = 1,
+  active = true,
   className = '',
 }) => {
   const containerRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const settingsRef = useRef({});
+  const uniformsRef = useRef(null);
+  const animationRef = useRef(null);
+  const activeRef = useRef(false);
+  const { ready, running } = useGraphicsActivity(containerRef, active);
+
+  useEffect(() => {
+    activeRef.current = running;
+    animationRef.current?.setActive(running);
+  }, [running]);
+
+  useEffect(() => {
+    settingsRef.current = { speed, rayColor1, rayColor2, intensity, spread, origin, tilt,
+      saturation, blend, falloff, opacity };
+    const uniforms = uniformsRef.current;
+    if (!uniforms) return;
+    for (const [name, value] of Object.entries({ Speed: speed, Intensity: intensity, Spread: spread,
+      Tilt: tilt, Saturation: saturation, Blend: blend, Falloff: falloff, Opacity: opacity })) uniforms[`i${name}`].value = value;
+    uniforms.iRayColor1.value = hexToRgb(rayColor1);
+    uniforms.iRayColor2.value = hexToRgb(rayColor2);
+    const [flipX, flipY] = originToFlip(origin);
+    uniforms.iFlipX.value = flipX;
+    uniforms.iFlipY.value = flipY;
+  }, [speed, rayColor1, rayColor2, intensity, spread, origin, tilt, saturation, blend, falloff, opacity]);
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return undefined;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.05 },
-    );
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!isVisible || !container) return undefined;
+    if (!ready || !container) return undefined;
+    const { speed, rayColor1, rayColor2, intensity, spread, origin, tilt,
+      saturation, blend, falloff, opacity } = settingsRef.current;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, window.innerWidth <= 768 ? 1 : 2),
+      dpr: Math.min(window.devicePixelRatio || 1, window.innerWidth <= 768 ? 1 : 2),
       alpha: true,
     });
     const { gl } = renderer;
@@ -204,6 +219,7 @@ const SideRays = ({
       iFalloff: { value: falloff },
       iOpacity: { value: opacity },
     };
+    uniformsRef.current = uniforms;
 
     const geometry = new Triangle(gl);
     const program = new Program(gl, {
@@ -213,10 +229,20 @@ const SideRays = ({
     });
     const mesh = new Mesh(gl, { geometry, program });
 
+    let previousWidth = 0;
+    let previousHeight = 0;
     const resize = () => {
-      const width = container.clientWidth;
-      const height = container.clientHeight;
+      const width = Math.max(1, container.clientWidth);
+      const height = Math.max(1, container.clientHeight);
+      const density = Math.min(window.devicePixelRatio || 1, window.innerWidth <= 768 ? 1 : 2);
+      animationRef.current?.setMaxFps(window.innerWidth <= 768 ? 30 : 60);
+      if (width === previousWidth && height === previousHeight && density === renderer.dpr) return;
+      previousWidth = width;
+      previousHeight = height;
+      renderer.dpr = density;
       renderer.setSize(width, height);
+      gl.canvas.style.width = '100%';
+      gl.canvas.style.height = '100%';
       uniforms.iResolution.value = [
         width * renderer.dpr,
         height * renderer.dpr,
@@ -229,31 +255,24 @@ const SideRays = ({
     };
 
     window.addEventListener('resize', resize);
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(container);
     resize();
-    const animation = createAnimationLoop(render, { maxFps: window.innerWidth <= 768 ? 30 : 60 });
+    const animation = createAnimationLoop(render, { maxFps: window.innerWidth <= 768 ? 30 : 60, active: activeRef.current });
+    animationRef.current = animation;
 
     return () => {
       animation.dispose();
+      animationRef.current = null;
+      uniformsRef.current = null;
       window.removeEventListener('resize', resize);
+      resizeObserver.disconnect();
       geometry.remove();
       program.remove();
       container.replaceChildren();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [
-    blend,
-    falloff,
-    intensity,
-    isVisible,
-    opacity,
-    origin,
-    rayColor1,
-    rayColor2,
-    saturation,
-    speed,
-    spread,
-    tilt,
-  ]);
+  }, [ready]);
 
   return (
     <div

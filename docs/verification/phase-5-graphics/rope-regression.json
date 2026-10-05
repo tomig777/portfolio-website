@@ -1,0 +1,17 @@
+{
+  "interoperabilityProbe": {
+    "input": "ES-module Three.Vector3[] passed to the installed MeshLine Node entry",
+    "finite": false,
+    "vertexCount": 22,
+    "boundsErrors": 2,
+    "browserRootCauseConfirmed": false
+  },
+  "numericBufferRegression": {
+    "comparisons": 500,
+    "attributes": ["position", "previous", "next", "side", "width", "uv", "counters"],
+    "finite": true,
+    "boundsMatch": true,
+    "stableArrays": true
+  },
+  "command": "node scripts/graphics/verify-rope.mjs"
+}
